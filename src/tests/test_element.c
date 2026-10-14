@@ -45,6 +45,7 @@ static void test_add_element_at_tail(void)
 	addElementTail(&list, "ignored", NULL);
 	assert(list->next->next == NULL);
 
+	displayElements(list);
 	freeListElements(list);
 }
 
@@ -54,6 +55,8 @@ static void test_delete_element(void)
 	addElementTail(&list, "first", "type-a");
 	addElementTail(&list, "middle", "type-b");
 	addElementTail(&list, "last", "type-c");
+
+	displayElements(list);
 
 	deleteElement(&list, "middle");
 	assert_element(list, "first", "type-a");
@@ -69,6 +72,8 @@ static void test_delete_element(void)
 	assert(list == NULL);
 	deleteElement(&list, "missing");
 	deleteElement(NULL, "missing");
+
+	displayElements(list);
 }
 
 static void test_search_elements(void)
@@ -88,6 +93,7 @@ static void test_search_elements(void)
 	assert(searchElementIndex(list, -1) == NULL);
 	assert(searchElementIndex(NULL, 0) == NULL);
 
+	displayElements(list);
 	freeListElements(list);
 }
 
@@ -106,6 +112,7 @@ static void test_draw_random_element(void)
 		assert(drawn == list || drawn == list->next || drawn == list->next->next);
 	}
 
+	displayElements(list);
 	freeListElements(list);
 }
 
@@ -119,7 +126,7 @@ static void test_display_elements(void)
 	freeListElements(NULL);
 }
 
-int main(void)
+int test_liste_chainee(void)
 {
 	test_add_element_at_head();
 	test_add_element_at_tail();
