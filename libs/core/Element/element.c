@@ -25,7 +25,9 @@ void addElement(Element **list, const char *nameElement, const char *nameType)
 	nouvelElement->nameElement = malloc(tailleNomElement);
 	nouvelElement->nameType = malloc(tailleNomType);
 
-	if (nouvelElement->nameElement == NULL || nouvelElement->nameType == NULL) {
+	// Malloc fail
+	if (nouvelElement->nameElement == NULL || nouvelElement->nameType == NULL)
+	{
 		free(nouvelElement->nameElement);
 		free(nouvelElement->nameType);
 		free(nouvelElement);
@@ -55,12 +57,13 @@ void addElementTail(Element **list, const char *nameElement, const char *nameTyp
 		return;
 	}
 
-    size_t tailleNomElement = strlen(nameElement) + 1;
+	size_t tailleNomElement = strlen(nameElement) + 1;
 	size_t tailleNomType = strlen(nameType) + 1;
 	nouvelElement->nameElement = malloc(tailleNomElement);
 	nouvelElement->nameType = malloc(tailleNomType);
 
-	if (nouvelElement->nameElement == NULL || nouvelElement->nameType == NULL) {
+	if (nouvelElement->nameElement == NULL || nouvelElement->nameType == NULL)
+	{
 		free(nouvelElement->nameElement);
 		free(nouvelElement->nameType);
 		free(nouvelElement);
@@ -90,28 +93,34 @@ void addElementTail(Element **list, const char *nameElement, const char *nameTyp
  */
 void deleteElement(Element **list, const char *nameElement)
 {
-    if (list == NULL || *list == NULL || nameElement == NULL) {
-        return;
-    }
+	if (list == NULL || *list == NULL || nameElement == NULL)
+	{
+		return;
+	}
 
-    Element *current = *list;
-    Element *previous = NULL;
+	Element *current = *list;
+	Element *previous = NULL;
 
-    while (current != NULL) {
-        if (strcmp(current->nameElement, nameElement) == 0) {
-            if (previous == NULL) {
-                *list = current->next; //first element case
-            } else {
-                previous->next = current->next; //other elements case
-            }
-            free(current->nameElement);
-            free(current->nameType);
-            free(current);
-            return;
-        }
-        previous = current;
-        current = current->next;
-    }
+	while (current != NULL)
+	{
+		if (strcmp(current->nameElement, nameElement) == 0)
+		{
+			if (previous == NULL)
+			{
+				*list = current->next; // first element case
+			}
+			else
+			{
+				previous->next = current->next; // other elements case
+			}
+			free(current->nameElement);
+			free(current->nameType);
+			free(current);
+			return;
+		}
+		previous = current;
+		current = current->next;
+	}
 }
 
 /**
@@ -120,16 +129,18 @@ void deleteElement(Element **list, const char *nameElement)
  */
 void displayElements(const Element *list)
 {
-    if (list == NULL) {
-        printf("The list is empty.\n");
-        return;
-    }
+	if (list == NULL)
+	{
+		printf("The list is empty.\n");
+		return;
+	}
 
-    const Element *current = list;
-    while (current != NULL) {
-        printf("Element name: %s, Type: %s\n", current->nameElement, current->nameType);
-        current = current->next;
-    }
+	const Element *current = list;
+	while (current != NULL)
+	{
+		printf("Element name: %s, Type: %s\n", current->nameElement, current->nameType);
+		current = current->next;
+	}
 }
 
 /**
@@ -138,14 +149,15 @@ void displayElements(const Element *list)
  */
 void freeListElements(Element *list)
 {
-    Element *current = list;
-    while (current != NULL) {
-        Element *temp = current;
-        current = current->next;
-        free(temp->nameElement);
-        free(temp->nameType);
-        free(temp);
-    }
+	Element *current = list;
+	while (current != NULL)
+	{
+		Element *temp = current;
+		current = current->next;
+		free(temp->nameElement);
+		free(temp->nameType);
+		free(temp);
+	}
 }
 
 /**
@@ -154,20 +166,23 @@ void freeListElements(Element *list)
  * @brief Searches for an element with the given name in the list
  * @return Pointer to the found element or NULL if not found
  */
-Element* searchElementName(const Element *list, const char *nameElement)
+Element *searchElementName(const Element *list, const char *nameElement)
 {
-    if (list == NULL || nameElement == NULL) {
-        return NULL;
-    }
+	if (list == NULL || nameElement == NULL)
+	{
+		return NULL;
+	}
 
-    const Element *current = list;
-    while (current != NULL) {
-        if (strcmp(current->nameElement, nameElement) == 0) {
-            return (Element *)current;
-        }
-        current = current->next;
-    }
-    return NULL;
+	const Element *current = list;
+	while (current != NULL)
+	{
+		if (strcmp(current->nameElement, nameElement) == 0)
+		{
+			return (Element *)current;
+		}
+		current = current->next;
+	}
+	return NULL;
 }
 
 /*
@@ -176,15 +191,18 @@ Element* searchElementName(const Element *list, const char *nameElement)
  * @brief Searches for an element at the given index in the list
  * @return Pointer to the found element or NULL if not found
  */
-Element *searchElementIndex(const Element *list, const int index){
-    if (list == NULL || index < 0) {
-        return NULL;
-    }
+Element *searchElementIndex(const Element *list, const int index)
+{
+	if (list == NULL || index < 0)
+	{
+		return NULL;
+	}
 
-    for (int i = 0; i < index && list != NULL; i++) {
-        list = list->next;
-    }
-    return (Element *)list;
+	for (int i = 0; i < index && list != NULL; i++)
+	{
+		list = list->next;
+	}
+	return (Element *)list;
 }
 
 /*
@@ -194,21 +212,24 @@ Element *searchElementIndex(const Element *list, const int index){
  */
 Element *drawRandomElement(const Element *list)
 {
-    if (list == NULL) {
-        return NULL;
-    }
+	if (list == NULL)
+	{
+		return NULL;
+	}
 
-    int count = 0;
-    const Element *current = list;
-    while (current != NULL) {
-        count++;
-        current = current->next;
-    }
+	int count = 0;
+	const Element *current = list;
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
+	}
 
-    if (count == 0) {
-        return NULL;
-    }
+	if (count == 0)
+	{
+		return NULL;
+	}
 
-    int randomIndex = rand() % count;
-    return searchElementIndex(list, randomIndex);
+	int randomIndex = rand() % count;
+	return searchElementIndex(list, randomIndex);
 }

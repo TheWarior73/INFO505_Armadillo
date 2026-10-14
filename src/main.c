@@ -1,7 +1,8 @@
 #include "../libs/core/Element/element.c"
+#include <stdlib.h>
 
-void main(void)
+int main(void)
 {
-    Element * feur;
-    
+
+	return EXIT_SUCCESS;
 }

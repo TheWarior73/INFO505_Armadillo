@@ -1,9 +1,8 @@
 #include <assert.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-#include "../docs/libs/core/Element/element.c"
+#include "../Element/element.h"
 
 static void assert_element(const Element *element, const char *name, const char *type)
 {
@@ -25,6 +24,8 @@ static void test_add_element_at_head(void)
 	addElement(NULL, "ignored", "type");
 	addElement(&list, NULL, "type");
 	assert_element(list, "first", "type-a");
+
+	displayElements(list);
 
 	freeListElements(list);
 }
@@ -99,7 +100,8 @@ static void test_draw_random_element(void)
 	addElementTail(&list, "second", "type-b");
 	addElementTail(&list, "third", "type-c");
 
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 100; i++)
+	{
 		Element *drawn = drawRandomElement(list);
 		assert(drawn == list || drawn == list->next || drawn == list->next->next);
 	}

@@ -1,0 +1,55 @@
+BasedOnStyle: LLVM
+
+# Indentation
+IndentWidth: 4
+TabWidth: 4
+UseTab: Always
+
+# Braces
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction: true
+  AfterControlStatement: true
+  AfterStruct: true
+  AfterEnum: true
+  AfterUnion: true
+  BeforeElse: true
+  BeforeCatch: true
+  IndentBraces: false
+
+# Short stuff stays compact
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+
+# Pointer style (node *n)
+PointerAlignment: Right
+
+# Spaces
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+
+# Line breaking
+ColumnLimit: 0
+
+# Includes
+SortIncludes: false
+
+# Alignment
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignOperands: false
+
+# Function formatting
+BinPackParameters: false
+BinPackArguments: false
+
+# Keep your compact returns
+AllowShortBlocksOnASingleLine: Never
+
+# For loops like: for (int i = 0; i < n; ++i)
+SpaceBeforeRangeBasedForLoopColon: true
+
+# Misc
+IndentCaseLabels: true
+DerivePointerAlignment: false
