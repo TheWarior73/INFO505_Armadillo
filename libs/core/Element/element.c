@@ -11,11 +11,11 @@
  */
 void addElement(Element **list, const char *nameElement, const char *nameType)
 {
-	if (list == NULL || nameElement == NULL || nameType == NULL) { //si pointeurs nuls
+	if (list == NULL || nameElement == NULL || nameType == NULL) {
 		return;
 	}
 
-	Element *nouvelElement = malloc(sizeof(*nouvelElement)); //allocation pour nouvel élément
+	Element *nouvelElement = malloc(sizeof(*nouvelElement));
 	if (nouvelElement == NULL) {
 		return;
 	}
@@ -46,11 +46,11 @@ void addElement(Element **list, const char *nameElement, const char *nameType)
  */
 void addElementTail(Element **list, const char *nameElement, const char *nameType)
 {
-    if (list == NULL || nameElement == NULL || nameType == NULL) { //if null pointer
+    if (list == NULL || nameElement == NULL || nameType == NULL) {
 		return;
 	}
 
-	Element *nouvelElement = malloc(sizeof(*nouvelElement)); //new element allocation
+    Element *nouvelElement = malloc(sizeof(*nouvelElement));
 	if (nouvelElement == NULL) {
 		return;
 	}
@@ -67,12 +67,20 @@ void addElementTail(Element **list, const char *nameElement, const char *nameTyp
 		return;
 	}
 
-    for (Element *current = *list; current != NULL; current = current->next) {
-        if (current->next == NULL) {
-            current->next = nouvelElement;
-            break;
-        }
+    memcpy(nouvelElement->nameElement, nameElement, tailleNomElement);
+    memcpy(nouvelElement->nameType, nameType, tailleNomType);
+    nouvelElement->next = NULL;
+
+    if (*list == NULL) {
+        *list = nouvelElement;
+        return;
     }
+
+    Element *current = *list;
+    while (current->next != NULL) {
+        current = current->next;
+    }
+    current->next = nouvelElement;
 }
 
 /**
