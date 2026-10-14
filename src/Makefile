@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c11
 NAME = program
 
 CORE_DIR = ../libs/core
-CORE_LIB = $(CORE_DIR)/libelement.a
+CORE_LIB = $(CORE_DIR)/libElement.a
 
 SRC = main.c
 OBJ = $(SRC:.c=.o)
