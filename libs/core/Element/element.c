@@ -4,13 +4,14 @@
 #include <string.h>
 
 /*
- * @param liste: Pointeur vers la liste des éléments
- * @param nomElement: Nom de l'élément à ajouter
- * @param nomType: Type de l'élément à ajouter
+ * @param list: element list pointer
+ * @param nameElement: Name of the element to add
+ * @param nameType: Type of the element to add
+ * @brief Adds an element to the beginning of the list
  */
-void addElement(Element **liste, const char *nameElement, const char *nameType)
+void addElement(Element **list, const char *nameElement, const char *nameType)
 {
-	if (liste == NULL || nameElement == NULL || nameType == NULL) { //si pointeurs nuls
+	if (list == NULL || nameElement == NULL || nameType == NULL) { //si pointeurs nuls
 		return;
 	}
 
@@ -33,14 +34,19 @@ void addElement(Element **liste, const char *nameElement, const char *nameType)
 
 	memcpy(nouvelElement->nameElement, nameElement, tailleNomElement);
 	memcpy(nouvelElement->nameType, nameType, tailleNomType);
-	nouvelElement->next = *liste;
-	*liste = nouvelElement;
+	nouvelElement->next = *list;
+	*list = nouvelElement;
 }
 
-
-void addElementTail(Element **liste, const char *nameElement, const char *nameType)
+/*
+ * @param list: element list pointer
+ * @param nameElement: Name of the element to add
+ * @param nameType: Type of the element to add
+ * @brief Adds an element to the end of the list
+ */
+void addElementTail(Element **list, const char *nameElement, const char *nameType)
 {
-    if (liste == NULL || nameElement == NULL || nameType == NULL) { //if null pointer
+    if (list == NULL || nameElement == NULL || nameType == NULL) { //if null pointer
 		return;
 	}
 
@@ -61,7 +67,7 @@ void addElementTail(Element **liste, const char *nameElement, const char *nameTy
 		return;
 	}
 
-    for (Element *current = *liste; current != NULL; current = current->next) {
+    for (Element *current = *list; current != NULL; current = current->next) {
         if (current->next == NULL) {
             current->next = nouvelElement;
             break;
@@ -69,19 +75,24 @@ void addElementTail(Element **liste, const char *nameElement, const char *nameTy
     }
 }
 
-void deleteElement(Element **liste, const char *nameElement)
+/**
+ * @param list: element list pointer
+ * @param nameElement: Name of the element to delete
+ * @brief Deletes first element with the given name from the list
+ */
+void deleteElement(Element **list, const char *nameElement)
 {
-    if (liste == NULL || *liste == NULL || nameElement == NULL) {
+    if (list == NULL || *list == NULL || nameElement == NULL) {
         return;
     }
 
-    Element *current = *liste;
+    Element *current = *list;
     Element *previous = NULL;
 
     while (current != NULL) {
         if (strcmp(current->nameElement, nameElement) == 0) {
             if (previous == NULL) {
-                *liste = current->next; //first element case
+                *list = current->next; //first element case
             } else {
                 previous->next = current->next; //other elements case
             }
@@ -95,20 +106,28 @@ void deleteElement(Element **liste, const char *nameElement)
     }
 }
 
-void displayElements(const Element *liste)
+/**
+ * @param list: element list pointer
+ * @brief Displays all elements in the list
+ */
+void displayElements(const Element *list)
 {
-    if (liste == NULL) {
-        printf("La liste est vide.\n");
+    if (list == NULL) {
+        printf("The list is empty.\n");
         return;
     }
 
-    const Element *current = liste;
+    const Element *current = list;
     while (current != NULL) {
-        printf("Nom de l'élément: %s, Type: %s\n", current->nameElement, current->nameType);
+        printf("Element name: %s, Type: %s\n", current->nameElement, current->nameType);
         current = current->next;
     }
 }
 
+/**
+ * @param list: element list pointer
+ * @brief Frees all elements in the list
+ */
 void freeListElements(Element *list)
 {
     Element *current = list;
@@ -121,13 +140,19 @@ void freeListElements(Element *list)
     }
 }
 
-Element* searchElementName(const Element *liste, const char *nameElement)
+/**
+ * @param list: element list pointer
+ * @param nameElement: Name of the element to search for
+ * @brief Searches for an element with the given name in the list
+ * @return Pointer to the found element or NULL if not found
+ */
+Element* searchElementName(const Element *list, const char *nameElement)
 {
-    if (liste == NULL || nameElement == NULL) {
+    if (list == NULL || nameElement == NULL) {
         return NULL;
     }
 
-    const Element *current = liste;
+    const Element *current = list;
     while (current != NULL) {
         if (strcmp(current->nameElement, nameElement) == 0) {
             return (Element *)current;
@@ -137,6 +162,12 @@ Element* searchElementName(const Element *liste, const char *nameElement)
     return NULL;
 }
 
+/*
+ * @param list: element list pointer
+ * @param index: Index of the element to search for
+ * @brief Searches for an element at the given index in the list
+ * @return Pointer to the found element or NULL if not found
+ */
 Element *searchElementIndex(const Element *list, const int index){
     if (list == NULL || index < 0) {
         return NULL;
@@ -148,14 +179,19 @@ Element *searchElementIndex(const Element *list, const int index){
     return (Element *)list;
 }
 
-Element *drawRandomElement(const Element *liste)
+/*
+ * @param list: element list pointer
+ * @brief Draws a random element from the list
+ * @return Pointer to the drawn element or NULL if the list is empty
+ */
+Element *drawRandomElement(const Element *list)
 {
-    if (liste == NULL) {
+    if (list == NULL) {
         return NULL;
     }
 
     int count = 0;
-    const Element *current = liste;
+    const Element *current = list;
     while (current != NULL) {
         count++;
         current = current->next;
@@ -166,5 +202,5 @@ Element *drawRandomElement(const Element *liste)
     }
 
     int randomIndex = rand() % count;
-    return searchElementIndex(liste, randomIndex);
+    return searchElementIndex(list, randomIndex);
 }
