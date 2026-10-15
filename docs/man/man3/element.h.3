@@ -1,0 +1,184 @@
+.TH "libs/core/Element/element.h" 3 "Thu Oct 15 2026 10:55:15" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libs/core/Element/element.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBElement\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct Element \fBElement\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaddElement\fP (\fBElement\fP **list, const char *nameElement, const char *nameType)"
+.br
+.RI "Adds an element to the beginning of the list\&. "
+.ti -1c
+.RI "void \fBaddElementTail\fP (\fBElement\fP **liste, const char *nameElement, const char *nameType)"
+.br
+.RI "Adds an element to the end of the list\&. "
+.ti -1c
+.RI "void \fBdeleteElement\fP (\fBElement\fP **liste, const char *nameElement)"
+.br
+.RI "Deletes first element with the given name from the list\&. "
+.ti -1c
+.RI "void \fBdisplayElements\fP (const \fBElement\fP *liste)"
+.br
+.RI "Displays all elements in the list\&. "
+.ti -1c
+.RI "void \fBfreeListElements\fP (\fBElement\fP *liste)"
+.br
+.RI "Frees all elements in the list\&. "
+.ti -1c
+.RI "\fBElement\fP * \fBsearchElementName\fP (const \fBElement\fP *liste, const char *nameElement)"
+.br
+.RI "Searches for an element with the given name in the list\&. "
+.ti -1c
+.RI "\fBElement\fP * \fBsearchElementIndex\fP (const \fBElement\fP *list, const int index)"
+.br
+.RI "Searches for an element at the given index in the list\&. "
+.ti -1c
+.RI "\fBElement\fP * \fBdrawRandomElement\fP (const \fBElement\fP *liste)"
+.br
+.RI "Draws a random element from the list\&. "
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct Element Element"
+
+.SH "Function Documentation"
+.PP 
+.SS "void addElement (\fBElement\fP ** list, const char * nameElement, const char * nameType)"
+
+.PP
+Adds an element to the beginning of the list\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlist\fP element list pointer 
+.br
+\fInameElement\fP Name of the element to add 
+.br
+\fInameType\fP Type of the element to add 
+.RE
+.PP
+
+.SS "void addElementTail (\fBElement\fP ** list, const char * nameElement, const char * nameType)"
+
+.PP
+Adds an element to the end of the list\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlist\fP element list pointer 
+.br
+\fInameElement\fP Name of the element to add 
+.br
+\fInameType\fP Type of the element to add 
+.RE
+.PP
+
+.SS "void deleteElement (\fBElement\fP ** list, const char * nameElement)"
+
+.PP
+Deletes first element with the given name from the list\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlist\fP element list pointer 
+.br
+\fInameElement\fP Name of the element to delete 
+.RE
+.PP
+
+.SS "void displayElements (const \fBElement\fP * list)"
+
+.PP
+Displays all elements in the list\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlist\fP element list pointer 
+.RE
+.PP
+
+.SS "\fBElement\fP * drawRandomElement (const \fBElement\fP * list)"
+
+.PP
+Draws a random element from the list\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlist\fP element list pointer 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pointer to the drawn element or NULL if the list is empty 
+.RE
+.PP
+
+.SS "void freeListElements (\fBElement\fP * list)"
+
+.PP
+Frees all elements in the list\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlist\fP element list pointer 
+.RE
+.PP
+
+.SS "\fBElement\fP * searchElementIndex (const \fBElement\fP * list, const int index)"
+
+.PP
+Searches for an element at the given index in the list\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlist\fP element list pointer 
+.br
+\fIindex\fP Index of the element to search for 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pointer to the found element or NULL if not found 
+.RE
+.PP
+
+.SS "\fBElement\fP * searchElementName (const \fBElement\fP * list, const char * nameElement)"
+
+.PP
+Searches for an element with the given name in the list\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlist\fP element list pointer 
+.br
+\fInameElement\fP Name of the element to search for 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pointer to the found element or NULL if not found 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Armadillo from the source code\&.

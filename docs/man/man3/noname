@@ -1,0 +1,17 @@
+.TH "" 3 "Thu Oct 15 2026 10:55:15" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+core Element element\&.c element\&.h 
+.PP
+Element element\&.c element\&.h 
+.PP
+libs core Element element\&.c element\&.h 
+.PP
+src tests test_element\&.c 
+.PP
+main\&.c 
+.PP
+tests test_element\&.c 
+.PP
+

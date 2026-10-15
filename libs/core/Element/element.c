@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*
+/**
  * @param list: element list pointer
  * @param nameElement: Name of the element to add
  * @param nameType: Type of the element to add
@@ -40,7 +40,7 @@ void addElement(Element **list, const char *nameElement, const char *nameType)
 	*list = nouvelElement;
 }
 
-/*
+/**
  * @param list: element list pointer
  * @param nameElement: Name of the element to add
  * @param nameType: Type of the element to add
@@ -185,7 +185,7 @@ Element *searchElementName(const Element *list, const char *nameElement)
 	return NULL;
 }
 
-/*
+/**
  * @param list: element list pointer
  * @param index: Index of the element to search for
  * @brief Searches for an element at the given index in the list
@@ -205,7 +205,7 @@ Element *searchElementIndex(const Element *list, const int index)
 	return (Element *)list;
 }
 
-/*
+/**
  * @param list: element list pointer
  * @brief Draws a random element from the list
  * @return Pointer to the drawn element or NULL if the list is empty
