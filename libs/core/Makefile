@@ -2,7 +2,7 @@ CC = gcc
 AR = ar
 
 CFLAGS = -Wall -Wextra -Werror -std=c11
-NAME = libelement.a
+NAME = libElement.a
 
 SRC_DIR = Element
 OBJ_DIR = build

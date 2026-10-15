@@ -1,7 +1,7 @@
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror # Warning all, extra warnings, treats warnings comme errors
-NAME = armadillo
+NAME = armadillo.game
 
 # ---
 # Core Library of the project
