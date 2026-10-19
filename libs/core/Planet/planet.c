@@ -104,6 +104,10 @@ int planetChangeResource(Planet *planet, PlanetResource resource, int change)
 	{
 		quantity = &planet->minerals;
 	}
+	else if (resource == PLANET_WOOD)
+	{
+		quantity = &planet->wood;
+	}
 	else
 	{
 		return 0;

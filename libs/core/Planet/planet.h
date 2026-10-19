@@ -4,7 +4,8 @@
 typedef enum
 {
 	PLANET_WATER,
-	PLANET_MINERALS
+	PLANET_MINERALS,
+    PLANET_WOOD
 } PlanetResource;
 
 typedef struct

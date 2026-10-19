@@ -47,6 +47,7 @@ $(NAME): $(OBJ) $(CORE_LIB)
 # Cleans the .o files in both this directory and calls `make clean` in the library directory
 clean:
 	rm -f $(OBJ)
+	rm -f $(CORE_LIB)
 	$(MAKE) -C $(CORE_DIR) clean
 
 # Cleans all the build files, even the executable files

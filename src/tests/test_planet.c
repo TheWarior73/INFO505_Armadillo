@@ -9,11 +9,13 @@ static void test_create_and_destroy_planet(void)
 	Planet *planet = createPlanet("Armadillo", 6371.0, 1000, 500, 250, 100);
 
 	assert(planet != NULL);
+	displayPlanet(planet);
 	assert(strcmp(planet->name, "Armadillo") == 0);
 	assert(planet->radiusKm == 6371.0);
 	assert(planet->population == 1000);
 	assert(planet->water == 500);
 	assert(planet->minerals == 250);
+	assert(planet->wood == 100);
 	assert(planet->habitability == 100);
 
 	destroyPlanet(planet);
@@ -41,6 +43,8 @@ static void test_planet_changes(void)
 	assert(planet->water == 15);
 	assert(planetChangeResource(planet, PLANET_MINERALS, 10) == 1);
 	assert(planet->minerals == 40);
+	assert(planetChangeResource(planet, PLANET_WOOD, -5) == 1);
+	assert(planet->wood == 95);
 	assert(planetChangeResource(planet, PLANET_WATER, -16) == 0);
 	assert(planetChangeResource(planet, (PlanetResource)99, 1) == 0);
 
