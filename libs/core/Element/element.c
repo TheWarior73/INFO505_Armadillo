@@ -8,7 +8,7 @@
  * @param nameType: Type of the element to create
  * @return A pointer to the newly created element, or NULL if creation failed
  * @brief Creates a new element with the specified properties
-*/
+ */
 static Element *createElement(const char *nameElement, const char *nameType)
 {
 	if (nameElement == NULL || nameType == NULL)
@@ -48,12 +48,14 @@ static Element *createElement(const char *nameElement, const char *nameType)
  */
 void addElement(Element **list, const char *nameElement, const char *nameType)
 {
-	if (list == NULL) {
+	if (list == NULL)
+	{
 		return;
 	}
 
 	Element *nouvelElement = createElement(nameElement, nameType);
-	if (nouvelElement == NULL) {
+	if (nouvelElement == NULL)
+	{
 		return;
 	}
 
@@ -69,22 +71,26 @@ void addElement(Element **list, const char *nameElement, const char *nameType)
  */
 void addElementTail(Element **list, const char *nameElement, const char *nameType)
 {
-	if (list == NULL) {
+	if (list == NULL)
+	{
 		return;
 	}
 
 	Element *nouvelElement = createElement(nameElement, nameType);
-	if (nouvelElement == NULL) {
+	if (nouvelElement == NULL)
+	{
 		return;
 	}
 
-	if (*list == NULL) {
+	if (*list == NULL)
+	{
 		*list = nouvelElement;
 		return;
 	}
 
 	Element *current = *list;
-	while (current->next != NULL) {
+	while (current->next != NULL)
+	{
 		current = current->next;
 	}
 	current->next = nouvelElement;
@@ -142,7 +148,7 @@ void displayElements(const Element *list)
 	const Element *current = list;
 	while (current != NULL)
 	{
-		printf("Element name: %s, Type: %s\n", current->nameElement, current->nameType);
+		printf("Element name: %-10s Type: %s\n", current->nameElement, current->nameType);
 		current = current->next;
 	}
 }

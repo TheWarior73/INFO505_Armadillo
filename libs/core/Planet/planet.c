@@ -7,14 +7,14 @@
 #include <string.h>
 
 /**
-* @param name The name of the planet.
-* @param radiusKm The radius of the planet in kilometers.
-* @param population The population of the planet.
-* @param water The amount of water resources.
-* @param minerals The amount of mineral resources.
-* @param wood The amount of wood resources.
-* @return A pointer to the newly created planet, or NULL if creation failed.
-* @brief Creates a new planet with the specified properties.
+ * @param name The name of the planet.
+ * @param radiusKm The radius of the planet in kilometers.
+ * @param population The population of the planet.
+ * @param water The amount of water resources.
+ * @param minerals The amount of mineral resources.
+ * @param wood The amount of wood resources.
+ * @return A pointer to the newly created planet, or NULL if creation failed.
+ * @brief Creates a new planet with the specified properties.
  */
 Planet *createPlanet(const char *name, double radiusKm, long population, int water, int minerals, int wood)
 {
@@ -152,9 +152,9 @@ void displayPlanet(const Planet *planet)
 		return;
 	}
 
-	printf("Planet: %s\n", planet->name);
-	printf("Radius: %.2f km\n", planet->radiusKm);
-	printf("Population: %ld\n", planet->population);
+	printf("Planet: %-15s", planet->name);
+	printf("Radius: %.2f%-10s", planet->radiusKm, "km");
+	printf("Population: %-15ld\n", planet->population);
 	printf("Water: %d | Minerals: %d | Wood: %d\n", planet->water, planet->minerals, planet->wood);
 	printf("Habitability: %d/100\n", planet->habitability);
 }
