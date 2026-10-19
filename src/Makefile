@@ -7,7 +7,7 @@ NAME = armadillo.game
 # Core Library of the project
 # ---
 CORE_DIR = ../libs/core
-CORE_LIB = $(CORE_DIR)/libElement.a # Path to the static library
+CORE_LIB = $(CORE_DIR)/libCore.a # Path to the static library
 
 # ---
 # Source files
