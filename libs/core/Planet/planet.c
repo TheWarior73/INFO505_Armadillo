@@ -6,6 +6,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+* @param name The name of the planet.
+* @param radiusKm The radius of the planet in kilometers.
+* @param population The population of the planet.
+* @param water The amount of water resources.
+* @param minerals The amount of mineral resources.
+* @param wood The amount of wood resources.
+* @return A pointer to the newly created planet, or NULL if creation failed.
+* @brief Creates a new planet with the specified properties.
+ */
 Planet *createPlanet(const char *name, double radiusKm, long population, int water, int minerals, int wood)
 {
 	if (name == NULL || name[0] == '\0' || !isfinite(radiusKm) || radiusKm <= 0.0 ||
@@ -38,6 +48,10 @@ Planet *createPlanet(const char *name, double radiusKm, long population, int wat
 	return planet;
 }
 
+/**
+ * @param planet: Pointer to the planet to destroy
+ * @brief Destroys a planet and frees its memory
+ */
 void destroyPlanet(Planet *planet)
 {
 	if (planet == NULL)
@@ -49,6 +63,12 @@ void destroyPlanet(Planet *planet)
 	free(planet);
 }
 
+/**
+ * @param planet: Pointer to the planet whose population to change
+ * @param change: The amount to change the population by
+ * @return 1 if successful, 0 otherwise
+ * @brief Changes the population of a planet
+ */
 int planetChangePopulation(Planet *planet, long change)
 {
 	if (planet == NULL || (change > 0 && planet->population > LONG_MAX - change) ||
@@ -61,6 +81,13 @@ int planetChangePopulation(Planet *planet, long change)
 	return 1;
 }
 
+/**
+ * @param planet: Pointer to the planet whose resource to change
+ * @param resource: The type of resource to change
+ * @param change: The amount to change the resource by
+ * @return 1 if successful, 0 otherwise
+ * @brief Changes a resource of a planet
+ */
 int planetChangeResource(Planet *planet, PlanetResource resource, int change)
 {
 	if (planet == NULL)
@@ -92,6 +119,12 @@ int planetChangeResource(Planet *planet, PlanetResource resource, int change)
 	return 1;
 }
 
+/**
+ * @param planet: Pointer to the planet whose habitability to set
+ * @param habitability: The new habitability value
+ * @return 1 if successful, 0 otherwise
+ * @brief Sets the habitability of a planet
+ */
 int planetSetHabitability(Planet *planet, int habitability)
 {
 	if (planet == NULL || habitability < 0 || habitability > 100)
@@ -103,6 +136,10 @@ int planetSetHabitability(Planet *planet, int habitability)
 	return 1;
 }
 
+/**
+ * @param planet: Pointer to the planet to display
+ * @brief Displays the information of a planet
+ */
 void displayPlanet(const Planet *planet)
 {
 	if (planet == NULL)

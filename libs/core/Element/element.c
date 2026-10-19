@@ -3,6 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * @param nameElement: Name of the element to create
+ * @param nameType: Type of the element to create
+ * @return A pointer to the newly created element, or NULL if creation failed
+ * @brief Creates a new element with the specified properties
+*/
 static Element *createElement(const char *nameElement, const char *nameType)
 {
 	if (nameElement == NULL || nameType == NULL)
