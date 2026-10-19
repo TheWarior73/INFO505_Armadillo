@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['searchelementindex_0',['searchElementIndex',['../da/d0a/element_8c.html#a792a32ce07d688bb2c1cacc474cfa2d7',1,'searchElementIndex(const Element *list, const int index):&#160;element.c'],['../d4/dfe/element_8h.html#a792a32ce07d688bb2c1cacc474cfa2d7',1,'searchElementIndex(const Element *list, const int index):&#160;element.c']]],
-  ['searchelementname_1',['searchElementName',['../da/d0a/element_8c.html#a2f5b4052e4441996ce6756dfe907355b',1,'searchElementName(const Element *list, const char *nameElement):&#160;element.c'],['../d4/dfe/element_8h.html#ab116109f5eb68b74fe8a3296f5b9d3f1',1,'searchElementName(const Element *liste, const char *nameElement):&#160;element.c']]]
+  ['main_0',['main',['../d0/d29/main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
+  ['main_2ec_1',['main.c',['../d0/d29/main_8c.html',1,'']]],
+  ['minerals_2',['minerals',['../d0/d19/structPlanet.html#abaa763222c48654948f0af9413ebe3db',1,'Planet']]]
 ];

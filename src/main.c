@@ -6,8 +6,7 @@
 
 int main(void)
 {
-
-    test_liste_chainee();
-    test_planet();
+	test_liste_chainee();
+	test_planet();
 	return EXIT_SUCCESS;
 }

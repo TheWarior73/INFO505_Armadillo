@@ -1,0 +1,170 @@
+.TH "libs/core/Planet/planet.h" 3 "Mon Oct 19 2026 09:05:51" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libs/core/Planet/planet.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPlanet\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBPlanetResource\fP { \fBPLANET_WATER\fP, \fBPLANET_MINERALS\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlanet\fP * \fBcreatePlanet\fP (const char *name, double radiusKm, long population, int water, int minerals, int wood)"
+.br
+.RI "Creates a new planet with the specified properties\&. "
+.ti -1c
+.RI "void \fBdestroyPlanet\fP (\fBPlanet\fP *planet)"
+.br
+.RI "Destroys a planet and frees its memory\&. "
+.ti -1c
+.RI "int \fBplanetChangePopulation\fP (\fBPlanet\fP *planet, long change)"
+.br
+.RI "Changes the population of a planet\&. "
+.ti -1c
+.RI "int \fBplanetChangeResource\fP (\fBPlanet\fP *planet, \fBPlanetResource\fP resource, int change)"
+.br
+.RI "Changes a resource of a planet\&. "
+.ti -1c
+.RI "int \fBplanetSetHabitability\fP (\fBPlanet\fP *planet, int habitability)"
+.br
+.RI "Sets the habitability of a planet\&. "
+.ti -1c
+.RI "void \fBdisplayPlanet\fP (const \fBPlanet\fP *planet)"
+.br
+.RI "Displays the information of a planet\&. "
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBPlanetResource\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIPLANET_WATER \fP
+.TP
+\f(BIPLANET_MINERALS \fP
+.SH "Function Documentation"
+.PP 
+.SS "\fBPlanet\fP * createPlanet (const char * name, double radiusKm, long population, int water, int minerals, int wood)"
+
+.PP
+Creates a new planet with the specified properties\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP The name of the planet\&. 
+.br
+\fIradiusKm\fP The radius of the planet in kilometers\&. 
+.br
+\fIpopulation\fP The population of the planet\&. 
+.br
+\fIwater\fP The amount of water resources\&. 
+.br
+\fIminerals\fP The amount of mineral resources\&. 
+.br
+\fIwood\fP The amount of wood resources\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A pointer to the newly created planet, or NULL if creation failed\&. 
+.RE
+.PP
+
+.SS "void destroyPlanet (\fBPlanet\fP * planet)"
+
+.PP
+Destroys a planet and frees its memory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet to destroy 
+.RE
+.PP
+
+.SS "void displayPlanet (const \fBPlanet\fP * planet)"
+
+.PP
+Displays the information of a planet\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet to display 
+.RE
+.PP
+
+.SS "int planetChangePopulation (\fBPlanet\fP * planet, long change)"
+
+.PP
+Changes the population of a planet\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose population to change 
+.br
+\fIchange\fP The amount to change the population by 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
+.SS "int planetChangeResource (\fBPlanet\fP * planet, \fBPlanetResource\fP resource, int change)"
+
+.PP
+Changes a resource of a planet\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose resource to change 
+.br
+\fIresource\fP The type of resource to change 
+.br
+\fIchange\fP The amount to change the resource by 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
+.SS "int planetSetHabitability (\fBPlanet\fP * planet, int habitability)"
+
+.PP
+Sets the habitability of a planet\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose habitability to set 
+.br
+\fIhabitability\fP The new habitability value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Armadillo from the source code\&.

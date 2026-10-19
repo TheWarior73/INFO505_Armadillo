@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['freelistelements_0',['freeListElements',['../da/d0a/element_8c.html#a46efb2fe38aed3e0efb9d5014b71df2c',1,'freeListElements(Element *list):&#160;element.c'],['../d4/dfe/element_8h.html#acf0007586a333c71ca4373bccba9b149',1,'freeListElements(Element *liste):&#160;element.c']]]
+  ['deleteelement_0',['deleteElement',['../da/d0a/element_8c.html#a0e16673164acb1ff63913320c6cb7ab0',1,'deleteElement(Element **list, const char *nameElement):&#160;element.c'],['../d4/dfe/element_8h.html#ab7632b5feea61d9b95ccd6a299f47095',1,'deleteElement(Element **liste, const char *nameElement):&#160;element.c']]],
+  ['destroyplanet_1',['destroyPlanet',['../d6/da4/planet_8c.html#a10223f29fe6470a62494777fa57b1ec9',1,'destroyPlanet(Planet *planet):&#160;planet.c'],['../da/d10/planet_8h.html#a10223f29fe6470a62494777fa57b1ec9',1,'destroyPlanet(Planet *planet):&#160;planet.c']]],
+  ['displayelements_2',['displayElements',['../da/d0a/element_8c.html#ab6f436ee8fbb3a6773f7c28c026d1282',1,'displayElements(const Element *list):&#160;element.c'],['../d4/dfe/element_8h.html#a73659a3fc94c169c7af8cb3042779e72',1,'displayElements(const Element *liste):&#160;element.c']]],
+  ['displayplanet_3',['displayPlanet',['../d6/da4/planet_8c.html#a68e9b75453d55d60b31ccea2db417f09',1,'displayPlanet(const Planet *planet):&#160;planet.c'],['../da/d10/planet_8h.html#a68e9b75453d55d60b31ccea2db417f09',1,'displayPlanet(const Planet *planet):&#160;planet.c']]],
+  ['drawrandomelement_4',['drawRandomElement',['../da/d0a/element_8c.html#ac3476ce5efdc11413e99fb84d3d5d6a1',1,'drawRandomElement(const Element *list):&#160;element.c'],['../d4/dfe/element_8h.html#a7194b0dd27266e287a146056d74b71f5',1,'drawRandomElement(const Element *liste):&#160;element.c']]]
 ];

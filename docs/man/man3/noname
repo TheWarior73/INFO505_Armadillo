@@ -1,17 +1,23 @@
-.TH "" 3 "Thu Oct 15 2026 10:55:15" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "" 3 "Mon Oct 19 2026 09:05:51" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 core Element element\&.c element\&.h 
 .PP
+Planet planet\&.c planet\&.h 
+.PP
 Element element\&.c element\&.h 
 .PP
 libs core Element element\&.c element\&.h 
 .PP
-src tests test_element\&.c 
+Planet planet\&.c planet\&.h 
+.PP
+Planet planet\&.c planet\&.h 
+.PP
+src tests test_element\&.c test_planet\&.c 
 .PP
 main\&.c 
 .PP
-tests test_element\&.c 
+tests test_element\&.c test_planet\&.c 
 .PP
 
