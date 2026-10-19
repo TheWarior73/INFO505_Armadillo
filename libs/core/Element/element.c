@@ -3,6 +3,37 @@
 #include <stdlib.h>
 #include <string.h>
 
+static Element *createElement(const char *nameElement, const char *nameType)
+{
+	if (nameElement == NULL || nameType == NULL)
+	{
+		return NULL;
+	}
+
+	Element *element = malloc(sizeof(*element));
+	if (element == NULL)
+	{
+		return NULL;
+	}
+
+	size_t elementNameSize = strlen(nameElement) + 1;
+	size_t typeNameSize = strlen(nameType) + 1;
+	element->nameElement = malloc(elementNameSize);
+	element->nameType = malloc(typeNameSize);
+	if (element->nameElement == NULL || element->nameType == NULL)
+	{
+		free(element->nameElement);
+		free(element->nameType);
+		free(element);
+		return NULL;
+	}
+
+	memcpy(element->nameElement, nameElement, elementNameSize);
+	memcpy(element->nameType, nameType, typeNameSize);
+	element->next = NULL;
+	return element;
+}
+
 /**
  * @param list: element list pointer
  * @param nameElement: Name of the element to add
@@ -11,31 +42,15 @@
  */
 void addElement(Element **list, const char *nameElement, const char *nameType)
 {
-	if (list == NULL || nameElement == NULL || nameType == NULL) {
+	if (list == NULL) {
 		return;
 	}
 
-	Element *nouvelElement = malloc(sizeof(*nouvelElement));
+	Element *nouvelElement = createElement(nameElement, nameType);
 	if (nouvelElement == NULL) {
 		return;
 	}
 
-	size_t tailleNomElement = strlen(nameElement) + 1;
-	size_t tailleNomType = strlen(nameType) + 1;
-	nouvelElement->nameElement = malloc(tailleNomElement);
-	nouvelElement->nameType = malloc(tailleNomType);
-
-	// Malloc fail
-	if (nouvelElement->nameElement == NULL || nouvelElement->nameType == NULL)
-	{
-		free(nouvelElement->nameElement);
-		free(nouvelElement->nameType);
-		free(nouvelElement);
-		return;
-	}
-
-	memcpy(nouvelElement->nameElement, nameElement, tailleNomElement);
-	memcpy(nouvelElement->nameType, nameType, tailleNomType);
 	nouvelElement->next = *list;
 	*list = nouvelElement;
 }
@@ -48,42 +63,25 @@ void addElement(Element **list, const char *nameElement, const char *nameType)
  */
 void addElementTail(Element **list, const char *nameElement, const char *nameType)
 {
-    if (list == NULL || nameElement == NULL || nameType == NULL) {
+	if (list == NULL) {
 		return;
 	}
 
-    Element *nouvelElement = malloc(sizeof(*nouvelElement));
+	Element *nouvelElement = createElement(nameElement, nameType);
 	if (nouvelElement == NULL) {
 		return;
 	}
 
-	size_t tailleNomElement = strlen(nameElement) + 1;
-	size_t tailleNomType = strlen(nameType) + 1;
-	nouvelElement->nameElement = malloc(tailleNomElement);
-	nouvelElement->nameType = malloc(tailleNomType);
-
-	if (nouvelElement->nameElement == NULL || nouvelElement->nameType == NULL)
-	{
-		free(nouvelElement->nameElement);
-		free(nouvelElement->nameType);
-		free(nouvelElement);
+	if (*list == NULL) {
+		*list = nouvelElement;
 		return;
 	}
 
-    memcpy(nouvelElement->nameElement, nameElement, tailleNomElement);
-    memcpy(nouvelElement->nameType, nameType, tailleNomType);
-    nouvelElement->next = NULL;
-
-    if (*list == NULL) {
-        *list = nouvelElement;
-        return;
-    }
-
-    Element *current = *list;
-    while (current->next != NULL) {
-        current = current->next;
-    }
-    current->next = nouvelElement;
+	Element *current = *list;
+	while (current->next != NULL) {
+		current = current->next;
+	}
+	current->next = nouvelElement;
 }
 
 /**
