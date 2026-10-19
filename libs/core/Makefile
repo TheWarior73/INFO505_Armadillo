@@ -4,19 +4,19 @@ AR = ar
 CFLAGS = -Wall -Wextra -Werror -std=c11
 NAME = libElement.a
 
-SRC_DIR = Element
 OBJ_DIR = build
 
-SRCS = $(SRC_DIR)/element.c
-OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+SRCS = Element/element.c Planet/planet.c
+OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) rcs $@ $^
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(SRC_DIR) -c $< -o $@
+
+$(OBJ_DIR)/%.o: %.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -IElement -IPlanet -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)

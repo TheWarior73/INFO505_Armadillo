@@ -18,13 +18,17 @@
 │       ├── Element
 │       │   ├── element.c
 │       │   └── element.h
+│       ├── Planet
+│       │   ├── planet.c
+│       │   └── planet.h
 │       └── Makefile
 ├── README.md
 └── src
     ├── main.c
     ├── Makefile
     └── tests
-        └── test_element.c
+        ├── test_element.c
+        └── test_planet.c
 ```
 
 ### How to run
