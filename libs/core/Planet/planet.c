@@ -195,6 +195,10 @@ void displayPlanet(const Planet *planet)
 	displayElements(planet->Events);
 }
 
+/**
+ * @param planet: Pointer to the planet to verify
+ * @brief Verifies the information of a planet and displays warnings if any values are out of expected ranges
+ */
 void VerifyPlanet(const Planet *planet)
 {
 	if (planet == NULL)
