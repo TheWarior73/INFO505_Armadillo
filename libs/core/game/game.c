@@ -1,8 +1,66 @@
 #include "game.h"
 #include "math.c"
 
+#include <math.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+static int applyElementChange(Planet *planet, const Element *element)
+{
+	if (planet == NULL || element == NULL)
+	{
+		return 0;
+	}
+
+	switch (element->changeTarget)
+	{
+	case ELEMENT_CHANGE_POPULATION:
+		return planetChangePopulation(planet, element->change.population);
+	case ELEMENT_CHANGE_RADIUS:
+	{
+		double newRadius = planet->radiusKm + element->change.radiusKm;
+		if (!isfinite(newRadius) || newRadius < MIN_PLANET_RADIUS || newRadius > MAX_PLANET_RADIUS)
+		{
+			return 0;
+		}
+		planet->radiusKm = newRadius;
+		return 1;
+	}
+	case ELEMENT_CHANGE_WATER:
+		return planetChangeResource(planet, PLANET_WATER, element->change.quantity);
+	case ELEMENT_CHANGE_MINERALS:
+		return planetChangeResource(planet, PLANET_MINERALS, element->change.quantity);
+	case ELEMENT_CHANGE_WOOD:
+		return planetChangeResource(planet, PLANET_WOOD, element->change.quantity);
+	case ELEMENT_CHANGE_HABITABILITY:
+	{
+		long newHabitability = (long)planet->habitability + element->change.quantity;
+		if (newHabitability < 0 || newHabitability > 100)
+		{
+			return 0;
+		}
+		return planetSetHabitability(planet, (int)newHabitability);
+	}
+	case ELEMENT_CHANGE_NONE:
+	default:
+		return 0;
+	}
+}
+
+static int planetHasLost(const Planet *planet)
+{
+	return planet->population < MIN_POPULATION_ALLOWED ||
+		   planet->water < MIN_WATER_ALLOWED ||
+		   planet->wood < MIN_WOOD_ALLOWED ||
+		   planet->minerals < MIN_MINERALS_ALLOWED ||
+		   planet->habitability <= 0;
+}
+
+static int planetHasWon(const Planet *planet)
+{
+	return planet->population >= MAX_POPULATION_ALLOWED;
+}
 
 /**
  * This function will initialize everything to a playable state,
@@ -14,12 +72,66 @@
 void runFullGame()
 {
 	Planet *p = initPlanet();
+	if (p == NULL)
+	{
+		fprintf(stderr, "Unable to initialize the planet.\n");
+		return;
+	}
+
 	displayPlanet(p);
 
-	int run = 1;
-	while (run == 1)
+	while (!planetHasWon(p) && !planetHasLost(p))
 	{
+		Element *event = drawRandomElement(p->Events);
+		Element *action = drawRandomElement(p->Actions);
+		if (event == NULL && action == NULL)
+		{
+			printf("Game stopped: no events or actions are configured.\n");
+			break;
+		}
+
+		long previousPopulation = p->population;
+		double previousRadius = p->radiusKm;
+		int previousWater = p->water;
+		int previousMinerals = p->minerals;
+		int previousWood = p->wood;
+		int previousHabitability = p->habitability;
+
+		gameTurn(p, event, action);
+		if (p->population == previousPopulation && p->radiusKm == previousRadius &&
+			p->water == previousWater && p->minerals == previousMinerals &&
+			p->wood == previousWood && p->habitability == previousHabitability)
+		{
+			printf("Game stopped: the selected action and event did not change the planet.\n");
+			break;
+		}
 	}
+
+	if (planetHasWon(p))
+	{
+		printf("Victory: the population reached the maximum allowed.\n");
+	}
+	else if (planetHasLost(p))
+	{
+		printf("Defeat: the planet no longer meets its survival thresholds.\n");
+	}
+
+	displayPlanet(p);
+	destroyPlanet(p);
+}
+
+/**
+ * Applies the event and action selected for the current turn.
+ */
+void gameTurn(Planet *p, Element *event, Element *action)
+{
+	if (p == NULL)
+	{
+		return;
+	}
+
+	applyElementChange(p, event);
+	applyElementChange(p, action);
 }
 
 /**
