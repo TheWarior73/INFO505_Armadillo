@@ -26,7 +26,7 @@ typedef struct
 } Planet;
 
 Planet *createPlanet(const char *name, double radiusKm, long population, int water, int minerals, int wood);
-void AddActionToPlanet(Planet *planet, const char *nameAction, const char *nameType);
+void AddActionToPlanet(Planet *planet, Element *action);
 void AddEventToPlanet(Planet *planet, const char *nameEvent, const char *nameType);
 void destroyPlanet(Planet *planet);
 int planetChangePopulation(Planet *planet, long change);

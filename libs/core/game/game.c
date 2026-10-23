@@ -26,7 +26,7 @@ void runFullGame()
  */
 Planet *initPlanet()
 {
-	const char *planetName;
+	const char *planetName = NULL;
 	double planetRadius = 0.0;
 	long planetPopulation = 0;
 	int water = 0, minerals = 0, wood = 0;

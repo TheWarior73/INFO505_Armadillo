@@ -45,22 +45,25 @@ Planet *createPlanet(const char *name, double radiusKm, long population, int wat
 	planet->minerals = minerals;
 	planet->wood = wood;
 	planet->habitability = 100;
+	planet->Actions = NULL;
+	planet->Events = NULL;
 	return planet;
 }
 
 /**
  * @param planet: Pointer to the planet to add an action to
- * @param nameAction: The name of the action to add
- * @param nameType: The type of the action to add
+ * @param action: The element to add to the planet's action list
  * @brief Adds an action to a planet
  */
-void AddActionToPlanet(Planet *planet, const char *nameAction, const char *nameType)
+void AddActionToPlanet(Planet *planet, Element *action)
 {
-	if (planet == NULL || nameAction == NULL || nameType == NULL)
+	if (planet == NULL || action == NULL)
 	{
 		return;
 	}
-	addElement(&planet->Actions, nameAction, nameType);
+
+	action->next = planet->Actions;
+	planet->Actions = action;
 }
 
 /**
@@ -75,7 +78,7 @@ void AddEventToPlanet(Planet *planet, const char *nameEvent, const char *nameTyp
 	{
 		return;
 	}
-	addElement(&planet->Events, nameEvent, nameType);
+	addElement(&planet->Events, nameEvent, nameType, ELEMENT_CHANGE_NONE, (ElementChangeValue){0});
 }
 
 /**

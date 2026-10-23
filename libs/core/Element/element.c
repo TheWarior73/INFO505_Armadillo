@@ -9,7 +9,7 @@
  * @return A pointer to the newly created element, or NULL if creation failed
  * @brief Creates a new element with the specified properties
  */
-static Element *createElement(const char *nameElement, const char *nameType)
+Element *createElement(const char *nameElement, const char *nameType, ElementChangeTarget target, ElementChangeValue change)
 {
 	if (nameElement == NULL || nameType == NULL)
 	{
@@ -36,6 +36,8 @@ static Element *createElement(const char *nameElement, const char *nameType)
 
 	memcpy(element->nameElement, nameElement, elementNameSize);
 	memcpy(element->nameType, nameType, typeNameSize);
+	element->changeTarget = target;
+	element->change = change;
 	element->next = NULL;
 	return element;
 }
@@ -44,39 +46,43 @@ static Element *createElement(const char *nameElement, const char *nameType)
  * @param list: element list pointer
  * @param nameElement: Name of the element to add
  * @param nameType: Type of the element to add
- * @brief Adds an element to the beginning of the list
+ * @param target: The target property of the planet that this element will change
+ * @param change: The value of the change that this element will apply to the target property
+ * @brief Adds an element carrying a signed change for a planet property to the beginning of the list
  */
-void addElement(Element **list, const char *nameElement, const char *nameType)
+void addElement(Element **list, const char *nameElement, const char *nameType, ElementChangeTarget target, ElementChangeValue change)
 {
-	if (list == NULL)
+	if (list == NULL || target <= ELEMENT_CHANGE_NONE || target > ELEMENT_CHANGE_HABITABILITY)
 	{
 		return;
 	}
 
-	Element *nouvelElement = createElement(nameElement, nameType);
-	if (nouvelElement == NULL)
+	Element *newElement = createElement(nameElement, nameType, target, change);
+	if (newElement == NULL)
 	{
 		return;
 	}
 
-	nouvelElement->next = *list;
-	*list = nouvelElement;
+	newElement->next = *list;
+	*list = newElement;
 }
 
 /**
  * @param list: element list pointer
  * @param nameElement: Name of the element to add
  * @param nameType: Type of the element to add
+ * @param target: The target property of the planet that this element will change
+ * @param change: The value of the change that this element will apply to the target property
  * @brief Adds an element to the end of the list
  */
-void addElementTail(Element **list, const char *nameElement, const char *nameType)
+void addElementTail(Element **list, const char *nameElement, const char *nameType, ElementChangeTarget target, ElementChangeValue change)
 {
 	if (list == NULL)
 	{
 		return;
 	}
 
-	Element *nouvelElement = createElement(nameElement, nameType);
+	Element *nouvelElement = createElement(nameElement, nameType, target, change);
 	if (nouvelElement == NULL)
 	{
 		return;

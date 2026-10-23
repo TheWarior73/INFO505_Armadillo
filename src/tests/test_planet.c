@@ -17,6 +17,8 @@ static void test_create_and_destroy_planet(void)
 	assert(planet->minerals == 250);
 	assert(planet->wood == 100);
 	assert(planet->habitability == 100);
+	assert(planet->Actions == NULL);
+	assert(planet->Events == NULL);
 
 	destroyPlanet(planet);
 	destroyPlanet(NULL);
@@ -24,6 +26,24 @@ static void test_create_and_destroy_planet(void)
 	assert(createPlanet("", 1.0, 0, 0, 0, 0) == NULL);
 	assert(createPlanet("Invalid", 0.0, 0, 0, 0, 0) == NULL);
 	assert(createPlanet("Invalid", 1.0, -1, 0, 0, 0) == NULL);
+}
+
+static void test_add_action_to_planet(void)
+{
+	Planet *planet = createPlanet("Armadillo", 1000.0, 10, 20, 30, 100);
+	ElementChangeValue change = {.quantity = -5};
+	Element *action = createElement("Drought", "event", ELEMENT_CHANGE_WATER, change);
+
+	assert(planet != NULL);
+	assert(action != NULL);
+	AddActionToPlanet(planet, action);
+	assert(planet->Actions == action);
+	assert(planet->Actions->changeTarget == ELEMENT_CHANGE_WATER);
+	assert(planet->Actions->change.quantity == -5);
+
+	AddActionToPlanet(planet, NULL);
+	assert(planet->Actions == action);
+	destroyPlanet(planet);
 }
 
 static void test_planet_changes(void)
@@ -59,5 +79,6 @@ static void test_planet_changes(void)
 void test_planet(void)
 {
 	test_create_and_destroy_planet();
+	test_add_action_to_planet();
 	test_planet_changes();
 }
