@@ -115,6 +115,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/dcb/game_8c
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d2/dd5/game_8h_source.html">game.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d6/da3/math_8c_source.html">math.c</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 </div><table class="memberdecls">
@@ -122,10 +124,38 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/dcb/game_8c
 Functions</h2></td></tr>
 <tr class="memitem:af09de15339c516b024ba143015438291" id="r_af09de15339c516b024ba143015438291"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af09de15339c516b024ba143015438291">runFullGame</a> ()</td></tr>
 <tr class="memdesc:af09de15339c516b024ba143015438291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the full game, turn by turn, until win condition or game over is reached.  <br /></td></tr>
+<tr class="memitem:a6cd6fd0dec88a68d64ac3a55bde0059e" id="r_a6cd6fd0dec88a68d64ac3a55bde0059e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6cd6fd0dec88a68d64ac3a55bde0059e">gameTurn</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *p, <a class="el" href="../../d0/dcd/structElement.html">Element</a> *event, <a class="el" href="../../d0/dcd/structElement.html">Element</a> *action)</td></tr>
 <tr class="memitem:ac2f33720d246b4eb5b1e2abb71ab9a09" id="r_ac2f33720d246b4eb5b1e2abb71ab9a09"><td class="memItemLeft"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac2f33720d246b4eb5b1e2abb71ab9a09">initPlanet</a> ()</td></tr>
 <tr class="memdesc:ac2f33720d246b4eb5b1e2abb71ab9a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a planetwith random amounts of ressources, within playable parameters.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a6cd6fd0dec88a68d64ac3a55bde0059e" name="a6cd6fd0dec88a68d64ac3a55bde0059e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cd6fd0dec88a68d64ac3a55bde0059e">&#9670;&#160;</a></span>gameTurn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameTurn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>event</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>action</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Applies the event and action selected for the current turn. </p>
+
+</div>
+</div>
 <a id="ac2f33720d246b4eb5b1e2abb71ab9a09" name="ac2f33720d246b4eb5b1e2abb71ab9a09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2f33720d246b4eb5b1e2abb71ab9a09">&#9670;&#160;</a></span>initPlanet()</h2>
 

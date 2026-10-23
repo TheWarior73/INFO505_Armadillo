@@ -6,7 +6,7 @@ var planet_8h =
       [ "PLANET_MINERALS", "da/d10/planet_8h.html#a9a7b91e9778c7de19a3c0d650c6d4760a85a789f604dbad7523d32bf4907a6c69", null ],
       [ "PLANET_WOOD", "da/d10/planet_8h.html#a9a7b91e9778c7de19a3c0d650c6d4760afab7317692599934e235847d4525a8ff", null ]
     ] ],
-    [ "AddActionToPlanet", "da/d10/planet_8h.html#a5b21f66848b21cf8ea134594c4d8fe78", null ],
+    [ "AddActionToPlanet", "da/d10/planet_8h.html#affc06c86b4a3f036ef723d1afb191697", null ],
     [ "AddEventToPlanet", "da/d10/planet_8h.html#a90bd2ab5fe055199d0793eea383708db", null ],
     [ "createPlanet", "da/d10/planet_8h.html#aa589690bc18bc849af83ddfb7e71c948", null ],
     [ "destroyPlanet", "da/d10/planet_8h.html#a10223f29fe6470a62494777fa57b1ec9", null ],

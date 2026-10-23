@@ -1,4 +1,4 @@
-.TH "libs/core/Element/element.c" 3 "Fri Oct 23 2026 09:23:34" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/Element/element.c" 3 "Fri Oct 23 2026 18:57:28" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,6 +7,8 @@ libs/core/Element/element.c
 .br
 .PP
 \fR#include 'element\&.h'\fP
+.br
+\fR#include 'cJSON\&.h'\fP
 .br
 \fR#include <stdio\&.h>\fP
 .br
@@ -19,11 +21,15 @@ libs/core/Element/element.c
 
 .in +1c
 .ti -1c
-.RI "void \fBaddElement\fP (\fBElement\fP **list, const char *nameElement, const char *nameType)"
+.RI "\fBElement\fP * \fBcreateElement\fP (const char *nameElement, const char *nameType, \fBElementChangeTarget\fP target, \fBElementChangeValue\fP change)"
 .br
-.RI "Adds an element to the beginning of the list\&. "
+.RI "Creates a new element with the specified properties\&. "
 .ti -1c
-.RI "void \fBaddElementTail\fP (\fBElement\fP **list, const char *nameElement, const char *nameType)"
+.RI "void \fBaddElement\fP (\fBElement\fP **list, const char *nameElement, const char *nameType, \fBElementChangeTarget\fP target, \fBElementChangeValue\fP change)"
+.br
+.RI "Adds an element carrying a signed change for a planet property to the beginning of the list\&. "
+.ti -1c
+.RI "void \fBaddElementTail\fP (\fBElement\fP **list, const char *nameElement, const char *nameType, \fBElementChangeTarget\fP target, \fBElementChangeValue\fP change)"
 .br
 .RI "Adds an element to the end of the list\&. "
 .ti -1c
@@ -50,13 +56,27 @@ libs/core/Element/element.c
 .RI "\fBElement\fP * \fBdrawRandomElement\fP (const \fBElement\fP *list)"
 .br
 .RI "Draws a random element from the list\&. "
+.ti -1c
+.RI "\fBElement\fP * \fBfetchEventsFromFile\fP (const char *filepath, char *eventType)"
+.br
+.RI "fetches a list of \fBElement\fP from a file (if filepath is NULL from a hardcoded list) "
+.ti -1c
+.RI "int \fBparseChangeType\fP (const char *typeStr)"
+.br
+.RI "Parses the \fBElementChangeTarget\fP from a string\&. "
+.ti -1c
+.RI "\fBElement\fP * \fBfetchDefaultEventList\fP ()"
+.br
+.ti -1c
+.RI "\fBElement\fP * \fBfetchDefaultActionList\fP ()"
+.br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "void addElement (\fBElement\fP ** list, const char * nameElement, const char * nameType)"
+.SS "void addElement (\fBElement\fP ** list, const char * nameElement, const char * nameType, \fBElementChangeTarget\fP target, \fBElementChangeValue\fP change)"
 
 .PP
-Adds an element to the beginning of the list\&. 
+Adds an element carrying a signed change for a planet property to the beginning of the list\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -65,10 +85,14 @@ Adds an element to the beginning of the list\&.
 \fInameElement\fP Name of the element to add 
 .br
 \fInameType\fP Type of the element to add 
+.br
+\fItarget\fP The target property of the planet that this element will change 
+.br
+\fIchange\fP The value of the change that this element will apply to the target property 
 .RE
 .PP
 
-.SS "void addElementTail (\fBElement\fP ** list, const char * nameElement, const char * nameType)"
+.SS "void addElementTail (\fBElement\fP ** list, const char * nameElement, const char * nameType, \fBElementChangeTarget\fP target, \fBElementChangeValue\fP change)"
 
 .PP
 Adds an element to the end of the list\&. 
@@ -80,6 +104,28 @@ Adds an element to the end of the list\&.
 \fInameElement\fP Name of the element to add 
 .br
 \fInameType\fP Type of the element to add 
+.br
+\fItarget\fP The target property of the planet that this element will change 
+.br
+\fIchange\fP The value of the change that this element will apply to the target property 
+.RE
+.PP
+
+.SS "\fBElement\fP * createElement (const char * nameElement, const char * nameType, \fBElementChangeTarget\fP target, \fBElementChangeValue\fP change)"
+
+.PP
+Creates a new element with the specified properties\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInameElement\fP Name of the element to create 
+.br
+\fInameType\fP Type of the element to create 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A pointer to the newly created element, or NULL if creation failed 
 .RE
 .PP
 
@@ -123,6 +169,28 @@ Pointer to the drawn element or NULL if the list is empty
 .RE
 .PP
 
+.SS "\fBElement\fP * fetchDefaultActionList ()"
+
+.SS "\fBElement\fP * fetchDefaultEventList ()"
+
+.SS "\fBElement\fP * fetchEventsFromFile (const char * filepath, char * eventType)"
+
+.PP
+fetches a list of \fBElement\fP from a file (if filepath is NULL from a hardcoded list) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfilepath\fP the file path (either relative or absolute), set to NULL to get the default \fBElement\fP list 
+.br
+\fIeventType\fP the event type, accepted valued are ["Event", "Action"], if no value is specified, or is invalid, will return Event types\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a list of \fBElement\fP parsed from said file\&. 
+.RE
+.PP
+
 .SS "void freeListElements (\fBElement\fP * list)"
 
 .PP
@@ -134,6 +202,10 @@ Frees all elements in the list\&.
 .RE
 .PP
 
+.SS "int parseChangeType (const char * typeStr)"
+
+.PP
+Parses the \fBElementChangeTarget\fP from a string\&. 
 .SS "\fBElement\fP * searchElementIndex (const \fBElement\fP * list, const int index)"
 
 .PP

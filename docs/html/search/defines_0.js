@@ -1,18 +1,4 @@
 var searchData=
 [
-  ['max_5fdefault_5fminerals_0',['MAX_DEFAULT_MINERALS',['../d2/dd5/game_8h.html#af036ed7181cf9c54f1136d2194da7586',1,'game.h']]],
-  ['max_5fdefault_5fpopulation_1',['MAX_DEFAULT_POPULATION',['../d2/dd5/game_8h.html#a48d32aaf9e9512a870d1415cc5b740ea',1,'game.h']]],
-  ['max_5fdefault_5fradius_2',['MAX_DEFAULT_RADIUS',['../d2/dd5/game_8h.html#ad94bd394e63bacc2d180d54b1e203e66',1,'game.h']]],
-  ['max_5fdefault_5fwater_3',['MAX_DEFAULT_WATER',['../d2/dd5/game_8h.html#acc5a6a0235424d117ee99629c7b68f95',1,'game.h']]],
-  ['max_5fdefault_5fwood_4',['MAX_DEFAULT_WOOD',['../d2/dd5/game_8h.html#a7f507df8f09e97238b2a3d1b6befeddf',1,'game.h']]],
-  ['max_5fminerals_5fallowed_5',['MAX_MINERALS_ALLOWED',['../d2/dd5/game_8h.html#ac76ac6e13d48172bb729db9cccbf087c',1,'game.h']]],
-  ['max_5fplanet_5fradius_6',['MAX_PLANET_RADIUS',['../d2/dd5/game_8h.html#aaa96ab0f8623bdc4d12e877efeba0e04',1,'game.h']]],
-  ['max_5fpopulation_5fallowed_7',['MAX_POPULATION_ALLOWED',['../d2/dd5/game_8h.html#a20119aa1963ea12bf4bcb0294e647f7a',1,'game.h']]],
-  ['max_5fwater_5fallowed_8',['MAX_WATER_ALLOWED',['../d2/dd5/game_8h.html#ae852cd574a24c074f416c7d2afa7f270',1,'game.h']]],
-  ['max_5fwood_5fallowed_9',['MAX_WOOD_ALLOWED',['../d2/dd5/game_8h.html#a3b9a3248cda88360cedf1838c0b33aab',1,'game.h']]],
-  ['min_5fminerals_5fallowed_10',['MIN_MINERALS_ALLOWED',['../d2/dd5/game_8h.html#a6b7b28976054f18a574f63d9d42d68ce',1,'game.h']]],
-  ['min_5fplanet_5fradius_11',['MIN_PLANET_RADIUS',['../d2/dd5/game_8h.html#a9a5a5fc4fc4184e2fca1e5bd27698cc1',1,'game.h']]],
-  ['min_5fpopulation_5fallowed_12',['MIN_POPULATION_ALLOWED',['../d2/dd5/game_8h.html#a1f95fcf13c4a2124d5d259343905a6cd',1,'game.h']]],
-  ['min_5fwater_5fallowed_13',['MIN_WATER_ALLOWED',['../d2/dd5/game_8h.html#a02c06c5c8aa2a7d73aa519cf5a6a18ca',1,'game.h']]],
-  ['min_5fwood_5fallowed_14',['MIN_WOOD_ALLOWED',['../d2/dd5/game_8h.html#a386491139b86637fa4270ad2a2dbdc1e',1,'game.h']]]
+  ['buffer_5fat_5foffset_0',['buffer_at_offset',['../dd/d21/cJSON_8c.html#ac538057ef78677344d222b763251af5e',1,'cJSON.c']]]
 ];

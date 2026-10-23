@@ -1,22 +1,12 @@
 var searchData=
 [
-  ['main_0',['main',['../d0/d29/main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
-  ['main_2ec_1',['main.c',['../d0/d29/main_8c.html',1,'']]],
-  ['math_2ec_2',['math.c',['../d6/da3/math_8c.html',1,'']]],
-  ['max_5fdefault_5fminerals_3',['MAX_DEFAULT_MINERALS',['../d2/dd5/game_8h.html#af036ed7181cf9c54f1136d2194da7586',1,'game.h']]],
-  ['max_5fdefault_5fpopulation_4',['MAX_DEFAULT_POPULATION',['../d2/dd5/game_8h.html#a48d32aaf9e9512a870d1415cc5b740ea',1,'game.h']]],
-  ['max_5fdefault_5fradius_5',['MAX_DEFAULT_RADIUS',['../d2/dd5/game_8h.html#ad94bd394e63bacc2d180d54b1e203e66',1,'game.h']]],
-  ['max_5fdefault_5fwater_6',['MAX_DEFAULT_WATER',['../d2/dd5/game_8h.html#acc5a6a0235424d117ee99629c7b68f95',1,'game.h']]],
-  ['max_5fdefault_5fwood_7',['MAX_DEFAULT_WOOD',['../d2/dd5/game_8h.html#a7f507df8f09e97238b2a3d1b6befeddf',1,'game.h']]],
-  ['max_5fminerals_5fallowed_8',['MAX_MINERALS_ALLOWED',['../d2/dd5/game_8h.html#ac76ac6e13d48172bb729db9cccbf087c',1,'game.h']]],
-  ['max_5fplanet_5fradius_9',['MAX_PLANET_RADIUS',['../d2/dd5/game_8h.html#aaa96ab0f8623bdc4d12e877efeba0e04',1,'game.h']]],
-  ['max_5fpopulation_5fallowed_10',['MAX_POPULATION_ALLOWED',['../d2/dd5/game_8h.html#a20119aa1963ea12bf4bcb0294e647f7a',1,'game.h']]],
-  ['max_5fwater_5fallowed_11',['MAX_WATER_ALLOWED',['../d2/dd5/game_8h.html#ae852cd574a24c074f416c7d2afa7f270',1,'game.h']]],
-  ['max_5fwood_5fallowed_12',['MAX_WOOD_ALLOWED',['../d2/dd5/game_8h.html#a3b9a3248cda88360cedf1838c0b33aab',1,'game.h']]],
-  ['min_5fminerals_5fallowed_13',['MIN_MINERALS_ALLOWED',['../d2/dd5/game_8h.html#a6b7b28976054f18a574f63d9d42d68ce',1,'game.h']]],
-  ['min_5fplanet_5fradius_14',['MIN_PLANET_RADIUS',['../d2/dd5/game_8h.html#a9a5a5fc4fc4184e2fca1e5bd27698cc1',1,'game.h']]],
-  ['min_5fpopulation_5fallowed_15',['MIN_POPULATION_ALLOWED',['../d2/dd5/game_8h.html#a1f95fcf13c4a2124d5d259343905a6cd',1,'game.h']]],
-  ['min_5fwater_5fallowed_16',['MIN_WATER_ALLOWED',['../d2/dd5/game_8h.html#a02c06c5c8aa2a7d73aa519cf5a6a18ca',1,'game.h']]],
-  ['min_5fwood_5fallowed_17',['MIN_WOOD_ALLOWED',['../d2/dd5/game_8h.html#a386491139b86637fa4270ad2a2dbdc1e',1,'game.h']]],
-  ['minerals_18',['minerals',['../d0/d19/structPlanet.html#abaa763222c48654948f0af9413ebe3db',1,'Planet']]]
+  ['index_0',['index',['../d1/d82/cJSON_8h.html#a750b5d744c39a06bfb13e6eb010e35d0',1,'cJSON.h']]],
+  ['initplanet_1',['initPlanet',['../d1/dcb/game_8c.html#ac2f33720d246b4eb5b1e2abb71ab9a09',1,'initPlanet():&#160;game.c'],['../d2/dd5/game_8h.html#ac2f33720d246b4eb5b1e2abb71ab9a09',1,'initPlanet():&#160;game.c']]],
+  ['internal_5ffree_2',['internal_free',['../dd/d21/cJSON_8c.html#a940bb34b2c297c3d8297d506a3955839',1,'cJSON.c']]],
+  ['internal_5fhooks_3',['internal_hooks',['../d1/d07/structinternal__hooks.html',1,'internal_hooks'],['../dd/d21/cJSON_8c.html#a584019da8f9922a232f41f6f6ffa4ede',1,'internal_hooks:&#160;cJSON.c']]],
+  ['internal_5fmalloc_4',['internal_malloc',['../dd/d21/cJSON_8c.html#a7fd7640617f7ffead7a9b1408c9d0ae8',1,'cJSON.c']]],
+  ['internal_5frealloc_5',['internal_realloc',['../dd/d21/cJSON_8c.html#a91654176e81c707d28b99dd0bf783ed5',1,'cJSON.c']]],
+  ['isinf_6',['isinf',['../dd/d21/cJSON_8c.html#abad128f70dbd5a06aa93fe79b3acc4df',1,'cJSON.c']]],
+  ['isnan_7',['isnan',['../dd/d21/cJSON_8c.html#a11b2d271b8abcb53159ffb82dc29547a',1,'cJSON.c']]],
+  ['item_8',['item',['../d1/d82/cJSON_8h.html#ac76cea59d438ba893d2f82aabb367d14',1,'cJSON.h']]]
 ];

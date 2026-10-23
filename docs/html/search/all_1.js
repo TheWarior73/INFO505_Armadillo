@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['calcscorev1_0',['calcScoreV1',['../d6/da3/math_8c.html#a1687f6aa562feef5e18e643f35bb6fd8',1,'math.c']]],
-  ['clampdouble_1',['clampDouble',['../d6/da3/math_8c.html#a7c1cf7b8691823b49a26adee7dffde51',1,'math.c']]],
-  ['clampint_2',['clampInt',['../d6/da3/math_8c.html#a00bc166650eb62bb066dc8fd6de07263',1,'math.c']]],
-  ['clamplong_3',['clampLong',['../d6/da3/math_8c.html#a72e8e2520ff63332f1e5ca98ab65f75d',1,'math.c']]],
-  ['createplanet_4',['createPlanet',['../d6/da4/planet_8c.html#aa589690bc18bc849af83ddfb7e71c948',1,'createPlanet(const char *name, double radiusKm, long population, int water, int minerals, int wood):&#160;planet.c'],['../da/d10/planet_8h.html#aa589690bc18bc849af83ddfb7e71c948',1,'createPlanet(const char *name, double radiusKm, long population, int water, int minerals, int wood):&#160;planet.c']]]
+  ['b_0',['b',['../d1/d82/cJSON_8h.html#a1a175e87536301df98c805ac0636ad7c',1,'cJSON.h']]],
+  ['boolean_1',['boolean',['../d1/d82/cJSON_8h.html#a08f076c86f430b6f0e301fcf94223b38',1,'cJSON.h']]],
+  ['buffer_2',['buffer',['../d1/dc7/structprintbuffer.html#a754f63618e91db99f7ab6cfc4e629013',1,'printbuffer::buffer'],['../d1/d82/cJSON_8h.html#aff2566f4c366b48d73479bef43ee4d2e',1,'buffer:&#160;cJSON.h']]],
+  ['buffer_5fat_5foffset_3',['buffer_at_offset',['../dd/d21/cJSON_8c.html#ac538057ef78677344d222b763251af5e',1,'cJSON.c']]],
+  ['buffer_5flength_4',['buffer_length',['../d1/d82/cJSON_8h.html#a7beaf9b4ef5e4c7254cc3298a3424354',1,'cJSON.h']]]
 ];

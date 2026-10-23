@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['element_0',['Element',['../d0/dcd/structElement.html',1,'Element'],['../d4/dfe/element_8h.html#a4d9e4171e0ee83fe777219f894992340',1,'Element:&#160;element.h']]],
-  ['element_2ec_1',['element.c',['../da/d0a/element_8c.html',1,'']]],
-  ['element_2eh_2',['element.h',['../d4/dfe/element_8h.html',1,'']]],
-  ['events_3',['Events',['../d0/d19/structPlanet.html#a55487ec2df4be51f52ba5030cf34f712',1,'Planet']]]
+  ['deleteelement_0',['deleteElement',['../da/d0a/element_8c.html#a0e16673164acb1ff63913320c6cb7ab0',1,'deleteElement(Element **list, const char *nameElement):&#160;element.c'],['../d4/dfe/element_8h.html#ab7632b5feea61d9b95ccd6a299f47095',1,'deleteElement(Element **liste, const char *nameElement):&#160;element.c']]],
+  ['depth_1',['depth',['../db/d68/structparse__buffer.html#af613c4ed7d73f76c60c50d1bcf4c67a0',1,'parse_buffer::depth'],['../d1/dc7/structprintbuffer.html#aa7311b5da38ff8d1737824c611b48732',1,'printbuffer::depth']]],
+  ['destroyplanet_2',['destroyPlanet',['../d6/da4/planet_8c.html#a10223f29fe6470a62494777fa57b1ec9',1,'destroyPlanet(Planet *planet):&#160;planet.c'],['../da/d10/planet_8h.html#a10223f29fe6470a62494777fa57b1ec9',1,'destroyPlanet(Planet *planet):&#160;planet.c']]],
+  ['displayelements_3',['displayElements',['../da/d0a/element_8c.html#ab6f436ee8fbb3a6773f7c28c026d1282',1,'displayElements(const Element *list):&#160;element.c'],['../d4/dfe/element_8h.html#a73659a3fc94c169c7af8cb3042779e72',1,'displayElements(const Element *liste):&#160;element.c']]],
+  ['displayplanet_4',['displayPlanet',['../d6/da4/planet_8c.html#a68e9b75453d55d60b31ccea2db417f09',1,'displayPlanet(const Planet *planet):&#160;planet.c'],['../da/d10/planet_8h.html#a68e9b75453d55d60b31ccea2db417f09',1,'displayPlanet(const Planet *planet):&#160;planet.c']]],
+  ['drawrandomelement_5',['drawRandomElement',['../da/d0a/element_8c.html#ac3476ce5efdc11413e99fb84d3d5d6a1',1,'drawRandomElement(const Element *list):&#160;element.c'],['../d4/dfe/element_8h.html#a7194b0dd27266e287a146056d74b71f5',1,'drawRandomElement(const Element *liste):&#160;element.c']]]
 ];

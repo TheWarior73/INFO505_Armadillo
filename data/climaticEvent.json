@@ -1,0 +1,27 @@
+{
+  "Events": [
+    {
+      "name": "Heatwave",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_WATER",
+      "target_field": "quantity",
+      "value": -500
+    },
+    {
+      "name": "Flood",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_POPULATION",
+      "target_field": "population",
+      "value": -500
+    }
+  ],
+  "Actions": [
+    {
+      "name": "Reforestation",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_WOOD",
+      "target_field": "quantity",
+      "value": 500
+    }
+  ]
+}

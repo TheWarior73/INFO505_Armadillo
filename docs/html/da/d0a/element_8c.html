@@ -114,16 +114,19 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/d0a/element
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d4/dfe/element_8h_source.html">element.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d82/cJSON_8h_source.html">cJSON.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab4935d09b4f908d2b864e8ab2d342242" id="r_ab4935d09b4f908d2b864e8ab2d342242"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab4935d09b4f908d2b864e8ab2d342242">addElement</a> (<a class="el" href="../../d0/dcd/structElement.html">Element</a> **list, const char *nameElement, const char *nameType)</td></tr>
-<tr class="memdesc:ab4935d09b4f908d2b864e8ab2d342242"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an element to the beginning of the list.  <br /></td></tr>
-<tr class="memitem:a874c6072f3a4991ab3c4c1de80baf031" id="r_a874c6072f3a4991ab3c4c1de80baf031"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a874c6072f3a4991ab3c4c1de80baf031">addElementTail</a> (<a class="el" href="../../d0/dcd/structElement.html">Element</a> **list, const char *nameElement, const char *nameType)</td></tr>
-<tr class="memdesc:a874c6072f3a4991ab3c4c1de80baf031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an element to the end of the list.  <br /></td></tr>
+<tr class="memitem:a8d0dc897a35584589fb466f0f363c38e" id="r_a8d0dc897a35584589fb466f0f363c38e"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a8d0dc897a35584589fb466f0f363c38e">createElement</a> (const char *nameElement, const char *nameType, <a class="el" href="../../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a> target, <a class="el" href="../../d6/d57/unionElementChangeValue.html">ElementChangeValue</a> change)</td></tr>
+<tr class="memdesc:a8d0dc897a35584589fb466f0f363c38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new element with the specified properties.  <br /></td></tr>
+<tr class="memitem:aa4c47c4b5270d606b001ec741aa60da4" id="r_aa4c47c4b5270d606b001ec741aa60da4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa4c47c4b5270d606b001ec741aa60da4">addElement</a> (<a class="el" href="../../d0/dcd/structElement.html">Element</a> **list, const char *nameElement, const char *nameType, <a class="el" href="../../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a> target, <a class="el" href="../../d6/d57/unionElementChangeValue.html">ElementChangeValue</a> change)</td></tr>
+<tr class="memdesc:aa4c47c4b5270d606b001ec741aa60da4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an element carrying a signed change for a planet property to the beginning of the list.  <br /></td></tr>
+<tr class="memitem:a7383c635018d3ef25c2cd2221ffa9160" id="r_a7383c635018d3ef25c2cd2221ffa9160"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7383c635018d3ef25c2cd2221ffa9160">addElementTail</a> (<a class="el" href="../../d0/dcd/structElement.html">Element</a> **list, const char *nameElement, const char *nameType, <a class="el" href="../../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a> target, <a class="el" href="../../d6/d57/unionElementChangeValue.html">ElementChangeValue</a> change)</td></tr>
+<tr class="memdesc:a7383c635018d3ef25c2cd2221ffa9160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an element to the end of the list.  <br /></td></tr>
 <tr class="memitem:a0e16673164acb1ff63913320c6cb7ab0" id="r_a0e16673164acb1ff63913320c6cb7ab0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0e16673164acb1ff63913320c6cb7ab0">deleteElement</a> (<a class="el" href="../../d0/dcd/structElement.html">Element</a> **list, const char *nameElement)</td></tr>
 <tr class="memdesc:a0e16673164acb1ff63913320c6cb7ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes first element with the given name from the list.  <br /></td></tr>
 <tr class="memitem:ab6f436ee8fbb3a6773f7c28c026d1282" id="r_ab6f436ee8fbb3a6773f7c28c026d1282"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab6f436ee8fbb3a6773f7c28c026d1282">displayElements</a> (const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *list)</td></tr>
@@ -136,10 +139,16 @@ Functions</h2></td></tr>
 <tr class="memdesc:a792a32ce07d688bb2c1cacc474cfa2d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for an element at the given index in the list.  <br /></td></tr>
 <tr class="memitem:ac3476ce5efdc11413e99fb84d3d5d6a1" id="r_ac3476ce5efdc11413e99fb84d3d5d6a1"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac3476ce5efdc11413e99fb84d3d5d6a1">drawRandomElement</a> (const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *list)</td></tr>
 <tr class="memdesc:ac3476ce5efdc11413e99fb84d3d5d6a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a random element from the list.  <br /></td></tr>
+<tr class="memitem:a9fd7b92b121d1a9a6133a770e8f66e8d" id="r_a9fd7b92b121d1a9a6133a770e8f66e8d"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a9fd7b92b121d1a9a6133a770e8f66e8d">fetchEventsFromFile</a> (const char *filepath, char *eventType)</td></tr>
+<tr class="memdesc:a9fd7b92b121d1a9a6133a770e8f66e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">fetches a list of <a class="el" href="../../d0/dcd/structElement.html">Element</a> from a file (if filepath is NULL from a hardcoded list)  <br /></td></tr>
+<tr class="memitem:a487979df41fc91ce5f47eab0797d5291" id="r_a487979df41fc91ce5f47eab0797d5291"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a487979df41fc91ce5f47eab0797d5291">parseChangeType</a> (const char *typeStr)</td></tr>
+<tr class="memdesc:a487979df41fc91ce5f47eab0797d5291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the <a class="el" href="../../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a> from a string.  <br /></td></tr>
+<tr class="memitem:ac06ec1abf5423663b589bb35be61225f" id="r_ac06ec1abf5423663b589bb35be61225f"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac06ec1abf5423663b589bb35be61225f">fetchDefaultEventList</a> ()</td></tr>
+<tr class="memitem:acdb05c3d9ca7887d5251baeb2e663342" id="r_acdb05c3d9ca7887d5251baeb2e663342"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#acdb05c3d9ca7887d5251baeb2e663342">fetchDefaultActionList</a> ()</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="ab4935d09b4f908d2b864e8ab2d342242" name="ab4935d09b4f908d2b864e8ab2d342242"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4935d09b4f908d2b864e8ab2d342242">&#9670;&#160;</a></span>addElement()</h2>
+<a id="aa4c47c4b5270d606b001ec741aa60da4" name="aa4c47c4b5270d606b001ec741aa60da4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4c47c4b5270d606b001ec741aa60da4">&#9670;&#160;</a></span>addElement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,25 +166,37 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>nameType</em></span>&#160;)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>nameType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a></td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d57/unionElementChangeValue.html">ElementChangeValue</a></td>          <td class="paramname"><span class="paramname"><em>change</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds an element to the beginning of the list. </p>
+<p>Adds an element carrying a signed change for a planet property to the beginning of the list. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">list</td><td>element list pointer </td></tr>
     <tr><td class="paramname">nameElement</td><td>Name of the element to add </td></tr>
     <tr><td class="paramname">nameType</td><td>Type of the element to add </td></tr>
+    <tr><td class="paramname">target</td><td>The target property of the planet that this element will change </td></tr>
+    <tr><td class="paramname">change</td><td>The value of the change that this element will apply to the target property </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a874c6072f3a4991ab3c4c1de80baf031" name="a874c6072f3a4991ab3c4c1de80baf031"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a874c6072f3a4991ab3c4c1de80baf031">&#9670;&#160;</a></span>addElementTail()</h2>
+<a id="a7383c635018d3ef25c2cd2221ffa9160" name="a7383c635018d3ef25c2cd2221ffa9160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7383c635018d3ef25c2cd2221ffa9160">&#9670;&#160;</a></span>addElementTail()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,7 +214,17 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>nameType</em></span>&#160;)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>nameType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a></td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d57/unionElementChangeValue.html">ElementChangeValue</a></td>          <td class="paramname"><span class="paramname"><em>change</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -204,9 +235,52 @@ Functions</h2></td></tr>
     <tr><td class="paramname">list</td><td>element list pointer </td></tr>
     <tr><td class="paramname">nameElement</td><td>Name of the element to add </td></tr>
     <tr><td class="paramname">nameType</td><td>Type of the element to add </td></tr>
+    <tr><td class="paramname">target</td><td>The target property of the planet that this element will change </td></tr>
+    <tr><td class="paramname">change</td><td>The value of the change that this element will apply to the target property </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a8d0dc897a35584589fb466f0f363c38e" name="a8d0dc897a35584589fb466f0f363c38e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d0dc897a35584589fb466f0f363c38e">&#9670;&#160;</a></span>createElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/dcd/structElement.html">Element</a> * createElement </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>nameElement</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>nameType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a></td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d57/unionElementChangeValue.html">ElementChangeValue</a></td>          <td class="paramname"><span class="paramname"><em>change</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new element with the specified properties. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nameElement</td><td>Name of the element to create </td></tr>
+    <tr><td class="paramname">nameType</td><td>Type of the element to create </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the newly created element, or NULL if creation failed </dd></dl>
 
 </div>
 </div>
@@ -291,6 +365,71 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="acdb05c3d9ca7887d5251baeb2e663342" name="acdb05c3d9ca7887d5251baeb2e663342"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdb05c3d9ca7887d5251baeb2e663342">&#9670;&#160;</a></span>fetchDefaultActionList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/dcd/structElement.html">Element</a> * fetchDefaultActionList </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac06ec1abf5423663b589bb35be61225f" name="ac06ec1abf5423663b589bb35be61225f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac06ec1abf5423663b589bb35be61225f">&#9670;&#160;</a></span>fetchDefaultEventList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/dcd/structElement.html">Element</a> * fetchDefaultEventList </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9fd7b92b121d1a9a6133a770e8f66e8d" name="a9fd7b92b121d1a9a6133a770e8f66e8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fd7b92b121d1a9a6133a770e8f66e8d">&#9670;&#160;</a></span>fetchEventsFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/dcd/structElement.html">Element</a> * fetchEventsFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>eventType</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fetches a list of <a class="el" href="../../d0/dcd/structElement.html">Element</a> from a file (if filepath is NULL from a hardcoded list) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>the file path (either relative or absolute), set to NULL to get the default <a class="el" href="../../d0/dcd/structElement.html">Element</a> list </td></tr>
+    <tr><td class="paramname">eventType</td><td>the event type, accepted valued are ["Event", "Action"], if no value is specified, or is invalid, will return Event types. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a list of <a class="el" href="../../d0/dcd/structElement.html">Element</a> parsed from said file. </dd></dl>
+
+</div>
+</div>
 <a id="a46efb2fe38aed3e0efb9d5014b71df2c" name="a46efb2fe38aed3e0efb9d5014b71df2c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a46efb2fe38aed3e0efb9d5014b71df2c">&#9670;&#160;</a></span>freeListElements()</h2>
 
@@ -313,6 +452,25 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a487979df41fc91ce5f47eab0797d5291" name="a487979df41fc91ce5f47eab0797d5291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a487979df41fc91ce5f47eab0797d5291">&#9670;&#160;</a></span>parseChangeType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int parseChangeType </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>typeStr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parses the <a class="el" href="../../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a> from a string. </p>
 
 </div>
 </div>

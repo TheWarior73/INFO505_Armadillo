@@ -1,4 +1,4 @@
-.TH "libs/core/Planet/planet.c" 3 "Fri Oct 23 2026 09:23:34" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/Planet/planet.c" 3 "Fri Oct 23 2026 18:57:28" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -27,7 +27,7 @@ libs/core/Planet/planet.c
 .br
 .RI "Creates a new planet with the specified properties\&. "
 .ti -1c
-.RI "void \fBAddActionToPlanet\fP (\fBPlanet\fP *planet, const char *nameAction, const char *nameType)"
+.RI "void \fBAddActionToPlanet\fP (\fBPlanet\fP *planet, \fBElement\fP *action)"
 .br
 .RI "Adds an action to a planet\&. "
 .ti -1c
@@ -61,7 +61,7 @@ libs/core/Planet/planet.c
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "void AddActionToPlanet (\fBPlanet\fP * planet, const char * nameAction, const char * nameType)"
+.SS "void AddActionToPlanet (\fBPlanet\fP * planet, \fBElement\fP * action)"
 
 .PP
 Adds an action to a planet\&. 
@@ -70,9 +70,7 @@ Adds an action to a planet\&.
 .RS 4
 \fIplanet\fP Pointer to the planet to add an action to 
 .br
-\fInameAction\fP The name of the action to add 
-.br
-\fInameType\fP The type of the action to add 
+\fIaction\fP The element to add to the planet's action list 
 .RE
 .PP
 

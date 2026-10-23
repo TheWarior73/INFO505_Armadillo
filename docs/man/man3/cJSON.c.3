@@ -1,0 +1,217 @@
+.TH "libs/core/Element/cJSON.c" 3 "Fri Oct 23 2026 18:57:28" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libs/core/Element/cJSON.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <string\&.h>\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+\fR#include <math\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <limits\&.h>\fP
+.br
+\fR#include <ctype\&.h>\fP
+.br
+\fR#include <float\&.h>\fP
+.br
+\fR#include 'cJSON\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBerror\fP"
+.br
+.ti -1c
+.RI "struct \fBinternal_hooks\fP"
+.br
+.ti -1c
+.RI "struct \fBparse_buffer\fP"
+.br
+.ti -1c
+.RI "struct \fBprintbuffer\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBtrue\fP   ((\fBcJSON_bool\fP)1)"
+.br
+.ti -1c
+.RI "#define \fBfalse\fP   ((\fBcJSON_bool\fP)0)"
+.br
+.ti -1c
+.RI "#define \fBisinf\fP(d)"
+.br
+.ti -1c
+.RI "#define \fBisnan\fP(d)"
+.br
+.ti -1c
+.RI "#define \fBNAN\fP   0\&.0/0\&.0"
+.br
+.ti -1c
+.RI "#define \fBinternal_malloc\fP   malloc"
+.br
+.ti -1c
+.RI "#define \fBinternal_free\fP   free"
+.br
+.ti -1c
+.RI "#define \fBinternal_realloc\fP   realloc"
+.br
+.ti -1c
+.RI "#define \fBstatic_strlen\fP(string_literal)"
+.br
+.ti -1c
+.RI "#define \fBcan_read\fP(\fBbuffer\fP,  size)"
+.br
+.ti -1c
+.RI "#define \fBcan_access_at_index\fP(\fBbuffer\fP,  \fBindex\fP)"
+.br
+.ti -1c
+.RI "#define \fBcannot_access_at_index\fP(\fBbuffer\fP,  \fBindex\fP)"
+.br
+.ti -1c
+.RI "#define \fBbuffer_at_offset\fP(\fBbuffer\fP)"
+.br
+.ti -1c
+.RI "#define \fBcjson_min\fP(a,  \fBb\fP)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct internal_hooks \fBinternal_hooks\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCJSON_PUBLIC\fP (const char *)"
+.br
+.ti -1c
+.RI "\fBCJSON_PUBLIC\fP (char *)"
+.br
+.ti -1c
+.RI "\fBCJSON_PUBLIC\fP (double)"
+.br
+.ti -1c
+.RI "\fBCJSON_PUBLIC\fP (void)"
+.br
+.ti -1c
+.RI "\fBCJSON_PUBLIC\fP (\fBcJSON\fP *)"
+.br
+.ti -1c
+.RI "\fBCJSON_PUBLIC\fP (\fBcJSON_bool\fP)"
+.br
+.ti -1c
+.RI "\fBcJSON\fP * \fBcJSON_Duplicate_rec\fP (const \fBcJSON\fP *item, size_t depth, \fBcJSON_bool\fP recurse)"
+.br
+.ti -1c
+.RI "\fBCJSON_PUBLIC\fP (void *)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define buffer_at_offset( \fBbuffer\fP)"
+\fBValue:\fP
+.nf
+((buffer)\->content + (buffer)\->offset)
+.PP
+.fi
+
+.SS "#define can_access_at_index( \fBbuffer\fP,  \fBindex\fP)"
+\fBValue:\fP
+.nf
+((buffer != NULL) && (((buffer)\->offset + index) < (buffer)\->length))
+.PP
+.fi
+
+.SS "#define can_read( \fBbuffer\fP,  size)"
+\fBValue:\fP
+.nf
+((buffer != NULL) && (((buffer)\->offset + size) <= (buffer)\->length))
+.PP
+.fi
+
+.SS "#define cannot_access_at_index( \fBbuffer\fP,  \fBindex\fP)"
+\fBValue:\fP
+.nf
+(!can_access_at_index(buffer, index))
+.PP
+.fi
+
+.SS "#define cjson_min( a,  \fBb\fP)"
+\fBValue:\fP
+.nf
+(((a) < (b)) ? (a) : (b))
+.PP
+.fi
+
+.SS "#define false   ((\fBcJSON_bool\fP)0)"
+
+.SS "#define internal_free   free"
+
+.SS "#define internal_malloc   malloc"
+
+.SS "#define internal_realloc   realloc"
+
+.SS "#define isinf( d)"
+\fBValue:\fP
+.nf
+(isnan((d \- d)) && !isnan(d))
+.PP
+.fi
+
+.SS "#define isnan( d)"
+\fBValue:\fP
+.nf
+(d != d)
+.PP
+.fi
+
+.SS "#define NAN   0\&.0/0\&.0"
+
+.SS "#define static_strlen( string_literal)"
+\fBValue:\fP
+.nf
+(sizeof(string_literal) \- sizeof(""))
+.PP
+.fi
+
+.SS "#define true   ((\fBcJSON_bool\fP)1)"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct internal_hooks internal_hooks"
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBcJSON\fP * cJSON_Duplicate_rec (const \fBcJSON\fP * item, size_t depth, \fBcJSON_bool\fP recurse)"
+
+.SS "CJSON_PUBLIC (char * )"
+
+.SS "CJSON_PUBLIC (\fBcJSON\fP * )"
+
+.SS "CJSON_PUBLIC (\fBcJSON_bool\fP )"
+
+.SS "CJSON_PUBLIC (const char * )"
+
+.SS "CJSON_PUBLIC (double )"
+
+.SS "CJSON_PUBLIC (void * )"
+
+.SS "CJSON_PUBLIC (void )"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Armadillo from the source code\&.

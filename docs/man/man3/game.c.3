@@ -1,4 +1,4 @@
-.TH "libs/core/game/game.c" 3 "Fri Oct 23 2026 09:23:34" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game.c" 3 "Fri Oct 23 2026 18:57:28" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -9,6 +9,10 @@ libs/core/game/game.c
 \fR#include 'game\&.h'\fP
 .br
 \fR#include 'math\&.c'\fP
+.br
+\fR#include <math\&.h>\fP
+.br
+\fR#include <stdio\&.h>\fP
 .br
 \fR#include <stdlib\&.h>\fP
 .br
@@ -23,12 +27,17 @@ libs/core/game/game.c
 .br
 .RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
 .ti -1c
+.RI "void \fBgameTurn\fP (\fBPlanet\fP *p, \fBElement\fP *event, \fBElement\fP *action)"
+.br
+.ti -1c
 .RI "\fBPlanet\fP * \fBinitPlanet\fP ()"
 .br
 .RI "Initializes a planetwith random amounts of ressources, within playable parameters\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "void gameTurn (\fBPlanet\fP * p, \fBElement\fP * event, \fBElement\fP * action)"
+Applies the event and action selected for the current turn\&. 
 .SS "\fBPlanet\fP * initPlanet ()"
 
 .PP
