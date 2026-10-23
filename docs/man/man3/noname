@@ -1,14 +1,20 @@
-.TH "" 3 "Mon Oct 19 2026 09:05:51" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "" 3 "Fri Oct 23 2026 09:23:34" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 core Element element\&.c element\&.h 
 .PP
+game game\&.c game\&.h math\&.c 
+.PP
 Planet planet\&.c planet\&.h 
 .PP
 Element element\&.c element\&.h 
 .PP
+game game\&.c game\&.h math\&.c 
+.PP
 libs core Element element\&.c element\&.h 
+.PP
+game game\&.c game\&.h math\&.c 
 .PP
 Planet planet\&.c planet\&.h 
 .PP

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['water_0',['water',['../d0/d19/structPlanet.html#aeecebe4fbad27bd19174836a92c79a3f',1,'Planet']]],
-  ['wood_1',['wood',['../d0/d19/structPlanet.html#a2334748f5ed0858c3283237ba76ba864',1,'Planet']]]
+  ['searchelementindex_0',['searchElementIndex',['../da/d0a/element_8c.html#a792a32ce07d688bb2c1cacc474cfa2d7',1,'searchElementIndex(const Element *list, const int index):&#160;element.c'],['../d4/dfe/element_8h.html#a792a32ce07d688bb2c1cacc474cfa2d7',1,'searchElementIndex(const Element *list, const int index):&#160;element.c']]],
+  ['searchelementname_1',['searchElementName',['../da/d0a/element_8c.html#a2f5b4052e4441996ce6756dfe907355b',1,'searchElementName(const Element *list, const char *nameElement):&#160;element.c'],['../d4/dfe/element_8h.html#ab116109f5eb68b74fe8a3296f5b9d3f1',1,'searchElementName(const Element *liste, const char *nameElement):&#160;element.c']]]
 ];

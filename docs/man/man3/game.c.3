@@ -1,0 +1,50 @@
+.TH "libs/core/game/game.c" 3 "Fri Oct 23 2026 09:23:34" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libs/core/game/game.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'game\&.h'\fP
+.br
+\fR#include 'math\&.c'\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrunFullGame\fP ()"
+.br
+.RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
+.ti -1c
+.RI "\fBPlanet\fP * \fBinitPlanet\fP ()"
+.br
+.RI "Initializes a planetwith random amounts of ressources, within playable parameters\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBPlanet\fP * initPlanet ()"
+
+.PP
+Initializes a planetwith random amounts of ressources, within playable parameters\&. Playable parameters include :
+.IP "\(bu" 2
+\fBPlanet\fP radius must be at least 100km
+.IP "\(bu" 2
+Population must be at least 2 to allow reproduction\&.
+.IP "\(bu" 2
+Water, Minerals and Wood at total must be at least the amount of starting population\&. 
+.PP
+
+.SS "void runFullGame ()"
+
+.PP
+Runs the full game, turn by turn, until win condition or game over is reached\&. This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Armadillo from the source code\&.

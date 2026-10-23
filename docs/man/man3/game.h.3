@@ -1,0 +1,132 @@
+.TH "libs/core/game/game.h" 3 "Fri Oct 23 2026 09:23:34" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libs/core/game/game.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include '\&.\&./Planet/planet\&.h'\fP
+.br
+\fR#include '\&.\&./Element/element\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_DEFAULT_RADIUS\fP   6351"
+.br
+.ti -1c
+.RI "#define \fBMIN_PLANET_RADIUS\fP   100"
+.br
+.ti -1c
+.RI "#define \fBMAX_PLANET_RADIUS\fP   10000"
+.br
+.ti -1c
+.RI "#define \fBMAX_DEFAULT_POPULATION\fP   100000"
+.br
+.ti -1c
+.RI "#define \fBMIN_POPULATION_ALLOWED\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMAX_POPULATION_ALLOWED\fP   10000000000"
+.br
+.ti -1c
+.RI "#define \fBMAX_DEFAULT_WATER\fP   10000000"
+.br
+.ti -1c
+.RI "#define \fBMIN_WATER_ALLOWED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMAX_WATER_ALLOWED\fP   1000000000"
+.br
+.ti -1c
+.RI "#define \fBMAX_DEFAULT_WOOD\fP   10000000"
+.br
+.ti -1c
+.RI "#define \fBMIN_WOOD_ALLOWED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMAX_WOOD_ALLOWED\fP   1000000000"
+.br
+.ti -1c
+.RI "#define \fBMAX_DEFAULT_MINERALS\fP   10000000"
+.br
+.ti -1c
+.RI "#define \fBMIN_MINERALS_ALLOWED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMAX_MINERALS_ALLOWED\fP   1000000000"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrunFullGame\fP ()"
+.br
+.RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
+.ti -1c
+.RI "void \fBgameTurn\fP (\fBPlanet\fP *p, \fBElement\fP *event, \fBElement\fP *action)"
+.br
+.ti -1c
+.RI "\fBPlanet\fP * \fBinitPlanet\fP ()"
+.br
+.RI "Initializes a planetwith random amounts of ressources, within playable parameters\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MAX_DEFAULT_MINERALS   10000000"
+
+.SS "#define MAX_DEFAULT_POPULATION   100000"
+
+.SS "#define MAX_DEFAULT_RADIUS   6351"
+
+.SS "#define MAX_DEFAULT_WATER   10000000"
+
+.SS "#define MAX_DEFAULT_WOOD   10000000"
+
+.SS "#define MAX_MINERALS_ALLOWED   1000000000"
+
+.SS "#define MAX_PLANET_RADIUS   10000"
+
+.SS "#define MAX_POPULATION_ALLOWED   10000000000"
+
+.SS "#define MAX_WATER_ALLOWED   1000000000"
+
+.SS "#define MAX_WOOD_ALLOWED   1000000000"
+
+.SS "#define MIN_MINERALS_ALLOWED   1"
+
+.SS "#define MIN_PLANET_RADIUS   100"
+
+.SS "#define MIN_POPULATION_ALLOWED   2"
+
+.SS "#define MIN_WATER_ALLOWED   1"
+
+.SS "#define MIN_WOOD_ALLOWED   1"
+
+.SH "Function Documentation"
+.PP 
+.SS "void gameTurn (\fBPlanet\fP * p, \fBElement\fP * event, \fBElement\fP * action)"
+
+.SS "\fBPlanet\fP * initPlanet ()"
+
+.PP
+Initializes a planetwith random amounts of ressources, within playable parameters\&. Playable parameters include :
+.IP "\(bu" 2
+\fBPlanet\fP radius must be at least 100km
+.IP "\(bu" 2
+Population must be at least 2 to allow reproduction\&.
+.IP "\(bu" 2
+Water, Minerals and Wood at total must be at least the amount of starting population\&. 
+.PP
+
+.SS "void runFullGame ()"
+
+.PP
+Runs the full game, turn by turn, until win condition or game over is reached\&. This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Armadillo from the source code\&.

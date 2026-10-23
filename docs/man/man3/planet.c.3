@@ -1,4 +1,4 @@
-.TH "libs/core/Planet/planet.c" 3 "Mon Oct 19 2026 09:05:51" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/Planet/planet.c" 3 "Fri Oct 23 2026 09:23:34" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -27,6 +27,14 @@ libs/core/Planet/planet.c
 .br
 .RI "Creates a new planet with the specified properties\&. "
 .ti -1c
+.RI "void \fBAddActionToPlanet\fP (\fBPlanet\fP *planet, const char *nameAction, const char *nameType)"
+.br
+.RI "Adds an action to a planet\&. "
+.ti -1c
+.RI "void \fBAddEventToPlanet\fP (\fBPlanet\fP *planet, const char *nameEvent, const char *nameType)"
+.br
+.RI "Adds an event to a planet\&. "
+.ti -1c
 .RI "void \fBdestroyPlanet\fP (\fBPlanet\fP *planet)"
 .br
 .RI "Destroys a planet and frees its memory\&. "
@@ -46,9 +54,43 @@ libs/core/Planet/planet.c
 .RI "void \fBdisplayPlanet\fP (const \fBPlanet\fP *planet)"
 .br
 .RI "Displays the information of a planet\&. "
+.ti -1c
+.RI "void \fBVerifyPlanet\fP (const \fBPlanet\fP *planet)"
+.br
+.RI "Verifies the information of a planet and displays warnings if any values are out of expected ranges\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "void AddActionToPlanet (\fBPlanet\fP * planet, const char * nameAction, const char * nameType)"
+
+.PP
+Adds an action to a planet\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet to add an action to 
+.br
+\fInameAction\fP The name of the action to add 
+.br
+\fInameType\fP The type of the action to add 
+.RE
+.PP
+
+.SS "void AddEventToPlanet (\fBPlanet\fP * planet, const char * nameEvent, const char * nameType)"
+
+.PP
+Adds an event to a planet\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet to add an event to 
+.br
+\fInameEvent\fP The name of the event to add 
+.br
+\fInameType\fP The type of the event to add 
+.RE
+.PP
+
 .SS "\fBPlanet\fP * createPlanet (const char * name, double radiusKm, long population, int water, int minerals, int wood)"
 
 .PP
@@ -150,6 +192,17 @@ Sets the habitability of a planet\&.
 \fBReturns\fP
 .RS 4
 1 if successful, 0 otherwise 
+.RE
+.PP
+
+.SS "void VerifyPlanet (const \fBPlanet\fP * planet)"
+
+.PP
+Verifies the information of a planet and displays warnings if any values are out of expected ranges\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet to verify 
 .RE
 .PP
 

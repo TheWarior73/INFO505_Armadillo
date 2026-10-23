@@ -1,5 +1,7 @@
 var structPlanet =
 [
+    [ "Actions", "d0/d19/structPlanet.html#a7a5e592ab4c131db62bbd4760302e16d", null ],
+    [ "Events", "d0/d19/structPlanet.html#a55487ec2df4be51f52ba5030cf34f712", null ],
     [ "habitability", "d0/d19/structPlanet.html#adafd6555dd4483b631243fc90e240c64", null ],
     [ "minerals", "d0/d19/structPlanet.html#abaa763222c48654948f0af9413ebe3db", null ],
     [ "name", "d0/d19/structPlanet.html#a2cc05f87fec975191329e4de7250dcf6", null ],
