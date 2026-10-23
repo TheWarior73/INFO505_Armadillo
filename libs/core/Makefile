@@ -2,11 +2,11 @@ CC = gcc
 AR = ar
 
 CFLAGS = -Wall -Wextra -Werror -std=c11
-NAME = libCore.a
+NAME = libElement.a
 
 OBJ_DIR = build
 
-SRCS = Element/element.c Planet/planet.c
+SRCS = Element/element.c
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
@@ -17,6 +17,8 @@ $(NAME): $(OBJS)
 $(OBJ_DIR)/%.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -IElement -IPlanet -c $< -o $@
+
+$(OBJ_DIR)/Element/element.o: Element/element.h
 
 clean:
 	rm -rf $(OBJ_DIR)
