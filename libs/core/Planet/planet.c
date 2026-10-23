@@ -49,6 +49,36 @@ Planet *createPlanet(const char *name, double radiusKm, long population, int wat
 }
 
 /**
+ * @param planet: Pointer to the planet to add an action to
+ * @param nameAction: The name of the action to add
+ * @param nameType: The type of the action to add
+ * @brief Adds an action to a planet
+ */
+void AddActionToPlanet(Planet *planet, const char *nameAction, const char *nameType)
+{
+	if (planet == NULL || nameAction == NULL || nameType == NULL)
+	{
+		return;
+	}
+	addElement(&planet->Actions, nameAction, nameType);
+}
+
+/**
+ * @param planet: Pointer to the planet to add an event to
+ * @param nameEvent: The name of the event to add
+ * @param nameType: The type of the event to add
+ * @brief Adds an event to a planet
+ */
+void AddEventToPlanet(Planet *planet, const char *nameEvent, const char *nameType)
+{
+	if (planet == NULL || nameEvent == NULL || nameType == NULL)
+	{
+		return;
+	}
+	addElement(&planet->Events, nameEvent, nameType);
+}
+
+/**
  * @param planet: Pointer to the planet to destroy
  * @brief Destroys a planet and frees its memory
  */
@@ -60,6 +90,8 @@ void destroyPlanet(Planet *planet)
 	}
 
 	free(planet->name);
+	freeListElements(planet->Actions);
+	freeListElements(planet->Events);
 	free(planet);
 }
 
@@ -157,4 +189,40 @@ void displayPlanet(const Planet *planet)
 	printf("Population: %-15ld\n", planet->population);
 	printf("Water: %d | Minerals: %d | Wood: %d\n", planet->water, planet->minerals, planet->wood);
 	printf("Habitability: %d/100\n", planet->habitability);
+	printf("Actions:\n");
+	displayElements(planet->Actions);
+	printf("Events:\n");
+	displayElements(planet->Events);
+}
+
+void VerifyPlanet(const Planet *planet)
+{
+	if (planet == NULL)
+	{
+		printf("No planet to verify.\n");
+		return;
+	}
+
+	if (planet->population < 0)
+	{
+		printf("Warning: Population is negative.\n");
+	}
+	if (planet->water < 0)
+	{
+		printf("Warning: Water resources are negative.\n");
+	}
+	if (planet->minerals < 0)
+	{
+		printf("Warning: Mineral resources are negative.\n");
+	}
+	if (planet->wood < 0)
+	{
+		printf("Warning: Wood resources are negative.\n");
+	}
+	if (planet->habitability < 0 || planet->habitability > 100)
+	{
+		printf("Warning: Habitability is out of bounds (0-100).\n");
+	}
+
+	displayPlanet(planet);
 }
