@@ -13,7 +13,7 @@
  */
 void runFullGame()
 {
-	Planet *p = initPlanet();
+	// Planet *p = initPlanet();
 }
 
 /**
@@ -29,7 +29,7 @@ Planet *initPlanet()
 	const char *planetName;
 	double planetRadius = 0.0;
 	long planetPopulation = 0;
-	int water, minerals, wood = 0;
+	int water = 0, minerals = 0, wood = 0;
 
 	// Possible Interactive Planet Setup Idea
 	// getParametersFromPlayer(planetName, planetRadius, planetPopulation, water, minerals, wood);
@@ -80,7 +80,6 @@ Planet *initPlanet()
 	water = clampInt(water, MIN_WATER_ALLOWED, MAX_WATER_ALLOWED);
 	wood = clampInt(wood, MIN_WOOD_ALLOWED, MAX_WOOD_ALLOWED);
 	minerals = clampInt(minerals, MIN_MINERALS_ALLOWED, MAX_MINERALS_ALLOWED);
-	
 
 	return createPlanet(planetName, planetRadius, planetPopulation, water, minerals, wood);
 }

@@ -23,7 +23,6 @@ $(NAME_PLANET): $(OBJ_PLANET)
 $(NAME_GAME): $(OBJ_GAME)
 	$(AR) rcs $@ $^
 
-
 $(OBJ_DIR)/%.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -IElement -IPlanet -c $< -o $@

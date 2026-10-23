@@ -38,4 +38,6 @@ fclean: clean
 # cleans everything, then recompiles the project
 re: fclean all
 
-.PHONY: all clean fclean re core-build
+# Tells make that these names are command names, if a file is called the same, it won't override the command usage.
+# Somewhat useless for our usecase as of now.
+.PHONY: all clean fclean re
