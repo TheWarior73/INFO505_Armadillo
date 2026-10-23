@@ -25,10 +25,9 @@ typedef struct Element
 	char *nameType;
 	ElementChangeTarget changeTarget;
 	ElementChangeValue change;
-	
+
 	struct Element *next;
 } Element;
-
 
 Element *createElement(const char *nameElement, const char *nameType, ElementChangeTarget target, ElementChangeValue change);
 void addElement(Element **list, const char *nameElement, const char *nameType, ElementChangeTarget target, ElementChangeValue change);
@@ -40,5 +39,10 @@ Element *searchElementName(const Element *liste, const char *nameElement);
 
 Element *searchElementIndex(const Element *list, const int index);
 Element *drawRandomElement(const Element *liste);
+
+Element *fetchElementsFromFile(const char *filepath);
+int parseChangeType(const char *typeStr);
+Element *fetchDefaultEventList();
+Element *fetchDefaultActionList();
 
 #endif

@@ -8,9 +8,9 @@ NAME_GAME = libGame.a
 
 OBJ_DIR = build
 
-OBJ_ELEMENT = $(OBJ_DIR)/Element/element.o
+OBJ_ELEMENT = $(OBJ_DIR)/Element/element.o $(OBJ_DIR)/Element/cJSON.o
 OBJ_PLANET = $(OBJ_DIR)/Planet/planet.o
-OBJ_GAME = $(OBJ_DIR)/game/game.o
+OBJ_GAME = $(OBJ_DIR)/game/game.o $(OBJ_DIR)/game/math.o
 
 all: $(NAME_ELEMENT) $(NAME_PLANET) $(NAME_GAME)
 

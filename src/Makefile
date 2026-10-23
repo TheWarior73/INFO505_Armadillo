@@ -8,7 +8,7 @@ CORE_LIBS = $(CORE_DIR)/libGame.a $(CORE_DIR)/libPlanet.a $(CORE_DIR)/libElement
 CORE_INCLUDES = -I$(CORE_DIR)/Element -I$(CORE_DIR)/Planet -I$(CORE_DIR)/game
 
 SRC = main.c
-OBJ = $(SRC:.c=.o) planet.o tests/test_element.o tests/test_planet.o # Sufix substitution, replaces each file extention in $(SRC) from .c to .o 
+OBJ = $(SRC:.c=.o) tests/test_element.o tests/test_planet.o # Sufix substitution, replaces each file extention in $(SRC) from .c to .o 
 
 # Build the program
 all: $(NAME)
