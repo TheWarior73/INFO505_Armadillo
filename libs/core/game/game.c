@@ -13,7 +13,13 @@
  */
 void runFullGame()
 {
-	// Planet *p = initPlanet();
+	Planet *p = initPlanet();
+	displayPlanet(p);
+
+	int run = 1;
+	while (run == 1)
+	{
+	}
 }
 
 /**
@@ -80,6 +86,17 @@ Planet *initPlanet()
 	water = clampInt(water, MIN_WATER_ALLOWED, MAX_WATER_ALLOWED);
 	wood = clampInt(wood, MIN_WOOD_ALLOWED, MAX_WOOD_ALLOWED);
 	minerals = clampInt(minerals, MIN_MINERALS_ALLOWED, MAX_MINERALS_ALLOWED);
+
+	// In case WatterWoodMinerals is inferior to population, apply a correction to bring back to at least the population level.
+	long wwm = water + wood + minerals;
+	if (wwm < planetPopulation)
+	{
+		long deficit = planetPopulation - wwm;
+
+		water = water + (deficit / 3);
+		wood = wood + (deficit / 3);
+		minerals = minerals + (deficit / 3);
+	}
 
 	return createPlanet(planetName, planetRadius, planetPopulation, water, minerals, wood);
 }
