@@ -35,5 +35,5 @@
 
 1. `$ cd ./src`
 2. `$ make`
-3. `$ ./armadillo.game`
+3. `$ ./armadillo.game --game` to play, or `$ ./armadillo.game --debug` to run the tests
 

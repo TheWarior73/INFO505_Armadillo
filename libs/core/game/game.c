@@ -4,7 +4,6 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 typedef int (*ElementChangeHandler)(Planet *, const Element *);
 
@@ -106,6 +105,12 @@ static const ElementChangeHandler changeHandlers[] = {
 	[ELEMENT_CHANGE_HABITABILITY] = changeHabitability,
 };
 
+/**
+ * @param planet: Pointer to the planet whose resource to change
+ * @param element: Pointer to the element containing the change value
+ * @return 1 if successful, 0 otherwise
+ * @brief Applies the change specified by the element to the planet.
+ */
 static int applyElementChange(Planet *planet, const Element *element)
 {
 	if (planet == NULL || element == NULL || element->changeTarget < ELEMENT_CHANGE_NONE ||
@@ -163,10 +168,28 @@ void runFullGame()
 	while (!planetHasWon(p) && !planetHasLost(p))
 	{
 		Element *event = drawRandomElement(p->Events);
-		Element *action = drawRandomElement(p->Actions);
-		if (event == NULL && action == NULL)
+		Element *actionChoices[3] = {
+			drawRandomElement(p->Actions),
+			drawRandomElement(p->Actions),
+			drawRandomElement(p->Actions)};
+		if (actionChoices[0] == NULL)
 		{
-			printf("Game stopped: no events or actions are configured.\n");
+			printf("Game stopped: no actions are configured.\n");
+			break;
+		}
+
+		printf("\nEvent: %s\n", event != NULL ? event->nameElement : "No event");
+		printf("Choose an action:\n");
+		for (int i = 0; i < 3; i++)
+		{
+			printf("%d. %s\n", i + 1, actionChoices[i]->nameElement);
+		}
+
+		int selectedChoice;
+		printf("Your choice (1-3): ");
+		if (scanf("%d", &selectedChoice) != 1 || selectedChoice < 1 || selectedChoice > 3)
+		{
+			printf("Game stopped: please enter a number between 1 and 3.\n");
 			break;
 		}
 
@@ -177,7 +200,7 @@ void runFullGame()
 		int previousWood = p->wood;
 		int previousHabitability = p->habitability;
 
-		gameTurn(p, event, action);
+		gameTurn(p, event, actionChoices[selectedChoice - 1]);
 		if (p->population == previousPopulation && p->radiusKm == previousRadius &&
 			p->water == previousWater && p->minerals == previousMinerals &&
 			p->wood == previousWood && p->habitability == previousHabitability)
@@ -290,5 +313,20 @@ Planet *initPlanet()
 		minerals = minerals + (deficit / 3);
 	}
 
-	return createPlanet(planetName, planetRadius, planetPopulation, water, minerals, wood);
+	Planet *planet = createPlanet(planetName, planetRadius, planetPopulation, water, minerals, wood);
+	if (planet == NULL)
+	{
+		return NULL;
+	}
+
+	planet->Events = fetchEventsFromFile("../data/climaticElements.jsonc", "Event");
+	planet->Actions = fetchEventsFromFile("../data/climaticElements.jsonc", "Action");
+	if (planet->Events == NULL || planet->Actions == NULL)
+	{
+		fprintf(stderr, "Unable to load events and actions from ../data/climaticElements.jsonc.\n");
+		destroyPlanet(planet);
+		return NULL;
+	}
+
+	return planet;
 }

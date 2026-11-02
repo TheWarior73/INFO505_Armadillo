@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-//
+#include "../libs/core/game/game.h"
 
 /**
  * @brief Defines wether the output should be verbose or not.
@@ -13,6 +13,7 @@ int is_verbose = 0;
  * @brief Defines wether the program should run in debug mode or not (run tests)
  */
 int is_debug = 0;
+int is_game = 0;
 
 //
 
@@ -40,6 +41,10 @@ int main(int argc, char *argv[])
 		{
 			is_debug = 1;
 		}
+		else if (strcmp(argv[i], "-g") == 0 || strcmp(argv[i], "--game") == 0)
+		{
+			is_game = 1;
+		}
 		else if (i == argc - 1)
 		{
 			printf("Invalid Args, use -h or --help to see available flags\n");
@@ -61,6 +66,11 @@ int main(int argc, char *argv[])
 		test_load_liste_element();
 	}
 
+	if (is_game)
+	{
+		runFullGame();
+	}
+
 	return EXIT_SUCCESS;
 }
 
@@ -74,5 +84,8 @@ void print_help(void)
 		   "\t--verbose\n"
 		   "\n"
 		   "\t-d \tRuns the program in debug mode (runs tests)\n"
-		   "\t--debug\n");
+			"\t--debug\n"
+			"\n"
+			"\t-g \tStarts the game loop\n"
+			"\t--game\n");
 }
