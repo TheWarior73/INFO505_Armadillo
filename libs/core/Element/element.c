@@ -157,7 +157,7 @@ void displayElements(const Element *list)
 	const Element *current = list;
 	while (current != NULL)
 	{
-		printf("Element name: %-10s Type: %s\n", current->nameElement, current->nameType);
+		printf("Element: %-30s Type: %s\n", current->nameElement, current->nameType);
 		current = current->next;
 	}
 }

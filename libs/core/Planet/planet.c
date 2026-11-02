@@ -190,11 +190,14 @@ void displayPlanet(const Planet *planet)
 	printf("Planet: %-15s", planet->name);
 	printf("Radius: %.2f%-10s", planet->radiusKm, "km");
 	printf("Population: %-15ld\n", planet->population);
-	printf("Water: %d | Minerals: %d | Wood: %d\n", planet->water, planet->minerals, planet->wood);
+	printf("Water: %-15d Minerals: %-10d | Wood: %d\n", planet->water, planet->minerals, planet->wood);
 	printf("Habitability: %d/100\n", planet->habitability);
-	printf("Actions:\n");
+
+	// TODO
+	// Display less often.
+	printf("\nActions:\n");
 	displayElements(planet->Actions);
-	printf("Events:\n");
+	printf("\nEvents:\n");
 	displayElements(planet->Events);
 }
 

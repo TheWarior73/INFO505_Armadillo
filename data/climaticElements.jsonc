@@ -35,7 +35,7 @@
       "value": -500
     },
     {
-      "name": "HeavyRainfall",
+      "name": "Heavy Rainfall",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
@@ -49,7 +49,7 @@
     // WOOD
 
     {
-      "name": "ForestFire",
+      "name": "Forest Fire",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WOOD",
       "target_field": "quantity",
@@ -60,7 +60,7 @@
     // HABILITY
 
     {
-      "name": "ColdWave",
+      "name": "Cold Wave",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",
@@ -68,7 +68,7 @@
     },
 
     {
-      "name": "HeatWave",
+      "name": "Heat Wave",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",
@@ -76,7 +76,7 @@
     },
 
     {
-      "name": "SeaLevelRise",
+      "name": "Sea Level Rise",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",
@@ -87,7 +87,7 @@
     // ----------------------------------------------
     // POPULATION
     {
-      "name": "UrbanExpansion",
+      "name": "Urban Expansion",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_POPULATION",
       "target_field": "quantity",
@@ -110,7 +110,7 @@
       "value": 500
     },
     {
-      "name": "Desaliination",
+      "name": "Desalination",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
@@ -121,7 +121,7 @@
     // MINERALS
 
     {
-      "name": "MineralExtraction",
+      "name": "Mineral Extraction",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_MINERALS",
       "target_field": "quantity",
@@ -139,7 +139,7 @@
       "value": 500
     },
     {
-      "name": "LandRestoration",
+      "name": "Land Restoration",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_WOOD",
       "target_field": "quantity",
@@ -150,14 +150,14 @@
     // HABITABILITY
 
     {
-      "name": "EmissionReduction",
+      "name": "Emission Reduction",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",
       "value": 10
     },
     {
-      "name": "ClimateAdaptation",
+      "name": "Climate Adaptation",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",

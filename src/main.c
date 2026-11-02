@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "../libs/core/game/game.h"
 
@@ -24,6 +25,14 @@ void print_help(void);
 
 int main(int argc, char *argv[])
 {
+	// Seeding the randomizer
+	srand(time(NULL));
+
+	if (argc == 0)
+	{
+		print_help();
+		return EXIT_FAILURE;
+	}
 
 	// Loop through the arguments to set the appropriate flags
 	for (int i = 1; i < argc; i++)
@@ -84,8 +93,8 @@ void print_help(void)
 		   "\t--verbose\n"
 		   "\n"
 		   "\t-d \tRuns the program in debug mode (runs tests)\n"
-			"\t--debug\n"
-			"\n"
-			"\t-g \tStarts the game loop\n"
-			"\t--game\n");
+		   "\t--debug\n"
+		   "\n"
+		   "\t-g \tStarts the game loop\n"
+		   "\t--game\n");
 }

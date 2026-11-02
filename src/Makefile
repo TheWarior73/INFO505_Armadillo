@@ -19,6 +19,8 @@ core-build:
 	$(MAKE) -C $(CORE_DIR)
 
 
+# TODO: Add >>> 'pkg-config --cflags --libs gtk+-3.0'
+# For GTK Compilation
 $(NAME): $(OBJ) $(CORE_LIBS)
 	$(CC) $(CFLAGS) $(OBJ) $(CORE_LIBS) -o $(NAME)
 
