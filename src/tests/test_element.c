@@ -6,6 +6,8 @@
 
 static void assert_element(const Element *element, const char *name, const char *type)
 {
+	printf("abcd\n\n");
+
 	assert(element != NULL);
 	assert(strcmp(element->nameElement, name) == 0);
 	assert(strcmp(element->nameType, type) == 0);

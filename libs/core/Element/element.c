@@ -53,7 +53,7 @@ Element *createElement(const char *nameElement, const char *nameType, ElementCha
  */
 void addElement(Element **list, const char *nameElement, const char *nameType, ElementChangeTarget target, ElementChangeValue change)
 {
-	if (list == NULL || target <= ELEMENT_CHANGE_NONE || target > ELEMENT_CHANGE_HABITABILITY)
+	if (list == NULL || target < ELEMENT_CHANGE_NONE || target > ELEMENT_CHANGE_HABITABILITY) // FIXME
 	{
 		return;
 	}
@@ -272,15 +272,27 @@ Element *fetchEventsFromFile(const char *filepath, char *eventType)
 		}
 		else
 		{
-			fprintf(stderr, "fetchEventsFromFile: Wrong eventType: %s was specified but [\"Event\", \"Action\"] were expected.\nReturned Elements will be of type \"Event\".", eventType);
+			fprintf(stderr, "[ERROR] fetchEventsFromFile: Wrong eventType: %s was specified but [\"Event\", \"Action\"] were expected.\nReturned Elements will be of type \"Event\".\n", eventType);
 			return fetchDefaultEventList();
 		}
+	}
+
+	char *sanitized_event_type;
+
+	if (strcmp(eventType, "Action") == 0 || strcmp(eventType, "Event") == 0)
+	{
+		sanitized_event_type = eventType;
+	}
+	else
+	{
+		fprintf(stderr, "[ERROR] fetchEventsFromFile: Wrong eventType: %s was specified but [\"Event\", \"Action\"] were expected.\nReturned Elements will be of type \"Event\".\n", eventType);
+		sanitized_event_type = "Event";
 	}
 
 	FILE *f = fopen(filepath, "r");
 	if (f == NULL)
 	{
-		fprintf(stderr, "[ERROR] fetchElementsFromFile: Could not open file");
+		fprintf(stderr, "[ERROR] fetchElementsFromFile: Could not open file\n");
 		return NULL;
 	}
 
@@ -303,14 +315,14 @@ Element *fetchEventsFromFile(const char *filepath, char *eventType)
 
 	if (root == NULL)
 	{
-		fprintf(stderr, "[ERROR] fetchElementsFromFile: Could not parse JSON correctly");
+		fprintf(stderr, "[ERROR] fetchElementsFromFile: Could not parse JSON correctly\n");
 		return NULL;
 	}
 
 	Element *eltList = NULL;
 
 	char targetKey[32];
-	snprintf(targetKey, sizeof(targetKey), "%ss", eventType);
+	snprintf(targetKey, sizeof(targetKey), "%ss", sanitized_event_type);
 
 	cJSON *items = cJSON_GetObjectItemCaseSensitive(root, targetKey);
 	if (!cJSON_IsArray(items))

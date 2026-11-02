@@ -1,4 +1,4 @@
-.TH "libs/core/Element/element.h" 3 "Fri Oct 23 2026 18:57:28" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/Element/element.h" 3 "Mon Nov 2 2026 15:11:58" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -70,8 +70,9 @@ libs/core/Element/element.h
 .br
 .RI "Draws a random element from the list\&. "
 .ti -1c
-.RI "\fBElement\fP * \fBfetchElementsFromFile\fP (const char *filepath)"
+.RI "\fBElement\fP * \fBfetchEventsFromFile\fP (const char *filepath, char *eventType)"
 .br
+.RI "fetches a list of \fBElement\fP from a file (if filepath is NULL from a hardcoded list) "
 .ti -1c
 .RI "int \fBparseChangeType\fP (const char *typeStr)"
 .br
@@ -210,7 +211,23 @@ Pointer to the drawn element or NULL if the list is empty
 
 .SS "\fBElement\fP * fetchDefaultEventList ()"
 
-.SS "\fBElement\fP * fetchElementsFromFile (const char * filepath)"
+.SS "\fBElement\fP * fetchEventsFromFile (const char * filepath, char * eventType)"
+
+.PP
+fetches a list of \fBElement\fP from a file (if filepath is NULL from a hardcoded list) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfilepath\fP the file path (either relative or absolute), set to NULL to get the default \fBElement\fP list 
+.br
+\fIeventType\fP the event type, accepted valued are ["Event", "Action"], if no value is specified, or is invalid, will return Event types\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a list of \fBElement\fP parsed from said file\&. 
+.RE
+.PP
 
 .SS "void freeListElements (\fBElement\fP * list)"
 

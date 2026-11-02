@@ -159,7 +159,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a792a32ce07d688bb2c1cacc474cfa2d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for an element at the given index in the list.  <br /></td></tr>
 <tr class="memitem:a7194b0dd27266e287a146056d74b71f5" id="r_a7194b0dd27266e287a146056d74b71f5"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a7194b0dd27266e287a146056d74b71f5">drawRandomElement</a> (const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *liste)</td></tr>
 <tr class="memdesc:a7194b0dd27266e287a146056d74b71f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a random element from the list.  <br /></td></tr>
-<tr class="memitem:ad38be4e51743c79c9f649809f7951fd6" id="r_ad38be4e51743c79c9f649809f7951fd6"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ad38be4e51743c79c9f649809f7951fd6">fetchElementsFromFile</a> (const char *filepath)</td></tr>
+<tr class="memitem:a9fd7b92b121d1a9a6133a770e8f66e8d" id="r_a9fd7b92b121d1a9a6133a770e8f66e8d"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a9fd7b92b121d1a9a6133a770e8f66e8d">fetchEventsFromFile</a> (const char *filepath, char *eventType)</td></tr>
+<tr class="memdesc:a9fd7b92b121d1a9a6133a770e8f66e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">fetches a list of <a class="el" href="../../d0/dcd/structElement.html">Element</a> from a file (if filepath is NULL from a hardcoded list)  <br /></td></tr>
 <tr class="memitem:a487979df41fc91ce5f47eab0797d5291" id="r_a487979df41fc91ce5f47eab0797d5291"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a487979df41fc91ce5f47eab0797d5291">parseChangeType</a> (const char *typeStr)</td></tr>
 <tr class="memdesc:a487979df41fc91ce5f47eab0797d5291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the <a class="el" href="#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a> from a string.  <br /></td></tr>
 <tr class="memitem:ac06ec1abf5423663b589bb35be61225f" id="r_ac06ec1abf5423663b589bb35be61225f"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac06ec1abf5423663b589bb35be61225f">fetchDefaultEventList</a> ()</td></tr>
@@ -457,20 +458,34 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad38be4e51743c79c9f649809f7951fd6" name="ad38be4e51743c79c9f649809f7951fd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad38be4e51743c79c9f649809f7951fd6">&#9670;&#160;</a></span>fetchElementsFromFile()</h2>
+<a id="a9fd7b92b121d1a9a6133a770e8f66e8d" name="a9fd7b92b121d1a9a6133a770e8f66e8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fd7b92b121d1a9a6133a770e8f66e8d">&#9670;&#160;</a></span>fetchEventsFromFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/dcd/structElement.html">Element</a> * fetchElementsFromFile </td>
+          <td class="memname"><a class="el" href="../../d0/dcd/structElement.html">Element</a> * fetchEventsFromFile </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span></td><td>)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>eventType</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>fetches a list of <a class="el" href="../../d0/dcd/structElement.html">Element</a> from a file (if filepath is NULL from a hardcoded list) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>the file path (either relative or absolute), set to NULL to get the default <a class="el" href="../../d0/dcd/structElement.html">Element</a> list </td></tr>
+    <tr><td class="paramname">eventType</td><td>the event type, accepted valued are ["Event", "Action"], if no value is specified, or is invalid, will return Event types. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a list of <a class="el" href="../../d0/dcd/structElement.html">Element</a> parsed from said file. </dd></dl>
 
 </div>
 </div>

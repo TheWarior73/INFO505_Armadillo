@@ -40,7 +40,7 @@ Element *searchElementName(const Element *liste, const char *nameElement);
 Element *searchElementIndex(const Element *list, const int index);
 Element *drawRandomElement(const Element *liste);
 
-Element *fetchElementsFromFile(const char *filepath);
+Element *fetchEventsFromFile(const char *filepath, char *eventType);
 int parseChangeType(const char *typeStr);
 Element *fetchDefaultEventList();
 Element *fetchDefaultActionList();

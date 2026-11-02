@@ -20,7 +20,7 @@ var element_8h =
     [ "drawRandomElement", "d4/dfe/element_8h.html#a7194b0dd27266e287a146056d74b71f5", null ],
     [ "fetchDefaultActionList", "d4/dfe/element_8h.html#acdb05c3d9ca7887d5251baeb2e663342", null ],
     [ "fetchDefaultEventList", "d4/dfe/element_8h.html#ac06ec1abf5423663b589bb35be61225f", null ],
-    [ "fetchElementsFromFile", "d4/dfe/element_8h.html#ad38be4e51743c79c9f649809f7951fd6", null ],
+    [ "fetchEventsFromFile", "d4/dfe/element_8h.html#a9fd7b92b121d1a9a6133a770e8f66e8d", null ],
     [ "freeListElements", "d4/dfe/element_8h.html#acf0007586a333c71ca4373bccba9b149", null ],
     [ "parseChangeType", "d4/dfe/element_8h.html#a487979df41fc91ce5f47eab0797d5291", null ],
     [ "searchElementIndex", "d4/dfe/element_8h.html#a792a32ce07d688bb2c1cacc474cfa2d7", null ],
