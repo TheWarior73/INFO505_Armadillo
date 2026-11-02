@@ -1,0 +1,168 @@
+{
+	"Events": [
+		{
+			"name": "Nothing :3 (trust)",
+			"type": "Event",
+			"change_type": "ELEMENT_CHANGE_NONE",
+			"target_field": "quantity",
+			"value": 0,
+		},
+
+		// ----------------------------------------------
+		// POPULATION
+
+		{
+			"name": "Flood",
+			"type": "Event",
+			"change_type": "ELEMENT_CHANGE_POPULATION",
+			"target_field": "population",
+			"value": -500,
+		},
+
+		// ----------------------------------------------
+		// RADIUS
+
+		// Unused.
+
+		// ----------------------------------------------
+		// WATER
+
+		{
+			"name": "Drought",
+			"type": "Event",
+			"change_type": "ELEMENT_CHANGE_WATER",
+			"target_field": "quantity",
+			"value": -500,
+		},
+		{
+			"name": "HeavyRainfall",
+			"type": "Event",
+			"change_type": "ELEMENT_CHANGE_WATER",
+			"target_field": "quantity",
+			"value": 500,
+		},
+
+		// ----------------------------------------------
+		// MINERALS
+
+		// ----------------------------------------------
+		// WOOD
+
+		{
+			"name": "ForestFire",
+			"type": "Event",
+			"change_type": "ELEMENT_CHANGE_WOOD",
+			"target_field": "quantity",
+			"value": -500,
+		},
+
+		// ----------------------------------------------
+		// HABILITY
+
+		{
+			"name": "ColdWave",
+			"type": "Event",
+			"change_type": "ELEMENT_CHANGE_HABITABILITY",
+			"target_field": "quantity",
+			"value": -10,
+		},
+
+		{
+			"name": "HeatWave",
+			"type": "Event",
+			"change_type": "ELEMENT_CHANGE_HABITABILITY",
+			"target_field": "quantity",
+			"value": -20,
+		},
+
+		{
+			"name": "SeaLevelRise",
+			"type": "Event",
+			"change_type": "ELEMENT_CHANGE_HABITABILITY",
+			"target_field": "quantity",
+			"value": -10,
+		},
+	],
+	"Actions": [
+		// ----------------------------------------------
+		// POPULATION
+		{
+			"name": "UrbanExpansion",
+			"type": "Action",
+			"change_type": "ELEMENT_CHANGE_POPULATION",
+			"target_field": "quantity",
+			"value": 500,
+		},
+
+		// ----------------------------------------------
+		// RADIUS
+
+		// Unused
+
+		// ----------------------------------------------
+		// WATER
+
+		{
+			"name": "Irrigation",
+			"type": "Action",
+			"change_type": "ELEMENT_CHANGE_WATER",
+			"target_field": "quantity",
+			"value": 500,
+		},
+		{
+			"name": "Desaliination",
+			"type": "Action",
+			"change_type": "ELEMENT_CHANGE_WATER",
+			"target_field": "quantity",
+			"value": 500,
+		},
+
+		// ----------------------------------------------
+		// MINERALS
+
+		{
+			"name": "MineralExtraction",
+			"type": "Action",
+			"change_type": "ELEMENT_CHANGE_MINERALS",
+			"target_field": "quantity",
+			"value": -500,
+		},
+
+		// ----------------------------------------------
+		// WOOD
+
+		{
+			"name": "Reforestation",
+			"type": "Action",
+			"change_type": "ELEMENT_CHANGE_WOOD",
+			"target_field": "quantity",
+			"value": 500,
+		},
+		{
+			"name": "LandRestoration",
+			"type": "Action",
+			"change_type": "ELEMENT_CHANGE_WOOD",
+			"target_field": "quantity",
+			"value": 500,
+		},
+
+		// ----------------------------------------------
+		// HABITABILITY
+
+		{
+			"name": "EmissionReduction",
+			"type": "Action",
+			"change_type": "ELEMENT_CHANGE_HABITABILITY",
+			"target_field": "quantity",
+			"value": 10,
+		},
+		{
+			"name": "ClimateAdaptation",
+			"type": "Action",
+			"change_type": "ELEMENT_CHANGE_HABITABILITY",
+			"target_field": "quantity",
+			"value": 10,
+		},
+	],
+}
+
