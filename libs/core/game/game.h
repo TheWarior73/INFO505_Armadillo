@@ -28,4 +28,12 @@ void runFullGame();
 void gameTurn(Planet *p, Element *event, Element *action);
 Planet *initPlanet();
 
+int changePopulation(Planet *planet, const Element *element);
+int changeRadius(Planet *planet, const Element *element);
+int changeResource(Planet *planet, const Element *element, PlanetResource resource);
+int changeWater(Planet *planet, const Element *element);
+int changeMinerals(Planet *planet, const Element *element);
+int changeWood(Planet *planet, const Element *element);
+int changeHabitability(Planet *planet, const Element *element);
+
 #endif

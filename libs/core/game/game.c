@@ -6,48 +6,123 @@
 #include <stdlib.h>
 #include <string.h>
 
-static int applyElementChange(Planet *planet, const Element *element)
-{
-	if (planet == NULL || element == NULL)
-	{
-		return 0;
-	}
+typedef int (*ElementChangeHandler)(Planet *, const Element *);
 
-	switch (element->changeTarget)
-	{
-	case ELEMENT_CHANGE_POPULATION:
-		return planetChangePopulation(planet, element->change.population);
-	case ELEMENT_CHANGE_RADIUS:
-	{
-		double newRadius = planet->radiusKm + element->change.radiusKm;
-		if (!isfinite(newRadius) || newRadius < MIN_PLANET_RADIUS || newRadius > MAX_PLANET_RADIUS)
-		{
-			return 0;
-		}
-		planet->radiusKm = newRadius;
-		return 1;
-	}
-	case ELEMENT_CHANGE_WATER:
-		return planetChangeResource(planet, PLANET_WATER, element->change.quantity);
-	case ELEMENT_CHANGE_MINERALS:
-		return planetChangeResource(planet, PLANET_MINERALS, element->change.quantity);
-	case ELEMENT_CHANGE_WOOD:
-		return planetChangeResource(planet, PLANET_WOOD, element->change.quantity);
-	case ELEMENT_CHANGE_HABITABILITY:
-	{
-		long newHabitability = (long)planet->habitability + element->change.quantity;
-		if (newHabitability < 0 || newHabitability > 100)
-		{
-			return 0;
-		}
-		return planetSetHabitability(planet, (int)newHabitability);
-	}
-	case ELEMENT_CHANGE_NONE:
-	default:
-		return 0;
-	}
+/**
+ * @param planet: Pointer to the planet whose population to change
+ * @param element: Pointer to the element containing the change value
+ * @return 1 if successful, 0 otherwise
+ * @brief Changes the population of the planet based on the element's change value.
+ */
+int changePopulation(Planet *planet, const Element *element)
+{
+	return planetChangePopulation(planet, element->change.population);
 }
 
+/**
+ * @param planet: Pointer to the planet whose radius to change
+ * @param element: Pointer to the element containing the change value
+ * @return 1 if successful, 0 otherwise
+ * @brief Changes the radius of the planet based on the element's change value.
+ */
+int changeRadius(Planet *planet, const Element *element)
+	{
+	double newRadius = planet->radiusKm + element->change.radiusKm;
+	if (!isfinite(newRadius) || newRadius < MIN_PLANET_RADIUS || newRadius > MAX_PLANET_RADIUS)
+	{
+		return 0;
+	}
+	planet->radiusKm = newRadius;
+	return 1;
+}
+
+/**
+ * @param planet: Pointer to the planet whose resource to change
+ * @param element: Pointer to the element containing the change value
+ * @param resource: The type of resource to change
+ * @return 1 if successful, 0 otherwise
+ * @brief Changes a specific resource of the planet based on the element's change value.
+ */
+int changeResource(Planet *planet, const Element *element, PlanetResource resource)
+{
+	return planetChangeResource(planet, resource, element->change.quantity);
+}
+
+/**
+ * @param planet: Pointer to the planet whose water to change
+ * @param element: Pointer to the element containing the change value
+ * @return 1 if successful, 0 otherwise
+ * @brief Changes the water resource of the planet based on the element's change value.
+ */
+int changeWater(Planet *planet, const Element *element)
+{
+	return changeResource(planet, element, PLANET_WATER);
+}
+
+/**
+ * @param planet: Pointer to the planet whose minerals to change
+ * @param element: Pointer to the element containing the change value
+ * @return 1 if successful, 0 otherwise
+ * @brief Changes the minerals resource of the planet based on the element's change value.
+ */
+int changeMinerals(Planet *planet, const Element *element)
+{
+	return changeResource(planet, element, PLANET_MINERALS);
+}
+
+/**
+ * @param planet: Pointer to the planet whose wood to change
+ * @param element: Pointer to the element containing the change value
+ * @return 1 if successful, 0 otherwise
+ * @brief Changes the wood resource of the planet based on the element's change value.
+ */
+int changeWood(Planet *planet, const Element *element)
+{
+	return changeResource(planet, element, PLANET_WOOD);
+}
+
+/**
+ * @param planet: Pointer to the planet whose habitability to change
+ * @param element: Pointer to the element containing the change value
+ * @return 1 if successful, 0 otherwise
+ * @brief Changes the habitability of the planet based on the element's change value.
+ */
+int changeHabitability(Planet *planet, const Element *element)
+{
+	long newHabitability = (long)planet->habitability + element->change.quantity;
+	if (newHabitability < 0 || newHabitability > 100)
+	{
+		return 0;
+	}
+	return planetSetHabitability(planet, (int)newHabitability);
+}
+
+static const ElementChangeHandler changeHandlers[] = {
+	[ELEMENT_CHANGE_POPULATION] = changePopulation,
+	[ELEMENT_CHANGE_RADIUS] = changeRadius,
+	[ELEMENT_CHANGE_WATER] = changeWater,
+	[ELEMENT_CHANGE_MINERALS] = changeMinerals,
+	[ELEMENT_CHANGE_WOOD] = changeWood,
+	[ELEMENT_CHANGE_HABITABILITY] = changeHabitability,
+};
+
+static int applyElementChange(Planet *planet, const Element *element)
+{
+	if (planet == NULL || element == NULL || element->changeTarget < ELEMENT_CHANGE_NONE ||
+		element->changeTarget > ELEMENT_CHANGE_HABITABILITY)
+	{
+		return 0;
+	}
+
+	ElementChangeHandler handler = changeHandlers[element->changeTarget];
+	return handler != NULL ? handler(planet, element) : 0;
+}
+
+/**
+ * @param planet: Pointer to the planet to check
+ * @return 1 if the planet has lost, 0 otherwise
+ * @brief Checks if the planet has lost based on its properties.
+ */
 static int planetHasLost(const Planet *planet)
 {
 	return planet->population < MIN_POPULATION_ALLOWED ||
@@ -57,6 +132,11 @@ static int planetHasLost(const Planet *planet)
 		   planet->habitability <= 0;
 }
 
+/**
+ * @param planet: Pointer to the planet to check
+ * @return 1 if the planet has won, 0 otherwise
+ * @brief Checks if the planet has won based on its properties.
+ */
 static int planetHasWon(const Planet *planet)
 {
 	return planet->population >= MAX_POPULATION_ALLOWED;
