@@ -36,7 +36,7 @@ static void test_fetch_wrong_filepath(void)
 static void test_fetch_correct_filepath_correct_type(void)
 {
 	// Assuming the test binary is run from the project root or src directory.
-	const char *filepath = "../data/climaticElements.json";
+	const char *filepath = "../data/climaticElements.jsonc";
 
 	// Valid file, Valid type: Event
 	Element *events = fetchEventsFromFile(filepath, "Event");
@@ -53,7 +53,7 @@ static void test_fetch_correct_filepath_correct_type(void)
 
 static void test_fetch_correct_filepath_incorrect_type(void)
 {
-	const char *filepath = "../data/climaticElements.json";
+	const char *filepath = "../data/climaticElements.jsonc";
 
 	// Valid file, Invalid type: should fail to find the array in JSON and return NULL
 	Element *result = fetchEventsFromFile(filepath, "NonExistentType");
