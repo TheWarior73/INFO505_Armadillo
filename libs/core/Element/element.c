@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern int is_verbose;
+
 /**
  * @param nameElement: Name of the element to create
  * @param nameType: Type of the element to create
