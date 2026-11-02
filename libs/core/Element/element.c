@@ -311,13 +311,16 @@ Element *fetchEventsFromFile(const char *filepath, char *eventType)
 	json_data[fileSize] = '\0';
 	fclose(f);
 
+	// Strips the json_data from any comments and extra whitespace
+	cJSON_Minify(json_data);
+
 	// Parsing the json
 	cJSON *root = cJSON_Parse(json_data);
 	free(json_data);
 
 	if (root == NULL)
 	{
-		fprintf(stderr, "[ERROR] fetchElementsFromFile: Could not parse JSON correctly\n");
+		fprintf(stderr, "[ERROR] fetchElementsFromFile: Could not parse JSON correctly before: %s\n", cJSON_GetErrorPtr());
 		return NULL;
 	}
 
