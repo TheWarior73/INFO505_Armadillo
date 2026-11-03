@@ -16,8 +16,14 @@
 ├── libs
 │   └── core
 │       ├── Element
+│       │   ├── cJSON.c   <-- External Lib
+│       │   ├── cJSON.h   <-- External Lib
 │       │   ├── element.c
 │       │   └── element.h
+│       ├── Game
+│       │   ├── game.c
+│       │   ├── game.h
+│       │   └── math.c
 │       ├── Planet
 │       │   ├── planet.c
 │       │   └── planet.h
@@ -37,3 +43,6 @@
 2. `$ make`
 3. `$ ./armadillo.game --game` to play, or `$ ./armadillo.game --debug` to run the tests
 
+## Credits
+
+- [DaveGamble's cJSON](https://github.com/davegamble/cjson) : Minimal Json parsing library in C.
