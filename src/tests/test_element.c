@@ -27,7 +27,7 @@ static void test_add_element_at_head(void)
 	addElement(&list, NULL, "type", ELEMENT_CHANGE_NONE, (ElementChangeValue){0});
 	assert_element(list, "first", "type-a");
 
-	displayElements(list);
+	displayElements(list, ELEMENT_DISPLAY_NAME_TYPE);
 
 	freeListElements(list);
 }
@@ -47,7 +47,7 @@ static void test_add_element_at_tail(void)
 	addElementTail(&list, "ignored", NULL, ELEMENT_CHANGE_NONE, (ElementChangeValue){0});
 	assert(list->next->next == NULL);
 
-	displayElements(list);
+	displayElements(list, ELEMENT_DISPLAY_NAME_TYPE);
 	freeListElements(list);
 }
 
@@ -75,7 +75,7 @@ static void test_delete_element(void)
 	addElementTail(&list, "middle", "type-b", ELEMENT_CHANGE_NONE, (ElementChangeValue){0});
 	addElementTail(&list, "last", "type-c", ELEMENT_CHANGE_NONE, (ElementChangeValue){0});
 
-	displayElements(list);
+	displayElements(list, ELEMENT_DISPLAY_NAME_TYPE);
 
 	deleteElement(&list, "middle");
 	assert_element(list, "first", "type-a");
@@ -92,7 +92,7 @@ static void test_delete_element(void)
 	deleteElement(&list, "missing");
 	deleteElement(NULL, "missing");
 
-	displayElements(list);
+	displayElements(list, ELEMENT_DISPLAY_NAME_TYPE);
 }
 
 static void test_search_elements(void)
@@ -112,7 +112,7 @@ static void test_search_elements(void)
 	assert(searchElementIndex(list, -1) == NULL);
 	assert(searchElementIndex(NULL, 0) == NULL);
 
-	displayElements(list);
+	displayElements(list, ELEMENT_DISPLAY_NAME_TYPE);
 	freeListElements(list);
 }
 
@@ -131,16 +131,16 @@ static void test_draw_random_element(void)
 		assert(drawn == list || drawn == list->next || drawn == list->next->next);
 	}
 
-	displayElements(list);
+	displayElements(list, ELEMENT_DISPLAY_NAME_TYPE);
 	freeListElements(list);
 }
 
 static void test_display_elements(void)
 {
 	Element *list = NULL;
-	displayElements(list);
+	displayElements(list, ELEMENT_DISPLAY_NAME_TYPE);
 	addElement(&list, "sample", "type", ELEMENT_CHANGE_NONE, (ElementChangeValue){0});
-	displayElements(list);
+	displayElements(list, ELEMENT_DISPLAY_NAME_TYPE);
 	freeListElements(list);
 	freeListElements(NULL);
 }

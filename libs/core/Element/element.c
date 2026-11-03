@@ -144,9 +144,10 @@ void deleteElement(Element **list, const char *nameElement)
 
 /**
  * @param list: element list pointer
+ * @param flags: an ElementDisplayFlags to choose output format.
  * @brief Displays all elements in the list
  */
-void displayElements(const Element *list)
+void displayElements(const Element *list, ElementDisplayFlags flags)
 {
 	if (list == NULL)
 	{
@@ -157,7 +158,33 @@ void displayElements(const Element *list)
 	const Element *current = list;
 	while (current != NULL)
 	{
-		printf("Element: %-30s Type: %s\n", current->nameElement, current->nameType);
+		switch (flags)
+		{
+			case ELEMENT_DISPLAY_MINIMAL: {
+				printf("%s\n", current->nameElement);
+				break;
+			}
+
+			case ELEMENT_DISPLAY_NAME_ONLY: {
+				printf("Name: %s\n", current->nameElement);
+				break;
+			}
+
+			case ELEMENT_DISPLAY_NAME_TYPE: {
+				printf("Name: %-40s Type: %s\n", current->nameElement, current->nameType);
+				break;
+			}
+
+			case ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY: {
+				printf("- %-40s %+d %s\n", current->nameElement, current->change.quantity, strOfElementChangeTarget(current->changeTarget));
+				break;
+			}
+
+			case ELEMENT_DISPLAY_ALL: {
+				printf("Name: %-40s Quantity: %d Type: %s\n", current->nameElement, current->change.quantity, current->nameType);
+				break;
+			}
+		}
 		current = current->next;
 	}
 }
@@ -202,6 +229,27 @@ Element *searchElementName(const Element *list, const char *nameElement)
 		current = current->next;
 	}
 	return NULL;
+}
+
+char *strOfElementChangeTarget(ElementChangeTarget target)
+{
+	switch (target)
+	{
+		case ELEMENT_CHANGE_POPULATION:
+			return "population";
+		case ELEMENT_CHANGE_RADIUS:
+			return "radius";
+		case ELEMENT_CHANGE_WATER:
+			return "water";
+		case ELEMENT_CHANGE_MINERALS:
+			return "minerals";
+		case ELEMENT_CHANGE_WOOD:
+			return "wood";
+		case ELEMENT_CHANGE_HABITABILITY:
+			return "habitability";
+		default:
+			return "None";
+	}
 }
 
 /**

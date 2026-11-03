@@ -196,9 +196,9 @@ void displayPlanet(const Planet *planet)
 	// TODO
 	// Display less often.
 	printf("\nActions:\n");
-	displayElements(planet->Actions);
+	displayElements(planet->Actions, ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY);
 	printf("\nEvents:\n");
-	displayElements(planet->Events);
+	displayElements(planet->Events, ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY);
 }
 
 /**
