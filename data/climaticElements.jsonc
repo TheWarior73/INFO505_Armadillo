@@ -12,11 +12,11 @@
     // POPULATION
 
     {
-      "name": "Flood",
+      "name": "Flash Flood",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_POPULATION",
       "target_field": "population",
-      "value": -500
+      "value": -5000
     },
 
     // ----------------------------------------------
@@ -35,11 +35,42 @@
       "value": -500
     },
     {
+      "name": "Severe Drought",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_WATER",
+      "target_field": "quantity",
+      "value": -5000
+    },
+    {
+      "name": "Very Severe Drought",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_WATER",
+      "target_field": "quantity",
+      "value": -50000
+    },
+
+    // ***
+
+    {
+      "name": "Light Drizzle",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_WATER",
+      "target_field": "quantity",
+      "value": 5
+    },
+    {
       "name": "Heavy Rainfall",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
       "value": 500
+    },
+    {
+      "name": "Phreatic Zone Found !",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_WATER",
+      "target_field": "quantity",
+      "value": 71500
     },
 
     // ----------------------------------------------
@@ -49,11 +80,25 @@
     // WOOD
 
     {
-      "name": "Forest Fire",
+      "name": "Small Forest Fire",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WOOD",
       "target_field": "quantity",
       "value": -500
+    },
+    {
+      "name": "National Forest Fire",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_WOOD",
+      "target_field": "quantity",
+      "value": -50000
+    },
+    {
+      "name": "Global Forest Fire",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_WOOD",
+      "target_field": "quantity",
+      "value": -500000
     },
 
     // ----------------------------------------------
@@ -86,12 +131,20 @@
   "Actions": [
     // ----------------------------------------------
     // POPULATION
+
     {
       "name": "Urban Expansion",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_POPULATION",
       "target_field": "quantity",
-      "value": 500
+      "value": 5000
+    },
+    {
+      "name": "Global Fertility Campaigns",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_POPULATION",
+      "target_field": "quantity",
+      "value": 50000
     },
 
     // ----------------------------------------------
@@ -162,6 +215,20 @@
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",
       "value": 10
+    },
+    {
+      "name": "Urban Revegetation",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_HABITABILITY",
+      "target_field": "quantity",
+      "value": 12
+    },
+    {
+      "name": "Reusable Energy Sources Investments",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_HABITABILITY",
+      "target_field": "quantity",
+      "value": 7
     }
   ]
 }
