@@ -14,11 +14,11 @@
 										   //
 #define MAX_DEFAULT_WATER 10000000		   // 10 Million MAX starting water
 #define MIN_WATER_ALLOWED 1				   // Bellow that threshold, the life becomes unsustainable regardless of conditions
-#define MAX_WATER_ALLOWED 1000000000	   // Will either be clamped or make the game consider the world flooded (loose condition) (too be decided) @TODO
+#define MAX_WATER_ALLOWED 1000000000	   // Will either be clamped or make the game consider the world flooded (loose condition) (too be decided) @todo
 										   //
 #define MAX_DEFAULT_WOOD 10000000		   // 10 Million MAX starting wood
 #define MIN_WOOD_ALLOWED 1				   // Bellow that threshold, the life becomes unsustainable regardless of conditions
-#define MAX_WOOD_ALLOWED 1000000000		   // Will either be clamped or make the game consider the tree mass extinct (loose condition) (to be decided) @TODO
+#define MAX_WOOD_ALLOWED 1000000000		   // Will either be clamped or make the game consider the tree mass extinct (loose condition) (to be decided) @todo
 										   //
 #define MAX_DEFAULT_MINERALS 10000000	   // 10 Million MAX starting minerals
 #define MIN_MINERALS_ALLOWED 1			   // Bellow that threshold, the life becomes unsustainable regardless of conditions

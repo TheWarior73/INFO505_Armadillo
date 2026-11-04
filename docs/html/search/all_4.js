@@ -10,8 +10,15 @@ var searchData=
   ['element_5fchange_5fradius_7',['ELEMENT_CHANGE_RADIUS',['../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5a5faa17151e99b338b073b60e4f2ae649',1,'element.h']]],
   ['element_5fchange_5fwater_8',['ELEMENT_CHANGE_WATER',['../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5af546c2857d23421dae80a76351313ffb',1,'element.h']]],
   ['element_5fchange_5fwood_9',['ELEMENT_CHANGE_WOOD',['../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5a5f2617266c9fd79938f52a731a8e2a55',1,'element.h']]],
-  ['elementchangetarget_10',['ElementChangeTarget',['../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5',1,'element.h']]],
-  ['elementchangevalue_11',['ElementChangeValue',['../d6/d57/unionElementChangeValue.html',1,'']]],
-  ['error_12',['error',['../df/d8b/structerror.html',1,'']]],
-  ['events_13',['Events',['../d0/d19/structPlanet.html#a55487ec2df4be51f52ba5030cf34f712',1,'Planet']]]
+  ['element_5fdisplay_5fall_10',['ELEMENT_DISPLAY_ALL',['../d4/dfe/element_8h.html#af678b7aa31a1b707d8f6cbdd7b0a3caca88933ab86b7fbd0f3aca7bba07aab02d',1,'element.h']]],
+  ['element_5fdisplay_5fminimal_11',['ELEMENT_DISPLAY_MINIMAL',['../d4/dfe/element_8h.html#af678b7aa31a1b707d8f6cbdd7b0a3cacafd25a67bc161856ca4853af2cf7e8190',1,'element.h']]],
+  ['element_5fdisplay_5fname_5fimpact_5fquantity_12',['ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY',['../d4/dfe/element_8h.html#af678b7aa31a1b707d8f6cbdd7b0a3caca0d1f26acfbb4260248fef0c0a1569495',1,'element.h']]],
+  ['element_5fdisplay_5fname_5fonly_13',['ELEMENT_DISPLAY_NAME_ONLY',['../d4/dfe/element_8h.html#af678b7aa31a1b707d8f6cbdd7b0a3caca96292a0a2312820dc4286f98f0b32a9f',1,'element.h']]],
+  ['element_5fdisplay_5fname_5ftype_14',['ELEMENT_DISPLAY_NAME_TYPE',['../d4/dfe/element_8h.html#af678b7aa31a1b707d8f6cbdd7b0a3caca9c7e0d215d6db80fa1928008e92b3bf1',1,'element.h']]],
+  ['elementchangehandler_15',['ElementChangeHandler',['../d1/dcb/game_8c.html#a183b9e88a636541ba4afbbf1b844e02f',1,'game.c']]],
+  ['elementchangetarget_16',['ElementChangeTarget',['../d4/dfe/element_8h.html#a5bb6bbc79983425bdee64eb43fd6fdb5',1,'element.h']]],
+  ['elementchangevalue_17',['ElementChangeValue',['../d6/d57/unionElementChangeValue.html',1,'']]],
+  ['elementdisplayflags_18',['ElementDisplayFlags',['../d4/dfe/element_8h.html#af678b7aa31a1b707d8f6cbdd7b0a3cac',1,'element.h']]],
+  ['error_19',['error',['../df/d8b/structerror.html',1,'']]],
+  ['events_20',['Events',['../d0/d19/structPlanet.html#a55487ec2df4be51f52ba5030cf34f712',1,'Planet']]]
 ];

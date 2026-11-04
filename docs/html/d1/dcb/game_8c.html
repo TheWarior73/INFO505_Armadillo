@@ -118,17 +118,272 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/dcb/game_8c
 <code>#include &lt;math.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a183b9e88a636541ba4afbbf1b844e02f" id="r_a183b9e88a636541ba4afbbf1b844e02f"><td class="memItemLeft">typedef int(*)&#160;</td><td class="memItemRight"><a class="el" href="#a183b9e88a636541ba4afbbf1b844e02f">ElementChangeHandler</a>(<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *)</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5a54c73cdd07022bc21aa0ad99425f87" id="r_a5a54c73cdd07022bc21aa0ad99425f87"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a5a54c73cdd07022bc21aa0ad99425f87">changePopulation</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element)</td></tr>
+<tr class="memdesc:a5a54c73cdd07022bc21aa0ad99425f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the population of the planet based on the element's change value.  <br /></td></tr>
+<tr class="memitem:aa324cc2cb5afd1d3f2c922aafcc2b3b0" id="r_aa324cc2cb5afd1d3f2c922aafcc2b3b0"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aa324cc2cb5afd1d3f2c922aafcc2b3b0">changeRadius</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element)</td></tr>
+<tr class="memdesc:aa324cc2cb5afd1d3f2c922aafcc2b3b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the radius of the planet based on the element's change value.  <br /></td></tr>
+<tr class="memitem:a942f2da3e9a8948f25e2e40c11b381ee" id="r_a942f2da3e9a8948f25e2e40c11b381ee"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a942f2da3e9a8948f25e2e40c11b381ee">changeResource</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element, <a class="el" href="../../da/d10/planet_8h.html#a9a7b91e9778c7de19a3c0d650c6d4760">PlanetResource</a> resource)</td></tr>
+<tr class="memdesc:a942f2da3e9a8948f25e2e40c11b381ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes a specific resource of the planet based on the element's change value.  <br /></td></tr>
+<tr class="memitem:a030ee95e557a6208e588f2720386e8be" id="r_a030ee95e557a6208e588f2720386e8be"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a030ee95e557a6208e588f2720386e8be">changeWater</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element)</td></tr>
+<tr class="memdesc:a030ee95e557a6208e588f2720386e8be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the water resource of the planet based on the element's change value.  <br /></td></tr>
+<tr class="memitem:aa37662bd8ec24ceddeafd603d7457831" id="r_aa37662bd8ec24ceddeafd603d7457831"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aa37662bd8ec24ceddeafd603d7457831">changeMinerals</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element)</td></tr>
+<tr class="memdesc:aa37662bd8ec24ceddeafd603d7457831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the minerals resource of the planet based on the element's change value.  <br /></td></tr>
+<tr class="memitem:ab0d8d507ac014fde4884bc41338d3c83" id="r_ab0d8d507ac014fde4884bc41338d3c83"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ab0d8d507ac014fde4884bc41338d3c83">changeWood</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element)</td></tr>
+<tr class="memdesc:ab0d8d507ac014fde4884bc41338d3c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the wood resource of the planet based on the element's change value.  <br /></td></tr>
+<tr class="memitem:a3a5c3c02f23f5ed04b36c00cbdde2fd8" id="r_a3a5c3c02f23f5ed04b36c00cbdde2fd8"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a3a5c3c02f23f5ed04b36c00cbdde2fd8">changeHabitability</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element)</td></tr>
+<tr class="memdesc:a3a5c3c02f23f5ed04b36c00cbdde2fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the habitability of the planet based on the element's change value.  <br /></td></tr>
 <tr class="memitem:af09de15339c516b024ba143015438291" id="r_af09de15339c516b024ba143015438291"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af09de15339c516b024ba143015438291">runFullGame</a> ()</td></tr>
 <tr class="memdesc:af09de15339c516b024ba143015438291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the full game, turn by turn, until win condition or game over is reached.  <br /></td></tr>
 <tr class="memitem:a6cd6fd0dec88a68d64ac3a55bde0059e" id="r_a6cd6fd0dec88a68d64ac3a55bde0059e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6cd6fd0dec88a68d64ac3a55bde0059e">gameTurn</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *p, <a class="el" href="../../d0/dcd/structElement.html">Element</a> *event, <a class="el" href="../../d0/dcd/structElement.html">Element</a> *action)</td></tr>
 <tr class="memitem:ac2f33720d246b4eb5b1e2abb71ab9a09" id="r_ac2f33720d246b4eb5b1e2abb71ab9a09"><td class="memItemLeft"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac2f33720d246b4eb5b1e2abb71ab9a09">initPlanet</a> ()</td></tr>
 <tr class="memdesc:ac2f33720d246b4eb5b1e2abb71ab9a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a planetwith random amounts of ressources, within playable parameters.  <br /></td></tr>
 </table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a id="a183b9e88a636541ba4afbbf1b844e02f" name="a183b9e88a636541ba4afbbf1b844e02f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a183b9e88a636541ba4afbbf1b844e02f">&#9670;&#160;</a></span>ElementChangeHandler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int(*) ElementChangeHandler(<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a3a5c3c02f23f5ed04b36c00cbdde2fd8" name="a3a5c3c02f23f5ed04b36c00cbdde2fd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a5c3c02f23f5ed04b36c00cbdde2fd8">&#9670;&#160;</a></span>changeHabitability()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int changeHabitability </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>planet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>element</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes the habitability of the planet based on the element's change value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planet</td><td>Pointer to the planet whose habitability to change </td></tr>
+    <tr><td class="paramname">element</td><td>Pointer to the element containing the change value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="aa37662bd8ec24ceddeafd603d7457831" name="aa37662bd8ec24ceddeafd603d7457831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa37662bd8ec24ceddeafd603d7457831">&#9670;&#160;</a></span>changeMinerals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int changeMinerals </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>planet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>element</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes the minerals resource of the planet based on the element's change value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planet</td><td>Pointer to the planet whose minerals to change </td></tr>
+    <tr><td class="paramname">element</td><td>Pointer to the element containing the change value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a5a54c73cdd07022bc21aa0ad99425f87" name="a5a54c73cdd07022bc21aa0ad99425f87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a54c73cdd07022bc21aa0ad99425f87">&#9670;&#160;</a></span>changePopulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int changePopulation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>planet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>element</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes the population of the planet based on the element's change value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planet</td><td>Pointer to the planet whose population to change </td></tr>
+    <tr><td class="paramname">element</td><td>Pointer to the element containing the change value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="aa324cc2cb5afd1d3f2c922aafcc2b3b0" name="aa324cc2cb5afd1d3f2c922aafcc2b3b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa324cc2cb5afd1d3f2c922aafcc2b3b0">&#9670;&#160;</a></span>changeRadius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int changeRadius </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>planet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>element</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes the radius of the planet based on the element's change value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planet</td><td>Pointer to the planet whose radius to change </td></tr>
+    <tr><td class="paramname">element</td><td>Pointer to the element containing the change value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a942f2da3e9a8948f25e2e40c11b381ee" name="a942f2da3e9a8948f25e2e40c11b381ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a942f2da3e9a8948f25e2e40c11b381ee">&#9670;&#160;</a></span>changeResource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int changeResource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>planet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>element</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d10/planet_8h.html#a9a7b91e9778c7de19a3c0d650c6d4760">PlanetResource</a></td>          <td class="paramname"><span class="paramname"><em>resource</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes a specific resource of the planet based on the element's change value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planet</td><td>Pointer to the planet whose resource to change </td></tr>
+    <tr><td class="paramname">element</td><td>Pointer to the element containing the change value </td></tr>
+    <tr><td class="paramname">resource</td><td>The type of resource to change </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a030ee95e557a6208e588f2720386e8be" name="a030ee95e557a6208e588f2720386e8be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a030ee95e557a6208e588f2720386e8be">&#9670;&#160;</a></span>changeWater()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int changeWater </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>planet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>element</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes the water resource of the planet based on the element's change value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planet</td><td>Pointer to the planet whose water to change </td></tr>
+    <tr><td class="paramname">element</td><td>Pointer to the element containing the change value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ab0d8d507ac014fde4884bc41338d3c83" name="ab0d8d507ac014fde4884bc41338d3c83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0d8d507ac014fde4884bc41338d3c83">&#9670;&#160;</a></span>changeWood()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int changeWood </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>planet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>element</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes the wood resource of the planet based on the element's change value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planet</td><td>Pointer to the planet whose wood to change </td></tr>
+    <tr><td class="paramname">element</td><td>Pointer to the element containing the change value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise </dd></dl>
+
+</div>
+</div>
 <a id="a6cd6fd0dec88a68d64ac3a55bde0059e" name="a6cd6fd0dec88a68d64ac3a55bde0059e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6cd6fd0dec88a68d64ac3a55bde0059e">&#9670;&#160;</a></span>gameTurn()</h2>
 

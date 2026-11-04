@@ -1,14 +1,31 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+/**
+ * @brief The Target of the element quantity modification
+ */
 typedef enum
 {
+
+	/** @brief No change */
 	ELEMENT_CHANGE_NONE,
+
+	/** @brief Population Modification */
 	ELEMENT_CHANGE_POPULATION,
+
+	/** @brief Radius Modification */
 	ELEMENT_CHANGE_RADIUS,
+
+	/** @brief Water Modification */
 	ELEMENT_CHANGE_WATER,
+
+	/** @brief Minerals Modification */
 	ELEMENT_CHANGE_MINERALS,
+
+	/** @brief Wood Modification */
 	ELEMENT_CHANGE_WOOD,
+
+	/** @brief Habitability Modification */
 	ELEMENT_CHANGE_HABITABILITY
 } ElementChangeTarget;
 
@@ -17,13 +34,26 @@ typedef enum
  */
 typedef enum
 {
-	ELEMENT_DISPLAY_MINIMAL,			  // Format -> ElementName
-	ELEMENT_DISPLAY_NAME_ONLY,			  // Format -> Name: ElementName
-	ELEMENT_DISPLAY_NAME_TYPE,			  // Format -> Name: ElementName	Type: ElementType
-	ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY, // Format -> Name: ElementName	(+ | -)Quantity ElementChangeTarget
-	ELEMENT_DISPLAY_ALL,				  // Format -> Name: ElementName	(-)?Quantity ElementChangeTarget		Type: ElementType
+
+	/** @brief Format -> ElementName */
+	ELEMENT_DISPLAY_MINIMAL,
+
+	/** @brief Format -> Name: ElementName */
+	ELEMENT_DISPLAY_NAME_ONLY,
+
+	/** @brief Format -> Name: ElementName	Type: ElementType */
+	ELEMENT_DISPLAY_NAME_TYPE,
+
+	/** @brief Format -> Name: ElementName	(+ | -)Quantity ElementChangeTarget */
+	ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY,
+
+	/** @brief Format -> Name: ElementName	(-)?Quantity ElementChangeTarget		Type: ElementType */
+	ELEMENT_DISPLAY_ALL,
 } ElementDisplayFlags;
 
+/**
+ * @brief Holds a change value depending on the element change target
+ */
 typedef union
 {
 	long population;
@@ -31,13 +61,24 @@ typedef union
 	int quantity;
 } ElementChangeValue;
 
+/**
+ * @brief Represents an Element
+ */
 typedef struct Element
 {
+	/** the name of the Element*/
 	char *nameElement;
+
+	/** The Type of the Element accepted values are [Action, Event] */
 	char *nameType;
+
+	/** The change Target of the Element, what value will be affected by the Element if used (ex: population, habitability, ...) */
 	ElementChangeTarget changeTarget;
+
+	/** The change value applied to the value field Targeted (ex: wood, water, ...) */
 	ElementChangeValue change;
 
+	/** the next Element in the list */
 	struct Element *next;
 } Element;
 

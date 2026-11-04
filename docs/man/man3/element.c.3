@@ -1,4 +1,4 @@
-.TH "libs/core/Element/element.c" 3 "Mon Nov 2 2026 15:11:58" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/Element/element.c" 3 "Wed Nov 4 2026 01:40:10" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -37,7 +37,7 @@ libs/core/Element/element.c
 .br
 .RI "Deletes first element with the given name from the list\&. "
 .ti -1c
-.RI "void \fBdisplayElements\fP (const \fBElement\fP *list)"
+.RI "void \fBdisplayElements\fP (const \fBElement\fP *list, \fBElementDisplayFlags\fP flags)"
 .br
 .RI "Displays all elements in the list\&. "
 .ti -1c
@@ -48,6 +48,9 @@ libs/core/Element/element.c
 .RI "\fBElement\fP * \fBsearchElementName\fP (const \fBElement\fP *list, const char *nameElement)"
 .br
 .RI "Searches for an element with the given name in the list\&. "
+.ti -1c
+.RI "char * \fBstrOfElementChangeTarget\fP (\fBElementChangeTarget\fP target)"
+.br
 .ti -1c
 .RI "\fBElement\fP * \fBsearchElementIndex\fP (const \fBElement\fP *list, const int index)"
 .br
@@ -67,9 +70,19 @@ libs/core/Element/element.c
 .ti -1c
 .RI "\fBElement\fP * \fBfetchDefaultEventList\fP ()"
 .br
+.RI "Returns a default Event list\&. "
 .ti -1c
 .RI "\fBElement\fP * \fBfetchDefaultActionList\fP ()"
 .br
+.RI "Returns a default action list\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int \fBis_verbose\fP"
+.br
+.RI "Defines wether the output should be verbose or not\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
@@ -142,7 +155,7 @@ Deletes first element with the given name from the list\&.
 .RE
 .PP
 
-.SS "void displayElements (const \fBElement\fP * list)"
+.SS "void displayElements (const \fBElement\fP * list, \fBElementDisplayFlags\fP flags)"
 
 .PP
 Displays all elements in the list\&. 
@@ -150,6 +163,16 @@ Displays all elements in the list\&.
 \fBParameters\fP
 .RS 4
 \fIlist\fP element list pointer 
+.br
+\fIflags\fP an \fBElementDisplayFlags\fP to choose output format\&.
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Test ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY with other change union types(that uses something else than quantity\&.) 
+
+.PP
+Test ELEMENT_DISPLAY_ALL with other change union types(that uses something else than quantity\&.) 
 .RE
 .PP
 
@@ -171,8 +194,12 @@ Pointer to the drawn element or NULL if the list is empty
 
 .SS "\fBElement\fP * fetchDefaultActionList ()"
 
+.PP
+Returns a default action list\&. 
 .SS "\fBElement\fP * fetchDefaultEventList ()"
 
+.PP
+Returns a default Event list\&. 
 .SS "\fBElement\fP * fetchEventsFromFile (const char * filepath, char * eventType)"
 
 .PP
@@ -242,6 +269,14 @@ Pointer to the found element or NULL if not found
 .RE
 .PP
 
+.SS "char * strOfElementChangeTarget (\fBElementChangeTarget\fP target)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "int is_verbose\fR [extern]\fP"
+
+.PP
+Defines wether the output should be verbose or not\&. 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Armadillo from the source code\&.

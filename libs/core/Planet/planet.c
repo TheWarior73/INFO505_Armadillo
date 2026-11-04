@@ -178,6 +178,7 @@ int planetSetHabitability(Planet *planet, int habitability)
 /**
  * @param planet: Pointer to the planet to display
  * @brief Displays the information of a planet
+ * @todo Display Action & Event List on demand instead of each call.
  */
 void displayPlanet(const Planet *planet)
 {
@@ -194,7 +195,6 @@ void displayPlanet(const Planet *planet)
 	printf("Habitability: %d/100\n", planet->habitability);
 
 	// TODO
-	// Display less often.
 	printf("\nActions:\n");
 	displayElements(planet->Actions, ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY);
 	printf("\nEvents:\n");

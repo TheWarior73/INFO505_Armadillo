@@ -119,11 +119,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/dfe/element
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:ElementChangeValue" id="r_ElementChangeValue"><td class="memItemLeft">union &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d57/unionElementChangeValue.html">ElementChangeValue</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds a change value depending on the element change target.  <a href="../../d6/d57/unionElementChangeValue.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Element" id="r_Element"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d0/dcd/structElement.html">Element</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an <a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a>.  <a href="../../d0/dcd/structElement.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a4d9e4171e0ee83fe777219f894992340" id="r_a4d9e4171e0ee83fe777219f894992340"><td class="memItemLeft">typedef struct Element&#160;</td><td class="memItemRight"><a class="el" href="#a4d9e4171e0ee83fe777219f894992340">Element</a></td></tr>
+<tr class="memdesc:a4d9e4171e0ee83fe777219f894992340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an <a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a>.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -138,6 +141,17 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#a5bb6bbc79983425bdee64eb43fd6fdb5ae9564e15e0ad53c9fe7a6f2a6d234b25">ELEMENT_CHANGE_HABITABILITY</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a5bb6bbc79983425bdee64eb43fd6fdb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Target of the element quantity modification.  <a href="#a5bb6bbc79983425bdee64eb43fd6fdb5">More...</a><br /></td></tr>
+<tr class="memitem:af678b7aa31a1b707d8f6cbdd7b0a3cac" id="r_af678b7aa31a1b707d8f6cbdd7b0a3cac"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#af678b7aa31a1b707d8f6cbdd7b0a3cac">ElementDisplayFlags</a> { <br />
+&#160;&#160;<a class="el" href="#af678b7aa31a1b707d8f6cbdd7b0a3cacafd25a67bc161856ca4853af2cf7e8190">ELEMENT_DISPLAY_MINIMAL</a>
+, <a class="el" href="#af678b7aa31a1b707d8f6cbdd7b0a3caca96292a0a2312820dc4286f98f0b32a9f">ELEMENT_DISPLAY_NAME_ONLY</a>
+, <a class="el" href="#af678b7aa31a1b707d8f6cbdd7b0a3caca9c7e0d215d6db80fa1928008e92b3bf1">ELEMENT_DISPLAY_NAME_TYPE</a>
+, <a class="el" href="#af678b7aa31a1b707d8f6cbdd7b0a3caca0d1f26acfbb4260248fef0c0a1569495">ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY</a>
+, <br />
+&#160;&#160;<a class="el" href="#af678b7aa31a1b707d8f6cbdd7b0a3caca88933ab86b7fbd0f3aca7bba07aab02d">ELEMENT_DISPLAY_ALL</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:af678b7aa31a1b707d8f6cbdd7b0a3cac"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a> display Flags used in the display <a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a>.  <a href="#af678b7aa31a1b707d8f6cbdd7b0a3cac">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -149,22 +163,25 @@ Functions</h2></td></tr>
 <tr class="memdesc:a7383c635018d3ef25c2cd2221ffa9160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an element to the end of the list.  <br /></td></tr>
 <tr class="memitem:ab7632b5feea61d9b95ccd6a299f47095" id="r_ab7632b5feea61d9b95ccd6a299f47095"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab7632b5feea61d9b95ccd6a299f47095">deleteElement</a> (<a class="el" href="../../d0/dcd/structElement.html">Element</a> **liste, const char *nameElement)</td></tr>
 <tr class="memdesc:ab7632b5feea61d9b95ccd6a299f47095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes first element with the given name from the list.  <br /></td></tr>
-<tr class="memitem:a73659a3fc94c169c7af8cb3042779e72" id="r_a73659a3fc94c169c7af8cb3042779e72"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a73659a3fc94c169c7af8cb3042779e72">displayElements</a> (const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *liste)</td></tr>
-<tr class="memdesc:a73659a3fc94c169c7af8cb3042779e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays all elements in the list.  <br /></td></tr>
+<tr class="memitem:a88c71ff476c9801561037eef59980abe" id="r_a88c71ff476c9801561037eef59980abe"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a88c71ff476c9801561037eef59980abe">displayElements</a> (const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *liste, <a class="el" href="#af678b7aa31a1b707d8f6cbdd7b0a3cac">ElementDisplayFlags</a> flags)</td></tr>
+<tr class="memdesc:a88c71ff476c9801561037eef59980abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays all elements in the list.  <br /></td></tr>
 <tr class="memitem:acf0007586a333c71ca4373bccba9b149" id="r_acf0007586a333c71ca4373bccba9b149"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acf0007586a333c71ca4373bccba9b149">freeListElements</a> (<a class="el" href="../../d0/dcd/structElement.html">Element</a> *liste)</td></tr>
 <tr class="memdesc:acf0007586a333c71ca4373bccba9b149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all elements in the list.  <br /></td></tr>
 <tr class="memitem:ab116109f5eb68b74fe8a3296f5b9d3f1" id="r_ab116109f5eb68b74fe8a3296f5b9d3f1"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ab116109f5eb68b74fe8a3296f5b9d3f1">searchElementName</a> (const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *liste, const char *nameElement)</td></tr>
 <tr class="memdesc:ab116109f5eb68b74fe8a3296f5b9d3f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for an element with the given name in the list.  <br /></td></tr>
+<tr class="memitem:aa686497e35274ed79776ed261edf5cfd" id="r_aa686497e35274ed79776ed261edf5cfd"><td class="memItemLeft">char *&#160;</td><td class="memItemRight"><a class="el" href="#aa686497e35274ed79776ed261edf5cfd">strOfElementChangeTarget</a> (<a class="el" href="#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a> target)</td></tr>
 <tr class="memitem:a792a32ce07d688bb2c1cacc474cfa2d7" id="r_a792a32ce07d688bb2c1cacc474cfa2d7"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a792a32ce07d688bb2c1cacc474cfa2d7">searchElementIndex</a> (const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *list, const int index)</td></tr>
 <tr class="memdesc:a792a32ce07d688bb2c1cacc474cfa2d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for an element at the given index in the list.  <br /></td></tr>
 <tr class="memitem:a7194b0dd27266e287a146056d74b71f5" id="r_a7194b0dd27266e287a146056d74b71f5"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a7194b0dd27266e287a146056d74b71f5">drawRandomElement</a> (const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *liste)</td></tr>
 <tr class="memdesc:a7194b0dd27266e287a146056d74b71f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a random element from the list.  <br /></td></tr>
 <tr class="memitem:a9fd7b92b121d1a9a6133a770e8f66e8d" id="r_a9fd7b92b121d1a9a6133a770e8f66e8d"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a9fd7b92b121d1a9a6133a770e8f66e8d">fetchEventsFromFile</a> (const char *filepath, char *eventType)</td></tr>
-<tr class="memdesc:a9fd7b92b121d1a9a6133a770e8f66e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">fetches a list of <a class="el" href="../../d0/dcd/structElement.html">Element</a> from a file (if filepath is NULL from a hardcoded list)  <br /></td></tr>
+<tr class="memdesc:a9fd7b92b121d1a9a6133a770e8f66e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">fetches a list of <a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a> from a file (if filepath is NULL from a hardcoded list)  <br /></td></tr>
 <tr class="memitem:a487979df41fc91ce5f47eab0797d5291" id="r_a487979df41fc91ce5f47eab0797d5291"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a487979df41fc91ce5f47eab0797d5291">parseChangeType</a> (const char *typeStr)</td></tr>
-<tr class="memdesc:a487979df41fc91ce5f47eab0797d5291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the <a class="el" href="#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a> from a string.  <br /></td></tr>
+<tr class="memdesc:a487979df41fc91ce5f47eab0797d5291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the <a class="el" href="#a5bb6bbc79983425bdee64eb43fd6fdb5" title="The Target of the element quantity modification.">ElementChangeTarget</a> from a string.  <br /></td></tr>
 <tr class="memitem:ac06ec1abf5423663b589bb35be61225f" id="r_ac06ec1abf5423663b589bb35be61225f"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac06ec1abf5423663b589bb35be61225f">fetchDefaultEventList</a> ()</td></tr>
+<tr class="memdesc:ac06ec1abf5423663b589bb35be61225f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a default Event list.  <br /></td></tr>
 <tr class="memitem:acdb05c3d9ca7887d5251baeb2e663342" id="r_acdb05c3d9ca7887d5251baeb2e663342"><td class="memItemLeft"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *&#160;</td><td class="memItemRight"><a class="el" href="#acdb05c3d9ca7887d5251baeb2e663342">fetchDefaultActionList</a> ()</td></tr>
+<tr class="memdesc:acdb05c3d9ca7887d5251baeb2e663342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a default action list.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="a4d9e4171e0ee83fe777219f894992340" name="a4d9e4171e0ee83fe777219f894992340"></a>
@@ -178,6 +195,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Represents an <a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a>. </p>
 
 </div>
 </div>
@@ -193,14 +212,51 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The Target of the element quantity modification. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5acbcc806980cc877b68b7e01e4360b688" name="a5bb6bbc79983425bdee64eb43fd6fdb5acbcc806980cc877b68b7e01e4360b688"></a>ELEMENT_CHANGE_NONE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5a021a1a2411591d9806d80ecd9c5188ca" name="a5bb6bbc79983425bdee64eb43fd6fdb5a021a1a2411591d9806d80ecd9c5188ca"></a>ELEMENT_CHANGE_POPULATION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5a5faa17151e99b338b073b60e4f2ae649" name="a5bb6bbc79983425bdee64eb43fd6fdb5a5faa17151e99b338b073b60e4f2ae649"></a>ELEMENT_CHANGE_RADIUS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5af546c2857d23421dae80a76351313ffb" name="a5bb6bbc79983425bdee64eb43fd6fdb5af546c2857d23421dae80a76351313ffb"></a>ELEMENT_CHANGE_WATER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5a116b987644d883a98c02ac439dca63d0" name="a5bb6bbc79983425bdee64eb43fd6fdb5a116b987644d883a98c02ac439dca63d0"></a>ELEMENT_CHANGE_MINERALS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5a5f2617266c9fd79938f52a731a8e2a55" name="a5bb6bbc79983425bdee64eb43fd6fdb5a5f2617266c9fd79938f52a731a8e2a55"></a>ELEMENT_CHANGE_WOOD&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5ae9564e15e0ad53c9fe7a6f2a6d234b25" name="a5bb6bbc79983425bdee64eb43fd6fdb5ae9564e15e0ad53c9fe7a6f2a6d234b25"></a>ELEMENT_CHANGE_HABITABILITY&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5acbcc806980cc877b68b7e01e4360b688" name="a5bb6bbc79983425bdee64eb43fd6fdb5acbcc806980cc877b68b7e01e4360b688"></a>ELEMENT_CHANGE_NONE&#160;</td><td class="fielddoc"><p>No change. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5a021a1a2411591d9806d80ecd9c5188ca" name="a5bb6bbc79983425bdee64eb43fd6fdb5a021a1a2411591d9806d80ecd9c5188ca"></a>ELEMENT_CHANGE_POPULATION&#160;</td><td class="fielddoc"><p>Population Modification. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5a5faa17151e99b338b073b60e4f2ae649" name="a5bb6bbc79983425bdee64eb43fd6fdb5a5faa17151e99b338b073b60e4f2ae649"></a>ELEMENT_CHANGE_RADIUS&#160;</td><td class="fielddoc"><p>Radius Modification. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5af546c2857d23421dae80a76351313ffb" name="a5bb6bbc79983425bdee64eb43fd6fdb5af546c2857d23421dae80a76351313ffb"></a>ELEMENT_CHANGE_WATER&#160;</td><td class="fielddoc"><p>Water Modification. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5a116b987644d883a98c02ac439dca63d0" name="a5bb6bbc79983425bdee64eb43fd6fdb5a116b987644d883a98c02ac439dca63d0"></a>ELEMENT_CHANGE_MINERALS&#160;</td><td class="fielddoc"><p>Minerals Modification. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5a5f2617266c9fd79938f52a731a8e2a55" name="a5bb6bbc79983425bdee64eb43fd6fdb5a5f2617266c9fd79938f52a731a8e2a55"></a>ELEMENT_CHANGE_WOOD&#160;</td><td class="fielddoc"><p>Wood Modification. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5bb6bbc79983425bdee64eb43fd6fdb5ae9564e15e0ad53c9fe7a6f2a6d234b25" name="a5bb6bbc79983425bdee64eb43fd6fdb5ae9564e15e0ad53c9fe7a6f2a6d234b25"></a>ELEMENT_CHANGE_HABITABILITY&#160;</td><td class="fielddoc"><p>Habitability Modification. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="af678b7aa31a1b707d8f6cbdd7b0a3cac" name="af678b7aa31a1b707d8f6cbdd7b0a3cac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af678b7aa31a1b707d8f6cbdd7b0a3cac">&#9670;&#160;</a></span>ElementDisplayFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af678b7aa31a1b707d8f6cbdd7b0a3cac">ElementDisplayFlags</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a> display Flags used in the display <a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a>. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af678b7aa31a1b707d8f6cbdd7b0a3cacafd25a67bc161856ca4853af2cf7e8190" name="af678b7aa31a1b707d8f6cbdd7b0a3cacafd25a67bc161856ca4853af2cf7e8190"></a>ELEMENT_DISPLAY_MINIMAL&#160;</td><td class="fielddoc"><p>Format -&gt; ElementName. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af678b7aa31a1b707d8f6cbdd7b0a3caca96292a0a2312820dc4286f98f0b32a9f" name="af678b7aa31a1b707d8f6cbdd7b0a3caca96292a0a2312820dc4286f98f0b32a9f"></a>ELEMENT_DISPLAY_NAME_ONLY&#160;</td><td class="fielddoc"><p>Format -&gt; Name: ElementName. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af678b7aa31a1b707d8f6cbdd7b0a3caca9c7e0d215d6db80fa1928008e92b3bf1" name="af678b7aa31a1b707d8f6cbdd7b0a3caca9c7e0d215d6db80fa1928008e92b3bf1"></a>ELEMENT_DISPLAY_NAME_TYPE&#160;</td><td class="fielddoc"><p>Format -&gt; Name: ElementName Type: ElementType. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af678b7aa31a1b707d8f6cbdd7b0a3caca0d1f26acfbb4260248fef0c0a1569495" name="af678b7aa31a1b707d8f6cbdd7b0a3caca0d1f26acfbb4260248fef0c0a1569495"></a>ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY&#160;</td><td class="fielddoc"><p>Format -&gt; Name: ElementName (+ | -)Quantity <a class="el" href="#a5bb6bbc79983425bdee64eb43fd6fdb5" title="The Target of the element quantity modification.">ElementChangeTarget</a>. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af678b7aa31a1b707d8f6cbdd7b0a3caca88933ab86b7fbd0f3aca7bba07aab02d" name="af678b7aa31a1b707d8f6cbdd7b0a3caca88933ab86b7fbd0f3aca7bba07aab02d"></a>ELEMENT_DISPLAY_ALL&#160;</td><td class="fielddoc"><p>Format -&gt; Name: ElementName (-)?Quantity <a class="el" href="#a5bb6bbc79983425bdee64eb43fd6fdb5" title="The Target of the element quantity modification.">ElementChangeTarget</a> Type: ElementType. </p>
+</td></tr>
 </table>
 
 </div>
@@ -373,8 +429,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a73659a3fc94c169c7af8cb3042779e72" name="a73659a3fc94c169c7af8cb3042779e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73659a3fc94c169c7af8cb3042779e72">&#9670;&#160;</a></span>displayElements()</h2>
+<a id="a88c71ff476c9801561037eef59980abe" name="a88c71ff476c9801561037eef59980abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88c71ff476c9801561037eef59980abe">&#9670;&#160;</a></span>displayElements()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -382,8 +438,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void displayElements </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>list</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>list</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="#af678b7aa31a1b707d8f6cbdd7b0a3cac">ElementDisplayFlags</a></td>          <td class="paramname"><span class="paramname"><em>flags</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -392,9 +452,13 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">list</td><td>element list pointer </td></tr>
+    <tr><td class="paramname">flags</td><td>an <a class="el" href="#af678b7aa31a1b707d8f6cbdd7b0a3cac" title="Element display Flags used in the display Element.">ElementDisplayFlags</a> to choose output format.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000001">Todo</a></b></dt><dd><p class="startdd">Test ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY with other change union types(that uses something else than quantity.) </p>
+<p class="enddd">Test ELEMENT_DISPLAY_ALL with other change union types(that uses something else than quantity.) </p>
+</dd></dl>
 
 </div>
 </div>
@@ -439,6 +503,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a default action list. </p>
+
 </div>
 </div>
 <a id="ac06ec1abf5423663b589bb35be61225f" name="ac06ec1abf5423663b589bb35be61225f"></a>
@@ -455,6 +521,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a default Event list. </p>
 
 </div>
 </div>
@@ -477,15 +545,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>fetches a list of <a class="el" href="../../d0/dcd/structElement.html">Element</a> from a file (if filepath is NULL from a hardcoded list) </p>
+<p>fetches a list of <a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a> from a file (if filepath is NULL from a hardcoded list) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filepath</td><td>the file path (either relative or absolute), set to NULL to get the default <a class="el" href="../../d0/dcd/structElement.html">Element</a> list </td></tr>
+    <tr><td class="paramname">filepath</td><td>the file path (either relative or absolute), set to NULL to get the default <a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a> list </td></tr>
     <tr><td class="paramname">eventType</td><td>the event type, accepted valued are ["Event", "Action"], if no value is specified, or is invalid, will return Event types. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a list of <a class="el" href="../../d0/dcd/structElement.html">Element</a> parsed from said file. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>a list of <a class="el" href="../../d0/dcd/structElement.html" title="Represents an Element.">Element</a> parsed from said file. </dd></dl>
 
 </div>
 </div>
@@ -529,7 +597,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Parses the <a class="el" href="#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a> from a string. </p>
+<p>Parses the <a class="el" href="#a5bb6bbc79983425bdee64eb43fd6fdb5" title="The Target of the element quantity modification.">ElementChangeTarget</a> from a string. </p>
 
 </div>
 </div>
@@ -592,6 +660,23 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the found element or NULL if not found </dd></dl>
+
+</div>
+</div>
+<a id="aa686497e35274ed79776ed261edf5cfd" name="aa686497e35274ed79776ed261edf5cfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa686497e35274ed79776ed261edf5cfd">&#9670;&#160;</a></span>strOfElementChangeTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * strOfElementChangeTarget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a5bb6bbc79983425bdee64eb43fd6fdb5">ElementChangeTarget</a></td>          <td class="paramname"><span class="paramname"><em>target</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

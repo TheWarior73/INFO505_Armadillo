@@ -1,4 +1,4 @@
-.TH "libs/core/Element/element.h" 3 "Mon Nov 2 2026 15:11:58" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/Element/element.h" 3 "Wed Nov 4 2026 01:40:10" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,9 +12,11 @@ libs/core/Element/element.h
 .ti -1c
 .RI "union \fBElementChangeValue\fP"
 .br
+.RI "Holds a change value depending on the element change target\&. "
 .ti -1c
 .RI "struct \fBElement\fP"
 .br
+.RI "Represents an \fBElement\fP\&. "
 .in -1c
 .SS "Typedefs"
 
@@ -22,6 +24,7 @@ libs/core/Element/element.h
 .ti -1c
 .RI "typedef struct Element \fBElement\fP"
 .br
+.RI "Represents an \fBElement\fP\&. "
 .in -1c
 .SS "Enumerations"
 
@@ -29,6 +32,11 @@ libs/core/Element/element.h
 .ti -1c
 .RI "enum \fBElementChangeTarget\fP { \fBELEMENT_CHANGE_NONE\fP, \fBELEMENT_CHANGE_POPULATION\fP, \fBELEMENT_CHANGE_RADIUS\fP, \fBELEMENT_CHANGE_WATER\fP, \fBELEMENT_CHANGE_MINERALS\fP, \fBELEMENT_CHANGE_WOOD\fP, \fBELEMENT_CHANGE_HABITABILITY\fP }"
 .br
+.RI "The Target of the element quantity modification\&. "
+.ti -1c
+.RI "enum \fBElementDisplayFlags\fP { \fBELEMENT_DISPLAY_MINIMAL\fP, \fBELEMENT_DISPLAY_NAME_ONLY\fP, \fBELEMENT_DISPLAY_NAME_TYPE\fP, \fBELEMENT_DISPLAY_NAME_IMPACT_QUANTITY\fP, \fBELEMENT_DISPLAY_ALL\fP }"
+.br
+.RI "\fBElement\fP display Flags used in the display \fBElement\fP\&. "
 .in -1c
 .SS "Functions"
 
@@ -50,7 +58,7 @@ libs/core/Element/element.h
 .br
 .RI "Deletes first element with the given name from the list\&. "
 .ti -1c
-.RI "void \fBdisplayElements\fP (const \fBElement\fP *liste)"
+.RI "void \fBdisplayElements\fP (const \fBElement\fP *liste, \fBElementDisplayFlags\fP flags)"
 .br
 .RI "Displays all elements in the list\&. "
 .ti -1c
@@ -61,6 +69,9 @@ libs/core/Element/element.h
 .RI "\fBElement\fP * \fBsearchElementName\fP (const \fBElement\fP *liste, const char *nameElement)"
 .br
 .RI "Searches for an element with the given name in the list\&. "
+.ti -1c
+.RI "char * \fBstrOfElementChangeTarget\fP (\fBElementChangeTarget\fP target)"
+.br
 .ti -1c
 .RI "\fBElement\fP * \fBsearchElementIndex\fP (const \fBElement\fP *list, const int index)"
 .br
@@ -80,35 +91,70 @@ libs/core/Element/element.h
 .ti -1c
 .RI "\fBElement\fP * \fBfetchDefaultEventList\fP ()"
 .br
+.RI "Returns a default Event list\&. "
 .ti -1c
 .RI "\fBElement\fP * \fBfetchDefaultActionList\fP ()"
 .br
+.RI "Returns a default action list\&. "
 .in -1c
 .SH "Typedef Documentation"
 .PP 
 .SS "typedef struct Element Element"
 
+.PP
+Represents an \fBElement\fP\&. 
 .SH "Enumeration Type Documentation"
 .PP 
 .SS "enum \fBElementChangeTarget\fP"
 
 .PP
+The Target of the element quantity modification\&. 
+.PP
 \fBEnumerator\fP
 .in +1c
 .TP
 \f(BIELEMENT_CHANGE_NONE \fP
+No change\&. 
 .TP
 \f(BIELEMENT_CHANGE_POPULATION \fP
+Population Modification\&. 
 .TP
 \f(BIELEMENT_CHANGE_RADIUS \fP
+Radius Modification\&. 
 .TP
 \f(BIELEMENT_CHANGE_WATER \fP
+Water Modification\&. 
 .TP
 \f(BIELEMENT_CHANGE_MINERALS \fP
+Minerals Modification\&. 
 .TP
 \f(BIELEMENT_CHANGE_WOOD \fP
+Wood Modification\&. 
 .TP
 \f(BIELEMENT_CHANGE_HABITABILITY \fP
+Habitability Modification\&. 
+.SS "enum \fBElementDisplayFlags\fP"
+
+.PP
+\fBElement\fP display Flags used in the display \fBElement\fP\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIELEMENT_DISPLAY_MINIMAL \fP
+Format -> ElementName\&. 
+.TP
+\f(BIELEMENT_DISPLAY_NAME_ONLY \fP
+Format -> Name: ElementName\&. 
+.TP
+\f(BIELEMENT_DISPLAY_NAME_TYPE \fP
+Format -> Name: ElementName Type: ElementType\&. 
+.TP
+\f(BIELEMENT_DISPLAY_NAME_IMPACT_QUANTITY \fP
+Format -> Name: ElementName (+ | -)Quantity \fBElementChangeTarget\fP\&. 
+.TP
+\f(BIELEMENT_DISPLAY_ALL \fP
+Format -> Name: ElementName (-)?Quantity \fBElementChangeTarget\fP Type: ElementType\&. 
 .SH "Function Documentation"
 .PP 
 .SS "void addElement (\fBElement\fP ** list, const char * nameElement, const char * nameType, \fBElementChangeTarget\fP target, \fBElementChangeValue\fP change)"
@@ -180,7 +226,7 @@ Deletes first element with the given name from the list\&.
 .RE
 .PP
 
-.SS "void displayElements (const \fBElement\fP * list)"
+.SS "void displayElements (const \fBElement\fP * list, \fBElementDisplayFlags\fP flags)"
 
 .PP
 Displays all elements in the list\&. 
@@ -188,6 +234,16 @@ Displays all elements in the list\&.
 \fBParameters\fP
 .RS 4
 \fIlist\fP element list pointer 
+.br
+\fIflags\fP an \fBElementDisplayFlags\fP to choose output format\&.
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Test ELEMENT_DISPLAY_NAME_IMPACT_QUANTITY with other change union types(that uses something else than quantity\&.) 
+
+.PP
+Test ELEMENT_DISPLAY_ALL with other change union types(that uses something else than quantity\&.) 
 .RE
 .PP
 
@@ -209,8 +265,12 @@ Pointer to the drawn element or NULL if the list is empty
 
 .SS "\fBElement\fP * fetchDefaultActionList ()"
 
+.PP
+Returns a default action list\&. 
 .SS "\fBElement\fP * fetchDefaultEventList ()"
 
+.PP
+Returns a default Event list\&. 
 .SS "\fBElement\fP * fetchEventsFromFile (const char * filepath, char * eventType)"
 
 .PP
@@ -279,6 +339,8 @@ Searches for an element with the given name in the list\&.
 Pointer to the found element or NULL if not found 
 .RE
 .PP
+
+.SS "char * strOfElementChangeTarget (\fBElementChangeTarget\fP target)"
 
 .SH "Author"
 .PP 

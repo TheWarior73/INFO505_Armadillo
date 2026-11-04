@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Armadillo", "index.html", [
+    [ "Todo List", "dd/da0/todo.html", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -52,7 +53,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"functions_func.html"
+"dd/d21/cJSON_8c.html#a5c873a43d8a78ce9a6d9e8eb41d65d2d"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

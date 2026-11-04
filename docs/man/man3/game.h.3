@@ -1,4 +1,4 @@
-.TH "libs/core/game/game.h" 3 "Mon Nov 2 2026 15:11:58" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game.h" 3 "Wed Nov 4 2026 01:40:10" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -74,6 +74,34 @@ libs/core/game/game.h
 .RI "\fBPlanet\fP * \fBinitPlanet\fP ()"
 .br
 .RI "Initializes a planetwith random amounts of ressources, within playable parameters\&. "
+.ti -1c
+.RI "int \fBchangePopulation\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
+.br
+.RI "Changes the population of the planet based on the element's change value\&. "
+.ti -1c
+.RI "int \fBchangeRadius\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
+.br
+.RI "Changes the radius of the planet based on the element's change value\&. "
+.ti -1c
+.RI "int \fBchangeResource\fP (\fBPlanet\fP *planet, const \fBElement\fP *element, \fBPlanetResource\fP resource)"
+.br
+.RI "Changes a specific resource of the planet based on the element's change value\&. "
+.ti -1c
+.RI "int \fBchangeWater\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
+.br
+.RI "Changes the water resource of the planet based on the element's change value\&. "
+.ti -1c
+.RI "int \fBchangeMinerals\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
+.br
+.RI "Changes the minerals resource of the planet based on the element's change value\&. "
+.ti -1c
+.RI "int \fBchangeWood\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
+.br
+.RI "Changes the wood resource of the planet based on the element's change value\&. "
+.ti -1c
+.RI "int \fBchangeHabitability\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
+.br
+.RI "Changes the habitability of the planet based on the element's change value\&. "
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
@@ -109,6 +137,134 @@ libs/core/game/game.h
 
 .SH "Function Documentation"
 .PP 
+.SS "int changeHabitability (\fBPlanet\fP * planet, const \fBElement\fP * element)"
+
+.PP
+Changes the habitability of the planet based on the element's change value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose habitability to change 
+.br
+\fIelement\fP Pointer to the element containing the change value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
+.SS "int changeMinerals (\fBPlanet\fP * planet, const \fBElement\fP * element)"
+
+.PP
+Changes the minerals resource of the planet based on the element's change value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose minerals to change 
+.br
+\fIelement\fP Pointer to the element containing the change value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
+.SS "int changePopulation (\fBPlanet\fP * planet, const \fBElement\fP * element)"
+
+.PP
+Changes the population of the planet based on the element's change value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose population to change 
+.br
+\fIelement\fP Pointer to the element containing the change value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
+.SS "int changeRadius (\fBPlanet\fP * planet, const \fBElement\fP * element)"
+
+.PP
+Changes the radius of the planet based on the element's change value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose radius to change 
+.br
+\fIelement\fP Pointer to the element containing the change value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
+.SS "int changeResource (\fBPlanet\fP * planet, const \fBElement\fP * element, \fBPlanetResource\fP resource)"
+
+.PP
+Changes a specific resource of the planet based on the element's change value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose resource to change 
+.br
+\fIelement\fP Pointer to the element containing the change value 
+.br
+\fIresource\fP The type of resource to change 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
+.SS "int changeWater (\fBPlanet\fP * planet, const \fBElement\fP * element)"
+
+.PP
+Changes the water resource of the planet based on the element's change value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose water to change 
+.br
+\fIelement\fP Pointer to the element containing the change value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
+.SS "int changeWood (\fBPlanet\fP * planet, const \fBElement\fP * element)"
+
+.PP
+Changes the wood resource of the planet based on the element's change value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose wood to change 
+.br
+\fIelement\fP Pointer to the element containing the change value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
 .SS "void gameTurn (\fBPlanet\fP * p, \fBElement\fP * event, \fBElement\fP * action)"
 Applies the event and action selected for the current turn\&. 
 .SS "\fBPlanet\fP * initPlanet ()"

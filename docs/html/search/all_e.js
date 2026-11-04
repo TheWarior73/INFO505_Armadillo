@@ -16,5 +16,6 @@ var searchData=
   ['position_13',['position',['../df/d8b/structerror.html#a24de70a4d517ab351d80c18582cadb66',1,'error']]],
   ['prebuffer_14',['prebuffer',['../d1/d82/cJSON_8h.html#a039dc262c2ae63f95cfe193245f8ee7e',1,'cJSON.h']]],
   ['prev_15',['prev',['../db/d68/structcJSON.html#a488a393f610347821fce8e985e79fc2f',1,'cJSON']]],
-  ['printbuffer_16',['printbuffer',['../d1/dc7/structprintbuffer.html',1,'']]]
+  ['print_5fhelp_16',['print_help',['../d0/d29/main_8c.html#a402ea961bfc2ffeee61e3a7c330b1559',1,'main.c']]],
+  ['printbuffer_17',['printbuffer',['../d1/dc7/structprintbuffer.html',1,'']]]
 ];
