@@ -46,6 +46,26 @@
 2. `$ make`
 3. `$ ./armadillo.game --gui` to play in gui mode, or `$ ./armadillo.game --cli` to play in cli mode, or `$ ./armadillo.game --debug` to run the tests
 
+## Contributing
+
+Contributing is welcomed, see how to do that bellow
+
+### Setting up your environment
+
+- have clangd installed
+
+The file `compile_commands.json` has the nescessary information for clangd to suppress error messages about GTK.
+
+if not, at root of the repo, run :
+
+`$ bear -- make -C src`
+
+**Installing bear**
+
+Arch - `# pacman -Sy bear`
+
+Debian/Ubuntu - `# apt install bear`
+
 ## Credits
 
 - [DaveGamble's cJSON](https://github.com/davegamble/cjson) : Minimal Json parsing library in C.
