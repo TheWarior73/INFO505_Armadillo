@@ -15,6 +15,7 @@ int is_verbose = 0;
  */
 int is_debug = 0;
 int is_game = 0;
+int is_gui = 0;
 
 //
 
@@ -28,7 +29,7 @@ int main(int argc, char *argv[])
 	// Seeding the randomizer
 	srand(time(NULL));
 
-	if (argc == 0)
+	if (argc == 1)
 	{
 		print_help();
 		return EXIT_FAILURE;
@@ -51,6 +52,11 @@ int main(int argc, char *argv[])
 			is_debug = 1;
 		}
 		else if (strcmp(argv[i], "-g") == 0 || strcmp(argv[i], "--game") == 0)
+		{
+			is_game = 1;
+			is_gui = 1;
+		}
+		else if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--game") == 0)
 		{
 			is_game = 1;
 		}
@@ -77,7 +83,14 @@ int main(int argc, char *argv[])
 
 	if (is_game)
 	{
-		runFullGame();
+		if (is_gui)
+		{
+			// runGUIGame();
+		}
+		else
+		{
+			runCLIGame();
+		}
 	}
 
 	return EXIT_SUCCESS;
@@ -95,6 +108,9 @@ void print_help(void)
 		   "\t-d \tRuns the program in debug mode (runs tests)\n"
 		   "\t--debug\n"
 		   "\n"
-		   "\t-g \tStarts the game loop\n"
-		   "\t--game\n");
+		   "\t-c \tRuns the program in CLI mode\n"
+		   "\t--cli\n"
+		   "\n"
+		   "\t-g \tRuns the program in GUI mode\n"
+		   "\t--gui\n");
 }

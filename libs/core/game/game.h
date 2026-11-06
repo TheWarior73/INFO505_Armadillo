@@ -24,7 +24,9 @@
 #define MIN_MINERALS_ALLOWED 1			   // Bellow that threshold, the life becomes unsustainable regardless of conditions
 #define MAX_MINERALS_ALLOWED 1000000000	   // Will be clamped.
 
-void runFullGame();
+void runCLIGame();
+void runGUIGame();
+
 void gameTurn(Planet *p, Element *event, Element *action);
 Planet *initPlanet();
 
@@ -35,5 +37,9 @@ int changeWater(Planet *planet, const Element *element);
 int changeMinerals(Planet *planet, const Element *element);
 int changeWood(Planet *planet, const Element *element);
 int changeHabitability(Planet *planet, const Element *element);
+
+int planetHasWon(const Planet *planet);
+int planetHasLost(const Planet *planet);
+int applyElementChange(Planet *planet, const Element *element);
 
 #endif

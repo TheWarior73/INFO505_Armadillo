@@ -10,7 +10,7 @@ OBJ_DIR = build
 
 OBJ_ELEMENT = $(OBJ_DIR)/Element/element.o $(OBJ_DIR)/Element/cJSON.o
 OBJ_PLANET = $(OBJ_DIR)/Planet/planet.o
-OBJ_GAME = $(OBJ_DIR)/game/game.o $(OBJ_DIR)/game/math.o
+OBJ_GAME = $(OBJ_DIR)/game/game.o $(OBJ_DIR)/game/math.o $(OBJ_DIR)/game/game_cli.o $(OBJ_DIR)/game/game_gui.o
 
 all: $(NAME_ELEMENT) $(NAME_PLANET) $(NAME_GAME)
 
