@@ -15,6 +15,7 @@ var game_8h =
     [ "MIN_POPULATION_ALLOWED", "d2/dd5/game_8h.html#a1f95fcf13c4a2124d5d259343905a6cd", null ],
     [ "MIN_WATER_ALLOWED", "d2/dd5/game_8h.html#a02c06c5c8aa2a7d73aa519cf5a6a18ca", null ],
     [ "MIN_WOOD_ALLOWED", "d2/dd5/game_8h.html#a386491139b86637fa4270ad2a2dbdc1e", null ],
+    [ "applyElementChange", "d2/dd5/game_8h.html#a9837685a4bc73fd82cacb370331ead70", null ],
     [ "changeHabitability", "d2/dd5/game_8h.html#a3a5c3c02f23f5ed04b36c00cbdde2fd8", null ],
     [ "changeMinerals", "d2/dd5/game_8h.html#aa37662bd8ec24ceddeafd603d7457831", null ],
     [ "changePopulation", "d2/dd5/game_8h.html#a5a54c73cdd07022bc21aa0ad99425f87", null ],
@@ -24,5 +25,8 @@ var game_8h =
     [ "changeWood", "d2/dd5/game_8h.html#ab0d8d507ac014fde4884bc41338d3c83", null ],
     [ "gameTurn", "d2/dd5/game_8h.html#a6cd6fd0dec88a68d64ac3a55bde0059e", null ],
     [ "initPlanet", "d2/dd5/game_8h.html#ac2f33720d246b4eb5b1e2abb71ab9a09", null ],
-    [ "runFullGame", "d2/dd5/game_8h.html#af09de15339c516b024ba143015438291", null ]
+    [ "planetHasLost", "d2/dd5/game_8h.html#a12527cc812df5d65cf04e8cccac7e76d", null ],
+    [ "planetHasWon", "d2/dd5/game_8h.html#acf72b53e9f51c19aec6584899454566f", null ],
+    [ "runCLIGame", "d2/dd5/game_8h.html#adca277e1e5c7080eafede32bcddf9a70", null ],
+    [ "runGUIGame", "d2/dd5/game_8h.html#a3b470fd7d9740ce810bb2b4e71606334", null ]
 ];

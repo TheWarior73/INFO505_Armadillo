@@ -1,4 +1,4 @@
-.TH "libs/core/game/game.h" 3 "Wed Nov 4 2026 01:40:10" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game.h" 3 "Fri Nov 6 2026 13:35:32" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -64,7 +64,11 @@ libs/core/game/game.h
 
 .in +1c
 .ti -1c
-.RI "void \fBrunFullGame\fP ()"
+.RI "void \fBrunCLIGame\fP ()"
+.br
+.RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
+.ti -1c
+.RI "void \fBrunGUIGame\fP ()"
 .br
 .RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
 .ti -1c
@@ -102,6 +106,18 @@ libs/core/game/game.h
 .RI "int \fBchangeHabitability\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
 .br
 .RI "Changes the habitability of the planet based on the element's change value\&. "
+.ti -1c
+.RI "int \fBplanetHasWon\fP (const \fBPlanet\fP *planet)"
+.br
+.RI "Checks if the planet has won based on its properties\&. "
+.ti -1c
+.RI "int \fBplanetHasLost\fP (const \fBPlanet\fP *planet)"
+.br
+.RI "Checks if the planet has lost based on its properties\&. "
+.ti -1c
+.RI "int \fBapplyElementChange\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
+.br
+.RI "Applies the change specified by the element to the planet\&. "
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
@@ -137,6 +153,24 @@ libs/core/game/game.h
 
 .SH "Function Documentation"
 .PP 
+.SS "int applyElementChange (\fBPlanet\fP * planet, const \fBElement\fP * element)"
+
+.PP
+Applies the change specified by the element to the planet\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet whose resource to change 
+.br
+\fIelement\fP Pointer to the element containing the change value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if successful, 0 otherwise 
+.RE
+.PP
+
 .SS "int changeHabitability (\fBPlanet\fP * planet, const \fBElement\fP * element)"
 
 .PP
@@ -279,7 +313,43 @@ Population must be at least 2 to allow reproduction\&.
 Water, Minerals and Wood at total must be at least the amount of starting population\&. 
 .PP
 
-.SS "void runFullGame ()"
+.SS "int planetHasLost (const \fBPlanet\fP * planet)"
+
+.PP
+Checks if the planet has lost based on its properties\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the planet has lost, 0 otherwise 
+.RE
+.PP
+
+.SS "int planetHasWon (const \fBPlanet\fP * planet)"
+
+.PP
+Checks if the planet has won based on its properties\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplanet\fP Pointer to the planet to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the planet has won, 0 otherwise 
+.RE
+.PP
+
+.SS "void runCLIGame ()"
+
+.PP
+Runs the full game, turn by turn, until win condition or game over is reached\&. This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well\&. 
+.SS "void runGUIGame ()"
 
 .PP
 Runs the full game, turn by turn, until win condition or game over is reached\&. This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well\&. 

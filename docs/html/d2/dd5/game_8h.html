@@ -138,8 +138,10 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af09de15339c516b024ba143015438291" id="r_af09de15339c516b024ba143015438291"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af09de15339c516b024ba143015438291">runFullGame</a> ()</td></tr>
-<tr class="memdesc:af09de15339c516b024ba143015438291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the full game, turn by turn, until win condition or game over is reached.  <br /></td></tr>
+<tr class="memitem:adca277e1e5c7080eafede32bcddf9a70" id="r_adca277e1e5c7080eafede32bcddf9a70"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adca277e1e5c7080eafede32bcddf9a70">runCLIGame</a> ()</td></tr>
+<tr class="memdesc:adca277e1e5c7080eafede32bcddf9a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the full game, turn by turn, until win condition or game over is reached.  <br /></td></tr>
+<tr class="memitem:a3b470fd7d9740ce810bb2b4e71606334" id="r_a3b470fd7d9740ce810bb2b4e71606334"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3b470fd7d9740ce810bb2b4e71606334">runGUIGame</a> ()</td></tr>
+<tr class="memdesc:a3b470fd7d9740ce810bb2b4e71606334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the full game, turn by turn, until win condition or game over is reached.  <br /></td></tr>
 <tr class="memitem:a6cd6fd0dec88a68d64ac3a55bde0059e" id="r_a6cd6fd0dec88a68d64ac3a55bde0059e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6cd6fd0dec88a68d64ac3a55bde0059e">gameTurn</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *p, <a class="el" href="../../d0/dcd/structElement.html">Element</a> *event, <a class="el" href="../../d0/dcd/structElement.html">Element</a> *action)</td></tr>
 <tr class="memitem:ac2f33720d246b4eb5b1e2abb71ab9a09" id="r_ac2f33720d246b4eb5b1e2abb71ab9a09"><td class="memItemLeft"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac2f33720d246b4eb5b1e2abb71ab9a09">initPlanet</a> ()</td></tr>
 <tr class="memdesc:ac2f33720d246b4eb5b1e2abb71ab9a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a planetwith random amounts of ressources, within playable parameters.  <br /></td></tr>
@@ -157,6 +159,12 @@ Functions</h2></td></tr>
 <tr class="memdesc:ab0d8d507ac014fde4884bc41338d3c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the wood resource of the planet based on the element's change value.  <br /></td></tr>
 <tr class="memitem:a3a5c3c02f23f5ed04b36c00cbdde2fd8" id="r_a3a5c3c02f23f5ed04b36c00cbdde2fd8"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a3a5c3c02f23f5ed04b36c00cbdde2fd8">changeHabitability</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element)</td></tr>
 <tr class="memdesc:a3a5c3c02f23f5ed04b36c00cbdde2fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the habitability of the planet based on the element's change value.  <br /></td></tr>
+<tr class="memitem:acf72b53e9f51c19aec6584899454566f" id="r_acf72b53e9f51c19aec6584899454566f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#acf72b53e9f51c19aec6584899454566f">planetHasWon</a> (const <a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet)</td></tr>
+<tr class="memdesc:acf72b53e9f51c19aec6584899454566f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the planet has won based on its properties.  <br /></td></tr>
+<tr class="memitem:a12527cc812df5d65cf04e8cccac7e76d" id="r_a12527cc812df5d65cf04e8cccac7e76d"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a12527cc812df5d65cf04e8cccac7e76d">planetHasLost</a> (const <a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet)</td></tr>
+<tr class="memdesc:a12527cc812df5d65cf04e8cccac7e76d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the planet has lost based on its properties.  <br /></td></tr>
+<tr class="memitem:a9837685a4bc73fd82cacb370331ead70" id="r_a9837685a4bc73fd82cacb370331ead70"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a9837685a4bc73fd82cacb370331ead70">applyElementChange</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element)</td></tr>
+<tr class="memdesc:a9837685a4bc73fd82cacb370331ead70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the change specified by the element to the planet.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="af036ed7181cf9c54f1136d2194da7586" name="af036ed7181cf9c54f1136d2194da7586"></a>
@@ -370,6 +378,37 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a9837685a4bc73fd82cacb370331ead70" name="a9837685a4bc73fd82cacb370331ead70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9837685a4bc73fd82cacb370331ead70">&#9670;&#160;</a></span>applyElementChange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int applyElementChange </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>planet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>element</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applies the change specified by the element to the planet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planet</td><td>Pointer to the planet whose resource to change </td></tr>
+    <tr><td class="paramname">element</td><td>Pointer to the element containing the change value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise </dd></dl>
+
+</div>
+</div>
 <a id="a3a5c3c02f23f5ed04b36c00cbdde2fd8" name="a3a5c3c02f23f5ed04b36c00cbdde2fd8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3a5c3c02f23f5ed04b36c00cbdde2fd8">&#9670;&#160;</a></span>changeHabitability()</h2>
 
@@ -644,14 +683,86 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af09de15339c516b024ba143015438291" name="af09de15339c516b024ba143015438291"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af09de15339c516b024ba143015438291">&#9670;&#160;</a></span>runFullGame()</h2>
+<a id="a12527cc812df5d65cf04e8cccac7e76d" name="a12527cc812df5d65cf04e8cccac7e76d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12527cc812df5d65cf04e8cccac7e76d">&#9670;&#160;</a></span>planetHasLost()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void runFullGame </td>
+          <td class="memname">int planetHasLost </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>planet</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the planet has lost based on its properties. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planet</td><td>Pointer to the planet to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if the planet has lost, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="acf72b53e9f51c19aec6584899454566f" name="acf72b53e9f51c19aec6584899454566f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf72b53e9f51c19aec6584899454566f">&#9670;&#160;</a></span>planetHasWon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int planetHasWon </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *</td>          <td class="paramname"><span class="paramname"><em>planet</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the planet has won based on its properties. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planet</td><td>Pointer to the planet to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if the planet has won, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="adca277e1e5c7080eafede32bcddf9a70" name="adca277e1e5c7080eafede32bcddf9a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adca277e1e5c7080eafede32bcddf9a70">&#9670;&#160;</a></span>runCLIGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void runCLIGame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Runs the full game, turn by turn, until win condition or game over is reached. </p>
+<p>This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well. </p>
+
+</div>
+</div>
+<a id="a3b470fd7d9740ce810bb2b4e71606334" name="a3b470fd7d9740ce810bb2b4e71606334"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b470fd7d9740ce810bb2b4e71606334">&#9670;&#160;</a></span>runGUIGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void runGUIGame </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>

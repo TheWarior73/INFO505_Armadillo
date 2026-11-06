@@ -7,5 +7,6 @@ var main_8c =
     [ "test_planet", "d0/d29/main_8c.html#afc17b5dffac541c94378ef2f8439c334", null ],
     [ "is_debug", "d0/d29/main_8c.html#a768532c67dd35b2c412e13fc13afed6c", null ],
     [ "is_game", "d0/d29/main_8c.html#a6ef60b672c920582481b7ee9a66d359a", null ],
+    [ "is_gui", "d0/d29/main_8c.html#aca6e8fc9e846dcb48544181487f828cb", null ],
     [ "is_verbose", "d0/d29/main_8c.html#a14709ceba2356349d730640a4b3a9ebe", null ]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
   ['reallocate_0',['reallocate',['../d1/d07/structinternal__hooks.html#a7c3921493fab83f33cd509145d8a5393',1,'internal_hooks']]],
-  ['runfullgame_1',['runFullGame',['../d1/dcb/game_8c.html#af09de15339c516b024ba143015438291',1,'runFullGame():&#160;game.c'],['../d2/dd5/game_8h.html#af09de15339c516b024ba143015438291',1,'runFullGame():&#160;game.c']]]
+  ['runcligame_1',['runCLIGame',['../d2/dd5/game_8h.html#adca277e1e5c7080eafede32bcddf9a70',1,'runCLIGame():&#160;game_cli.c'],['../db/d58/game__cli_8c.html#adca277e1e5c7080eafede32bcddf9a70',1,'runCLIGame():&#160;game_cli.c']]],
+  ['runguigame_2',['runGUIGame',['../d2/dd5/game_8h.html#a3b470fd7d9740ce810bb2b4e71606334',1,'runGUIGame():&#160;game_gui.c'],['../d2/db8/game__gui_8c.html#a3b470fd7d9740ce810bb2b4e71606334',1,'runGUIGame():&#160;game_gui.c']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['static_5fstrlen_0',['static_strlen',['../dd/d21/cJSON_8c.html#a5714bac836668a1b9af55465b78531ef',1,'cJSON.c']]]
+  ['nan_0',['NAN',['../dd/d21/cJSON_8c.html#a8abfcc76130f3f991d124dd22d7e69bc',1,'cJSON.c']]]
 ];
