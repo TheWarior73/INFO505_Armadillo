@@ -1,3 +1,5 @@
+#ifndef MATH_C
+#define MATH_C
 
 /**
  * @param val: The value to be clamped
@@ -48,3 +50,5 @@ int clampInt(int val, int min, int max)
 void calcScoreV1()
 {
 }
+
+#endif

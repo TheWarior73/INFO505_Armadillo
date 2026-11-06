@@ -1,6 +1,7 @@
 CC = gcc
 AR = ar
 
+GTK_CFLAGS = $(shell pkg-config --cflags --libs gtk+-3.0)
 CFLAGS = -Wall -Wextra -Werror -std=c11
 NAME_ELEMENT = libElement.a
 NAME_PLANET = libPlanet.a
@@ -28,8 +29,18 @@ $(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -IElement -IPlanet -c $< -o $@
 
 $(OBJ_DIR)/Element/element.o: Element/element.h
+
 $(OBJ_DIR)/Planet/planet.o: Planet/planet.h Element/element.h
+
+$(OBJ_DIR)/game/math.o: game/math.c
+
 $(OBJ_DIR)/game/game.o: game/game.h game/math.c Planet/planet.h Element/element.h
+
+$(OBJ_DIR)/game/game_cli.o: game/game.h game/game_cli.c
+
+$(OBJ_DIR)/game/game_gui.o: game/game_gui.c game/game.h
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(GTK_CFLAGS) -IElement -IPlanet -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)

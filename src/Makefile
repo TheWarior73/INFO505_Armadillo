@@ -1,6 +1,9 @@
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror # Warning all, extra warnings, treats warnings as errors
+GTK_CFLAGS = $(shell pkg-config --cflags gtk+-3.0)
+GTK_LIBS = $(shell pkg-config --libs gtk+-3.0)
+
+CFLAGS = -Wall -Wextra -Werror $(GTK_CFLAGS) # Warning all, extra warnings, treats warnings as errors
 NAME = armadillo.game
 
 CORE_DIR = ../libs/core
@@ -19,7 +22,7 @@ core-build:
 	$(MAKE) -C $(CORE_DIR)
 
 $(NAME): $(OBJ) $(CORE_LIBS)
-	$(CC) $(CFLAGS) $(OBJ) $(CORE_LIBS) -o $(NAME) `pkg-config --cflags --libs gtk+-3.0`
+	$(CC) $(CFLAGS) $(OBJ) $(CORE_LIBS) -o $(NAME) $(GTK_LIBS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(CORE_INCLUDES) -c $< -o $@

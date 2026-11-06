@@ -51,12 +51,12 @@ int main(int argc, char *argv[])
 		{
 			is_debug = 1;
 		}
-		else if (strcmp(argv[i], "-g") == 0 || strcmp(argv[i], "--game") == 0)
+		else if (strcmp(argv[i], "-g") == 0 || strcmp(argv[i], "--gui") == 0)
 		{
 			is_game = 1;
 			is_gui = 1;
 		}
-		else if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--game") == 0)
+		else if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--cli") == 0)
 		{
 			is_game = 1;
 		}
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 	{
 		if (is_gui)
 		{
-			// runGUIGame();
+			runGUIGame(argc, argv);
 		}
 		else
 		{

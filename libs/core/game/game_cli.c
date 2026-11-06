@@ -1,5 +1,4 @@
 #include "game.h"
-#include "game.c"
 #include <stdio.h>
 
 static void discardInputLine(void)

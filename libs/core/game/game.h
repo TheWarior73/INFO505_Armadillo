@@ -25,7 +25,7 @@
 #define MAX_MINERALS_ALLOWED 1000000000	   // Will be clamped.
 
 void runCLIGame();
-void runGUIGame();
+void runGUIGame(int argc, char *argv[]);
 
 void gameTurn(Planet *p, Element *event, Element *action);
 Planet *initPlanet();
