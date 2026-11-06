@@ -2,6 +2,14 @@
 #include "game.c"
 #include <stdio.h>
 
+static void discardInputLine(void)
+{
+	int character;
+	while ((character = getchar()) != '\n' && character != EOF)
+	{
+	}
+}
+
 /**
  * This function will initialize everything to a playable state,
  * before launching the game loop, once the loop stops it will handle
@@ -11,7 +19,16 @@
  */
 void runCLIGame()
 {
-	Planet *p = initPlanet();
+	char planetName[128] = {0};
+	double planetRadius = 0.0;
+	long planetPopulation = 0;
+	int water = 0;
+	int minerals = 0;
+	int wood = 0;
+	getParametersFromPlayer(planetName, &planetRadius, &planetPopulation, &water, &minerals, &wood);
+
+	Planet *p = initPlanetWithParameters(planetName[0] != '\0' ? planetName : NULL,
+		planetRadius, planetPopulation, water, minerals, wood);
 	if (p == NULL)
 	{
 		fprintf(stderr, "Unable to initialize the planet.\n");
@@ -76,4 +93,56 @@ void runCLIGame()
 
 	displayPlanet(p);
 	destroyPlanet(p);
+}
+
+void getParametersFromPlayer(char *name, double *radius, long *population, int *water, int *minerals, int *wood)
+{
+	name[0] = '\0';
+	*radius = 0.0;
+	*population = 0;
+	*water = 0;
+	*minerals = 0;
+	*wood = 0;
+
+	printf("Enter planet name: ");
+	if (scanf("%127[^\n]", name) != 1)
+	{
+		name[0] = '\0';
+	}
+	discardInputLine();
+
+	printf("Enter planet radius (km): ");
+	if (scanf("%lf", radius) != 1)
+	{
+		*radius = 0.0;
+	}
+	discardInputLine();
+
+	printf("Enter planet population: ");
+	if (scanf("%ld", population) != 1)
+	{
+		*population = 0;
+	}
+	discardInputLine();
+
+	printf("Enter water quantity: ");
+	if (scanf("%d", water) != 1)
+	{
+		*water = 0;
+	}
+	discardInputLine();
+
+	printf("Enter minerals quantity: ");
+	if (scanf("%d", minerals) != 1)
+	{
+		*minerals = 0;
+	}
+	discardInputLine();
+
+	printf("Enter wood quantity: ");
+	if (scanf("%d", wood) != 1)
+	{
+		*wood = 0;
+	}
+	discardInputLine();
 }

@@ -172,20 +172,8 @@ int planetHasWon(const Planet *planet)
  * - Population must be at least 2 to allow reproduction.
  * - Water, Minerals and Wood at total must be at least the amount of starting population.
  */
-Planet *initPlanet()
+Planet *initPlanetWithParameters(const char *planetName, double planetRadius, long planetPopulation, int water, int minerals, int wood)
 {
-	const char *planetName = NULL;
-	double planetRadius = 0.0;
-	long planetPopulation = 0;
-	int water = 0, minerals = 0, wood = 0;
-
-	// Possible Interactive Planet Setup Idea
-	// getParametersFromPlayer(planetName, planetRadius, planetPopulation, water, minerals, wood);
-
-	//
-	// Individual usecases to check if a data is null and place a default value inside of it.
-	//
-
 	// Default planet name
 	if (planetName == NULL)
 	{
@@ -256,6 +244,11 @@ Planet *initPlanet()
 	}
 
 	return planet;
+}
+
+Planet *initPlanet()
+{
+	return initPlanetWithParameters(NULL, 0.0, 0, 0, 0, 0);
 }
 
 #endif

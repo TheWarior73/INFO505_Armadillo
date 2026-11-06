@@ -29,6 +29,8 @@ void runGUIGame();
 
 void gameTurn(Planet *p, Element *event, Element *action);
 Planet *initPlanet();
+Planet *initPlanetWithParameters(const char *planetName, double planetRadius, long planetPopulation, int water, int minerals, int wood);
+void getParametersFromPlayer(char *name, double *radius, long *population, int *water, int *minerals, int *wood);
 
 int changePopulation(Planet *planet, const Element *element);
 int changeRadius(Planet *planet, const Element *element);
