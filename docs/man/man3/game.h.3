@@ -1,4 +1,4 @@
-.TH "libs/core/game/game.h" 3 "Fri Nov 6 2026 13:35:32" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game.h" 3 "Fri Nov 6 2026 15:07:12" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -68,7 +68,7 @@ libs/core/game/game.h
 .br
 .RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
 .ti -1c
-.RI "void \fBrunGUIGame\fP ()"
+.RI "void \fBrunGUIGame\fP (int argc, char *argv[])"
 .br
 .RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
 .ti -1c
@@ -77,7 +77,13 @@ libs/core/game/game.h
 .ti -1c
 .RI "\fBPlanet\fP * \fBinitPlanet\fP ()"
 .br
+.ti -1c
+.RI "\fBPlanet\fP * \fBinitPlanetWithParameters\fP (const char *planetName, double planetRadius, long planetPopulation, int water, int minerals, int wood)"
+.br
 .RI "Initializes a planetwith random amounts of ressources, within playable parameters\&. "
+.ti -1c
+.RI "void \fBgetParametersFromPlayer\fP (char *name, double *radius, long *population, int *water, int *minerals, int *wood)"
+.br
 .ti -1c
 .RI "int \fBchangePopulation\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
 .br
@@ -301,7 +307,11 @@ Changes the wood resource of the planet based on the element's change value\&.
 
 .SS "void gameTurn (\fBPlanet\fP * p, \fBElement\fP * event, \fBElement\fP * action)"
 Applies the event and action selected for the current turn\&. 
+.SS "void getParametersFromPlayer (char * name, double * radius, long * population, int * water, int * minerals, int * wood)"
+
 .SS "\fBPlanet\fP * initPlanet ()"
+
+.SS "\fBPlanet\fP * initPlanetWithParameters (const char * planetName, double planetRadius, long planetPopulation, int water, int minerals, int wood)"
 
 .PP
 Initializes a planetwith random amounts of ressources, within playable parameters\&. Playable parameters include :
@@ -349,7 +359,7 @@ Checks if the planet has won based on its properties\&.
 
 .PP
 Runs the full game, turn by turn, until win condition or game over is reached\&. This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well\&. 
-.SS "void runGUIGame ()"
+.SS "void runGUIGame (int argc, char * argv[])"
 
 .PP
 Runs the full game, turn by turn, until win condition or game over is reached\&. This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well\&. 

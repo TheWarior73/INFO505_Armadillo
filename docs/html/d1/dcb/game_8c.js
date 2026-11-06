@@ -12,6 +12,7 @@ var game_8c =
     [ "changeWood", "d1/dcb/game_8c.html#ab0d8d507ac014fde4884bc41338d3c83", null ],
     [ "gameTurn", "d1/dcb/game_8c.html#a6cd6fd0dec88a68d64ac3a55bde0059e", null ],
     [ "initPlanet", "d1/dcb/game_8c.html#ac2f33720d246b4eb5b1e2abb71ab9a09", null ],
+    [ "initPlanetWithParameters", "d1/dcb/game_8c.html#a0bfc9bf7a2465b841e6331917d629698", null ],
     [ "planetHasLost", "d1/dcb/game_8c.html#a12527cc812df5d65cf04e8cccac7e76d", null ],
     [ "planetHasWon", "d1/dcb/game_8c.html#acf72b53e9f51c19aec6584899454566f", null ]
 ];

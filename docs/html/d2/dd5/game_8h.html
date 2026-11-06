@@ -140,11 +140,13 @@ Macros</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:adca277e1e5c7080eafede32bcddf9a70" id="r_adca277e1e5c7080eafede32bcddf9a70"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adca277e1e5c7080eafede32bcddf9a70">runCLIGame</a> ()</td></tr>
 <tr class="memdesc:adca277e1e5c7080eafede32bcddf9a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the full game, turn by turn, until win condition or game over is reached.  <br /></td></tr>
-<tr class="memitem:a3b470fd7d9740ce810bb2b4e71606334" id="r_a3b470fd7d9740ce810bb2b4e71606334"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3b470fd7d9740ce810bb2b4e71606334">runGUIGame</a> ()</td></tr>
-<tr class="memdesc:a3b470fd7d9740ce810bb2b4e71606334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the full game, turn by turn, until win condition or game over is reached.  <br /></td></tr>
+<tr class="memitem:a25272d30202f3384d4daaba256738912" id="r_a25272d30202f3384d4daaba256738912"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a25272d30202f3384d4daaba256738912">runGUIGame</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:a25272d30202f3384d4daaba256738912"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the full game, turn by turn, until win condition or game over is reached.  <br /></td></tr>
 <tr class="memitem:a6cd6fd0dec88a68d64ac3a55bde0059e" id="r_a6cd6fd0dec88a68d64ac3a55bde0059e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6cd6fd0dec88a68d64ac3a55bde0059e">gameTurn</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *p, <a class="el" href="../../d0/dcd/structElement.html">Element</a> *event, <a class="el" href="../../d0/dcd/structElement.html">Element</a> *action)</td></tr>
 <tr class="memitem:ac2f33720d246b4eb5b1e2abb71ab9a09" id="r_ac2f33720d246b4eb5b1e2abb71ab9a09"><td class="memItemLeft"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac2f33720d246b4eb5b1e2abb71ab9a09">initPlanet</a> ()</td></tr>
-<tr class="memdesc:ac2f33720d246b4eb5b1e2abb71ab9a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a planetwith random amounts of ressources, within playable parameters.  <br /></td></tr>
+<tr class="memitem:a0bfc9bf7a2465b841e6331917d629698" id="r_a0bfc9bf7a2465b841e6331917d629698"><td class="memItemLeft"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a0bfc9bf7a2465b841e6331917d629698">initPlanetWithParameters</a> (const char *planetName, double planetRadius, long planetPopulation, int water, int minerals, int wood)</td></tr>
+<tr class="memdesc:a0bfc9bf7a2465b841e6331917d629698"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a planetwith random amounts of ressources, within playable parameters.  <br /></td></tr>
+<tr class="memitem:acc2aad6d0b1bee92a19e05b712b86642" id="r_acc2aad6d0b1bee92a19e05b712b86642"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acc2aad6d0b1bee92a19e05b712b86642">getParametersFromPlayer</a> (char *name, double *radius, long *population, int *water, int *minerals, int *wood)</td></tr>
 <tr class="memitem:a5a54c73cdd07022bc21aa0ad99425f87" id="r_a5a54c73cdd07022bc21aa0ad99425f87"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a5a54c73cdd07022bc21aa0ad99425f87">changePopulation</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element)</td></tr>
 <tr class="memdesc:a5a54c73cdd07022bc21aa0ad99425f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the population of the planet based on the element's change value.  <br /></td></tr>
 <tr class="memitem:aa324cc2cb5afd1d3f2c922aafcc2b3b0" id="r_aa324cc2cb5afd1d3f2c922aafcc2b3b0"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aa324cc2cb5afd1d3f2c922aafcc2b3b0">changeRadius</a> (<a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet, const <a class="el" href="../../d0/dcd/structElement.html">Element</a> *element)</td></tr>
@@ -659,6 +661,47 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="acc2aad6d0b1bee92a19e05b712b86642" name="acc2aad6d0b1bee92a19e05b712b86642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc2aad6d0b1bee92a19e05b712b86642">&#9670;&#160;</a></span>getParametersFromPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getParametersFromPlayer </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long *</td>          <td class="paramname"><span class="paramname"><em>population</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>water</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>minerals</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>wood</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac2f33720d246b4eb5b1e2abb71ab9a09" name="ac2f33720d246b4eb5b1e2abb71ab9a09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2f33720d246b4eb5b1e2abb71ab9a09">&#9670;&#160;</a></span>initPlanet()</h2>
 
@@ -670,6 +713,47 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0bfc9bf7a2465b841e6331917d629698" name="a0bfc9bf7a2465b841e6331917d629698"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bfc9bf7a2465b841e6331917d629698">&#9670;&#160;</a></span>initPlanetWithParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> * initPlanetWithParameters </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>planetName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>planetRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>planetPopulation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>water</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minerals</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>wood</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -755,8 +839,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3b470fd7d9740ce810bb2b4e71606334" name="a3b470fd7d9740ce810bb2b4e71606334"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b470fd7d9740ce810bb2b4e71606334">&#9670;&#160;</a></span>runGUIGame()</h2>
+<a id="a25272d30202f3384d4daaba256738912" name="a25272d30202f3384d4daaba256738912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25272d30202f3384d4daaba256738912">&#9670;&#160;</a></span>runGUIGame()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -764,8 +848,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void runGUIGame </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>argc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>argv</em></span>[]&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

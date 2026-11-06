@@ -24,9 +24,11 @@ var game_8h =
     [ "changeWater", "d2/dd5/game_8h.html#a030ee95e557a6208e588f2720386e8be", null ],
     [ "changeWood", "d2/dd5/game_8h.html#ab0d8d507ac014fde4884bc41338d3c83", null ],
     [ "gameTurn", "d2/dd5/game_8h.html#a6cd6fd0dec88a68d64ac3a55bde0059e", null ],
+    [ "getParametersFromPlayer", "d2/dd5/game_8h.html#acc2aad6d0b1bee92a19e05b712b86642", null ],
     [ "initPlanet", "d2/dd5/game_8h.html#ac2f33720d246b4eb5b1e2abb71ab9a09", null ],
+    [ "initPlanetWithParameters", "d2/dd5/game_8h.html#a0bfc9bf7a2465b841e6331917d629698", null ],
     [ "planetHasLost", "d2/dd5/game_8h.html#a12527cc812df5d65cf04e8cccac7e76d", null ],
     [ "planetHasWon", "d2/dd5/game_8h.html#acf72b53e9f51c19aec6584899454566f", null ],
     [ "runCLIGame", "d2/dd5/game_8h.html#adca277e1e5c7080eafede32bcddf9a70", null ],
-    [ "runGUIGame", "d2/dd5/game_8h.html#a3b470fd7d9740ce810bb2b4e71606334", null ]
+    [ "runGUIGame", "d2/dd5/game_8h.html#a25272d30202f3384d4daaba256738912", null ]
 ];

@@ -113,44 +113,48 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/da3/math_8c
   <div class="headertitle"><div class="title">math.c</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d6/da3/math_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../d6/da3/math_8c.html#a7c1cf7b8691823b49a26adee7dffde51">   11</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d6/da3/math_8c.html#a7c1cf7b8691823b49a26adee7dffde51">clampDouble</a>(<span class="keywordtype">double</span> val, <span class="keywordtype">double</span> min, <span class="keywordtype">double</span> max)</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// if val &lt; min, use min, otherwise use val</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> temp = val &lt; min ? min : val;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// if temp &gt; max, use max, otherwise use val.</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">// value is clamped !</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">return</span> temp &gt; max ? max : temp;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
+<a href="../../d6/da3/math_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MATH_C</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno"><a class="line" href="../../d6/da3/math_8c.html#ac5ca342accad0d7aec6b84d0b2938a2b">    2</a></span><span class="preprocessor">#define MATH_C</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d6/da3/math_8c.html#a7c1cf7b8691823b49a26adee7dffde51">   13</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="../../d6/da3/math_8c.html#a7c1cf7b8691823b49a26adee7dffde51">clampDouble</a>(<span class="keywordtype">double</span> val, <span class="keywordtype">double</span> min, <span class="keywordtype">double</span> max)</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">// if val &lt; min, use min, otherwise use val</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> temp = val &lt; min ? min : val;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// if temp &gt; max, use max, otherwise use val.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// value is clamped !</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">return</span> temp &gt; max ? max : temp;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
 </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
-<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d6/da3/math_8c.html#a72e8e2520ff63332f1e5ca98ab65f75d">   27</a></span><span class="keywordtype">long</span> <a class="code hl_function" href="../../d6/da3/math_8c.html#a72e8e2520ff63332f1e5ca98ab65f75d">clampLong</a>(<span class="keywordtype">long</span> val, <span class="keywordtype">long</span> min, <span class="keywordtype">long</span> max)</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">const</span> <span class="keywordtype">long</span> temp = val &lt; min ? min : val;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> temp &gt; max ? max : temp;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d6/da3/math_8c.html#a72e8e2520ff63332f1e5ca98ab65f75d">   29</a></span><span class="keywordtype">long</span> <a class="code hl_function" href="../../d6/da3/math_8c.html#a72e8e2520ff63332f1e5ca98ab65f75d">clampLong</a>(<span class="keywordtype">long</span> val, <span class="keywordtype">long</span> min, <span class="keywordtype">long</span> max)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> <span class="keywordtype">long</span> temp = val &lt; min ? min : val;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> temp &gt; max ? max : temp;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
 </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d6/da3/math_8c.html#a00bc166650eb62bb066dc8fd6de07263">   39</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d6/da3/math_8c.html#a00bc166650eb62bb066dc8fd6de07263">clampInt</a>(<span class="keywordtype">int</span> val, <span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max)</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">const</span> <span class="keywordtype">long</span> temp = val &lt; min ? min : val;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">return</span> temp &gt; max ? max : temp;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d6/da3/math_8c.html#a00bc166650eb62bb066dc8fd6de07263">   41</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d6/da3/math_8c.html#a00bc166650eb62bb066dc8fd6de07263">clampInt</a>(<span class="keywordtype">int</span> val, <span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">const</span> <span class="keywordtype">long</span> temp = val &lt; min ? min : val;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">return</span> temp &gt; max ? max : temp;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
 </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d6/da3/math_8c.html#a1687f6aa562feef5e18e643f35bb6fd8">   48</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/da3/math_8c.html#a1687f6aa562feef5e18e643f35bb6fd8">calcScoreV1</a>()</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d6/da3/math_8c.html#a1687f6aa562feef5e18e643f35bb6fd8">   50</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/da3/math_8c.html#a1687f6aa562feef5e18e643f35bb6fd8">calcScoreV1</a>()</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
 </div>
-<div class="ttc" id="amath_8c_html_a00bc166650eb62bb066dc8fd6de07263"><div class="ttname"><a href="../../d6/da3/math_8c.html#a00bc166650eb62bb066dc8fd6de07263">clampInt</a></div><div class="ttdeci">int clampInt(int val, int min, int max)</div><div class="ttdoc">Clamps an integer value between min and max.</div><div class="ttdef"><b>Definition</b> math.c:39</div></div>
-<div class="ttc" id="amath_8c_html_a1687f6aa562feef5e18e643f35bb6fd8"><div class="ttname"><a href="../../d6/da3/math_8c.html#a1687f6aa562feef5e18e643f35bb6fd8">calcScoreV1</a></div><div class="ttdeci">void calcScoreV1()</div><div class="ttdoc">Calculates score.</div><div class="ttdef"><b>Definition</b> math.c:48</div></div>
-<div class="ttc" id="amath_8c_html_a72e8e2520ff63332f1e5ca98ab65f75d"><div class="ttname"><a href="../../d6/da3/math_8c.html#a72e8e2520ff63332f1e5ca98ab65f75d">clampLong</a></div><div class="ttdeci">long clampLong(long val, long min, long max)</div><div class="ttdoc">Clamps a long value between min and max.</div><div class="ttdef"><b>Definition</b> math.c:27</div></div>
-<div class="ttc" id="amath_8c_html_a7c1cf7b8691823b49a26adee7dffde51"><div class="ttname"><a href="../../d6/da3/math_8c.html#a7c1cf7b8691823b49a26adee7dffde51">clampDouble</a></div><div class="ttdeci">double clampDouble(double val, double min, double max)</div><div class="ttdoc">Clamps a double between min and max.</div><div class="ttdef"><b>Definition</b> math.c:11</div></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="amath_8c_html_a00bc166650eb62bb066dc8fd6de07263"><div class="ttname"><a href="../../d6/da3/math_8c.html#a00bc166650eb62bb066dc8fd6de07263">clampInt</a></div><div class="ttdeci">int clampInt(int val, int min, int max)</div><div class="ttdoc">Clamps an integer value between min and max.</div><div class="ttdef"><b>Definition</b> math.c:41</div></div>
+<div class="ttc" id="amath_8c_html_a1687f6aa562feef5e18e643f35bb6fd8"><div class="ttname"><a href="../../d6/da3/math_8c.html#a1687f6aa562feef5e18e643f35bb6fd8">calcScoreV1</a></div><div class="ttdeci">void calcScoreV1()</div><div class="ttdoc">Calculates score.</div><div class="ttdef"><b>Definition</b> math.c:50</div></div>
+<div class="ttc" id="amath_8c_html_a72e8e2520ff63332f1e5ca98ab65f75d"><div class="ttname"><a href="../../d6/da3/math_8c.html#a72e8e2520ff63332f1e5ca98ab65f75d">clampLong</a></div><div class="ttdeci">long clampLong(long val, long min, long max)</div><div class="ttdoc">Clamps a long value between min and max.</div><div class="ttdef"><b>Definition</b> math.c:29</div></div>
+<div class="ttc" id="amath_8c_html_a7c1cf7b8691823b49a26adee7dffde51"><div class="ttname"><a href="../../d6/da3/math_8c.html#a7c1cf7b8691823b49a26adee7dffde51">clampDouble</a></div><div class="ttdeci">double clampDouble(double val, double min, double max)</div><div class="ttdoc">Clamps a double between min and max.</div><div class="ttdef"><b>Definition</b> math.c:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

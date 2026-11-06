@@ -118,9 +118,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/dcb/game_8c
 <code>#include &lt;math.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-</div>
-<p><a href="../../d1/dcb/game_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a8d45b811e4946d1244a1057aa15e6fe7" id="r_a8d45b811e4946d1244a1057aa15e6fe7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8d45b811e4946d1244a1057aa15e6fe7">GAME_C</a></td></tr>
@@ -152,8 +150,9 @@ Functions</h2></td></tr>
 <tr class="memdesc:a12527cc812df5d65cf04e8cccac7e76d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the planet has lost based on its properties.  <br /></td></tr>
 <tr class="memitem:acf72b53e9f51c19aec6584899454566f" id="r_acf72b53e9f51c19aec6584899454566f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#acf72b53e9f51c19aec6584899454566f">planetHasWon</a> (const <a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *planet)</td></tr>
 <tr class="memdesc:acf72b53e9f51c19aec6584899454566f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the planet has won based on its properties.  <br /></td></tr>
+<tr class="memitem:a0bfc9bf7a2465b841e6331917d629698" id="r_a0bfc9bf7a2465b841e6331917d629698"><td class="memItemLeft"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a0bfc9bf7a2465b841e6331917d629698">initPlanetWithParameters</a> (const char *planetName, double planetRadius, long planetPopulation, int water, int minerals, int wood)</td></tr>
+<tr class="memdesc:a0bfc9bf7a2465b841e6331917d629698"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a planetwith random amounts of ressources, within playable parameters.  <br /></td></tr>
 <tr class="memitem:ac2f33720d246b4eb5b1e2abb71ab9a09" id="r_ac2f33720d246b4eb5b1e2abb71ab9a09"><td class="memItemLeft"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac2f33720d246b4eb5b1e2abb71ab9a09">initPlanet</a> ()</td></tr>
-<tr class="memdesc:ac2f33720d246b4eb5b1e2abb71ab9a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a planetwith random amounts of ressources, within playable parameters.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a8d45b811e4946d1244a1057aa15e6fe7" name="a8d45b811e4946d1244a1057aa15e6fe7"></a>
@@ -478,6 +477,47 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0bfc9bf7a2465b841e6331917d629698" name="a0bfc9bf7a2465b841e6331917d629698"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bfc9bf7a2465b841e6331917d629698">&#9670;&#160;</a></span>initPlanetWithParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d19/structPlanet.html">Planet</a> * initPlanetWithParameters </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>planetName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>planetRadius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>planetPopulation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>water</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minerals</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>wood</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

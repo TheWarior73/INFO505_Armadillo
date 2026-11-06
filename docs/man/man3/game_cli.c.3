@@ -1,4 +1,4 @@
-.TH "libs/core/game/game_cli.c" 3 "Fri Nov 6 2026 13:35:32" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game_cli.c" 3 "Fri Nov 6 2026 15:07:12" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,8 +7,6 @@ libs/core/game/game_cli.c
 .br
 .PP
 \fR#include 'game\&.h'\fP
-.br
-\fR#include 'game\&.c'\fP
 .br
 \fR#include <stdio\&.h>\fP
 .br
@@ -20,9 +18,14 @@ libs/core/game/game_cli.c
 .RI "void \fBrunCLIGame\fP ()"
 .br
 .RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
+.ti -1c
+.RI "void \fBgetParametersFromPlayer\fP (char *name, double *radius, long *population, int *water, int *minerals, int *wood)"
+.br
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "void getParametersFromPlayer (char * name, double * radius, long * population, int * water, int * minerals, int * wood)"
+
 .SS "void runCLIGame ()"
 
 .PP
