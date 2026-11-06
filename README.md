@@ -1,6 +1,7 @@
 # Planet Manager - Armadillo
 
 > Scope
+>
 > - INFO 505 @ USMB
 
 ## Project information
@@ -21,6 +22,8 @@
 │       │   ├── element.c
 │       │   └── element.h
 │       ├── Game
+│       │   ├── game_cli.c
+│       │   ├── game_gui.c
 │       │   ├── game.c
 │       │   ├── game.h
 │       │   └── math.c
@@ -41,8 +44,9 @@
 
 1. `$ cd ./src`
 2. `$ make`
-3. `$ ./armadillo.game --game` to play, or `$ ./armadillo.game --debug` to run the tests
+3. `$ ./armadillo.game --gui` to play in gui mode, or `$ ./armadillo.game --cli` to play in cli mode, or `$ ./armadillo.game --debug` to run the tests
 
 ## Credits
 
 - [DaveGamble's cJSON](https://github.com/davegamble/cjson) : Minimal Json parsing library in C.
+
