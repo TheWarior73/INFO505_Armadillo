@@ -1,0 +1,42 @@
+/* Apply a global dark background and retro monospace font */
+window {
+	background-color: #0a0a0c;
+	color: #39ff14;
+	font-family: "Courier New", Monospace;
+	font-weight: bold;
+}
+
+/* The main wrapper spacing you set up earlier */
+.main_wrapper {
+	margin: 24px;
+}
+
+.header label {
+	padding-right: 10px;
+}
+
+/* ---------------------------------------------------
+   Buttons (Execute 1, 2, 3)
+--------------------------------------------------- */
+button {
+	background-color: #39ff14;
+	color: #0a0a0c;
+	border: none;
+	border-radius: 0px;
+	padding: 8px 16px;
+	margin-top: 10px;
+	font-family: "Courier New", Monospace;
+	font-weight: bold;
+	text-shadow: none;
+}
+
+button:hover {
+	background-color: #ffffff;
+	color: #0a0a0c;
+	box-shadow: 0 0 8px #39ff14;
+}
+
+button:active {
+	background-color: #1c5918;
+}
+
