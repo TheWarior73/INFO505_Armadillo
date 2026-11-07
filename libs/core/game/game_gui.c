@@ -142,10 +142,16 @@ void runGUIGame(int argc, char *argv[])
 	build_middle(ui, main_box);
 	// ------------------
 
+	// Footer - Action Choice
+	build_footer(ui, main_box);
+
 	// ------------------
 
 	// Subscriptions
 	g_signal_connect(window, "destroy", G_CALLBACK(on_window_destroy), ui);
+	g_signal_connect(ui->action1_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
+	g_signal_connect(ui->action2_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
+	g_signal_connect(ui->action3_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
 
 	// -------------------
 
