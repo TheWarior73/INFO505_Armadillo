@@ -20,6 +20,9 @@
  *
  * @brief Runs the full game, turn by turn, until win condition or game over is reached.
  * @todo (1) - GUI for the planet creation step instead of generating a random planet
+ * @todo (2) - Move the middle component initialisation logic to build_middle.
+ * @todo (3) - change callback for clicked button. (Currently closes the APP)
+ * @todo (4) - 
  */
 void runGUIGame(int argc, char *argv[])
 {
@@ -87,18 +90,16 @@ void runGUIGame(int argc, char *argv[])
 
 	gtk_init(&argc, &argv);
 
-	GameUI *ui = (GameUI *)malloc(sizeof(GameUI));
+	GameUI *ui = g_new0(GameUI, 1);
 
 	/* TODO (1) */
-	Planet *planet = initPlanet(); // Random planet
+	ui->planet = initPlanet(); // Random planet
 
-	if (planet == NULL)
+	if (ui->planet == NULL)
 	{
 		fprintf(stderr, "Failed to initialize planet !\n");
 		exit(EXIT_FAILURE);
 	}
-
-	ui->planet = planet;
 
 	// Styling
 	GtkCssProvider *cssProvider = gtk_css_provider_new();
@@ -122,9 +123,6 @@ void runGUIGame(int argc, char *argv[])
 	gtk_window_set_title(GTK_WINDOW(window), "The Armadillo Project");
 	gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
 
-	// Subscribing to the destroy action
-	g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-
 	// ------------------
 	// Main Container
 	// ------------------
@@ -135,31 +133,35 @@ void runGUIGame(int argc, char *argv[])
 	gtk_style_context_add_class(box_context, "main_wrapper");
 
 	// ------------------
-	// Header - Planet Information
-	// ------------------
 
+	// Header - Planet Information
 	build_header(ui, main_box);
 
 	// ------------------
 	// Middle - Event History
-	// ------------------
+
 	// The history box takes TRUE for the expand parameter so it pushes the footer to the bottom
 	GtkWidget *history_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
 	gtk_box_pack_start(GTK_BOX(main_box), history_box, TRUE, TRUE, 0);
 
 	// Placeholder label for where the history list will go
 	gtk_box_pack_start(GTK_BOX(history_box), gtk_label_new("[Event History Area]"), FALSE, FALSE, 0);
-
 	// ------------------
+
 	// Footer - Action Choice
-	// ------------------
-
 	build_footer(ui, main_box);
 
 	// ------------------
 
-	gtk_widget_show_all(window);
+	// Subscriptions
+	g_signal_connect(window, "destroy", G_CALLBACK(on_window_destroy), ui);
+	g_signal_connect(ui->action1_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
+	g_signal_connect(ui->action2_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
+	g_signal_connect(ui->action3_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
 
+	// -------------------
+
+	gtk_widget_show_all(window);
 	gtk_main();
 
 	// End of program
@@ -167,8 +169,6 @@ void runGUIGame(int argc, char *argv[])
 	printf("\n--------------------------------------------------\n"
 		   "                  End of program                  \n"
 		   "--------------------------------------------------\n");
-
-	free(ui);
 }
 
 /**
@@ -186,6 +186,7 @@ void build_header(GameUI *ui, GtkWidget *parent)
 	GtkStyleContext *header_box_context = gtk_widget_get_style_context(header_box);
 	gtk_style_context_add_class(header_box_context, "header");
 
+#pragma region LABELS
 	gchar *str_name = g_strdup_printf("%s", ui->planet->name);
 	gchar *str_radius = g_strdup_printf("Planet Radius: %.2f", ui->planet->radiusKm);
 	gchar *str_population = g_strdup_printf("Population: %ld", ui->planet->population);
@@ -211,9 +212,10 @@ void build_header(GameUI *ui, GtkWidget *parent)
 	gtk_box_pack_start(GTK_BOX(header_box), ui->label_wood, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(header_box), ui->label_minerals, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(header_box), ui->label_habitability, FALSE, FALSE, 0);
+#pragma endregion
 
+#pragma region STYLING
 	/* TODO (1) */
-	// Styling
 	GtkStyleContext *label_name_context = gtk_widget_get_style_context(ui->label_name);
 	gtk_style_context_add_class(label_name_context, "planet_name");
 
@@ -234,7 +236,9 @@ void build_header(GameUI *ui, GtkWidget *parent)
 
 	GtkStyleContext *label_habitability_context = gtk_widget_get_style_context(ui->label_habitability);
 	gtk_style_context_add_class(label_habitability_context, "");
+#pragma endregion
 
+#pragma region FREE
 	// Free the str now that they are in the labels.
 	g_free(str_name);
 	g_free(str_radius);
@@ -243,12 +247,15 @@ void build_header(GameUI *ui, GtkWidget *parent)
 	g_free(str_wood);
 	g_free(str_minerals);
 	g_free(str_habitability);
+#pragma endregion
 }
 
 /**
  * @brief Builds the Middle part GUI and references the GameUI pointers for later update of values.
  * @param ui The GameUI struct that holds pointer references to labels to allow for updates
  * @param parent The parent widget.
+ *
+ * @todo (1) - Middle Component Building
  */
 void build_middle(GameUI *ui, GtkWidget *parent);
 
@@ -256,29 +263,68 @@ void build_middle(GameUI *ui, GtkWidget *parent);
  * @brief Builds the Footer GUI and references the GameUI pointers for later update of values.
  * @param ui The GameUI struct that holds pointer references to labels to allow for updates
  * @param parent The parent widget.
+ *
+ * @todo (1) - Buttons Structure
+ * @todo (2) - Buttons Callbacks Subscription
+ * @todo (3) - Footer Styling
  */
 void build_footer(GameUI *ui, GtkWidget *parent)
 {
 	GtkWidget *footer_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
 	gtk_box_pack_start(GTK_BOX(parent), footer_box, FALSE, FALSE, 0);
 
-	// Action 1
+#pragma region Buttons
+
+	gchar *action1_btn_str = "Execute 1";
+	gchar *action2_btn_str = "Execute 2";
+	gchar *action3_btn_str = "Execute 3";
+
+	ui->action1_btn = gtk_button_new_with_label(action1_btn_str);
+	ui->action2_btn = gtk_button_new_with_label(action2_btn_str);
+	ui->action3_btn = gtk_button_new_with_label(action3_btn_str);
+#pragma endregion
+
+#pragma region Labels
+
+#pragma endregion
+
+#pragma region Building
 	ui->action1_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
+
 	gtk_box_pack_start(GTK_BOX(ui->action1_box), gtk_label_new("Action 1 Details"), FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(ui->action1_box), gtk_button_new_with_label("Execute 1"), FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(ui->action1_box), ui->action1_btn, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(footer_box), ui->action1_box, TRUE, TRUE, 0);
 
-	// Action 2
 	ui->action2_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
 	gtk_box_pack_start(GTK_BOX(ui->action2_box), gtk_label_new("Action 2 Details"), FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(ui->action2_box), gtk_button_new_with_label("Execute 2"), FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(ui->action2_box), ui->action2_btn, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(footer_box), ui->action2_box, TRUE, TRUE, 0);
 
-	// Action 3
 	ui->action3_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
 	gtk_box_pack_start(GTK_BOX(ui->action3_box), gtk_label_new("Action 3 Details"), FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(ui->action3_box), gtk_button_new_with_label("Execute 3"), FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(ui->action3_box), ui->action3_btn, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(footer_box), ui->action3_box, TRUE, TRUE, 0);
+#pragma endregion
+}
+
+void on_action1_clicked(GtkWidget *button, gpointer data); /** @todo runGUIGame.(3)*/
+void on_action2_clicked(GtkWidget *button, gpointer data); /** @todo runGUIGame.(3)*/
+void on_action3_clicked(GtkWidget *button, gpointer data); /** @todo runGUIGame.(3)*/
+
+/**
+ * @brief Callback to the signal of window destroy. Properly disposes of elements in memory.
+ * Destroys the planet and the GameUI by freeing the memory, then calls gtk_main_quit() to exit the program.
+ * @param
+ */
+void on_window_destroy(GtkWidget *widget, gpointer data)
+{
+	GameUI *ui = (GameUI *)data;
+	destroyPlanet(ui->planet);
+	g_free(ui);
+	gtk_main_quit();
+
+	// So the widget is not unused.
+	g_free(widget);
 }
 
 #endif
