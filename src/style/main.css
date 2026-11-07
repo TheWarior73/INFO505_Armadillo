@@ -1,3 +1,12 @@
+/* DEBUG */
+label {
+	border: solid 1px blue;
+}
+
+box {
+	border: solid 1px red;
+}
+
 /* Apply a global dark background and retro monospace font */
 window {
 	background-color: #0a0a0c;
@@ -13,6 +22,16 @@ window {
 
 .header label {
 	padding-right: 10px;
+}
+
+.planet_name {
+	font-size: 24px;
+
+	padding: 10px;
+	border-radius: 1em;
+
+	color: #0a0a0c;
+	background-color: #39ff14;
 }
 
 /* ---------------------------------------------------

@@ -3,7 +3,8 @@
 #include <string.h>
 #include <time.h>
 
-#include "../libs/core/game/game.h"
+#include "game.h"
+#include "game_gui.h"
 
 /**
  * @brief Defines wether the output should be verbose or not.
