@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['searchelementindex_0',['searchElementIndex',['../da/d0a/element_8c.html#a792a32ce07d688bb2c1cacc474cfa2d7',1,'searchElementIndex(const Element *list, const int index):&#160;element.c'],['../d4/dfe/element_8h.html#a792a32ce07d688bb2c1cacc474cfa2d7',1,'searchElementIndex(const Element *list, const int index):&#160;element.c']]],
-  ['searchelementname_1',['searchElementName',['../da/d0a/element_8c.html#a2f5b4052e4441996ce6756dfe907355b',1,'searchElementName(const Element *list, const char *nameElement):&#160;element.c'],['../d4/dfe/element_8h.html#ab116109f5eb68b74fe8a3296f5b9d3f1',1,'searchElementName(const Element *liste, const char *nameElement):&#160;element.c']]],
-  ['strofelementchangetarget_2',['strOfElementChangeTarget',['../da/d0a/element_8c.html#aa686497e35274ed79776ed261edf5cfd',1,'strOfElementChangeTarget(ElementChangeTarget target):&#160;element.c'],['../d4/dfe/element_8h.html#aa686497e35274ed79776ed261edf5cfd',1,'strOfElementChangeTarget(ElementChangeTarget target):&#160;element.c']]]
+  ['reallocate_0',['reallocate',['../d1/d07/structinternal__hooks.html#a7c3921493fab83f33cd509145d8a5393',1,'internal_hooks']]],
+  ['runcligame_1',['runCLIGame',['../d2/dd5/game_8h.html#adca277e1e5c7080eafede32bcddf9a70',1,'runCLIGame():&#160;game_cli.c'],['../db/d58/game__cli_8c.html#adca277e1e5c7080eafede32bcddf9a70',1,'runCLIGame():&#160;game_cli.c']]],
+  ['runguigame_2',['runGUIGame',['../d2/db8/game__gui_8c.html#a25272d30202f3384d4daaba256738912',1,'runGUIGame(int argc, char *argv[]):&#160;game_gui.c'],['../d7/d78/game__gui_8h.html#a25272d30202f3384d4daaba256738912',1,'runGUIGame(int argc, char *argv[]):&#160;game_gui.c']]]
 ];

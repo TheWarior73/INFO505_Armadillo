@@ -1,4 +1,4 @@
-.TH "todo" 3 "Sat Nov 7 2026 16:21:13" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "todo" 3 "Sat Nov 7 2026 17:27:50" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,9 +7,29 @@ todo \- Todo List
 
 
 .PP
+.IP "\fBGlobal \fBbuild_footer\fP (\fBGameUI\fP *ui, GtkWidget *parent)
+.IP "" 1c
+(1) - Buttons Structure 
+
+.PP
+
+.PP
+(2) - Buttons Callbacks Subscription 
+
+.PP
+
+.PP
+(3) - Footer Styling  
+
+.PP
 .IP "\fBGlobal \fBbuild_header\fP (\fBGameUI\fP *ui, GtkWidget *parent)
 .IP "" 1c
 (1) - Header Styling  
+
+.PP
+.IP "\fBGlobal \fBbuild_middle\fP (\fBGameUI\fP *ui, GtkWidget *parent)
+.IP "" 1c
+(1) - Middle Component Building  
 
 .PP
 .IP "\fBGlobal \fBdisplayElements\fP (const \fBElement\fP *liste, \fBElementDisplayFlags\fP flags)
@@ -27,6 +47,21 @@ Test ELEMENT_DISPLAY_ALL with other change union types(that uses something else 
 Display Action & Event List on demand instead of each call\&.  
 
 .PP
+.IP "\fBGlobal \fBon_action2_clicked\fP (GtkWidget *button, gpointer data)
+.IP "" 1c
+runGUIGame\&.(3)  
+
+.PP
+.IP "\fBGlobal \fBon_action3_clicked\fP (GtkWidget *button, gpointer data)
+.IP "" 1c
+runGUIGame\&.(3)  
+
+.PP
+.IP "\fBGlobal \fBon_window_destroy\fP (GtkWidget *widget, gpointer data)
+.IP "" 1c
+runGUIGame\&.(3)  
+
+.PP
 .IP "\fBGlobal \fBrunGUIGame\fP (int argc, char *argv[])
 .IP "" 1c
 (1) - GUI for the planet creation step instead of generating a random planet 
@@ -35,6 +70,11 @@ Display Action & Event List on demand instead of each call\&.
 
 .PP
 (2) - Move the middle component initialisation logic to build_middle\&. 
+
+.PP
+
+.PP
+(3) - change callback for clicked button\&. (Currently closes the APP) 
 
 .PP
 

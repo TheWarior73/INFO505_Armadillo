@@ -1,4 +1,4 @@
-.TH "GameUI" 3 "Sat Nov 7 2026 16:21:13" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "GameUI" 3 "Sat Nov 7 2026 17:27:50" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -53,13 +53,22 @@ GameUI \- Struct used to update important informations on the screen each turn\&
 .br
 .RI "The First Action Box (left)\&. "
 .ti -1c
+.RI "GtkWidget * \fBaction1_btn\fP"
+.br
+.ti -1c
 .RI "GtkWidget * \fBaction2_box\fP"
 .br
 .RI "The Second Action Box (middle)\&. "
 .ti -1c
+.RI "GtkWidget * \fBaction2_btn\fP"
+.br
+.ti -1c
 .RI "GtkWidget * \fBaction3_box\fP"
 .br
 .RI "The Third Action Box (right)\&. "
+.ti -1c
+.RI "GtkWidget * \fBaction3_btn\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -70,14 +79,20 @@ Struct used to update important informations on the screen each turn\&.
 
 .PP
 The First Action Box (left)\&. 
+.SS "GtkWidget* GameUI::action1_btn"
+
 .SS "GtkWidget* GameUI::action2_box"
 
 .PP
 The Second Action Box (middle)\&. 
+.SS "GtkWidget* GameUI::action2_btn"
+
 .SS "GtkWidget* GameUI::action3_box"
 
 .PP
 The Third Action Box (right)\&. 
+.SS "GtkWidget* GameUI::action3_btn"
+
 .SS "GtkWidget* GameUI::history_log"
 
 .PP

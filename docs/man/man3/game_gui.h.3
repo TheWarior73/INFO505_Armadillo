@@ -1,4 +1,4 @@
-.TH "libs/core/game/game_gui.h" 3 "Sat Nov 7 2026 16:21:13" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game_gui.h" 3 "Sat Nov 7 2026 17:27:50" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -37,6 +37,19 @@ libs/core/game/game_gui.h
 .RI "void \fBbuild_footer\fP (\fBGameUI\fP *ui, GtkWidget *parent)"
 .br
 .RI "Builds the Footer GUI and references the \fBGameUI\fP pointers for later update of values\&. "
+.ti -1c
+.RI "void \fBon_action1_clicked\fP (GtkWidget *button, gpointer data)"
+.br
+.ti -1c
+.RI "void \fBon_action2_clicked\fP (GtkWidget *button, gpointer data)"
+.br
+.ti -1c
+.RI "void \fBon_action3_clicked\fP (GtkWidget *button, gpointer data)"
+.br
+.ti -1c
+.RI "void \fBon_window_destroy\fP (GtkWidget *widget, gpointer data)"
+.br
+.RI "Callback to the signal of window destroy\&. Properly disposes of elements in memory\&. Destroys the planet and the \fBGameUI\fP by freeing the memory, then calls gtk_main_quit() to exit the program\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
@@ -49,7 +62,18 @@ Builds the Footer GUI and references the \fBGameUI\fP pointers for later update 
 .RS 4
 \fIui\fP The \fBGameUI\fP struct that holds pointer references to labels to allow for updates 
 .br
-\fIparent\fP The parent widget\&. 
+\fIparent\fP The parent widget\&.
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+(1) - Buttons Structure 
+
+.PP
+(2) - Buttons Callbacks Subscription 
+
+.PP
+(3) - Footer Styling 
 .RE
 .PP
 
@@ -73,6 +97,27 @@ Builds the Header GUI and references the \fBGameUI\fP pointers for later update 
 
 .SS "void build_middle (\fBGameUI\fP * ui, GtkWidget * parent)"
 
+.SS "void on_action1_clicked (GtkWidget * button, gpointer data)"
+
+.SS "void on_action2_clicked (GtkWidget * button, gpointer data)"
+
+.SS "void on_action3_clicked (GtkWidget * button, gpointer data)"
+
+.SS "void on_window_destroy (GtkWidget * widget, gpointer data)"
+
+.PP
+Callback to the signal of window destroy\&. Properly disposes of elements in memory\&. Destroys the planet and the \fBGameUI\fP by freeing the memory, then calls gtk_main_quit() to exit the program\&. 
+.PP
+\fBTodo\fP
+.RS 4
+runGUIGame\&.(3) 
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fP .RE
+.PP
+
 .SS "void runGUIGame (int argc, char * argv[])"
 
 .PP
@@ -85,6 +130,9 @@ Runs the full game, turn by turn, until win condition or game over is reached\&.
 
 .PP
 (2) - Move the middle component initialisation logic to build_middle\&. 
+
+.PP
+(3) - change callback for clicked button\&. (Currently closes the APP) 
 .RE
 .PP
 
