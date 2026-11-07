@@ -29,6 +29,5 @@ var game_8h =
     [ "initPlanetWithParameters", "d2/dd5/game_8h.html#a0bfc9bf7a2465b841e6331917d629698", null ],
     [ "planetHasLost", "d2/dd5/game_8h.html#a12527cc812df5d65cf04e8cccac7e76d", null ],
     [ "planetHasWon", "d2/dd5/game_8h.html#acf72b53e9f51c19aec6584899454566f", null ],
-    [ "runCLIGame", "d2/dd5/game_8h.html#adca277e1e5c7080eafede32bcddf9a70", null ],
-    [ "runGUIGame", "d2/dd5/game_8h.html#a25272d30202f3384d4daaba256738912", null ]
+    [ "runCLIGame", "d2/dd5/game_8h.html#adca277e1e5c7080eafede32bcddf9a70", null ]
 ];

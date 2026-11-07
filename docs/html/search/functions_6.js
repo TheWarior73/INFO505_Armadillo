@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.c']]],
-  ['malloc_5ffn_1',['malloc_fn',['../dc/d55/structcJSON__Hooks.html#ae8fc738005f553ff03bc725c58d3188f',1,'cJSON_Hooks']]]
+  ['initplanet_0',['initPlanet',['../d1/dcb/game_8c.html#ac2f33720d246b4eb5b1e2abb71ab9a09',1,'initPlanet():&#160;game.c'],['../d2/dd5/game_8h.html#ac2f33720d246b4eb5b1e2abb71ab9a09',1,'initPlanet():&#160;game.c']]],
+  ['initplanetwithparameters_1',['initPlanetWithParameters',['../d1/dcb/game_8c.html#a0bfc9bf7a2465b841e6331917d629698',1,'initPlanetWithParameters(const char *planetName, double planetRadius, long planetPopulation, int water, int minerals, int wood):&#160;game.c'],['../d2/dd5/game_8h.html#a0bfc9bf7a2465b841e6331917d629698',1,'initPlanetWithParameters(const char *planetName, double planetRadius, long planetPopulation, int water, int minerals, int wood):&#160;game.c']]]
 ];

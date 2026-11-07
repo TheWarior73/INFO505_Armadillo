@@ -5,6 +5,7 @@ var annotated_dup =
     [ "Element", "d0/dcd/structElement.html", "d0/dcd/structElement" ],
     [ "ElementChangeValue", "d6/d57/unionElementChangeValue.html", "d6/d57/unionElementChangeValue" ],
     [ "error", "df/d8b/structerror.html", "df/d8b/structerror" ],
+    [ "GameUI", "d3/d68/structGameUI.html", "d3/d68/structGameUI" ],
     [ "internal_hooks", "d1/d07/structinternal__hooks.html", "d1/d07/structinternal__hooks" ],
     [ "parse_buffer", "db/d68/structparse__buffer.html", "db/d68/structparse__buffer" ],
     [ "Planet", "d0/d19/structPlanet.html", "d0/d19/structPlanet" ],

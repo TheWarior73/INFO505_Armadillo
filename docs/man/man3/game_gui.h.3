@@ -1,0 +1,93 @@
+.TH "libs/core/game/game_gui.h" 3 "Sat Nov 7 2026 16:21:13" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libs/core/game/game_gui.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'gtk/gtk\&.h'\fP
+.br
+\fR#include 'planet\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBGameUI\fP"
+.br
+.RI "Struct used to update important informations on the screen each turn\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrunGUIGame\fP (int argc, char *argv[])"
+.br
+.RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
+.ti -1c
+.RI "void \fBbuild_header\fP (\fBGameUI\fP *ui, GtkWidget *parent)"
+.br
+.RI "Builds the Header GUI and references the \fBGameUI\fP pointers for later update of values\&. "
+.ti -1c
+.RI "void \fBbuild_middle\fP (\fBGameUI\fP *ui, GtkWidget *parent)"
+.br
+.ti -1c
+.RI "void \fBbuild_footer\fP (\fBGameUI\fP *ui, GtkWidget *parent)"
+.br
+.RI "Builds the Footer GUI and references the \fBGameUI\fP pointers for later update of values\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void build_footer (\fBGameUI\fP * ui, GtkWidget * parent)"
+
+.PP
+Builds the Footer GUI and references the \fBGameUI\fP pointers for later update of values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIui\fP The \fBGameUI\fP struct that holds pointer references to labels to allow for updates 
+.br
+\fIparent\fP The parent widget\&. 
+.RE
+.PP
+
+.SS "void build_header (\fBGameUI\fP * ui, GtkWidget * parent)"
+
+.PP
+Builds the Header GUI and references the \fBGameUI\fP pointers for later update of values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIui\fP The \fBGameUI\fP struct that holds pointer references to labels to allow for updates 
+.br
+\fIparent\fP The parent widget\&.
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+(1) - Header Styling 
+.RE
+.PP
+
+.SS "void build_middle (\fBGameUI\fP * ui, GtkWidget * parent)"
+
+.SS "void runGUIGame (int argc, char * argv[])"
+
+.PP
+Runs the full game, turn by turn, until win condition or game over is reached\&. This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well\&.
+
+.PP
+\fBTodo\fP
+.RS 4
+(1) - GUI for the planet creation step instead of generating a random planet 
+
+.PP
+(2) - Move the middle component initialisation logic to build_middle\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Armadillo from the source code\&.

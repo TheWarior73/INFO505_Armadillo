@@ -1,4 +1,4 @@
-.TH "libs/core/game/game.h" 3 "Fri Nov 6 2026 15:07:12" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game.h" 3 "Sat Nov 7 2026 16:21:13" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -65,10 +65,6 @@ libs/core/game/game.h
 .in +1c
 .ti -1c
 .RI "void \fBrunCLIGame\fP ()"
-.br
-.RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
-.ti -1c
-.RI "void \fBrunGUIGame\fP (int argc, char *argv[])"
 .br
 .RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
 .ti -1c
@@ -356,10 +352,6 @@ Checks if the planet has won based on its properties\&.
 .PP
 
 .SS "void runCLIGame ()"
-
-.PP
-Runs the full game, turn by turn, until win condition or game over is reached\&. This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well\&. 
-.SS "void runGUIGame (int argc, char * argv[])"
 
 .PP
 Runs the full game, turn by turn, until win condition or game over is reached\&. This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well\&. 

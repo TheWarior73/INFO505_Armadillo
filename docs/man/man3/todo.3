@@ -1,10 +1,15 @@
-.TH "todo" 3 "Fri Nov 6 2026 15:07:12" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "todo" 3 "Sat Nov 7 2026 16:21:13" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 todo \- Todo List 
 .PP
 
+
+.PP
+.IP "\fBGlobal \fBbuild_header\fP (\fBGameUI\fP *ui, GtkWidget *parent)
+.IP "" 1c
+(1) - Header Styling  
 
 .PP
 .IP "\fBGlobal \fBdisplayElements\fP (const \fBElement\fP *liste, \fBElementDisplayFlags\fP flags)
@@ -19,7 +24,17 @@ Test ELEMENT_DISPLAY_ALL with other change union types(that uses something else 
 .PP
 .IP "\fBGlobal \fBdisplayPlanet\fP (const \fBPlanet\fP *planet)
 .IP "" 1c
-Display Action & Event List on demand instead of each call\&. 
+Display Action & Event List on demand instead of each call\&.  
+
+.PP
+.IP "\fBGlobal \fBrunGUIGame\fP (int argc, char *argv[])
+.IP "" 1c
+(1) - GUI for the planet creation step instead of generating a random planet 
+
+.PP
+
+.PP
+(2) - Move the middle component initialisation logic to build_middle\&. 
 
 .PP
 
