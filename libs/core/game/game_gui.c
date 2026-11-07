@@ -121,7 +121,7 @@ void runGUIGame(int argc, char *argv[])
 
 	// Title & size
 	gtk_window_set_title(GTK_WINDOW(window), "The Armadillo Project");
-	gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
+	gtk_window_set_default_size(GTK_WINDOW(window), 800, 500);
 
 	// ------------------
 	// Main Container
@@ -138,26 +138,14 @@ void runGUIGame(int argc, char *argv[])
 	build_header(ui, main_box);
 
 	// ------------------
-	// Middle - Event History
-
-	// The history box takes TRUE for the expand parameter so it pushes the footer to the bottom
-	GtkWidget *history_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
-	gtk_box_pack_start(GTK_BOX(main_box), history_box, TRUE, TRUE, 0);
-
-	// Placeholder label for where the history list will go
-	gtk_box_pack_start(GTK_BOX(history_box), gtk_label_new("[Event History Area]"), FALSE, FALSE, 0);
+	// Middle - Event and action history
+	build_middle(ui, main_box);
 	// ------------------
-
-	// Footer - Action Choice
-	build_footer(ui, main_box);
 
 	// ------------------
 
 	// Subscriptions
 	g_signal_connect(window, "destroy", G_CALLBACK(on_window_destroy), ui);
-	g_signal_connect(ui->action1_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
-	g_signal_connect(ui->action2_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
-	g_signal_connect(ui->action3_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
 
 	// -------------------
 
@@ -257,7 +245,39 @@ void build_header(GameUI *ui, GtkWidget *parent)
  *
  * @todo (1) - Middle Component Building
  */
-void build_middle(GameUI *ui, GtkWidget *parent);
+void build_middle(GameUI *ui, GtkWidget *parent)
+{
+	GtkWidget *history_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
+	GtkWidget *title = gtk_label_new("Historique des choix précédents");
+	GtkWidget *scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+	GtkTextBuffer *buffer;
+	gchar *history = NULL;
+	GError *error = NULL;
+
+	gtk_box_pack_start(GTK_BOX(parent), history_box, TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(history_box), title, FALSE, FALSE, 0);
+	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
+		GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+	gtk_box_pack_start(GTK_BOX(history_box), scrolled_window, TRUE, TRUE, 0);
+
+	ui->history_log = gtk_text_view_new();
+	gtk_text_view_set_editable(GTK_TEXT_VIEW(ui->history_log), FALSE);
+	gtk_text_view_set_cursor_visible(GTK_TEXT_VIEW(ui->history_log), FALSE);
+	gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(ui->history_log), GTK_WRAP_WORD_CHAR);
+	buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(ui->history_log));
+	gtk_container_add(GTK_CONTAINER(scrolled_window), ui->history_log);
+
+	if (g_file_get_contents(GAME_HISTORY_FILE, &history, NULL, &error) && history[0] != '\0')
+	{
+		gtk_text_buffer_set_text(buffer, history, -1);
+	}
+	else
+	{
+		gtk_text_buffer_set_text(buffer, "Aucun choix précédent enregistré.", -1);
+	}
+	g_free(history);
+	g_clear_error(&error);
+}
 
 /**
  * @brief Builds the Footer GUI and references the GameUI pointers for later update of values.

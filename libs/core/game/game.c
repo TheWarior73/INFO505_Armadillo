@@ -22,6 +22,22 @@ void gameTurn(Planet *p, Element *event, Element *action)
 
 	applyElementChange(p, event);
 	applyElementChange(p, action);
+
+	if (action != NULL)
+	{
+		FILE *history = fopen(GAME_HISTORY_FILE, "a");
+		if (history != NULL)
+		{
+			fprintf(history, "Event: %s | Action: %s\n",
+				event != NULL ? event->nameElement : "None",
+				action->nameElement);
+			fclose(history);
+		}
+		else
+		{
+			perror("Unable to append game history");
+		}
+	}
 }
 
 /**

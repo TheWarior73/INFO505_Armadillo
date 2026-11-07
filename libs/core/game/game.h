@@ -24,6 +24,8 @@
 #define MIN_MINERALS_ALLOWED 1			   // Bellow that threshold, the life becomes unsustainable regardless of conditions
 #define MAX_MINERALS_ALLOWED 1000000000	   // Will be clamped.
 
+#define GAME_HISTORY_FILE "../data/game_history.log"
+
 void runCLIGame();
 
 void gameTurn(Planet *p, Element *event, Element *action);
