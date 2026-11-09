@@ -1,4 +1,4 @@
-.TH "libs/core/game/game.h" 3 "Sat Nov 7 2026 17:27:50" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game.h" 3 "Mon Nov 9 2026 20:29:55" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -58,6 +58,9 @@ libs/core/game/game.h
 .br
 .ti -1c
 .RI "#define \fBMAX_MINERALS_ALLOWED\fP   1000000000"
+.br
+.ti -1c
+.RI "#define \fBGAME_HISTORY_FILE\fP   '\&.\&./data/game_history\&.log'"
 .br
 .in -1c
 .SS "Functions"
@@ -123,6 +126,8 @@ libs/core/game/game.h
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
+.SS "#define GAME_HISTORY_FILE   '\&.\&./data/game_history\&.log'"
+
 .SS "#define MAX_DEFAULT_MINERALS   10000000"
 
 .SS "#define MAX_DEFAULT_POPULATION   100000"

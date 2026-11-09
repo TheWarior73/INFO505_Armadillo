@@ -1,5 +1,6 @@
 var game_8h =
 [
+    [ "GAME_HISTORY_FILE", "d2/dd5/game_8h.html#ab1b7c59d5315d360d704021dd77f721d", null ],
     [ "MAX_DEFAULT_MINERALS", "d2/dd5/game_8h.html#af036ed7181cf9c54f1136d2194da7586", null ],
     [ "MAX_DEFAULT_POPULATION", "d2/dd5/game_8h.html#a48d32aaf9e9512a870d1415cc5b740ea", null ],
     [ "MAX_DEFAULT_RADIUS", "d2/dd5/game_8h.html#ad94bd394e63bacc2d180d54b1e203e66", null ],

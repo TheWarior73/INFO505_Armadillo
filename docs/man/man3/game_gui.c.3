@@ -1,4 +1,4 @@
-.TH "libs/core/game/game_gui.c" 3 "Sat Nov 7 2026 17:27:50" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game_gui.c" 3 "Mon Nov 9 2026 20:29:55" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,6 +6,8 @@ libs/core/game/game_gui.c
 .SH SYNOPSIS
 .br
 .PP
+\fR#include 'element\&.h'\fP
+.br
 \fR#include 'game\&.h'\fP
 .br
 \fR#include 'planet\&.h'\fP
@@ -21,6 +23,8 @@ libs/core/game/game_gui.c
 \fR#include 'glibconfig\&.h'\fP
 .br
 \fR#include 'gtk/gtkcssprovider\&.h'\fP
+.br
+\fR#include <asm\-generic/errno\-base\&.h>\fP
 .br
 \fR#include <gtk/gtk\&.h>\fP
 .br
@@ -56,18 +60,21 @@ libs/core/game/game_gui.c
 .br
 .RI "Builds the Footer GUI and references the \fBGameUI\fP pointers for later update of values\&. "
 .ti -1c
-.RI "void \fBon_action1_clicked\fP (GtkWidget *button, gpointer data)"
+.RI "void \fBon_action_clicked\fP (GtkWidget *button, gpointer data)"
 .br
-.ti -1c
-.RI "void \fBon_action2_clicked\fP (GtkWidget *button, gpointer data)"
-.br
-.ti -1c
-.RI "void \fBon_action3_clicked\fP (GtkWidget *button, gpointer data)"
-.br
+.RI "Handles the action when clicked\&. Handles the action button click, apply the changes to the planet and starts a new game turn\&. "
 .ti -1c
 .RI "void \fBon_window_destroy\fP (GtkWidget *widget, gpointer data)"
 .br
 .RI "Callback to the signal of window destroy\&. Properly disposes of elements in memory\&. Destroys the planet and the \fBGameUI\fP by freeing the memory, then calls gtk_main_quit() to exit the program\&. "
+.ti -1c
+.RI "int \fBget_clicked_button\fP (GtkWidget *button, \fBGameUI\fP *ui)"
+.br
+.RI "Obtains the button number that was clicked\&. "
+.ti -1c
+.RI "void \fBupdate_display\fP (\fBGameUI\fP *ui)"
+.br
+.RI "updates the program's display\&. "
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
@@ -135,23 +142,41 @@ Builds the Middle part GUI and references the \fBGameUI\fP pointers for later up
 .RE
 .PP
 
-.SS "void on_action1_clicked (GtkWidget * button, gpointer data)"
-
-.SS "void on_action2_clicked (GtkWidget * button, gpointer data)"
+.SS "int get_clicked_button (GtkWidget * button, \fBGameUI\fP * ui)"
 
 .PP
-\fBTodo\fP
+Obtains the button number that was clicked\&. 
+.PP
+\fBReturns\fP
 .RS 4
-runGUIGame\&.(3) 
+-1 in case the elements do not match, otherwise the button number {1, 2, 3}
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIbutton\fP a pointer to a GtkWidget, which is supposed to be a button\&. 
+.br
+\fIui\fP the \fBGameUI\fP, it holds a pointer too each action buttons in the program 
 .RE
 .PP
 
-.SS "void on_action3_clicked (GtkWidget * button, gpointer data)"
+.SS "void on_action_clicked (GtkWidget * button, gpointer data)"
+
+.PP
+Handles the action when clicked\&. Handles the action button click, apply the changes to the planet and starts a new game turn\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbutton\fP a GtkWidget pointer that should represent a button\&. 
+.br
+\fIdata\fP the data provided by the callback, it should be of type \fBGameUI\fP * 
+.RE
+.PP
 
 .PP
 \fBTodo\fP
 .RS 4
-runGUIGame\&.(3) 
+update_display 
 .RE
 .PP
 
@@ -160,14 +185,12 @@ runGUIGame\&.(3)
 .PP
 Callback to the signal of window destroy\&. Properly disposes of elements in memory\&. Destroys the planet and the \fBGameUI\fP by freeing the memory, then calls gtk_main_quit() to exit the program\&. 
 .PP
-\fBTodo\fP
-.RS 4
-runGUIGame\&.(3) 
-.RE
-.PP
 \fBParameters\fP
 .RS 4
-\fI\fP .RE
+\fIwidget\fP a GtkWidget (probably the main window) 
+.br
+\fIdata\fP the data provided by the callback, it should be of type \fBGameUI\fP * 
+.RE
 .PP
 
 .SS "void runGUIGame (int argc, char * argv[])"
@@ -182,9 +205,22 @@ Runs the full game, turn by turn, until win condition or game over is reached\&.
 
 .PP
 (2) - Move the middle component initialisation logic to build_middle\&. 
+.RE
+.PP
+
+.SS "void update_display (\fBGameUI\fP * ui)"
 
 .PP
-(3) - change callback for clicked button\&. (Currently closes the APP) 
+updates the program's display\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIui\fP Holds the relevant pointers to labels to update them accordingly\&. Updates the labels that hold dynamic data: i\&.e water as well as the buttons\&.
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+!!! 
 .RE
 .PP
 

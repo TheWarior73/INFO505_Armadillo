@@ -113,7 +113,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/d78/game__g
   <div class="headertitle"><div class="title">game_gui.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;gtk/gtk.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/dfe/element_8h_source.html">element.h</a>&quot;</code><br />
+<code>#include &quot;gtk/gtk.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../da/d10/planet_8h_source.html">planet.h</a>&quot;</code><br />
 </div>
 <p><a href="../../d7/d78/game__gui_8h_source.html">Go to the source code of this file.</a></p>
@@ -130,13 +131,16 @@ Functions</h2></td></tr>
 <tr class="memitem:a6372f95666a4073601f96472aea2818b" id="r_a6372f95666a4073601f96472aea2818b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6372f95666a4073601f96472aea2818b">build_header</a> (<a class="el" href="../../d3/d68/structGameUI.html">GameUI</a> *ui, GtkWidget *parent)</td></tr>
 <tr class="memdesc:a6372f95666a4073601f96472aea2818b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the Header GUI and references the <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> pointers for later update of values.  <br /></td></tr>
 <tr class="memitem:a4835a3cd2d8797cf6195aaa722446c1f" id="r_a4835a3cd2d8797cf6195aaa722446c1f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4835a3cd2d8797cf6195aaa722446c1f">build_middle</a> (<a class="el" href="../../d3/d68/structGameUI.html">GameUI</a> *ui, GtkWidget *parent)</td></tr>
+<tr class="memdesc:a4835a3cd2d8797cf6195aaa722446c1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the Middle part GUI and references the <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> pointers for later update of values.  <br /></td></tr>
 <tr class="memitem:a7b5895c6910117b9752ad3ca6b91fd94" id="r_a7b5895c6910117b9752ad3ca6b91fd94"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7b5895c6910117b9752ad3ca6b91fd94">build_footer</a> (<a class="el" href="../../d3/d68/structGameUI.html">GameUI</a> *ui, GtkWidget *parent)</td></tr>
 <tr class="memdesc:a7b5895c6910117b9752ad3ca6b91fd94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the Footer GUI and references the <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> pointers for later update of values.  <br /></td></tr>
-<tr class="memitem:a965767629958d4e198a4e1fde6e45b13" id="r_a965767629958d4e198a4e1fde6e45b13"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a965767629958d4e198a4e1fde6e45b13">on_action1_clicked</a> (GtkWidget *button, gpointer data)</td></tr>
-<tr class="memitem:a36d3ad2bbdbd3aa1f4d4aff7ac396169" id="r_a36d3ad2bbdbd3aa1f4d4aff7ac396169"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a36d3ad2bbdbd3aa1f4d4aff7ac396169">on_action2_clicked</a> (GtkWidget *button, gpointer data)</td></tr>
-<tr class="memitem:a1f50a7f76526711e41792bf563efa9e2" id="r_a1f50a7f76526711e41792bf563efa9e2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1f50a7f76526711e41792bf563efa9e2">on_action3_clicked</a> (GtkWidget *button, gpointer data)</td></tr>
+<tr class="memitem:a62a8b84ee40fb6d8aeec2f5548f5c68c" id="r_a62a8b84ee40fb6d8aeec2f5548f5c68c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a62a8b84ee40fb6d8aeec2f5548f5c68c">on_action_clicked</a> (GtkWidget *button, gpointer data)</td></tr>
+<tr class="memdesc:a62a8b84ee40fb6d8aeec2f5548f5c68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the action when clicked. Handles the action button click, apply the changes to the planet and starts a new game turn.  <br /></td></tr>
 <tr class="memitem:a3ff7244fc295b831fd874de6d69fee67" id="r_a3ff7244fc295b831fd874de6d69fee67"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3ff7244fc295b831fd874de6d69fee67">on_window_destroy</a> (GtkWidget *widget, gpointer data)</td></tr>
 <tr class="memdesc:a3ff7244fc295b831fd874de6d69fee67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback to the signal of window destroy. Properly disposes of elements in memory. Destroys the planet and the <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> by freeing the memory, then calls gtk_main_quit() to exit the program.  <br /></td></tr>
+<tr class="memitem:a4a12a19e448f5ec2efcd0f35060047d5" id="r_a4a12a19e448f5ec2efcd0f35060047d5"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a4a12a19e448f5ec2efcd0f35060047d5">get_clicked_button</a> (GtkWidget *button, <a class="el" href="../../d3/d68/structGameUI.html">GameUI</a> *ui)</td></tr>
+<tr class="memdesc:a4a12a19e448f5ec2efcd0f35060047d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains the button number that was clicked.  <br /></td></tr>
+<tr class="memitem:a83e4129f7cd114a80f8046bdcd0af59b" id="r_a83e4129f7cd114a80f8046bdcd0af59b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a83e4129f7cd114a80f8046bdcd0af59b">update_display</a> (<a class="el" href="../../d3/d68/structGameUI.html">GameUI</a> *ui)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a7b5895c6910117b9752ad3ca6b91fd94" name="a7b5895c6910117b9752ad3ca6b91fd94"></a>
@@ -223,16 +227,57 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Builds the Middle part GUI and references the <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> pointers for later update of values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ui</td><td>The <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> struct that holds pointer references to labels to allow for updates </td></tr>
+    <tr><td class="paramname">parent</td><td>The parent widget.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo</a></b></dt><dd>(1) - Middle Component Building </dd></dl>
+
 </div>
 </div>
-<a id="a965767629958d4e198a4e1fde6e45b13" name="a965767629958d4e198a4e1fde6e45b13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a965767629958d4e198a4e1fde6e45b13">&#9670;&#160;</a></span>on_action1_clicked()</h2>
+<a id="a4a12a19e448f5ec2efcd0f35060047d5" name="a4a12a19e448f5ec2efcd0f35060047d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a12a19e448f5ec2efcd0f35060047d5">&#9670;&#160;</a></span>get_clicked_button()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void on_action1_clicked </td>
+          <td class="memname">int get_clicked_button </td>
+          <td>(</td>
+          <td class="paramtype">GtkWidget *</td>          <td class="paramname"><span class="paramname"><em>button</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d68/structGameUI.html">GameUI</a> *</td>          <td class="paramname"><span class="paramname"><em>ui</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtains the button number that was clicked. </p>
+<dl class="section return"><dt>Returns</dt><dd>-1 in case the elements do not match, otherwise the button number {1, 2, 3}</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td>a pointer to a GtkWidget, which is supposed to be a button. </td></tr>
+    <tr><td class="paramname">ui</td><td>the <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a>, it holds a pointer too each action buttons in the program </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a62a8b84ee40fb6d8aeec2f5548f5c68c" name="a62a8b84ee40fb6d8aeec2f5548f5c68c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62a8b84ee40fb6d8aeec2f5548f5c68c">&#9670;&#160;</a></span>on_action_clicked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void on_action_clicked </td>
           <td>(</td>
           <td class="paramtype">GtkWidget *</td>          <td class="paramname"><span class="paramname"><em>button</em></span>, </td>
         </tr>
@@ -244,47 +289,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a36d3ad2bbdbd3aa1f4d4aff7ac396169" name="a36d3ad2bbdbd3aa1f4d4aff7ac396169"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36d3ad2bbdbd3aa1f4d4aff7ac396169">&#9670;&#160;</a></span>on_action2_clicked()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void on_action2_clicked </td>
-          <td>(</td>
-          <td class="paramtype">GtkWidget *</td>          <td class="paramname"><span class="paramname"><em>button</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">gpointer</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1f50a7f76526711e41792bf563efa9e2" name="a1f50a7f76526711e41792bf563efa9e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f50a7f76526711e41792bf563efa9e2">&#9670;&#160;</a></span>on_action3_clicked()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void on_action3_clicked </td>
-          <td>(</td>
-          <td class="paramtype">GtkWidget *</td>          <td class="paramname"><span class="paramname"><em>button</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">gpointer</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Handles the action when clicked. Handles the action button click, apply the changes to the planet and starts a new game turn. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td>a GtkWidget pointer that should represent a button. </td></tr>
+    <tr><td class="paramname">data</td><td>the data provided by the callback, it should be of type <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> * </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000006">Todo</a></b></dt><dd>update_display </dd></dl>
 
 </div>
 </div>
@@ -308,10 +321,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Callback to the signal of window destroy. Properly disposes of elements in memory. Destroys the planet and the <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> by freeing the memory, then calls gtk_main_quit() to exit the program. </p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000008">Todo</a></b></dt><dd>runGUIGame.(3) </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">widget</td><td>a GtkWidget (probably the main window) </td></tr>
+    <tr><td class="paramname">data</td><td>the data provided by the callback, it should be of type <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> * </td></tr>
   </table>
   </dd>
 </dl>
@@ -340,9 +353,25 @@ Functions</h2></td></tr>
 <p>Runs the full game, turn by turn, until win condition or game over is reached. </p>
 <p>This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well.</p>
 <dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000002">Todo</a></b></dt><dd><p class="startdd">(1) - GUI for the planet creation step instead of generating a random planet </p>
-<p class="interdd">(2) - Move the middle component initialisation logic to build_middle. </p>
-<p class="enddd">(3) - change callback for clicked button. (Currently closes the APP) </p>
+<p class="enddd">(2) - Move the middle component initialisation logic to build_middle. </p>
 </dd></dl>
+
+</div>
+</div>
+<a id="a83e4129f7cd114a80f8046bdcd0af59b" name="a83e4129f7cd114a80f8046bdcd0af59b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83e4129f7cd114a80f8046bdcd0af59b">&#9670;&#160;</a></span>update_display()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update_display </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d68/structGameUI.html">GameUI</a> *</td>          <td class="paramname"><span class="paramname"><em>ui</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

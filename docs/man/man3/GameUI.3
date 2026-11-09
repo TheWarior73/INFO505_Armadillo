@@ -1,4 +1,4 @@
-.TH "GameUI" 3 "Sat Nov 7 2026 17:27:50" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "GameUI" 3 "Mon Nov 9 2026 20:29:55" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -55,6 +55,15 @@ GameUI \- Struct used to update important informations on the screen each turn\&
 .ti -1c
 .RI "GtkWidget * \fBaction1_btn\fP"
 .br
+.RI "The First Action Button (left)\&. "
+.ti -1c
+.RI "GtkWidget * \fBaction1_label\fP"
+.br
+.RI "The First Action Button (left)\&. "
+.ti -1c
+.RI "\fBElement\fP * \fBaction1\fP"
+.br
+.RI "The First Action (left)\&. "
 .ti -1c
 .RI "GtkWidget * \fBaction2_box\fP"
 .br
@@ -62,6 +71,15 @@ GameUI \- Struct used to update important informations on the screen each turn\&
 .ti -1c
 .RI "GtkWidget * \fBaction2_btn\fP"
 .br
+.RI "The Second Action Button (middle)\&. "
+.ti -1c
+.RI "GtkWidget * \fBaction2_label\fP"
+.br
+.RI "The Second Action Button (middle)\&. "
+.ti -1c
+.RI "\fBElement\fP * \fBaction2\fP"
+.br
+.RI "The Second Action (middle)\&. "
 .ti -1c
 .RI "GtkWidget * \fBaction3_box\fP"
 .br
@@ -69,30 +87,69 @@ GameUI \- Struct used to update important informations on the screen each turn\&
 .ti -1c
 .RI "GtkWidget * \fBaction3_btn\fP"
 .br
+.RI "The Third Action Button (right)\&. "
+.ti -1c
+.RI "GtkWidget * \fBaction3_label\fP"
+.br
+.RI "The Third Action Button (right)\&. "
+.ti -1c
+.RI "\fBElement\fP * \fBaction3\fP"
+.br
+.RI "The Third Action (right)\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 Struct used to update important informations on the screen each turn\&. 
 .SH "Field Documentation"
 .PP 
+.SS "\fBElement\fP* GameUI::action1"
+
+.PP
+The First Action (left)\&. 
 .SS "GtkWidget* GameUI::action1_box"
 
 .PP
 The First Action Box (left)\&. 
 .SS "GtkWidget* GameUI::action1_btn"
 
+.PP
+The First Action Button (left)\&. 
+.SS "GtkWidget* GameUI::action1_label"
+
+.PP
+The First Action Button (left)\&. 
+.SS "\fBElement\fP* GameUI::action2"
+
+.PP
+The Second Action (middle)\&. 
 .SS "GtkWidget* GameUI::action2_box"
 
 .PP
 The Second Action Box (middle)\&. 
 .SS "GtkWidget* GameUI::action2_btn"
 
+.PP
+The Second Action Button (middle)\&. 
+.SS "GtkWidget* GameUI::action2_label"
+
+.PP
+The Second Action Button (middle)\&. 
+.SS "\fBElement\fP* GameUI::action3"
+
+.PP
+The Third Action (right)\&. 
 .SS "GtkWidget* GameUI::action3_box"
 
 .PP
 The Third Action Box (right)\&. 
 .SS "GtkWidget* GameUI::action3_btn"
 
+.PP
+The Third Action Button (right)\&. 
+.SS "GtkWidget* GameUI::action3_label"
+
+.PP
+The Third Action Button (right)\&. 
 .SS "GtkWidget* GameUI::history_log"
 
 .PP

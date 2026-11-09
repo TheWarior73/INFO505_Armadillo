@@ -1,4 +1,4 @@
-.TH "todo" 3 "Sat Nov 7 2026 17:27:50" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "todo" 3 "Mon Nov 9 2026 20:29:55" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -47,19 +47,9 @@ Test ELEMENT_DISPLAY_ALL with other change union types(that uses something else 
 Display Action & Event List on demand instead of each call\&.  
 
 .PP
-.IP "\fBGlobal \fBon_action2_clicked\fP (GtkWidget *button, gpointer data)
+.IP "\fBGlobal \fBon_action_clicked\fP (GtkWidget *button, gpointer data)
 .IP "" 1c
-runGUIGame\&.(3)  
-
-.PP
-.IP "\fBGlobal \fBon_action3_clicked\fP (GtkWidget *button, gpointer data)
-.IP "" 1c
-runGUIGame\&.(3)  
-
-.PP
-.IP "\fBGlobal \fBon_window_destroy\fP (GtkWidget *widget, gpointer data)
-.IP "" 1c
-runGUIGame\&.(3)  
+update_display  
 
 .PP
 .IP "\fBGlobal \fBrunGUIGame\fP (int argc, char *argv[])
@@ -69,12 +59,12 @@ runGUIGame\&.(3)
 .PP
 
 .PP
-(2) - Move the middle component initialisation logic to build_middle\&. 
+(2) - Move the middle component initialisation logic to build_middle\&.  
 
 .PP
-
-.PP
-(3) - change callback for clicked button\&. (Currently closes the APP) 
+.IP "\fBGlobal \fBupdate_display\fP (\fBGameUI\fP *ui)
+.IP "" 1c
+!!! 
 
 .PP
 
