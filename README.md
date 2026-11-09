@@ -66,6 +66,12 @@ Arch - `# pacman -Sy bear`
 
 Debian/Ubuntu - `# apt install bear`
 
+### Running the GUI with the GTK Debuger
+
+From the root of the project
+
+`$ GTK_DEBUG=interactive src/armadillo.game --gui`
+
 ## Credits
 
 - [DaveGamble's cJSON](https://github.com/davegamble/cjson) : Minimal Json parsing library in C.

@@ -1,6 +1,7 @@
 #ifndef GAME_GUI_C
 #define GAME_GUI_C
 
+#include "element.h"
 #include "game.h"
 #include "planet.h"
 #include "game_gui.h"
@@ -9,6 +10,7 @@
 #include "glib.h"
 #include "glibconfig.h"
 #include "gtk/gtkcssprovider.h"
+#include <asm-generic/errno-base.h>
 #include <gtk/gtk.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,8 +23,6 @@
  * @brief Runs the full game, turn by turn, until win condition or game over is reached.
  * @todo (1) - GUI for the planet creation step instead of generating a random planet
  * @todo (2) - Move the middle component initialisation logic to build_middle.
- * @todo (3) - change callback for clicked button. (Currently closes the APP)
- * @todo (4) - 
  */
 void runGUIGame(int argc, char *argv[])
 {
@@ -101,6 +101,13 @@ void runGUIGame(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
+	// Initialising the first batch of actions.
+	ui->action1 = drawRandomElement(ui->planet->Actions);
+	ui->action2 = drawRandomElement(ui->planet->Actions);
+	ui->action3 = drawRandomElement(ui->planet->Actions);
+
+	printf("%s\n", ui->action1->nameElement);
+
 	// Styling
 	GtkCssProvider *cssProvider = gtk_css_provider_new();
 
@@ -124,8 +131,8 @@ void runGUIGame(int argc, char *argv[])
 	gtk_window_set_default_size(GTK_WINDOW(window), 800, 500);
 
 	// ------------------
+
 	// Main Container
-	// ------------------
 	GtkWidget *main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
 	gtk_container_add(GTK_CONTAINER(window), main_box);
 
@@ -137,10 +144,8 @@ void runGUIGame(int argc, char *argv[])
 	// Header - Planet Information
 	build_header(ui, main_box);
 
-	// ------------------
 	// Middle - Event and action history
 	build_middle(ui, main_box);
-	// ------------------
 
 	// Footer - Action Choice
 	build_footer(ui, main_box);
@@ -149,9 +154,9 @@ void runGUIGame(int argc, char *argv[])
 
 	// Subscriptions
 	g_signal_connect(window, "destroy", G_CALLBACK(on_window_destroy), ui);
-	g_signal_connect(ui->action1_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
-	g_signal_connect(ui->action2_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
-	g_signal_connect(ui->action3_btn, "clicked", G_CALLBACK(on_window_destroy), ui); // todo (3)
+	g_signal_connect(ui->action1_btn, "clicked", G_CALLBACK(on_action_clicked), ui);
+	g_signal_connect(ui->action2_btn, "clicked", G_CALLBACK(on_action_clicked), ui);
+	g_signal_connect(ui->action3_btn, "clicked", G_CALLBACK(on_action_clicked), ui);
 
 	// -------------------
 
@@ -263,7 +268,8 @@ void build_middle(GameUI *ui, GtkWidget *parent)
 	gtk_box_pack_start(GTK_BOX(parent), history_box, TRUE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(history_box), title, FALSE, FALSE, 0);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
-		GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+								   GTK_POLICY_AUTOMATIC,
+								   GTK_POLICY_AUTOMATIC);
 	gtk_box_pack_start(GTK_BOX(history_box), scrolled_window, TRUE, TRUE, 0);
 
 	ui->history_log = gtk_text_view_new();
@@ -301,9 +307,9 @@ void build_footer(GameUI *ui, GtkWidget *parent)
 
 #pragma region Buttons
 
-	gchar *action1_btn_str = "Execute 1";
-	gchar *action2_btn_str = "Execute 2";
-	gchar *action3_btn_str = "Execute 3";
+	gchar *action1_btn_str = ui->action1->nameElement;
+	gchar *action2_btn_str = ui->action2->nameElement;
+	gchar *action3_btn_str = ui->action3->nameElement;
 
 	ui->action1_btn = gtk_button_new_with_label(action1_btn_str);
 	ui->action2_btn = gtk_button_new_with_label(action2_btn_str);
@@ -311,36 +317,112 @@ void build_footer(GameUI *ui, GtkWidget *parent)
 #pragma endregion
 
 #pragma region Labels
+	// Str
+	gchar *str_box_nb1 = g_strdup_printf("01");
+	gchar *str_box_nb2 = g_strdup_printf("02");
+	gchar *str_box_nb3 = g_strdup_printf("03");
+
+	gchar *str_name_element_1 = g_strdup_printf("%s", ui->action1->nameElement);
+	gchar *str_name_element_2 = g_strdup_printf("%s", ui->action2->nameElement);
+	gchar *str_name_element_3 = g_strdup_printf("%s", ui->action3->nameElement);
+
+	// labels building
+	GtkWidget *box_nb1 = gtk_label_new(str_box_nb1);
+	GtkWidget *box_nb2 = gtk_label_new(str_box_nb2);
+	GtkWidget *box_nb3 = gtk_label_new(str_box_nb3);
+
+	ui->action1_label = gtk_label_new(str_name_element_1);
+	ui->action2_label = gtk_label_new(str_name_element_2);
+	ui->action3_label = gtk_label_new(str_name_element_3);
 
 #pragma endregion
 
 #pragma region Building
 	ui->action1_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
 
-	gtk_box_pack_start(GTK_BOX(ui->action1_box), gtk_label_new("Action 1 Details"), FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(ui->action1_box), box_nb1, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(ui->action1_box), ui->action1_label, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(ui->action1_box), ui->action1_btn, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(footer_box), ui->action1_box, TRUE, TRUE, 0);
 
 	ui->action2_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
-	gtk_box_pack_start(GTK_BOX(ui->action2_box), gtk_label_new("Action 2 Details"), FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(ui->action2_box), box_nb2, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(ui->action2_box), ui->action2_label, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(ui->action2_box), ui->action2_btn, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(footer_box), ui->action2_box, TRUE, TRUE, 0);
 
 	ui->action3_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
-	gtk_box_pack_start(GTK_BOX(ui->action3_box), gtk_label_new("Action 3 Details"), FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(ui->action3_box), box_nb3, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(ui->action3_box), ui->action3_label, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(ui->action3_box), ui->action3_btn, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(footer_box), ui->action3_box, TRUE, TRUE, 0);
 #pragma endregion
 }
 
-void on_action1_clicked(GtkWidget *button, gpointer data); /** @todo runGUIGame.(3)*/
-void on_action2_clicked(GtkWidget *button, gpointer data); /** @todo runGUIGame.(3)*/
-void on_action3_clicked(GtkWidget *button, gpointer data); /** @todo runGUIGame.(3)*/
+/**
+ * @brief Handles the action when clicked.
+ * Handles the action button click, apply the changes to the planet and starts a new game turn.
+ * @param button a GtkWidget pointer that should represent a button.
+ * @param data the data provided by the callback, it should be of type GameUI *
+ */
+void on_action_clicked(GtkWidget *button, gpointer data)
+{
+	GameUI *ui = (GameUI *)data;
+	int clicked_button = get_clicked_button(button, ui);
+	Element *elt = NULL;
+
+	switch (clicked_button)
+	{
+		case 1: {
+			elt = ui->action1;
+			printf("1 %s\n", elt->nameElement);
+			break;
+		};
+		case 2: {
+			elt = ui->action2;
+			printf("2 %s\n", elt->nameElement);
+			break;
+		};
+		case 3: {
+			elt = ui->action3;
+			printf("3: %s\n", elt->nameElement);
+			break;
+		};
+		case -1: {
+			fprintf(stderr, "ERROR: on_action_clicked - Invalid pointer to a button.\n");
+			return;
+		}
+	}
+
+	// Apply the action
+	applyElementChange(ui->planet, elt);
+
+	/** @todo update_display*/
+	// update_display(ui);
+
+	// -- NEW TURN --
+
+	Element *random_event = drawRandomElement(ui->planet->Events);
+	applyElementChange(ui->planet, random_event);
+
+	// Add to history
+	FILE *history = fopen(GAME_HISTORY_FILE, "a");
+	if (history != NULL)
+	{
+		fprintf(history, "Event: %s | Action: %s\n", random_event != NULL ? random_event->nameElement : "None", elt != NULL ? elt->nameElement : "None");
+		fclose(history);
+	}
+	else
+	{
+		perror("Unable to append game history");
+	}
+}
 
 /**
  * @brief Callback to the signal of window destroy. Properly disposes of elements in memory.
  * Destroys the planet and the GameUI by freeing the memory, then calls gtk_main_quit() to exit the program.
- * @param
+ * @param widget a GtkWidget (probably the main window)
+ * @param data the data provided by the callback, it should be of type GameUI *
  */
 void on_window_destroy(GtkWidget *widget, gpointer data)
 {
@@ -352,5 +434,42 @@ void on_window_destroy(GtkWidget *widget, gpointer data)
 	// So the widget is not unused.
 	g_free(widget);
 }
+
+// --- Helpers ---
+
+/**
+ * @brief Obtains the button number that was clicked.
+ * @returns -1 in case the elements do not match, otherwise the button number {1, 2, 3}
+ *
+ * @param button a pointer to a GtkWidget, which is supposed to be a button.
+ * @param ui the GameUI, it holds a pointer too each action buttons in the program
+ */
+int get_clicked_button(GtkWidget *button, GameUI *ui)
+{
+	if (button == ui->action1_btn)
+	{
+		return 1;
+	}
+	else if (button == ui->action2_btn)
+	{
+		return 2;
+	}
+	else if (button == ui->action3_btn)
+	{
+		return 3;
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+/**
+ * @brief updates the program's display.
+ * @param ui Holds the relevant pointers to labels to update them accordingly.
+ * Updates the labels that hold dynamic data: i.e water as well as the buttons.
+ * @todo !!!
+ */
+void update_display(GameUI *ui);
 
 #endif
