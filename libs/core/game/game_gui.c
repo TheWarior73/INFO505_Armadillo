@@ -335,6 +335,15 @@ void build_footer(GameUI *ui, GtkWidget *parent)
 	ui->action2_label = gtk_label_new(str_name_element_2);
 	ui->action3_label = gtk_label_new(str_name_element_3);
 
+	// Free
+	g_free(str_box_nb1);
+	g_free(str_box_nb2);
+	g_free(str_box_nb3);
+
+	g_free(str_name_element_1);
+	g_free(str_name_element_2);
+	g_free(str_name_element_3);
+
 #pragma endregion
 
 #pragma region Building
@@ -364,6 +373,7 @@ void build_footer(GameUI *ui, GtkWidget *parent)
  * Handles the action button click, apply the changes to the planet and starts a new game turn.
  * @param button a GtkWidget pointer that should represent a button.
  * @param data the data provided by the callback, it should be of type GameUI *
+ * @todo (1) - fix header update
  */
 void on_action_clicked(GtkWidget *button, gpointer data)
 {
@@ -395,15 +405,25 @@ void on_action_clicked(GtkWidget *button, gpointer data)
 	}
 
 	// Apply the action
-	applyElementChange(ui->planet, elt);
+	int actionRes = applyElementChange(ui->planet, elt);
 
-	/** @todo update_display*/
-	// update_display(ui);
+	if (actionRes == 0)
+	{
+		fprintf(stderr, "Action.applyElementChange failed: %50s\n", elt->nameElement);
+	}
+
+	update_display(ui);
 
 	// -- NEW TURN --
 
 	Element *random_event = drawRandomElement(ui->planet->Events);
-	applyElementChange(ui->planet, random_event);
+
+	int eltRes = applyElementChange(ui->planet, random_event);
+
+	if (eltRes == 0)
+	{
+		fprintf(stderr, "Element.applyElementChange failed: %50s\n", random_event->nameElement);
+	}
 
 	// Add to history
 	FILE *history = fopen(GAME_HISTORY_FILE, "a");
@@ -416,6 +436,13 @@ void on_action_clicked(GtkWidget *button, gpointer data)
 	{
 		perror("Unable to append game history");
 	}
+
+	// Update Actions
+	ui->action1 = drawRandomElement(ui->planet->Actions);
+	ui->action2 = drawRandomElement(ui->planet->Actions);
+	ui->action3 = drawRandomElement(ui->planet->Actions);
+
+	update_display(ui);
 }
 
 /**
@@ -468,8 +495,60 @@ int get_clicked_button(GtkWidget *button, GameUI *ui)
  * @brief updates the program's display.
  * @param ui Holds the relevant pointers to labels to update them accordingly.
  * Updates the labels that hold dynamic data: i.e water as well as the buttons.
- * @todo !!!
+ * @todo (1) - fix header update
+ * @todo (2) - history
+ * @todo (3) - header btn update
  */
-void update_display(GameUI *ui);
+void update_display(GameUI *ui)
+{
+#pragma region Header
+	// Str
+	gchar *new_str_population = g_strdup_printf("Population: %ld", ui->planet->population);
+	gchar *new_str_water = g_strdup_printf("Water: %d", ui->planet->water);
+	gchar *new_str_wood = g_strdup_printf("Wood: %d", ui->planet->wood);
+	gchar *new_str_minerals = g_strdup_printf("Minerals: %d", ui->planet->minerals);
+	gchar *new_str_habitability = g_strdup_printf("Habitability: %d", ui->planet->habitability);
+
+	// Labels
+	gtk_label_set_text(GTK_LABEL(ui->label_population), new_str_population);
+	gtk_label_set_text(GTK_LABEL(ui->label_water), new_str_water);
+	gtk_label_set_text(GTK_LABEL(ui->label_wood), new_str_wood);
+	gtk_label_set_text(GTK_LABEL(ui->label_minerals), new_str_minerals);
+	gtk_label_set_text(GTK_LABEL(ui->label_habitability), new_str_habitability);
+
+	// Free
+	g_free(new_str_population);
+	g_free(new_str_water);
+	g_free(new_str_wood);
+	g_free(new_str_minerals);
+	g_free(new_str_habitability);
+#pragma endregion
+
+#pragma region History
+	// Str
+
+	// Labels
+
+	// Free
+
+#pragma endregion
+
+#pragma region Footer
+	// Str
+	gchar *new_str_name_element_1 = g_strdup_printf("%s", ui->action1->nameElement);
+	gchar *new_str_name_element_2 = g_strdup_printf("%s", ui->action2->nameElement);
+	gchar *new_str_name_element_3 = g_strdup_printf("%s", ui->action3->nameElement);
+
+	// Labels
+	gtk_label_set_text(GTK_LABEL(ui->action1_label), new_str_name_element_1);
+	gtk_label_set_text(GTK_LABEL(ui->action2_label), new_str_name_element_2);
+	gtk_label_set_text(GTK_LABEL(ui->action3_label), new_str_name_element_3);
+
+	// Free
+	g_free(new_str_name_element_1);
+	g_free(new_str_name_element_2);
+	g_free(new_str_name_element_3);
+#pragma endregion
+}
 
 #endif
