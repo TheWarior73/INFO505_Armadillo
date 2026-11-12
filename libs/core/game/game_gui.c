@@ -106,8 +106,6 @@ void runGUIGame(int argc, char *argv[])
 	ui->action2 = drawRandomElement(ui->planet->Actions);
 	ui->action3 = drawRandomElement(ui->planet->Actions);
 
-	printf("%s\n", ui->action1->nameElement);
-
 	// Styling
 	GtkCssProvider *cssProvider = gtk_css_provider_new();
 
@@ -307,9 +305,9 @@ void build_footer(GameUI *ui, GtkWidget *parent)
 
 #pragma region Buttons
 
-	gchar *action1_btn_str = ui->action1->nameElement;
-	gchar *action2_btn_str = ui->action2->nameElement;
-	gchar *action3_btn_str = ui->action3->nameElement;
+	gchar *action1_btn_str = format_change(ui->action1);
+	gchar *action2_btn_str = format_change(ui->action2);
+	gchar *action3_btn_str = format_change(ui->action3);
 
 	ui->action1_btn = gtk_button_new_with_label(action1_btn_str);
 	ui->action2_btn = gtk_button_new_with_label(action2_btn_str);
@@ -385,17 +383,14 @@ void on_action_clicked(GtkWidget *button, gpointer data)
 	{
 		case 1: {
 			elt = ui->action1;
-			printf("1 %s\n", elt->nameElement);
 			break;
 		};
 		case 2: {
 			elt = ui->action2;
-			printf("2 %s\n", elt->nameElement);
 			break;
 		};
 		case 3: {
 			elt = ui->action3;
-			printf("3: %s\n", elt->nameElement);
 			break;
 		};
 		case -1: {
@@ -409,7 +404,8 @@ void on_action_clicked(GtkWidget *button, gpointer data)
 
 	if (actionRes == 0)
 	{
-		fprintf(stderr, "Action.applyElementChange failed: %50s\n", elt->nameElement);
+		fprintf(stderr, "Action.applyElementChange failed: %50s . %d\n", elt->nameElement, elt->change.quantity);
+		// displayPlanet(ui->planet);
 	}
 
 	update_display(ui);
@@ -422,7 +418,8 @@ void on_action_clicked(GtkWidget *button, gpointer data)
 
 	if (eltRes == 0)
 	{
-		fprintf(stderr, "Element.applyElementChange failed: %50s\n", random_event->nameElement);
+		fprintf(stderr, "Element.applyElementChange failed: %50s . %d\n", random_event->nameElement, random_event->change.quantity);
+		// displayPlanet(ui->planet);
 	}
 
 	// Add to history
@@ -497,7 +494,7 @@ int get_clicked_button(GtkWidget *button, GameUI *ui)
  * Updates the labels that hold dynamic data: i.e water as well as the buttons.
  * @todo (1) - fix header update
  * @todo (2) - history
- * @todo (3) - header btn update
+ * @todo (3) - footer btn update
  */
 void update_display(GameUI *ui)
 {
@@ -539,16 +536,66 @@ void update_display(GameUI *ui)
 	gchar *new_str_name_element_2 = g_strdup_printf("%s", ui->action2->nameElement);
 	gchar *new_str_name_element_3 = g_strdup_printf("%s", ui->action3->nameElement);
 
+	gchar *new_action1_btn_str = format_change(ui->action1);
+	gchar *new_action2_btn_str = format_change(ui->action2);
+	gchar *new_action3_btn_str = format_change(ui->action3);
+
 	// Labels
 	gtk_label_set_text(GTK_LABEL(ui->action1_label), new_str_name_element_1);
 	gtk_label_set_text(GTK_LABEL(ui->action2_label), new_str_name_element_2);
 	gtk_label_set_text(GTK_LABEL(ui->action3_label), new_str_name_element_3);
 
+	gtk_button_set_label(GTK_BUTTON(ui->action1_btn), new_action1_btn_str);
+	gtk_button_set_label(GTK_BUTTON(ui->action2_btn), new_action2_btn_str);
+	gtk_button_set_label(GTK_BUTTON(ui->action3_btn), new_action3_btn_str);
+
 	// Free
 	g_free(new_str_name_element_1);
 	g_free(new_str_name_element_2);
 	g_free(new_str_name_element_3);
+
+	g_free(new_action1_btn_str);
+	g_free(new_action2_btn_str);
+	g_free(new_action3_btn_str);
 #pragma endregion
+}
+
+/**
+ * @brief returns a gchar that have the data to display a change (which type, what quantity).
+ */
+gchar *format_change(Element *action)
+{
+	if (action == NULL)
+	{
+		return g_strdup("Empty Action");
+	}
+
+	switch (action->changeTarget)
+	{
+		case ELEMENT_CHANGE_NONE:
+			return g_strdup("0");
+
+		case ELEMENT_CHANGE_POPULATION:
+			return g_strdup_printf("%s: %+ld",
+								   strOfElementChangeTarget(action->changeTarget),
+								   action->change.population);
+
+		case ELEMENT_CHANGE_RADIUS:
+			return g_strdup_printf("%s: %+.1f",
+								   strOfElementChangeTarget(action->changeTarget),
+								   action->change.radiusKm);
+
+		case ELEMENT_CHANGE_WATER:
+		case ELEMENT_CHANGE_MINERALS:
+		case ELEMENT_CHANGE_WOOD:
+		case ELEMENT_CHANGE_HABITABILITY:
+			return g_strdup_printf("%s: %+d",
+								   strOfElementChangeTarget(action->changeTarget),
+								   action->change.quantity);
+
+		default:
+			return g_strdup("0");
+	}
 }
 
 #endif

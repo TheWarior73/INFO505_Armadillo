@@ -90,5 +90,6 @@ void on_window_destroy(GtkWidget *widget, gpointer data);
 
 int get_clicked_button(GtkWidget *button, GameUI *ui);
 void update_display(GameUI *ui);
+gchar *format_change(Element *action);
 
 #endif
