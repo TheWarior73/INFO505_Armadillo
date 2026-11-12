@@ -5,6 +5,8 @@
 #include "gtk/gtk.h"
 #include "planet.h"
 
+#define VERSION "1.0"
+
 /**
  * @brief Struct used to update important informations on the screen each turn
  */
@@ -12,6 +14,9 @@ typedef struct
 {
 	/** @brief The game planet */
 	Planet *planet;
+
+	/** @brief The window of the program */
+	GtkWidget *main_window;
 
 	// ---------------
 	//
@@ -91,5 +96,7 @@ void on_window_destroy(GtkWidget *widget, gpointer data);
 int get_clicked_button(GtkWidget *button, GameUI *ui);
 void update_display(GameUI *ui);
 gchar *format_change(Element *action);
+GtkWidget *create_stat_box(const gchar *title_text, const gchar *value_text, GtkWidget **out_value_label, const gchar *css_class);
+void show_game_popup(GtkWindow *parent_window, GtkMessageType type, const gchar *title, const gchar *message);
 
 #endif

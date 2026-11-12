@@ -22,7 +22,6 @@
  *
  * @brief Runs the full game, turn by turn, until win condition or game over is reached.
  * @todo (1) - GUI for the planet creation step instead of generating a random planet
- * @todo (2) - Move the middle component initialisation logic to build_middle.
  */
 void runGUIGame(int argc, char *argv[])
 {
@@ -123,6 +122,7 @@ void runGUIGame(int argc, char *argv[])
 
 	// New window
 	GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	ui->main_window = window;
 
 	// Title & size
 	gtk_window_set_title(GTK_WINDOW(window), "The Armadillo Project");
@@ -177,7 +177,7 @@ void runGUIGame(int argc, char *argv[])
  */
 void build_header(GameUI *ui, GtkWidget *parent)
 {
-	GtkWidget *header_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
+	GtkWidget *header_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 15);
 	gtk_box_pack_start(GTK_BOX(parent), header_box, FALSE, FALSE, 0);
 
 	GtkStyleContext *header_box_context = gtk_widget_get_style_context(header_box);
@@ -185,12 +185,12 @@ void build_header(GameUI *ui, GtkWidget *parent)
 
 #pragma region LABELS
 	gchar *str_name = g_strdup_printf("%s", ui->planet->name);
-	gchar *str_radius = g_strdup_printf("Planet Radius: %.2f", ui->planet->radiusKm);
-	gchar *str_population = g_strdup_printf("Population: %ld", ui->planet->population);
-	gchar *str_water = g_strdup_printf("Water: %d", ui->planet->water);
-	gchar *str_wood = g_strdup_printf("Wood: %d", ui->planet->wood);
-	gchar *str_minerals = g_strdup_printf("Minerals: %d", ui->planet->minerals);
-	gchar *str_habitability = g_strdup_printf("Habitability: %d", ui->planet->habitability);
+	gchar *str_radius = g_strdup_printf("%.2f", ui->planet->radiusKm);
+	gchar *str_population = g_strdup_printf("%ld", ui->planet->population);
+	gchar *str_water = g_strdup_printf("%d", ui->planet->water);
+	gchar *str_wood = g_strdup_printf("%d", ui->planet->wood);
+	gchar *str_minerals = g_strdup_printf("%d", ui->planet->minerals);
+	gchar *str_habitability = g_strdup_printf("%d", ui->planet->habitability);
 
 	// Labels
 	ui->label_name = gtk_label_new(str_name);
@@ -200,50 +200,60 @@ void build_header(GameUI *ui, GtkWidget *parent)
 	ui->label_wood = gtk_label_new(str_wood);
 	ui->label_minerals = gtk_label_new(str_minerals);
 	ui->label_habitability = gtk_label_new(str_habitability);
-
-	// Adding labels to the header
-	gtk_box_pack_start(GTK_BOX(header_box), ui->label_name, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(header_box), ui->label_radius, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(header_box), ui->label_population, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(header_box), ui->label_water, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(header_box), ui->label_wood, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(header_box), ui->label_minerals, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(header_box), ui->label_habitability, FALSE, FALSE, 0);
 #pragma endregion
 
-#pragma region STYLING
-	/* TODO (1) */
+#pragma region TOP BAR
+	GtkWidget *top_bar = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_box_pack_start(GTK_BOX(header_box), top_bar, FALSE, FALSE, 0);
+
+	// Planet Name (Left)
+	gtk_widget_set_halign(ui->label_name, GTK_ALIGN_START);
+
 	GtkStyleContext *label_name_context = gtk_widget_get_style_context(ui->label_name);
 	gtk_style_context_add_class(label_name_context, "planet_name");
 
-	GtkStyleContext *label_radius_context = gtk_widget_get_style_context(ui->label_radius);
-	gtk_style_context_add_class(label_radius_context, "");
+	// Game Version (Right)
+	GtkWidget *game_version = gtk_label_new(VERSION);
+	gtk_widget_set_halign(game_version, GTK_ALIGN_END);
 
-	GtkStyleContext *label_population_context = gtk_widget_get_style_context(ui->label_population);
-	gtk_style_context_add_class(label_population_context, "");
+	GtkStyleContext *version_context = gtk_widget_get_style_context(game_version);
+	gtk_style_context_add_class(version_context, "game_version");
 
-	GtkStyleContext *label_water_context = gtk_widget_get_style_context(ui->label_water);
-	gtk_style_context_add_class(label_water_context, "");
+	// Pack Top Bar (Name expands to push version to the right)
+	gtk_box_pack_start(GTK_BOX(top_bar), ui->label_name, TRUE, TRUE, 0);
+	gtk_box_pack_end(GTK_BOX(top_bar), game_version, FALSE, FALSE, 0);
+#pragma endregion
 
-	GtkStyleContext *label_wood_context = gtk_widget_get_style_context(ui->label_wood);
-	gtk_style_context_add_class(label_wood_context, "");
+#pragma region STATS GRID
+	GtkWidget *stats_grid = gtk_grid_new();
+	gtk_grid_set_column_homogeneous(GTK_GRID(stats_grid), TRUE);
+	gtk_grid_set_row_spacing(GTK_GRID(stats_grid), 15);
+	gtk_grid_set_column_spacing(GTK_GRID(stats_grid), 15);
 
-	GtkStyleContext *label_minerals_context = gtk_widget_get_style_context(ui->label_minerals);
-	gtk_style_context_add_class(label_minerals_context, "");
+	GtkStyleContext *grid_context = gtk_widget_get_style_context(stats_grid);
+	gtk_style_context_add_class(grid_context, "stats_grid");
 
-	GtkStyleContext *label_habitability_context = gtk_widget_get_style_context(ui->label_habitability);
-	gtk_style_context_add_class(label_habitability_context, "");
+	// Row 0
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("POPULATION", str_population, &ui->label_population, "val_population"), 0, 0, 1, 1);
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("HABITABILITY", str_habitability, &ui->label_habitability, "val_habitability"), 1, 0, 1, 1);
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("PLANET RADIUS", str_radius, &ui->label_radius, "val_radius"), 2, 0, 1, 1);
+
+	// Row 1
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("WATER", str_water, &ui->label_water, "val_water"), 0, 1, 1, 1);
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("WOOD", str_wood, &ui->label_wood, "val_wood"), 1, 1, 1, 1);
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("MINERALS", str_minerals, &ui->label_minerals, "val_minerals"), 2, 1, 1, 1);
+
+	gtk_box_pack_start(GTK_BOX(header_box), stats_grid, FALSE, FALSE, 0);
 #pragma endregion
 
 #pragma region FREE
-	// Free the str now that they are in the labels.
 	g_free(str_name);
-	g_free(str_radius);
 	g_free(str_population);
+	g_free(str_habitability);
+	g_free(str_radius);
 	g_free(str_water);
 	g_free(str_wood);
 	g_free(str_minerals);
-	g_free(str_habitability);
 #pragma endregion
 }
 
@@ -251,13 +261,11 @@ void build_header(GameUI *ui, GtkWidget *parent)
  * @brief Builds the Middle part GUI and references the GameUI pointers for later update of values.
  * @param ui The GameUI struct that holds pointer references to labels to allow for updates
  * @param parent The parent widget.
- *
- * @todo (1) - Middle Component Building
  */
 void build_middle(GameUI *ui, GtkWidget *parent)
 {
 	GtkWidget *history_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
-	GtkWidget *title = gtk_label_new("Historique des choix précédents");
+	GtkWidget *title = gtk_label_new("Log History");
 	GtkWidget *scrolled_window = gtk_scrolled_window_new(NULL, NULL);
 	GtkTextBuffer *buffer;
 	gchar *history = NULL;
@@ -294,8 +302,6 @@ void build_middle(GameUI *ui, GtkWidget *parent)
  * @param ui The GameUI struct that holds pointer references to labels to allow for updates
  * @param parent The parent widget.
  *
- * @todo (1) - Buttons Structure
- * @todo (2) - Buttons Callbacks Subscription
  * @todo (3) - Footer Styling
  */
 void build_footer(GameUI *ui, GtkWidget *parent)
@@ -363,6 +369,15 @@ void build_footer(GameUI *ui, GtkWidget *parent)
 	gtk_box_pack_start(GTK_BOX(ui->action3_box), ui->action3_label, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(ui->action3_box), ui->action3_btn, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(footer_box), ui->action3_box, TRUE, TRUE, 0);
+
+	GtkStyleContext *action1_ctx = gtk_widget_get_style_context(ui->action1_box);
+	gtk_style_context_add_class(action1_ctx, "action_box");
+
+	GtkStyleContext *action2_ctx = gtk_widget_get_style_context(ui->action2_box);
+	gtk_style_context_add_class(action2_ctx, "action_box");
+
+	GtkStyleContext *action3_ctx = gtk_widget_get_style_context(ui->action3_box);
+	gtk_style_context_add_class(action3_ctx, "action_box");
 #pragma endregion
 }
 
@@ -371,7 +386,6 @@ void build_footer(GameUI *ui, GtkWidget *parent)
  * Handles the action button click, apply the changes to the planet and starts a new game turn.
  * @param button a GtkWidget pointer that should represent a button.
  * @param data the data provided by the callback, it should be of type GameUI *
- * @todo (1) - fix header update
  */
 void on_action_clicked(GtkWidget *button, gpointer data)
 {
@@ -402,7 +416,7 @@ void on_action_clicked(GtkWidget *button, gpointer data)
 	// Apply the action
 	int actionRes = applyElementChange(ui->planet, elt);
 
-	if (actionRes == 0)
+	if (actionRes == -1)
 	{
 		fprintf(stderr, "Action.applyElementChange failed: %50s . %d\n", elt->nameElement, elt->change.quantity);
 		// displayPlanet(ui->planet);
@@ -416,7 +430,7 @@ void on_action_clicked(GtkWidget *button, gpointer data)
 
 	int eltRes = applyElementChange(ui->planet, random_event);
 
-	if (eltRes == 0)
+	if (eltRes == -1)
 	{
 		fprintf(stderr, "Element.applyElementChange failed: %50s . %d\n", random_event->nameElement, random_event->change.quantity);
 		// displayPlanet(ui->planet);
@@ -440,6 +454,27 @@ void on_action_clicked(GtkWidget *button, gpointer data)
 	ui->action3 = drawRandomElement(ui->planet->Actions);
 
 	update_display(ui);
+
+	// Check win/loose conditions :
+
+	if (planetHasLost(ui->planet))
+	{
+		show_game_popup(GTK_WINDOW(ui->main_window),
+						GTK_MESSAGE_ERROR,
+						"SYSTEM FAILURE",
+						"Critical failure detected.\nAll life on the planet has perished. Game Over.");
+
+		gtk_widget_destroy(ui->main_window);
+	}
+	else if (planetHasWon(ui->planet))
+	{
+		show_game_popup(GTK_WINDOW(ui->main_window),
+						GTK_MESSAGE_INFO,
+						"MISSION SUCCESS",
+						"Planet stabilized.\nPopulation targets reached. You win!");
+
+		gtk_widget_destroy(ui->main_window);
+	}
 }
 
 /**
@@ -492,19 +527,17 @@ int get_clicked_button(GtkWidget *button, GameUI *ui)
  * @brief updates the program's display.
  * @param ui Holds the relevant pointers to labels to update them accordingly.
  * Updates the labels that hold dynamic data: i.e water as well as the buttons.
- * @todo (1) - fix header update
  * @todo (2) - history
- * @todo (3) - footer btn update
  */
 void update_display(GameUI *ui)
 {
 #pragma region Header
 	// Str
-	gchar *new_str_population = g_strdup_printf("Population: %ld", ui->planet->population);
-	gchar *new_str_water = g_strdup_printf("Water: %d", ui->planet->water);
-	gchar *new_str_wood = g_strdup_printf("Wood: %d", ui->planet->wood);
-	gchar *new_str_minerals = g_strdup_printf("Minerals: %d", ui->planet->minerals);
-	gchar *new_str_habitability = g_strdup_printf("Habitability: %d", ui->planet->habitability);
+	gchar *new_str_population = g_strdup_printf("%ld", ui->planet->population);
+	gchar *new_str_water = g_strdup_printf("%d", ui->planet->water);
+	gchar *new_str_wood = g_strdup_printf("%d", ui->planet->wood);
+	gchar *new_str_minerals = g_strdup_printf("%d", ui->planet->minerals);
+	gchar *new_str_habitability = g_strdup_printf("%d", ui->planet->habitability);
 
 	// Labels
 	gtk_label_set_text(GTK_LABEL(ui->label_population), new_str_population);
@@ -562,6 +595,8 @@ void update_display(GameUI *ui)
 
 /**
  * @brief returns a gchar that have the data to display a change (which type, what quantity).
+ * @param action The action which is going to be looked at.
+ * @return a gchar * (gtk char*) that holds the changed target name & value.
  */
 gchar *format_change(Element *action)
 {
@@ -596,6 +631,73 @@ gchar *format_change(Element *action)
 		default:
 			return g_strdup("0");
 	}
+}
+
+/**
+ * @brief Helper function to create a vertically stacked stat box.
+ * Assigns the dynamically changing value label to the provided pointer address.
+ */
+GtkWidget *create_stat_box(const gchar *title_text, const gchar *value_text, GtkWidget **out_value_label, const gchar *css_class)
+{
+	GtkWidget *stat_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 2);
+
+	// Labels
+	GtkWidget *title_label = gtk_label_new(title_text);
+	*out_value_label = gtk_label_new(value_text);
+
+	// Left-align the text
+	gtk_widget_set_halign(title_label, GTK_ALIGN_START);
+	gtk_widget_set_halign(*out_value_label, GTK_ALIGN_START);
+
+	// Styling
+	GtkStyleContext *box_ctx = gtk_widget_get_style_context(stat_box);
+	gtk_style_context_add_class(box_ctx, "stat_box");
+
+	GtkStyleContext *title_ctx = gtk_widget_get_style_context(title_label);
+	gtk_style_context_add_class(title_ctx, "stat_title");
+
+	GtkStyleContext *val_ctx = gtk_widget_get_style_context(*out_value_label);
+	gtk_style_context_add_class(val_ctx, "stat_value");
+	if (css_class != NULL)
+	{
+		gtk_style_context_add_class(val_ctx, css_class);
+	}
+
+	// Add to box
+	gtk_box_pack_start(GTK_BOX(stat_box), title_label, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(stat_box), *out_value_label, FALSE, FALSE, 0);
+
+	return stat_box;
+}
+
+/**
+ * @brief Displays a popup message dialog to the user.
+ *
+ * @param parent_window The main application window
+ * @param type The type of message
+ * @param title The title of the popup window
+ * @param message The main text to display
+ */
+void show_game_popup(GtkWindow *parent_window, GtkMessageType type, const gchar *title, const gchar *message)
+{
+	GtkWidget *dialog = gtk_message_dialog_new(parent_window,
+											   GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL,
+											   type,
+											   GTK_BUTTONS_OK,
+											   "%s",
+											   message);
+
+	gtk_window_set_title(GTK_WINDOW(dialog), title);
+
+	// Optional: Add a custom CSS class if you want to style the popup to match your retro theme
+	GtkStyleContext *ctx = gtk_widget_get_style_context(dialog);
+	gtk_style_context_add_class(ctx, "game_popup");
+
+	// Block until the user clicks OK
+	gtk_dialog_run(GTK_DIALOG(dialog));
+
+	// Cleanup the popup
+	gtk_widget_destroy(dialog);
 }
 
 #endif

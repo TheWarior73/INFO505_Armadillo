@@ -101,7 +101,7 @@ void destroyPlanet(Planet *planet)
 /**
  * @param planet: Pointer to the planet whose population to change
  * @param change: The amount to change the population by
- * @return 1 if successful, 0 otherwise
+ * @return 1 if successful, -1 otherwise
  * @brief Changes the population of a planet
  */
 int planetChangePopulation(Planet *planet, long change)
@@ -109,7 +109,7 @@ int planetChangePopulation(Planet *planet, long change)
 	if (planet == NULL || (change > 0 && planet->population > LONG_MAX - change) ||
 		(change < 0 && change < -planet->population))
 	{
-		return 0;
+		return -1;
 	}
 
 	planet->population += change;
@@ -120,14 +120,14 @@ int planetChangePopulation(Planet *planet, long change)
  * @param planet: Pointer to the planet whose resource to change
  * @param resource: The type of resource to change
  * @param change: The amount to change the resource by
- * @return 1 if successful, 0 otherwise
+ * @return 1 if successful, -1 otherwise
  * @brief Changes a resource of a planet
  */
 int planetChangeResource(Planet *planet, PlanetResource resource, int change)
 {
 	if (planet == NULL)
 	{
-		return 0;
+		return -1;
 	}
 
 	int *quantity;
@@ -145,13 +145,13 @@ int planetChangeResource(Planet *planet, PlanetResource resource, int change)
 	}
 	else
 	{
-		return 0;
+		return -1;
 	}
 
 	if ((change > 0 && *quantity > INT_MAX - change) ||
 		(change < 0 && change < -*quantity))
 	{
-		return 0;
+		return -1;
 	}
 
 	*quantity += change;
@@ -168,7 +168,7 @@ int planetSetHabitability(Planet *planet, int habitability)
 {
 	if (planet == NULL || habitability < 0 || habitability > 100)
 	{
-		return 0;
+		return -1;
 	}
 
 	planet->habitability = habitability;

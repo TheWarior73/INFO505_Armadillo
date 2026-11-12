@@ -28,9 +28,7 @@ void gameTurn(Planet *p, Element *event, Element *action)
 		FILE *history = fopen(GAME_HISTORY_FILE, "a");
 		if (history != NULL)
 		{
-			fprintf(history, "Event: %s | Action: %s\n",
-				event != NULL ? event->nameElement : "None",
-				action->nameElement);
+			fprintf(history, "Event: %s | Action: %s\n", event != NULL ? event->nameElement : "None", action->nameElement);
 			fclose(history);
 		}
 		else
@@ -43,7 +41,7 @@ void gameTurn(Planet *p, Element *event, Element *action)
 /**
  * @param planet: Pointer to the planet whose population to change
  * @param element: Pointer to the element containing the change value
- * @return 1 if successful, 0 otherwise
+ * @return 1 if successful, -1 otherwise
  * @brief Changes the population of the planet based on the element's change value.
  */
 int changePopulation(Planet *planet, const Element *element)
@@ -54,7 +52,7 @@ int changePopulation(Planet *planet, const Element *element)
 /**
  * @param planet: Pointer to the planet whose radius to change
  * @param element: Pointer to the element containing the change value
- * @return 1 if successful, 0 otherwise
+ * @return 1 if successful, -1 otherwise
  * @brief Changes the radius of the planet based on the element's change value.
  */
 int changeRadius(Planet *planet, const Element *element)
@@ -62,7 +60,7 @@ int changeRadius(Planet *planet, const Element *element)
 	double newRadius = planet->radiusKm + element->change.radiusKm;
 	if (!isfinite(newRadius) || newRadius < MIN_PLANET_RADIUS || newRadius > MAX_PLANET_RADIUS)
 	{
-		return 0;
+		return -1;
 	}
 	planet->radiusKm = newRadius;
 	return 1;
@@ -72,7 +70,7 @@ int changeRadius(Planet *planet, const Element *element)
  * @param planet: Pointer to the planet whose resource to change
  * @param element: Pointer to the element containing the change value
  * @param resource: The type of resource to change
- * @return 1 if successful, 0 otherwise
+ * @return 1 if successful, -1 otherwise
  * @brief Changes a specific resource of the planet based on the element's change value.
  */
 int changeResource(Planet *planet, const Element *element, PlanetResource resource)
@@ -83,7 +81,7 @@ int changeResource(Planet *planet, const Element *element, PlanetResource resour
 /**
  * @param planet: Pointer to the planet whose water to change
  * @param element: Pointer to the element containing the change value
- * @return 1 if successful, 0 otherwise
+ * @return 1 if successful, -1 otherwise
  * @brief Changes the water resource of the planet based on the element's change value.
  */
 int changeWater(Planet *planet, const Element *element)
@@ -94,7 +92,7 @@ int changeWater(Planet *planet, const Element *element)
 /**
  * @param planet: Pointer to the planet whose minerals to change
  * @param element: Pointer to the element containing the change value
- * @return 1 if successful, 0 otherwise
+ * @return 1 if successful, -1 otherwise
  * @brief Changes the minerals resource of the planet based on the element's change value.
  */
 int changeMinerals(Planet *planet, const Element *element)
@@ -116,17 +114,18 @@ int changeWood(Planet *planet, const Element *element)
 /**
  * @param planet: Pointer to the planet whose habitability to change
  * @param element: Pointer to the element containing the change value
- * @return 1 if successful, 0 otherwise
+ * @return 1 if successful, -1 otherwise
  * @brief Changes the habitability of the planet based on the element's change value.
  */
 int changeHabitability(Planet *planet, const Element *element)
 {
-	long newHabitability = (long)planet->habitability + element->change.quantity;
+	int newHabitability = planet->habitability + element->change.quantity;
 	if (newHabitability < 0 || newHabitability > 100)
 	{
-		return 0;
+		return planetSetHabitability(planet, clampInt(newHabitability, 0, 200));
 	}
-	return planetSetHabitability(planet, (int)newHabitability);
+
+	return planetSetHabitability(planet, newHabitability);
 }
 
 static const ElementChangeHandler changeHandlers[] = {
@@ -149,11 +148,11 @@ int applyElementChange(Planet *planet, const Element *element)
 	if (planet == NULL || element == NULL || element->changeTarget < ELEMENT_CHANGE_NONE ||
 		element->changeTarget > ELEMENT_CHANGE_HABITABILITY)
 	{
-		return 0;
+		return -1;
 	}
 
 	ElementChangeHandler handler = changeHandlers[element->changeTarget];
-	return handler != NULL ? handler(planet, element) : 0;
+	return handler != NULL ? handler(planet, element) : -1;
 }
 
 /**

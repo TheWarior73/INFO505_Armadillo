@@ -1,61 +1,122 @@
-/* DEBUG */
-label {
-	border: solid 1px blue;
-}
-
-box {
-	border: solid 1px red;
-}
-
-/* Apply a global dark background and retro monospace font */
+/* ===================================================
+   GLOBAL & WRAPPER
+=================================================== */
 window {
-	background-color: #0a0a0c;
-	color: #39ff14;
+	background-color: #1a1b26; 
+	color: #a9b1d6; 
 	font-family: "Courier New", Monospace;
 	font-weight: bold;
 }
 
-/* The main wrapper spacing you set up earlier */
 .main_wrapper {
 	margin: 24px;
 }
 
-.header label {
-	padding-right: 10px;
+/* ===================================================
+   HEADER & TOP BAR
+=================================================== */
+.header_wrapper {
+	background-color: #24283b;
+	border: 2px solid #414868;
+	border-radius: 8px;
+	padding: 15px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .planet_name {
-	font-size: 24px;
-
-	padding: 10px;
-	border-radius: 1em;
-
-	color: #0a0a0c;
-	background-color: #39ff14;
+	font-size: 22px;
+	padding: 4px 12px;
+	border-radius: 6px;
+	color: #1a1b26;
+	background-color: #7aa2f7; 
 }
 
-/* ---------------------------------------------------
-   Buttons (Execute 1, 2, 3)
---------------------------------------------------- */
+.game_version {
+	color: #565f89;
+	font-size: 14px;
+	margin-top: 4px;
+}
+
+/* ===================================================
+   GRID STATS (2x3 Layout)
+=================================================== */
+.stats_grid {
+	margin-top: 15px;
+}
+
+.stat_cell {
+	padding: 8px;
+	background-color: rgba(
+		65,
+		72,
+		104,
+		0.2
+	); 
+	border-left: 3px solid #7aa2f7;
+	border-radius: 4px;
+}
+
+.stat_title {
+	color: #7dcfff; 
+	font-size: 12px;
+	margin-bottom: 2px;
+}
+
+.stat_value {
+	color: #bb9af7; 
+	font-size: 18px;
+	text-shadow: none; 
+}
+
+/* ===================================================
+   MIDDLE: EVENT HISTORY (Placeholder)
+=================================================== */
+textview text {
+	background-color: #1a1b26;
+	color: #a9b1d6;
+	font-family: "Courier New", Monospace;
+}
+
+scrolledwindow {
+	border: 2px solid #414868;
+	border-radius: 8px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* ===================================================
+   FOOTER & BUTTONS
+=================================================== */
+.action_box {
+	border: 2px dashed #414868;
+	border-radius: 8px;
+	padding: 10px;
+}
+
+
 button {
-	background-color: #39ff14;
-	color: #0a0a0c;
-	border: none;
-	border-radius: 0px;
+	background-color: #1a1b26;
+	color: #7aa2f7;
+	border: 2px solid #7aa2f7;
+	border-radius: 6px;
 	padding: 8px 16px;
 	margin-top: 10px;
 	font-family: "Courier New", Monospace;
 	font-weight: bold;
-	text-shadow: none;
+	transition: all 150ms ease-in-out;
 }
 
+
 button:hover {
-	background-color: #ffffff;
-	color: #0a0a0c;
-	box-shadow: 0 0 8px #39ff14;
+	background-color: #7aa2f7;
+	color: #1a1b26;
+	box-shadow: 0 2px 8px rgba(122, 162, 247, 0.3);
 }
 
 button:active {
-	background-color: #1c5918;
+	background-color: #3d59a1;
+	color: #c0caf5;
+	border-color: #3d59a1;
+	box-shadow: none;
 }
 
