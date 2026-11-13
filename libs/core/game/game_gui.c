@@ -356,40 +356,10 @@ void on_action_clicked(GtkWidget *button, gpointer data)
 		}
 	}
 
-	// Apply the action
-	int actionRes = applyElementChange(ui->planet, elt);
-
-	if (actionRes == -1)
-	{
-		fprintf(stderr, "Action.applyElementChange failed: %50s . %d\n", elt->nameElement, elt->change.quantity);
-		// displayPlanet(ui->planet);
-	}
-
-	update_display(ui);
-
 	// -- NEW TURN --
 
 	Element *random_event = drawRandomElement(ui->planet->Events);
-
-	int eltRes = applyElementChange(ui->planet, random_event);
-
-	if (eltRes == -1)
-	{
-		fprintf(stderr, "Element.applyElementChange failed: %50s . %d\n", random_event->nameElement, random_event->change.quantity);
-		// displayPlanet(ui->planet);
-	}
-
-	// Add to history
-	FILE *history = fopen(GAME_HISTORY_FILE, "a");
-	if (history != NULL)
-	{
-		fprintf(history, "Event: %s | Action: %s\n", random_event != NULL ? random_event->nameElement : "None", elt != NULL ? elt->nameElement : "None");
-		fclose(history);
-	}
-	else
-	{
-		perror("Unable to append game history");
-	}
+	gameTurn(ui->planet, random_event, elt);
 
 	// Update Actions
 	ui->action1 = drawRandomElement(ui->planet->Actions);

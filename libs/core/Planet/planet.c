@@ -168,6 +168,17 @@ int planetSetHabitability(Planet *planet, int habitability)
 {
 	if (planet == NULL || habitability < 0 || habitability > 100)
 	{
+		if (habitability > 100)
+		{
+			planet->habitability = 100;
+			printf("Clamped habitability (100)\n");
+		}
+
+		if (habitability < 0)
+		{
+			planet->habitability = 0;
+			printf("Clamped habitability (0)\n");
+		}
 		return -1;
 	}
 

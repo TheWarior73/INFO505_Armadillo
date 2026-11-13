@@ -11,7 +11,10 @@
 typedef int (*ElementChangeHandler)(Planet *, const Element *);
 
 /**
- * Applies the event and action selected for the current turn.
+ * @brief Applies the action, triggers the event, applies passive population upkeep, and logs the turn.
+ * @param p the planet
+ * @param event the random event
+ * @param action the player's action.
  */
 void gameTurn(Planet *p, Element *event, Element *action)
 {
@@ -20,9 +23,37 @@ void gameTurn(Planet *p, Element *event, Element *action)
 		return;
 	}
 
-	applyElementChange(p, event);
-	applyElementChange(p, action);
+	// Apply the player's chosen Action
+	if (action != NULL)
+	{
+		int actionRes = applyElementChange(p, action);
+		if (actionRes == -1)
+		{	
+			fprintf(stderr, "Action.applyElementChange failed: %50s . %d\n", action->nameElement, action->change.quantity);
+		}
+	}
 
+	// Apply the random Climatic Event
+	if (event != NULL)
+	{
+		int eltRes = applyElementChange(p, event);
+		if (eltRes == -1)
+		{
+			fprintf(stderr, "Element.applyElementChange failed: %50s . %d\n", event->nameElement, event->change.quantity);
+		}
+	}
+
+	// Population consumes resources each turn
+	// Every citizen consumes 1 Water, and every 2 citizens consume 1 Wood and 1 Mineral.
+	int water_upkeep = -(int)(p->population * 1.0);
+	int wood_upkeep = -(int)(p->population * 0.5);
+	int mineral_upkeep = -(int)(p->population * 0.5);
+
+	planetChangeResource(p, PLANET_WATER, water_upkeep);
+	planetChangeResource(p, PLANET_WOOD, wood_upkeep);
+	planetChangeResource(p, PLANET_MINERALS, mineral_upkeep);
+
+	// Log to History File
 	if (action != NULL)
 	{
 		FILE *history = fopen(GAME_HISTORY_FILE, "a");
