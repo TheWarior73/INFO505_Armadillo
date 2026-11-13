@@ -409,6 +409,10 @@ Element *fetchEventsFromFile(const char *filepath, char *eventType)
 			{
 				change_val.population = value->valueint;
 			}
+			else if (strcmp(target_field->valuestring, "radiusKm") == 0)
+			{
+				change_val.radiusKm = value->valuedouble;
+			}
 
 			addElement(&eltList, name->valuestring, type->valuestring, change_enum, change_val);
 		}
@@ -434,6 +438,8 @@ int parseChangeType(const char *typeStr)
 		return ELEMENT_CHANGE_HABITABILITY;
 	if (strcmp(typeStr, "ELEMENT_CHANGE_POPULATION") == 0)
 		return ELEMENT_CHANGE_POPULATION;
+	if (strcmp(typeStr, "ELEMENT_CHANGE_RADIUS") == 0)
+		return ELEMENT_CHANGE_RADIUS;
 	return 0; // Default (NONE)
 }
 

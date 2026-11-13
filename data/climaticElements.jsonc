@@ -1,5 +1,7 @@
 {
   "Events": [
+    // ----------------------------------------------
+    // NONE
     {
       "name": "Nothing :3 (trust)",
       "type": "Event",
@@ -7,228 +9,400 @@
       "target_field": "quantity",
       "value": 0
     },
+    {
+      "name": "Solar Eclipse",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_NONE",
+      "target_field": "quantity",
+      "value": 0
+    },
 
     // ----------------------------------------------
-    // POPULATION
-
+    // POPULATION (Target: 1,000,000 | Lose: < 1,000)
+    {
+      "name": "Local Outbreak",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_POPULATION",
+      "target_field": "population",
+      "value": -15000
+    },
     {
       "name": "Flash Flood",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_POPULATION",
       "target_field": "population",
-      "value": -5000
+      "value": -35000
+    },
+    {
+      "name": "Global Pandemic",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_POPULATION",
+      "target_field": "population",
+      "value": -120000
+    },
+    {
+      "name": "Baby Boom",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_POPULATION",
+      "target_field": "population",
+      "value": 40000
+    },
+    {
+      "name": "Refugee Fleet Arrival",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_POPULATION",
+      "target_field": "population",
+      "value": 85000
     },
 
     // ----------------------------------------------
-    // RADIUS
-
-    // Unused.
+    // RADIUS (Lose: <= 100 km)
+    {
+      "name": "Tectonic Subduction",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_RADIUS",
+      "target_field": "radiusKm",
+      "value": -150
+    },
+    {
+      "name": "Planetoid Collision",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_RADIUS",
+      "target_field": "radiusKm",
+      "value": 300
+    },
 
     // ----------------------------------------------
-    // WATER
-
+    // WATER (Start: ~5M | Lose: < 100k or >= 15M)
     {
-      "name": "Drought",
+      "name": "Seasonal Drought",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
-      "value": -500
+      "value": -400000
     },
     {
       "name": "Severe Drought",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
-      "value": -5000
+      "value": -1200000
     },
     {
-      "name": "Very Severe Drought",
+      "name": "Aquifer Contamination",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
-      "value": -50000
+      "value": -2500000
     },
-
-    // ***
-
     {
-      "name": "Light Drizzle",
+      "name": "Monsoon Season",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
-      "value": 5
+      "value": 600000
     },
     {
-      "name": "Heavy Rainfall",
+      "name": "Phreatic Zone Found!",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
-      "value": 500
+      "value": 1800000
     },
     {
-      "name": "Phreatic Zone Found !",
+      "name": "Ice Comet Impact",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
-      "value": 71500
+      "value": 3500000
     },
 
     // ----------------------------------------------
-    // MINERALS
+    // MINERALS (Start: ~5M | Lose: < 100k)
+    {
+      "name": "Mine Shaft Collapse",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_MINERALS",
+      "target_field": "quantity",
+      "value": -500000
+    },
+    {
+      "name": "Tectonic Tremors",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_MINERALS",
+      "target_field": "quantity",
+      "value": -1400000
+    },
+    {
+      "name": "Crustal Subduction",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_MINERALS",
+      "target_field": "quantity",
+      "value": -2500000
+    },
+    {
+      "name": "Volcanic Upwelling",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_MINERALS",
+      "target_field": "quantity",
+      "value": 900000
+    },
+    {
+      "name": "Rich Ore Vein Exposed",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_MINERALS",
+      "target_field": "quantity",
+      "value": 2000000
+    },
 
     // ----------------------------------------------
-    // WOOD
-
+    // WOOD (Start: ~5M | Lose: < 100k or >= 15M)
     {
-      "name": "Small Forest Fire",
+      "name": "Bark Beetle Swarm",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WOOD",
       "target_field": "quantity",
-      "value": -500
+      "value": -450000
     },
     {
       "name": "National Forest Fire",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WOOD",
       "target_field": "quantity",
-      "value": -50000
+      "value": -1300000
     },
     {
-      "name": "Global Forest Fire",
+      "name": "Global Megafire",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_WOOD",
       "target_field": "quantity",
-      "value": -500000
+      "value": -2800000
+    },
+    {
+      "name": "Overgrowth Bloom",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_WOOD",
+      "target_field": "quantity",
+      "value": 800000
+    },
+    {
+      "name": "Spore Cloud Mutation",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_WOOD",
+      "target_field": "quantity",
+      "value": 3000000
     },
 
     // ----------------------------------------------
-    // HABILITY
-
+    // HABITABILITY (0 to 100%)
+    {
+      "name": "Acid Rain",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_HABITABILITY",
+      "target_field": "quantity",
+      "value": -8
+    },
     {
       "name": "Cold Wave",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",
-      "value": -10
+      "value": -12
     },
-
-    {
-      "name": "Heat Wave",
-      "type": "Event",
-      "change_type": "ELEMENT_CHANGE_HABITABILITY",
-      "target_field": "quantity",
-      "value": -20
-    },
-
     {
       "name": "Sea Level Rise",
       "type": "Event",
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",
-      "value": -10
+      "value": -15
+    },
+    {
+      "name": "Extreme Heat Wave",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_HABITABILITY",
+      "target_field": "quantity",
+      "value": -20
+    },
+    {
+      "name": "Magnetic Storm",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_HABITABILITY",
+      "target_field": "quantity",
+      "value": -25
+    },
+    {
+      "name": "Ozone Layer Recovery",
+      "type": "Event",
+      "change_type": "ELEMENT_CHANGE_HABITABILITY",
+      "target_field": "quantity",
+      "value": 5
     }
   ],
+
   "Actions": [
     // ----------------------------------------------
-    // POPULATION
-
+    // POPULATION (Note: target_field fixed to "population"!)
     {
       "name": "Urban Expansion",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_POPULATION",
-      "target_field": "quantity",
-      "value": 5000
+      "target_field": "population",
+      "value": 35000
     },
     {
       "name": "Global Fertility Campaigns",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_POPULATION",
-      "target_field": "quantity",
-      "value": 50000
+      "target_field": "population",
+      "value": 75000
+    },
+    {
+      "name": "Cloning Vats Initiative",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_POPULATION",
+      "target_field": "population",
+      "value": 150000
+    },
+    {
+      "name": "Cryo-Sleep Evacuation",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_POPULATION",
+      "target_field": "population",
+      "value": -25000
     },
 
     // ----------------------------------------------
     // RADIUS
-
-    // Unused
+    {
+      "name": "Deep Core Stabilization",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_RADIUS",
+      "target_field": "radiusKm",
+      "value": 100
+    },
 
     // ----------------------------------------------
-    // WATER
-
+    // WATER (+ to survive drought, - to prevent flood!)
     {
-      "name": "Irrigation",
+      "name": "Atmospheric Condensers",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
-      "value": 500
+      "value": 600000
     },
     {
-      "name": "Desalination",
+      "name": "Desalination Network",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_WATER",
       "target_field": "quantity",
-      "value": 500
+      "value": 1400000
+    },
+    {
+      "name": "Polar Ice Cap Melting",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_WATER",
+      "target_field": "quantity",
+      "value": 2500000
+    },
+    {
+      "name": "Mega-Dam Drainage",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_WATER",
+      "target_field": "quantity",
+      "value": -1200000
     },
 
     // ----------------------------------------------
     // MINERALS
-
     {
-      "name": "Mineral Extraction",
+      "name": "Deep Crust Drilling",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_MINERALS",
       "target_field": "quantity",
-      "value": -500
+      "value": 750000
+    },
+    {
+      "name": "Asteroid Tether Mining",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_MINERALS",
+      "target_field": "quantity",
+      "value": 1800000
+    },
+    {
+      "name": "Scrap Metal Recycling",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_MINERALS",
+      "target_field": "quantity",
+      "value": 400000
+    },
+    {
+      "name": "Reckless Strip Mining",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_MINERALS",
+      "target_field": "quantity",
+      "value": -900000
     },
 
     // ----------------------------------------------
-    // WOOD
-
+    // WOOD (+ to survive fires, - to prevent overgrowth!)
     {
-      "name": "Reforestation",
+      "name": "Drone Seed Bombing",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_WOOD",
       "target_field": "quantity",
-      "value": 500
+      "value": 650000
     },
     {
-      "name": "Land Restoration",
+      "name": "Reforestation Mandate",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_WOOD",
       "target_field": "quantity",
-      "value": 500
+      "value": 1500000
+    },
+    {
+      "name": "Bio-Engineered Redwoods",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_WOOD",
+      "target_field": "quantity",
+      "value": 2400000
+    },
+    {
+      "name": "Controlled Burn",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_WOOD",
+      "target_field": "quantity",
+      "value": -1300000
     },
 
     // ----------------------------------------------
-    // HABITABILITY
-
+    // HABITABILITY (Reduced count & nerfed values)
     {
       "name": "Emission Reduction",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",
-      "value": 10
-    },
-    {
-      "name": "Climate Adaptation",
-      "type": "Action",
-      "change_type": "ELEMENT_CHANGE_HABITABILITY",
-      "target_field": "quantity",
-      "value": 10
+      "value": 4
     },
     {
       "name": "Urban Revegetation",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",
-      "value": 12
+      "value": 6
     },
     {
-      "name": "Reusable Energy Sources Investments",
+      "name": "Orbital Shade Mirrors",
       "type": "Action",
       "change_type": "ELEMENT_CHANGE_HABITABILITY",
       "target_field": "quantity",
-      "value": 7
+      "value": 9
+    },
+    {
+      "name": "Toxic Waste Dumping",
+      "type": "Action",
+      "change_type": "ELEMENT_CHANGE_HABITABILITY",
+      "target_field": "quantity",
+      "value": -6
     }
   ]
 }

@@ -25,63 +25,6 @@
  */
 void runGUIGame(int argc, char *argv[])
 {
-	/* Proposed layout
-	<body>
-		<box> // Header - Planet Information
-			<box>
-				<label> // Planet Name
-				<label> // Game version
-			</box>
-			<box>
-				<box>
-					<box>
-						<label> // Planet Population str
-						<label> // Planet Population val
-					</box>
-					<box>
-						<label> // Planet Habitability str
-						<label> // Planet Habitability val
-					</box>
-					<box>
-						<label> // Planet Radius str
-						<label> // Planet Radius val
-					</box>
-				</box>
-				<box>
-					<box>
-						<label> // Planet Water str
-						<label> // Planet water val
-					</box>
-					<box>
-						<label> // Planet Wood str
-						<label> // Planet Wood val
-					</box>
-					<box>
-						<label> // Planet Minerals str
-						<label> // Planet Minerals val
-					</box>
-				</box>
-			</box>
-		</box>
-		<box> // Event History
-
-		</box>
-		<box> // Footer	- Action Choice
-			<box> // Action 1
-				<label>
-				<button>
-			</box>
-			<box> // Action 2
-				<label>
-				<button>
-			</box>
-			<box> // Action 3
-				<label>
-				<button>
-			</box>
-		</box>
-	</body>
-	*/
 
 	// -------------------------------------------------------------------------------------------------- //
 	//                                                INIT                                                //
@@ -185,12 +128,12 @@ void build_header(GameUI *ui, GtkWidget *parent)
 
 #pragma region LABELS
 	gchar *str_name = g_strdup_printf("%s", ui->planet->name);
-	gchar *str_radius = g_strdup_printf("%.2f", ui->planet->radiusKm);
-	gchar *str_population = g_strdup_printf("%ld", ui->planet->population);
-	gchar *str_water = g_strdup_printf("%d", ui->planet->water);
-	gchar *str_wood = g_strdup_printf("%d", ui->planet->wood);
-	gchar *str_minerals = g_strdup_printf("%d", ui->planet->minerals);
-	gchar *str_habitability = g_strdup_printf("%d", ui->planet->habitability);
+	gchar *str_radius = g_strdup_printf("%s", format_readable_number(ui->planet->radiusKm));
+	gchar *str_population = g_strdup_printf("%s", format_readable_number(ui->planet->population));
+	gchar *str_water = g_strdup_printf("%s", format_readable_number(ui->planet->water));
+	gchar *str_wood = g_strdup_printf("%s", format_readable_number(ui->planet->wood));
+	gchar *str_minerals = g_strdup_printf("%s", format_readable_number(ui->planet->minerals));
+	gchar *str_habitability = g_strdup_printf("%s", format_readable_number(ui->planet->habitability));
 
 	// Labels
 	ui->label_name = gtk_label_new(str_name);
@@ -234,14 +177,14 @@ void build_header(GameUI *ui, GtkWidget *parent)
 	gtk_style_context_add_class(grid_context, "stats_grid");
 
 	// Row 0
-	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("POPULATION", str_population, &ui->label_population, "val_population"), 0, 0, 1, 1);
-	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("HABITABILITY", str_habitability, &ui->label_habitability, "val_habitability"), 1, 0, 1, 1);
-	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("PLANET RADIUS", str_radius, &ui->label_radius, "val_radius"), 2, 0, 1, 1);
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("POPULATION", str_population, &ui->label_population, "stat_value"), 0, 0, 1, 1);
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("HABITABILITY", str_habitability, &ui->label_habitability, "stat_value"), 1, 0, 1, 1);
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("PLANET RADIUS", str_radius, &ui->label_radius, "stat_value"), 2, 0, 1, 1);
 
 	// Row 1
-	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("WATER", str_water, &ui->label_water, "val_water"), 0, 1, 1, 1);
-	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("WOOD", str_wood, &ui->label_wood, "val_wood"), 1, 1, 1, 1);
-	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("MINERALS", str_minerals, &ui->label_minerals, "val_minerals"), 2, 1, 1, 1);
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("WATER", str_water, &ui->label_water, "stat_value"), 0, 1, 1, 1);
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("WOOD", str_wood, &ui->label_wood, "stat_value"), 1, 1, 1, 1);
+	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("MINERALS", str_minerals, &ui->label_minerals, "stat_value"), 2, 1, 1, 1);
 
 	gtk_box_pack_start(GTK_BOX(header_box), stats_grid, FALSE, FALSE, 0);
 #pragma endregion
@@ -533,11 +476,12 @@ void update_display(GameUI *ui)
 {
 #pragma region Header
 	// Str
-	gchar *new_str_population = g_strdup_printf("%ld", ui->planet->population);
-	gchar *new_str_water = g_strdup_printf("%d", ui->planet->water);
-	gchar *new_str_wood = g_strdup_printf("%d", ui->planet->wood);
-	gchar *new_str_minerals = g_strdup_printf("%d", ui->planet->minerals);
-	gchar *new_str_habitability = g_strdup_printf("%d", ui->planet->habitability);
+	gchar *new_str_population = g_strdup_printf("%s", format_readable_number(ui->planet->population));
+	gchar *new_str_water = g_strdup_printf("%s", format_readable_number(ui->planet->water));
+	gchar *new_str_wood = g_strdup_printf("%s", format_readable_number(ui->planet->wood));
+	gchar *new_str_minerals = g_strdup_printf("%s", format_readable_number(ui->planet->minerals));
+	gchar *new_str_habitability = g_strdup_printf("%s", format_readable_number(ui->planet->habitability));
+	gchar *new_str_radius = g_strdup_printf("%s", format_readable_number(ui->planet->radiusKm));
 
 	// Labels
 	gtk_label_set_text(GTK_LABEL(ui->label_population), new_str_population);
@@ -545,6 +489,14 @@ void update_display(GameUI *ui)
 	gtk_label_set_text(GTK_LABEL(ui->label_wood), new_str_wood);
 	gtk_label_set_text(GTK_LABEL(ui->label_minerals), new_str_minerals);
 	gtk_label_set_text(GTK_LABEL(ui->label_habitability), new_str_habitability);
+	gtk_label_set_text(GTK_LABEL(ui->label_radius), new_str_radius);
+
+	update_stat_color(ui->label_population, ui->planet->population, MIN_POPULATION_ALLOWED * 3, MIN_POPULATION_ALLOWED * 10, 0);
+	update_stat_color(ui->label_water, ui->planet->water, MIN_WATER_ALLOWED * 3, MIN_WATER_ALLOWED * 10, MAX_WATER_ALLOWED * 0.8);
+	update_stat_color(ui->label_wood, ui->planet->wood, MIN_WOOD_ALLOWED * 3, MIN_WOOD_ALLOWED * 10, MAX_WOOD_ALLOWED * 0.8);
+	update_stat_color(ui->label_minerals, ui->planet->minerals, MIN_MINERALS_ALLOWED * 3, MIN_MINERALS_ALLOWED * 10, 0);
+	update_stat_color(ui->label_habitability, ui->planet->habitability, 25, 50, 0);
+	update_stat_color(ui->label_radius, ui->planet->radiusKm, MIN_PLANET_RADIUS * 3, MIN_PLANET_RADIUS * 10, 0);
 
 	// Free
 	g_free(new_str_population);
@@ -552,6 +504,7 @@ void update_display(GameUI *ui)
 	g_free(new_str_wood);
 	g_free(new_str_minerals);
 	g_free(new_str_habitability);
+	g_free(new_str_radius);
 #pragma endregion
 
 #pragma region History
@@ -611,22 +564,22 @@ gchar *format_change(Element *action)
 			return g_strdup("0");
 
 		case ELEMENT_CHANGE_POPULATION:
-			return g_strdup_printf("%s: %+ld",
+			return g_strdup_printf("%s: %s",
 								   strOfElementChangeTarget(action->changeTarget),
-								   action->change.population);
+								   format_readable_delta(action->change.population));
 
 		case ELEMENT_CHANGE_RADIUS:
-			return g_strdup_printf("%s: %+.1f",
+			return g_strdup_printf("%s: %s",
 								   strOfElementChangeTarget(action->changeTarget),
-								   action->change.radiusKm);
+								   format_readable_delta(action->change.radiusKm));
 
 		case ELEMENT_CHANGE_WATER:
 		case ELEMENT_CHANGE_MINERALS:
 		case ELEMENT_CHANGE_WOOD:
 		case ELEMENT_CHANGE_HABITABILITY:
-			return g_strdup_printf("%s: %+d",
+			return g_strdup_printf("%s: %s",
 								   strOfElementChangeTarget(action->changeTarget),
-								   action->change.quantity);
+								   format_readable_delta(action->change.quantity));
 
 		default:
 			return g_strdup("0");
@@ -698,6 +651,84 @@ void show_game_popup(GtkWindow *parent_window, GtkMessageType type, const gchar 
 
 	// Cleanup the popup
 	gtk_widget_destroy(dialog);
+}
+
+/**
+ * @brief Formats large numbers into readable K / M / B strings.
+ * @param val the number to be formated
+ * Examples: 950 -> "950", 45200 -> "45.2K", 1822667 -> "1.82M"
+ */
+gchar *format_readable_number(long val)
+{
+	long abs_val = labs(val);
+	const char *sign = (val < 0) ? "-" : "";
+
+	if (abs_val >= 1000000000L)
+	{
+		return g_strdup_printf("%s%.2fB", sign, abs_val / 1000000000.0);
+	}
+	else if (abs_val >= 1000000L)
+	{
+		return g_strdup_printf("%s%.2fM", sign, abs_val / 1000000.0);
+	}
+	else if (abs_val >= 1000L)
+	{
+		return g_strdup_printf("%s%.1fK", sign, abs_val / 1000.0);
+	}
+	return g_strdup_printf("%ld", val);
+}
+
+/**
+ * @brief Formats signed deltas for action buttons
+ * @param val the number to be formated
+ * Example: +50.0K, -1.20M
+ */
+gchar *format_readable_delta(long val)
+{
+	long abs_val = labs(val);
+	const char *sign = (val >= 0) ? "+" : "-";
+
+	if (abs_val >= 1000000000L)
+	{
+		return g_strdup_printf("%s%.2fB", sign, abs_val / 1000000000.0);
+	}
+	else if (abs_val >= 1000000L)
+	{
+		return g_strdup_printf("%s%.2fM", sign, abs_val / 1000000.0);
+	}
+	else if (abs_val >= 1000L)
+	{
+		return g_strdup_printf("%s%.1fK", sign, abs_val / 1000.0);
+	}
+	return g_strdup_printf("%+ld", val);
+}
+
+void update_stat_color(GtkWidget *label, long value, long danger_low, long warn_low, long warn_high)
+{
+	GtkStyleContext *ctx = gtk_widget_get_style_context(label);
+
+	// Clear states
+	gtk_style_context_remove_class(ctx, "stat_critical");
+	gtk_style_context_remove_class(ctx, "stat_warning");
+	gtk_style_context_remove_class(ctx, "stat_normal");
+	gtk_style_context_remove_class(ctx, "stat_optimal");
+
+	if (value <= danger_low || (warn_high > 0 && value >= warn_high))
+	{
+		gtk_style_context_add_class(ctx, "stat_critical");
+	}
+	else if (value <= warn_low)
+	{
+		gtk_style_context_add_class(ctx, "stat_warning");
+	}
+	else if (value >= 1000000L)
+	{
+		gtk_style_context_add_class(ctx, "stat_optimal");
+	}
+	else
+	{
+		gtk_style_context_add_class(ctx, "stat_normal");
+	}
 }
 
 #endif

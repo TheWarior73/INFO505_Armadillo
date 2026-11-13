@@ -2,8 +2,8 @@
    GLOBAL & WRAPPER
 =================================================== */
 window {
-	background-color: #1a1b26; 
-	color: #a9b1d6; 
+	background-color: #1a1b26;
+	color: #a9b1d6;
 	font-family: "Courier New", Monospace;
 	font-weight: bold;
 }
@@ -28,7 +28,7 @@ window {
 	padding: 4px 12px;
 	border-radius: 6px;
 	color: #1a1b26;
-	background-color: #7aa2f7; 
+	background-color: #7aa2f7;
 }
 
 .game_version {
@@ -36,7 +36,6 @@ window {
 	font-size: 14px;
 	margin-top: 4px;
 }
-
 /* ===================================================
    GRID STATS (2x3 Layout)
 =================================================== */
@@ -46,26 +45,38 @@ window {
 
 .stat_cell {
 	padding: 8px;
-	background-color: rgba(
-		65,
-		72,
-		104,
-		0.2
-	); 
+	background-color: rgba(65, 72, 104, 0.2);
 	border-left: 3px solid #7aa2f7;
 	border-radius: 4px;
 }
 
 .stat_title {
-	color: #7dcfff; 
-	font-size: 12px;
-	margin-bottom: 2px;
+	color: #7dcfff;
+	font-size: 11px;
+	letter-spacing: 1px;
+	margin-bottom: 4px;
 }
 
 .stat_value {
-	color: #bb9af7; 
-	font-size: 18px;
-	text-shadow: none; 
+	color: #c0caf5;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.stat_critical {
+	color: #f7768e;
+}
+
+.stat_warning {
+	color: #e0af68;
+}
+
+.stat_normal {
+	color: #9ece6a;
+}
+
+.stat_optimal {
+	color: #2ac3de;
 }
 
 /* ===================================================
@@ -93,7 +104,6 @@ scrolledwindow {
 	padding: 10px;
 }
 
-
 button {
 	background-color: #1a1b26;
 	color: #7aa2f7;
@@ -105,7 +115,6 @@ button {
 	font-weight: bold;
 	transition: all 150ms ease-in-out;
 }
-
 
 button:hover {
 	background-color: #7aa2f7;

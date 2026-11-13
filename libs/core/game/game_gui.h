@@ -98,5 +98,8 @@ void update_display(GameUI *ui);
 gchar *format_change(Element *action);
 GtkWidget *create_stat_box(const gchar *title_text, const gchar *value_text, GtkWidget **out_value_label, const gchar *css_class);
 void show_game_popup(GtkWindow *parent_window, GtkMessageType type, const gchar *title, const gchar *message);
+gchar *format_readable_number(long val);
+gchar *format_readable_delta(long val);
+void update_stat_color(GtkWidget *label, long value, long danger_low, long warn_low, long warn_high);
 
 #endif

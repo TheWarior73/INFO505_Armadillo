@@ -122,7 +122,7 @@ int changeHabitability(Planet *planet, const Element *element)
 	int newHabitability = planet->habitability + element->change.quantity;
 	if (newHabitability < 0 || newHabitability > 100)
 	{
-		return planetSetHabitability(planet, clampInt(newHabitability, 0, 200));
+		return planetSetHabitability(planet, clampInt(newHabitability, 0, 100));
 	}
 
 	return planetSetHabitability(planet, newHabitability);
@@ -162,11 +162,31 @@ int applyElementChange(Planet *planet, const Element *element)
  */
 int planetHasLost(const Planet *planet)
 {
-	return planet->population < MIN_POPULATION_ALLOWED ||
+	// Depleted ressources
+	if (
+		planet->population < MIN_POPULATION_ALLOWED ||
 		planet->water < MIN_WATER_ALLOWED ||
 		planet->wood < MIN_WOOD_ALLOWED ||
 		planet->minerals < MIN_MINERALS_ALLOWED ||
-		planet->habitability <= 0;
+		planet->habitability <= 0)
+	{
+		return 1;
+	}
+
+	// Natural disasters
+	if (planet->water > MAX_WATER_ALLOWED ||
+		planet->wood > MAX_WOOD_ALLOWED)
+	{
+		return 1;
+	}
+
+	// #dinosaurs #rawr
+	if (planet->radiusKm < MIN_PLANET_RADIUS)
+	{
+		return 1;
+	}
+
+	return 0;
 }
 
 /**
@@ -176,7 +196,11 @@ int planetHasLost(const Planet *planet)
  */
 int planetHasWon(const Planet *planet)
 {
-	return planet->population >= MAX_POPULATION_ALLOWED;
+	return planet->population >= WIN_POPULATION_THRESHOLD &&
+		planet->habitability >= WIN_HABITABILITY_THRESHOLD &&
+		planet->water >= WIN_MIN_WATER &&
+		planet->wood >= WIN_MIN_WOOD &&
+		planet->minerals >= WIN_MIN_MINERALS;
 }
 
 /**
