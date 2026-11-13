@@ -106,10 +106,18 @@ void destroyPlanet(Planet *planet)
  */
 int planetChangePopulation(Planet *planet, long change)
 {
-	if (planet == NULL || (change > 0 && planet->population > LONG_MAX - change) ||
-		(change < 0 && change < -planet->population))
+	if (planet == NULL)
 	{
 		return -1;
+	}
+
+	if (change > 0 && planet->population > LONG_MAX - change)
+	{
+		planet->population = LONG_MAX;
+	}
+	else if (change < 0 && change < -planet->population)
+	{
+		planet->population = 0;
 	}
 
 	planet->population += change;
@@ -148,10 +156,13 @@ int planetChangeResource(Planet *planet, PlanetResource resource, int change)
 		return -1;
 	}
 
-	if ((change > 0 && *quantity > INT_MAX - change) ||
-		(change < 0 && change < -*quantity))
+	if (change > 0 && *quantity > INT_MAX - change)
 	{
-		return -1;
+		*quantity = INT_MAX;
+	}
+	else if (change < 0 && change < -*quantity)
+	{
+		*quantity = 0;
 	}
 
 	*quantity += change;

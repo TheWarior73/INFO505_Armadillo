@@ -28,7 +28,7 @@ void gameTurn(Planet *p, Element *event, Element *action)
 	{
 		int actionRes = applyElementChange(p, action);
 		if (actionRes == -1)
-		{	
+		{
 			fprintf(stderr, "Action.applyElementChange failed: %50s . %d\n", action->nameElement, action->change.quantity);
 		}
 	}
@@ -89,10 +89,21 @@ int changePopulation(Planet *planet, const Element *element)
 int changeRadius(Planet *planet, const Element *element)
 {
 	double newRadius = planet->radiusKm + element->change.radiusKm;
-	if (!isfinite(newRadius) || newRadius < MIN_PLANET_RADIUS || newRadius > MAX_PLANET_RADIUS)
+
+	if (!isfinite(newRadius))
 	{
 		return -1;
 	}
+
+	if (newRadius < MIN_PLANET_RADIUS)
+	{
+		newRadius = MIN_PLANET_RADIUS;
+	}
+	else if (newRadius > MAX_PLANET_RADIUS)
+	{
+		newRadius = MAX_PLANET_RADIUS;
+	}
+
 	planet->radiusKm = newRadius;
 	return 1;
 }

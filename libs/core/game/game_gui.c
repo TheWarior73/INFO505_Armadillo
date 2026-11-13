@@ -186,6 +186,13 @@ void build_header(GameUI *ui, GtkWidget *parent)
 	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("WOOD", str_wood, &ui->label_wood, "stat_value"), 1, 1, 1, 1);
 	gtk_grid_attach(GTK_GRID(stats_grid), create_stat_box("MINERALS", str_minerals, &ui->label_minerals, "stat_value"), 2, 1, 1, 1);
 
+	update_stat_color(ui->label_population, ui->planet->population, MIN_POPULATION_ALLOWED * 3, MIN_POPULATION_ALLOWED * 10, 0);
+	update_stat_color(ui->label_water, ui->planet->water, MIN_WATER_ALLOWED * 3, MIN_WATER_ALLOWED * 10, MAX_WATER_ALLOWED * 0.8);
+	update_stat_color(ui->label_wood, ui->planet->wood, MIN_WOOD_ALLOWED * 3, MIN_WOOD_ALLOWED * 10, MAX_WOOD_ALLOWED * 0.8);
+	update_stat_color(ui->label_minerals, ui->planet->minerals, MIN_MINERALS_ALLOWED * 3, MIN_MINERALS_ALLOWED * 10, 0);
+	update_stat_color(ui->label_habitability, ui->planet->habitability, 25, 50, 0);
+	update_stat_color(ui->label_radius, ui->planet->radiusKm, MIN_PLANET_RADIUS * 3, MIN_PLANET_RADIUS * 10, 0);
+
 	gtk_box_pack_start(GTK_BOX(header_box), stats_grid, FALSE, FALSE, 0);
 #pragma endregion
 
