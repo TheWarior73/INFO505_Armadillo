@@ -406,13 +406,11 @@ void on_action_clicked(GtkWidget *button, gpointer data)
  */
 void on_window_destroy(GtkWidget *widget, gpointer data)
 {
+	(void)widget;
 	GameUI *ui = (GameUI *)data;
 	destroyPlanet(ui->planet);
 	g_free(ui);
 	gtk_main_quit();
-
-	// So the widget is not unused.
-	g_free(widget);
 }
 
 // --- Helpers ---

@@ -10,20 +10,19 @@ static void test_fetch_empty_filepath(void)
 	Element *events = fetchEventsFromFile(NULL, "Event");
 	assert(events != NULL);
 	assert(strcmp(events->nameType, "Event") == 0);
-	// Assuming a destroy function exists for cleanup
-	// destroyElementList(events);
+	freeListElements(events);
 
 	// Test NULL filepath with "Action" type
 	Element *actions = fetchEventsFromFile(NULL, "Action");
 	assert(actions != NULL);
 	assert(strcmp(actions->nameType, "Action") == 0);
-	// destroyElementList(actions);
+	freeListElements(actions);
 
 	// Test NULL filepath with invalid type (should default to "Event")
 	Element *fallbackEvents = fetchEventsFromFile(NULL, "InvalidType");
 	assert(fallbackEvents != NULL);
 	assert(strcmp(fallbackEvents->nameType, "Event") == 0);
-	// destroyElementList(fallbackEvents);
+	freeListElements(fallbackEvents);
 }
 
 static void test_fetch_wrong_filepath(void)
@@ -42,13 +41,13 @@ static void test_fetch_correct_filepath_correct_type(void)
 	Element *events = fetchEventsFromFile(filepath, "Event");
 	assert(events != NULL);
 	assert(strcmp(events->nameType, "Event") == 0);
-	// destroyElementList(events);
+	freeListElements(events);
 
 	// Valid file, Valid type: Action
 	Element *actions = fetchEventsFromFile(filepath, "Action");
 	assert(actions != NULL);
 	assert(strcmp(actions->nameType, "Action") == 0);
-	// destroyElementList(actions);
+	freeListElements(actions);
 }
 
 static void test_fetch_correct_filepath_incorrect_type(void)
@@ -58,6 +57,7 @@ static void test_fetch_correct_filepath_incorrect_type(void)
 	// Valid file, Invalid type: should fail to find the array in JSON and return NULL
 	Element *result = fetchEventsFromFile(filepath, "NonExistentType");
 	assert(result != NULL);
+	freeListElements(result);
 }
 
 void test_load_liste_element(void)
