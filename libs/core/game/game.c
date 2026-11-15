@@ -10,6 +10,20 @@
 
 typedef int (*ElementChangeHandler)(Planet *, const Element *);
 
+void clearGameHistory(void)
+{
+	FILE *history = fopen(GAME_HISTORY_FILE, "w");
+	if (history == NULL)
+	{
+		perror("Unable to reset game history");
+		return;
+	}
+	if (fclose(history) != 0)
+	{
+		perror("Unable to reset game history");
+	}
+}
+
 /**
  * @brief Applies the action, triggers the event, applies passive population upkeep, and logs the turn.
  * @param p the planet

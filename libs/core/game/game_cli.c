@@ -33,6 +33,7 @@ void runCLIGame()
 		fprintf(stderr, "Unable to initialize the planet.\n");
 		return;
 	}
+	clearGameHistory();
 
 	displayPlanet(p);
 

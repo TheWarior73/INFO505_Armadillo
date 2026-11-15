@@ -34,6 +34,7 @@
 
 void runCLIGame();
 
+void clearGameHistory(void);
 void gameTurn(Planet *p, Element *event, Element *action);
 Planet *initPlanet();
 Planet *initPlanetWithParameters(const char *planetName, double planetRadius, long planetPopulation, int water, int minerals, int wood);

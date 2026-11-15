@@ -42,6 +42,7 @@ void runGUIGame(int argc, char *argv[])
 		fprintf(stderr, "Failed to initialize planet !\n");
 		exit(EXIT_FAILURE);
 	}
+	clearGameHistory();
 
 	// Initialising the first batch of actions.
 	ui->action1 = drawRandomElement(ui->planet->Actions);
@@ -485,11 +486,18 @@ void update_display(GameUI *ui)
 #pragma endregion
 
 #pragma region History
-	// Str
-
-	// Labels
-
-	// Free
+	GtkTextBuffer *history_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(ui->history_log));
+	gchar *history = NULL;
+	GError *history_error = NULL;
+	if (g_file_get_contents(GAME_HISTORY_FILE, &history, NULL, &history_error))
+	{
+		gtk_text_buffer_set_text(history_buffer, history[0] != '\0' ? history : "Aucun choix précédent enregistré.", -1);
+			GtkTextIter end;
+		gtk_text_buffer_get_end_iter(history_buffer, &end);
+		gtk_text_view_scroll_to_iter(GTK_TEXT_VIEW(ui->history_log), &end, 0.0, FALSE, 0.0, 1.0);
+		g_free(history);
+	}
+	g_clear_error(&history_error);
 
 #pragma endregion
 
