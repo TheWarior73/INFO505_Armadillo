@@ -233,6 +233,11 @@ Element *searchElementName(const Element *list, const char *nameElement)
 	return NULL;
 }
 
+/**
+ * @brief hands back a human readable str for the ElementChangeTarget provided
+ * @param target the target to change in readable text
+ * @returns a human readable string; ex: wood, water...
+ */
 char *strOfElementChangeTarget(ElementChangeTarget target)
 {
 	switch (target)

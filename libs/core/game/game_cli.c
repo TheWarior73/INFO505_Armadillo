@@ -27,7 +27,11 @@ void runCLIGame()
 	getParametersFromPlayer(planetName, &planetRadius, &planetPopulation, &water, &minerals, &wood);
 
 	Planet *p = initPlanetWithParameters(planetName[0] != '\0' ? planetName : NULL,
-		planetRadius, planetPopulation, water, minerals, wood);
+										 planetRadius,
+										 planetPopulation,
+										 water,
+										 minerals,
+										 wood);
 	if (p == NULL)
 	{
 		fprintf(stderr, "Unable to initialize the planet.\n");
@@ -95,6 +99,15 @@ void runCLIGame()
 	destroyPlanet(p);
 }
 
+/**
+ * @brief Obtains the planet parameters from the player to allow for custom planets.
+ * @param name Planet name
+ * @param radius Starting radius
+ * @param population Starting population
+ * @param water Starting water
+ * @param minerals Starting minerals
+ * @param wood Starting wood
+ */
 void getParametersFromPlayer(char *name, double *radius, long *population, int *water, int *minerals, int *wood)
 {
 	name[0] = '\0';

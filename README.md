@@ -4,6 +4,45 @@
 >
 > - INFO 505 @ USMB
 
+## Game information
+
+### Win conditions
+
+To win the game you must have the following requirements :
+
+- At least 1M population
+- At least 75% planet habitability
+- At least 1M water
+- At least 1M wood
+- At least 1M minerals
+
+### Loose conditions
+
+To loose the game, any of the following requirements must be met :
+
+- Less than 2 population
+- Less than 100k water
+- Less than 100k wood
+- Less than 100k minerals
+- Planet habitability has reached 0
+- Planet radius has become too small to sustain life.
+
+Additionally, you can loose the game by having too much of some ressources :
+
+- More than 15M Water : the world is flooded
+- More than 15M Wood : the world is overgrown by mega fauna
+
+## Turn information
+
+A turn starts with a random event drawn by the game, the player then plays an action to infere with the ressources, population, habitability...
+
+Each turn, the planet will loose ressources passively. It scales with the population amount.  
+One person (1 pop.) consumes each turn :
+
+- 1 water
+- 0.5 wood
+- 0.5 minerals
+
 ## Project information
 
 ### Structure

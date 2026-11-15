@@ -116,8 +116,6 @@ void runGUIGame(int argc, char *argv[])
  * @brief Builds the Header GUI and references the GameUI pointers for later update of values.
  * @param ui The GameUI struct that holds pointer references to labels to allow for updates
  * @param parent The parent widget.
- *
- * @todo (1) - Header Styling
  */
 void build_header(GameUI *ui, GtkWidget *parent)
 {
@@ -252,8 +250,6 @@ void build_middle(GameUI *ui, GtkWidget *parent)
  * @brief Builds the Footer GUI and references the GameUI pointers for later update of values.
  * @param ui The GameUI struct that holds pointer references to labels to allow for updates
  * @param parent The parent widget.
- *
- * @todo (3) - Footer Styling
  */
 void build_footer(GameUI *ui, GtkWidget *parent)
 {
@@ -446,7 +442,6 @@ int get_clicked_button(GtkWidget *button, GameUI *ui)
  * @brief updates the program's display.
  * @param ui Holds the relevant pointers to labels to update them accordingly.
  * Updates the labels that hold dynamic data: i.e water as well as the buttons.
- * @todo (2) - history
  */
 void update_display(GameUI *ui)
 {
@@ -490,7 +485,7 @@ void update_display(GameUI *ui)
 	if (g_file_get_contents(GAME_HISTORY_FILE, &history, NULL, &history_error))
 	{
 		gtk_text_buffer_set_text(history_buffer, history[0] != '\0' ? history : "Aucun choix précédent enregistré.", -1);
-			GtkTextIter end;
+		GtkTextIter end;
 		gtk_text_buffer_get_end_iter(history_buffer, &end);
 		gtk_text_view_scroll_to_iter(GTK_TEXT_VIEW(ui->history_log), &end, 0.0, FALSE, 0.0, 1.0);
 		g_free(history);
@@ -640,6 +635,7 @@ void show_game_popup(GtkWindow *parent_window, GtkMessageType type, const gchar 
  * @brief Formats large numbers into readable K / M / B strings.
  * @param val the number to be formated
  * Examples: 950 -> "950", 45200 -> "45.2K", 1822667 -> "1.82M"
+ * @returns a gchar containing the readable number
  */
 gchar *format_readable_number(long val)
 {
@@ -665,6 +661,7 @@ gchar *format_readable_number(long val)
  * @brief Formats signed deltas for action buttons
  * @param val the number to be formated
  * Example: +50.0K, -1.20M
+ * @returns a gchar containing the signed readable number
  */
 gchar *format_readable_delta(long val)
 {
@@ -686,6 +683,14 @@ gchar *format_readable_delta(long val)
 	return g_strdup_printf("%+ld", val);
 }
 
+/**
+ * @brief Updates the font color of a GtkLabel depending on it's value and the specified thresholds
+ * @param label The GTK Label to modify
+ * @param value The value held by the label, to be evaluated against the thresholds
+ * @param danger_low Threshold value to put the danger class to the label. (value < danger_low)
+ * @param warn_low Threshold value to put the warn class to the label. (value < warn_low)
+ * @param warn_high Threshold value to remove the warn class to the label. (value > warn_high)
+ */
 void update_stat_color(GtkWidget *label, long value, long danger_low, long warn_low, long warn_high)
 {
 	GtkStyleContext *ctx = gtk_widget_get_style_context(label);

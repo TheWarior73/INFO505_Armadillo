@@ -5,13 +5,19 @@
 #include "../Element/element.h"
 #endif
 
+/**
+ * @brief Represents a planet ressource
+ */
 typedef enum
 {
 	PLANET_WATER,
 	PLANET_MINERALS,
-    PLANET_WOOD
+	PLANET_WOOD
 } PlanetResource;
 
+/**
+ * @brief Represents a planet
+ */
 typedef struct
 {
 	char *name;
@@ -19,7 +25,7 @@ typedef struct
 	long population;
 	int water;
 	int minerals;
-    int wood;
+	int wood;
 	int habitability;
 	Element *Actions;
 	Element *Events;

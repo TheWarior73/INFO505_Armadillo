@@ -3,9 +3,6 @@
 #include <string.h>
 #include <time.h>
 
-#include "game.h"
-#include "game_gui.h"
-
 /**
  * @brief Defines wether the output should be verbose or not.
  */
@@ -24,7 +21,14 @@ void test_liste_chainee(void);
 void test_planet(void);
 void test_load_liste_element(void);
 void print_help(void);
+void runGUIGame(int argc, char **argv);
+void runCLIGame();
 
+/**
+ * @brief The entry point of the program, the main function.
+ * It decides what part of the program to run based on user provided flags.
+ * Depending on flags, it can also display a help message to guide the user in their choice of flags to be used.
+ */
 int main(int argc, char *argv[])
 {
 	// Seeding the randomizer
