@@ -1,6 +1,8 @@
 #ifndef MATH_C
 #define MATH_C
 
+#include "math.h"
+
 /**
  * @param val: The value to be clamped
  * @param min: The minimum value allowed
@@ -42,13 +44,6 @@ int clampInt(int val, int min, int max)
 {
 	const long temp = val < min ? min : val;
 	return temp > max ? max : temp;
-}
-
-/**
- * @brief Calculates score
- */
-void calcScoreV1()
-{
 }
 
 #endif

@@ -2,7 +2,7 @@
 #define GAME_C
 
 #include "game.h"
-#include "math.c"
+#include "math.h"
 
 #include <math.h>
 #include <stdio.h>
