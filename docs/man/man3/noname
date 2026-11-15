@@ -1,20 +1,20 @@
-.TH "" 3 "Sun Nov 15 2026 14:15:59" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "" 3 "Sun Nov 15 2026 15:53:40" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 core Element cJSON\&.c cJSON\&.h element\&.c element\&.h 
 .PP
-game game\&.c game\&.h game_cli\&.c game_gui\&.c game_gui\&.h math\&.c 
+game game\&.c game\&.h game_cli\&.c game_gui\&.c game_gui\&.h math\&.c math\&.h 
 .PP
 Planet planet\&.c planet\&.h 
 .PP
 Element cJSON\&.c cJSON\&.h element\&.c element\&.h 
 .PP
-game game\&.c game\&.h game_cli\&.c game_gui\&.c game_gui\&.h math\&.c 
+game game\&.c game\&.h game_cli\&.c game_gui\&.c game_gui\&.h math\&.c math\&.h 
 .PP
 libs core Element cJSON\&.c cJSON\&.h element\&.c element\&.h 
 .PP
-game game\&.c game\&.h game_cli\&.c game_gui\&.c game_gui\&.h math\&.c 
+game game\&.c game\&.h game_cli\&.c game_gui\&.c game_gui\&.h math\&.c math\&.h 
 .PP
 Planet planet\&.c planet\&.h 
 .PP

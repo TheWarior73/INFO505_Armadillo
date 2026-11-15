@@ -2,6 +2,8 @@ var main_8c =
 [
     [ "main", "d0/d29/main_8c.html#a0ddf1224851353fc92bfbff6f499fa97", null ],
     [ "print_help", "d0/d29/main_8c.html#a402ea961bfc2ffeee61e3a7c330b1559", null ],
+    [ "runCLIGame", "d0/d29/main_8c.html#adca277e1e5c7080eafede32bcddf9a70", null ],
+    [ "runGUIGame", "d0/d29/main_8c.html#aad4fb5b2ffdf478336fc72a9dfcc1691", null ],
     [ "test_liste_chainee", "d0/d29/main_8c.html#a99736550541f7fac84f8ed2bcd3e2030", null ],
     [ "test_load_liste_element", "d0/d29/main_8c.html#a469364584fc32c2b55d38db89ae85e96", null ],
     [ "test_planet", "d0/d29/main_8c.html#afc17b5dffac541c94378ef2f8439c334", null ],

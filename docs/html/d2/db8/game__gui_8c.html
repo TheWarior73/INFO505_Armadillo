@@ -160,6 +160,7 @@ Functions</h2></td></tr>
 <tr class="memitem:afb65184158a9ab4f91ddacb96eae8522" id="r_afb65184158a9ab4f91ddacb96eae8522"><td class="memItemLeft">gchar *&#160;</td><td class="memItemRight"><a class="el" href="#afb65184158a9ab4f91ddacb96eae8522">format_readable_delta</a> (long val)</td></tr>
 <tr class="memdesc:afb65184158a9ab4f91ddacb96eae8522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats signed deltas for action buttons.  <br /></td></tr>
 <tr class="memitem:ab21a79f3c4b49c426fff2340bcb603b9" id="r_ab21a79f3c4b49c426fff2340bcb603b9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab21a79f3c4b49c426fff2340bcb603b9">update_stat_color</a> (GtkWidget *label, long value, long danger_low, long warn_low, long warn_high)</td></tr>
+<tr class="memdesc:ab21a79f3c4b49c426fff2340bcb603b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the font color of a GtkLabel depending on it's value and the specified thresholds.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a2da0ca5d7bf0af4b59cc1a6e2bc57dc5" name="a2da0ca5d7bf0af4b59cc1a6e2bc57dc5"></a>
@@ -200,11 +201,10 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ui</td><td>The <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> struct that holds pointer references to labels to allow for updates </td></tr>
-    <tr><td class="paramname">parent</td><td>The parent widget.</td></tr>
+    <tr><td class="paramname">parent</td><td>The parent widget. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo</a></b></dt><dd>(3) - Footer Styling </dd></dl>
 
 </div>
 </div>
@@ -231,11 +231,10 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ui</td><td>The <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> struct that holds pointer references to labels to allow for updates </td></tr>
-    <tr><td class="paramname">parent</td><td>The parent widget.</td></tr>
+    <tr><td class="paramname">parent</td><td>The parent widget. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo</a></b></dt><dd>(1) - Header Styling </dd></dl>
 
 </div>
 </div>
@@ -350,6 +349,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>a gchar containing the signed readable number </dd></dl>
 
 </div>
 </div>
@@ -375,6 +375,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>a gchar containing the readable number </dd></dl>
 
 </div>
 </div>
@@ -554,11 +555,10 @@ Functions</h2></td></tr>
 <p>updates the program's display. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ui</td><td>Holds the relevant pointers to labels to update them accordingly. Updates the labels that hold dynamic data: i.e water as well as the buttons.</td></tr>
+    <tr><td class="paramname">ui</td><td>Holds the relevant pointers to labels to update them accordingly. Updates the labels that hold dynamic data: i.e water as well as the buttons. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo</a></b></dt><dd>(2) - history </dd></dl>
 
 </div>
 </div>
@@ -595,6 +595,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Updates the font color of a GtkLabel depending on it's value and the specified thresholds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">label</td><td>The GTK Label to modify </td></tr>
+    <tr><td class="paramname">value</td><td>The value held by the label, to be evaluated against the thresholds </td></tr>
+    <tr><td class="paramname">danger_low</td><td>Threshold value to put the danger class to the label. (value &lt; danger_low) </td></tr>
+    <tr><td class="paramname">warn_low</td><td>Threshold value to put the warn class to the label. (value &lt; warn_low) </td></tr>
+    <tr><td class="paramname">warn_high</td><td>Threshold value to remove the warn class to the label. (value &gt; warn_high) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

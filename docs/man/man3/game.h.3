@@ -1,4 +1,4 @@
-.TH "libs/core/game/game.h" 3 "Sun Nov 15 2026 14:15:59" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game.h" 3 "Sun Nov 15 2026 15:53:40" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -66,13 +66,13 @@ libs/core/game/game.h
 .RI "#define \fBWIN_HABITABILITY_THRESHOLD\fP   75"
 .br
 .ti -1c
-.RI "#define \fBWIN_MIN_WOOD\fP   2000000"
+.RI "#define \fBWIN_MIN_WOOD\fP   1000000"
 .br
 .ti -1c
-.RI "#define \fBWIN_MIN_WATER\fP   2000000"
+.RI "#define \fBWIN_MIN_WATER\fP   1000000"
 .br
 .ti -1c
-.RI "#define \fBWIN_MIN_MINERALS\fP   2000000"
+.RI "#define \fBWIN_MIN_MINERALS\fP   1000000"
 .br
 .ti -1c
 .RI "#define \fBGAME_HISTORY_FILE\fP   '\&.\&./data/game_history\&.log'"
@@ -102,6 +102,7 @@ libs/core/game/game.h
 .ti -1c
 .RI "void \fBgetParametersFromPlayer\fP (char *name, double *radius, long *population, int *water, int *minerals, int *wood)"
 .br
+.RI "Obtains the planet parameters from the player to allow for custom planets\&. "
 .ti -1c
 .RI "int \fBchangePopulation\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
 .br
@@ -179,11 +180,11 @@ libs/core/game/game.h
 
 .SS "#define WIN_HABITABILITY_THRESHOLD   75"
 
-.SS "#define WIN_MIN_MINERALS   2000000"
+.SS "#define WIN_MIN_MINERALS   1000000"
 
-.SS "#define WIN_MIN_WATER   2000000"
+.SS "#define WIN_MIN_WATER   1000000"
 
-.SS "#define WIN_MIN_WOOD   2000000"
+.SS "#define WIN_MIN_WOOD   1000000"
 
 .SS "#define WIN_POPULATION_THRESHOLD   1000000"
 
@@ -353,6 +354,25 @@ Applies the action, triggers the event, applies passive population upkeep, and l
 .PP
 
 .SS "void getParametersFromPlayer (char * name, double * radius, long * population, int * water, int * minerals, int * wood)"
+
+.PP
+Obtains the planet parameters from the player to allow for custom planets\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP \fBPlanet\fP name 
+.br
+\fIradius\fP Starting radius 
+.br
+\fIpopulation\fP Starting population 
+.br
+\fIwater\fP Starting water 
+.br
+\fIminerals\fP Starting minerals 
+.br
+\fIwood\fP Starting wood 
+.RE
+.PP
 
 .SS "\fBPlanet\fP * initPlanet ()"
 

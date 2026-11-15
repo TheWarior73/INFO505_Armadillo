@@ -1,4 +1,4 @@
-.TH "libs/core/game/game_gui.c" 3 "Sun Nov 15 2026 14:15:59" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game_gui.c" 3 "Sun Nov 15 2026 15:53:40" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -98,6 +98,7 @@ libs/core/game/game_gui.c
 .ti -1c
 .RI "void \fBupdate_stat_color\fP (GtkWidget *label, long value, long danger_low, long warn_low, long warn_high)"
 .br
+.RI "Updates the font color of a GtkLabel depending on it's value and the specified thresholds\&. "
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
@@ -114,12 +115,7 @@ Builds the Footer GUI and references the \fBGameUI\fP pointers for later update 
 .RS 4
 \fIui\fP The \fBGameUI\fP struct that holds pointer references to labels to allow for updates 
 .br
-\fIparent\fP The parent widget\&.
-.RE
-.PP
-\fBTodo\fP
-.RS 4
-(3) - Footer Styling 
+\fIparent\fP The parent widget\&. 
 .RE
 .PP
 
@@ -132,12 +128,7 @@ Builds the Header GUI and references the \fBGameUI\fP pointers for later update 
 .RS 4
 \fIui\fP The \fBGameUI\fP struct that holds pointer references to labels to allow for updates 
 .br
-\fIparent\fP The parent widget\&.
-.RE
-.PP
-\fBTodo\fP
-.RS 4
-(1) - Header Styling 
+\fIparent\fP The parent widget\&. 
 .RE
 .PP
 
@@ -184,6 +175,11 @@ Formats signed deltas for action buttons\&.
 \fIval\fP the number to be formated Example: +50\&.0K, -1\&.20M 
 .RE
 .PP
+\fBReturns\fP
+.RS 4
+a gchar containing the signed readable number 
+.RE
+.PP
 
 .SS "gchar * format_readable_number (long val)"
 
@@ -193,6 +189,11 @@ Formats large numbers into readable K / M / B strings\&.
 \fBParameters\fP
 .RS 4
 \fIval\fP the number to be formated Examples: 950 -> "950", 45200 -> "45\&.2K", 1822667 -> "1\&.82M" 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a gchar containing the readable number 
 .RE
 .PP
 
@@ -276,16 +277,28 @@ updates the program's display\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fIui\fP Holds the relevant pointers to labels to update them accordingly\&. Updates the labels that hold dynamic data: i\&.e water as well as the buttons\&.
-.RE
-.PP
-\fBTodo\fP
-.RS 4
-(2) - history 
+\fIui\fP Holds the relevant pointers to labels to update them accordingly\&. Updates the labels that hold dynamic data: i\&.e water as well as the buttons\&. 
 .RE
 .PP
 
 .SS "void update_stat_color (GtkWidget * label, long value, long danger_low, long warn_low, long warn_high)"
+
+.PP
+Updates the font color of a GtkLabel depending on it's value and the specified thresholds\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlabel\fP The GTK Label to modify 
+.br
+\fIvalue\fP The value held by the label, to be evaluated against the thresholds 
+.br
+\fIdanger_low\fP Threshold value to put the danger class to the label\&. (value < danger_low) 
+.br
+\fIwarn_low\fP Threshold value to put the warn class to the label\&. (value < warn_low) 
+.br
+\fIwarn_high\fP Threshold value to remove the warn class to the label\&. (value > warn_high) 
+.RE
+.PP
 
 .SH "Author"
 .PP 

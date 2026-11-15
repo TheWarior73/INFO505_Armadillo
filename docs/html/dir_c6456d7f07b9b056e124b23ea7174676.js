@@ -5,5 +5,6 @@ var dir_c6456d7f07b9b056e124b23ea7174676 =
     [ "game_cli.c", "db/d58/game__cli_8c.html", "db/d58/game__cli_8c" ],
     [ "game_gui.c", "d2/db8/game__gui_8c.html", "d2/db8/game__gui_8c" ],
     [ "game_gui.h", "d7/d78/game__gui_8h.html", "d7/d78/game__gui_8h" ],
-    [ "math.c", "d6/da3/math_8c.html", "d6/da3/math_8c" ]
+    [ "math.c", "d6/da3/math_8c.html", "d6/da3/math_8c" ],
+    [ "math.h", "df/db1/math_8h.html", "df/db1/math_8h" ]
 ];

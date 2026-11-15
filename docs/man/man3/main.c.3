@@ -1,4 +1,4 @@
-.TH "src/main.c" 3 "Sun Nov 15 2026 14:15:59" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "src/main.c" 3 "Sun Nov 15 2026 15:53:40" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,10 +13,6 @@ src/main.c
 \fR#include <string\&.h>\fP
 .br
 \fR#include <time\&.h>\fP
-.br
-\fR#include 'game\&.h'\fP
-.br
-\fR#include 'game_gui\&.h'\fP
 .br
 
 .SS "Functions"
@@ -36,8 +32,16 @@ src/main.c
 .br
 .RI "Prints an help message to explain the available flags\&. "
 .ti -1c
+.RI "void \fBrunGUIGame\fP (int argc, char **argv)"
+.br
+.ti -1c
+.RI "void \fBrunCLIGame\fP ()"
+.br
+.RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
+.ti -1c
 .RI "int \fBmain\fP (int argc, char *argv[])"
 .br
+.RI "The entry point of the program, the main function\&. It decides what part of the program to run based on user provided flags\&. Depending on flags, it can also display a help message to guide the user in their choice of flags to be used\&. "
 .in -1c
 .SS "Variables"
 
@@ -61,10 +65,18 @@ src/main.c
 .PP 
 .SS "int main (int argc, char * argv[])"
 
+.PP
+The entry point of the program, the main function\&. It decides what part of the program to run based on user provided flags\&. Depending on flags, it can also display a help message to guide the user in their choice of flags to be used\&. 
 .SS "void print_help (void )"
 
 .PP
 Prints an help message to explain the available flags\&. 
+.SS "void runCLIGame ()"
+
+.PP
+Runs the full game, turn by turn, until win condition or game over is reached\&. This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well\&. 
+.SS "void runGUIGame (int argc, char ** argv)"
+
 .SS "void test_liste_chainee (void )"
 
 .SS "void test_load_liste_element (void )"

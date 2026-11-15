@@ -1,4 +1,4 @@
-.TH "libs/core/game/game_cli.c" 3 "Sun Nov 15 2026 14:15:59" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game_cli.c" 3 "Sun Nov 15 2026 15:53:40" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -21,10 +21,30 @@ libs/core/game/game_cli.c
 .ti -1c
 .RI "void \fBgetParametersFromPlayer\fP (char *name, double *radius, long *population, int *water, int *minerals, int *wood)"
 .br
+.RI "Obtains the planet parameters from the player to allow for custom planets\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
 .SS "void getParametersFromPlayer (char * name, double * radius, long * population, int * water, int * minerals, int * wood)"
+
+.PP
+Obtains the planet parameters from the player to allow for custom planets\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP \fBPlanet\fP name 
+.br
+\fIradius\fP Starting radius 
+.br
+\fIpopulation\fP Starting population 
+.br
+\fIwater\fP Starting water 
+.br
+\fIminerals\fP Starting minerals 
+.br
+\fIwood\fP Starting wood 
+.RE
+.PP
 
 .SS "void runCLIGame ()"
 

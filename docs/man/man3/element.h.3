@@ -1,4 +1,4 @@
-.TH "libs/core/Element/element.h" 3 "Sun Nov 15 2026 14:15:59" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/Element/element.h" 3 "Sun Nov 15 2026 15:53:40" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -72,6 +72,7 @@ libs/core/Element/element.h
 .ti -1c
 .RI "char * \fBstrOfElementChangeTarget\fP (\fBElementChangeTarget\fP target)"
 .br
+.RI "hands back a human readable str for the \fBElementChangeTarget\fP provided "
 .ti -1c
 .RI "\fBElement\fP * \fBsearchElementIndex\fP (const \fBElement\fP *list, const int index)"
 .br
@@ -341,6 +342,20 @@ Pointer to the found element or NULL if not found
 .PP
 
 .SS "char * strOfElementChangeTarget (\fBElementChangeTarget\fP target)"
+
+.PP
+hands back a human readable str for the \fBElementChangeTarget\fP provided 
+.PP
+\fBParameters\fP
+.RS 4
+\fItarget\fP the target to change in readable text 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a human readable string; ex: wood, water\&.\&.\&. 
+.RE
+.PP
 
 .SH "Author"
 .PP 

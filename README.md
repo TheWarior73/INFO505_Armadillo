@@ -45,6 +45,11 @@ One person (1 pop.) consumes each turn :
 
 ## Project information
 
+### Documentation
+
+Documentation can be found under `docs/`
+Alternatively, it can be visualised (html) [at this adress](https://thewarior73.github.io/INFO505_Armadillo/html/)
+
 ### Structure
 
 ```
