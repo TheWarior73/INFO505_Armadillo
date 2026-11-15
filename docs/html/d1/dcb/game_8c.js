@@ -10,6 +10,7 @@ var game_8c =
     [ "changeResource", "d1/dcb/game_8c.html#a942f2da3e9a8948f25e2e40c11b381ee", null ],
     [ "changeWater", "d1/dcb/game_8c.html#a030ee95e557a6208e588f2720386e8be", null ],
     [ "changeWood", "d1/dcb/game_8c.html#ab0d8d507ac014fde4884bc41338d3c83", null ],
+    [ "clearGameHistory", "d1/dcb/game_8c.html#a2857ba4bd26e067b3955b6c9ffd8e973", null ],
     [ "gameTurn", "d1/dcb/game_8c.html#a6cd6fd0dec88a68d64ac3a55bde0059e", null ],
     [ "initPlanet", "d1/dcb/game_8c.html#ac2f33720d246b4eb5b1e2abb71ab9a09", null ],
     [ "initPlanetWithParameters", "d1/dcb/game_8c.html#a0bfc9bf7a2465b841e6331917d629698", null ],

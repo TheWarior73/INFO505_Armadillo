@@ -1,4 +1,4 @@
-.TH "GameUI" 3 "Mon Nov 9 2026 20:29:55" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "GameUI" 3 "Sun Nov 15 2026 14:15:59" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -16,6 +16,10 @@ GameUI \- Struct used to update important informations on the screen each turn\&
 .RI "\fBPlanet\fP * \fBplanet\fP"
 .br
 .RI "The game planet\&. "
+.ti -1c
+.RI "GtkWidget * \fBmain_window\fP"
+.br
+.RI "The window of the program\&. "
 .ti -1c
 .RI "GtkWidget * \fBlabel_name\fP"
 .br
@@ -182,6 +186,10 @@ The planet water label\&.
 
 .PP
 The planet wood label\&. 
+.SS "GtkWidget* GameUI::main_window"
+
+.PP
+The window of the program\&. 
 .SS "\fBPlanet\fP* GameUI::planet"
 
 .PP

@@ -1,4 +1,4 @@
-.TH "libs/core/game/game.c" 3 "Mon Nov 9 2026 20:29:55" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game.c" 3 "Sun Nov 15 2026 14:15:59" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -35,8 +35,12 @@ libs/core/game/game.c
 
 .in +1c
 .ti -1c
+.RI "void \fBclearGameHistory\fP (void)"
+.br
+.ti -1c
 .RI "void \fBgameTurn\fP (\fBPlanet\fP *p, \fBElement\fP *event, \fBElement\fP *action)"
 .br
+.RI "Applies the action, triggers the event, applies passive population upkeep, and logs the turn\&. "
 .ti -1c
 .RI "int \fBchangePopulation\fP (\fBPlanet\fP *planet, const \fBElement\fP *element)"
 .br
@@ -127,7 +131,7 @@ Changes the habitability of the planet based on the element's change value\&.
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -145,7 +149,7 @@ Changes the minerals resource of the planet based on the element's change value\
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -163,7 +167,7 @@ Changes the population of the planet based on the element's change value\&.
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -181,7 +185,7 @@ Changes the radius of the planet based on the element's change value\&.
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -201,7 +205,7 @@ Changes a specific resource of the planet based on the element's change value\&.
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -219,7 +223,7 @@ Changes the water resource of the planet based on the element's change value\&.
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -241,8 +245,23 @@ Changes the wood resource of the planet based on the element's change value\&.
 .RE
 .PP
 
+.SS "void clearGameHistory (void )"
+
 .SS "void gameTurn (\fBPlanet\fP * p, \fBElement\fP * event, \fBElement\fP * action)"
-Applies the event and action selected for the current turn\&. 
+
+.PP
+Applies the action, triggers the event, applies passive population upkeep, and logs the turn\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIp\fP the planet 
+.br
+\fIevent\fP the random event 
+.br
+\fIaction\fP the player's action\&. 
+.RE
+.PP
+
 .SS "\fBPlanet\fP * initPlanet ()"
 
 .SS "\fBPlanet\fP * initPlanetWithParameters (const char * planetName, double planetRadius, long planetPopulation, int water, int minerals, int wood)"

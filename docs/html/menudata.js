@@ -122,4 +122,6 @@ var menudata={children:[
 {text:"m",url:"globals_defs.html#index_m"},
 {text:"n",url:"globals_defs.html#index_n"},
 {text:"s",url:"globals_defs.html#index_s"},
-{text:"t",url:"globals_defs.html#index_t"}]}]}]}]}
+{text:"t",url:"globals_defs.html#index_t"},
+{text:"v",url:"globals_defs.html#index_v"},
+{text:"w",url:"globals_defs.html#index_w"}]}]}]}]}

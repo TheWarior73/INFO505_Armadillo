@@ -1,4 +1,4 @@
-.TH "libs/core/game/game.h" 3 "Mon Nov 9 2026 20:29:55" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game.h" 3 "Sun Nov 15 2026 14:15:59" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -36,28 +36,43 @@ libs/core/game/game.h
 .RI "#define \fBMAX_DEFAULT_WATER\fP   10000000"
 .br
 .ti -1c
-.RI "#define \fBMIN_WATER_ALLOWED\fP   1"
+.RI "#define \fBMIN_WATER_ALLOWED\fP   100000"
 .br
 .ti -1c
-.RI "#define \fBMAX_WATER_ALLOWED\fP   1000000000"
+.RI "#define \fBMAX_WATER_ALLOWED\fP   15000000"
 .br
 .ti -1c
 .RI "#define \fBMAX_DEFAULT_WOOD\fP   10000000"
 .br
 .ti -1c
-.RI "#define \fBMIN_WOOD_ALLOWED\fP   1"
+.RI "#define \fBMIN_WOOD_ALLOWED\fP   100000"
 .br
 .ti -1c
-.RI "#define \fBMAX_WOOD_ALLOWED\fP   1000000000"
+.RI "#define \fBMAX_WOOD_ALLOWED\fP   15000000"
 .br
 .ti -1c
 .RI "#define \fBMAX_DEFAULT_MINERALS\fP   10000000"
 .br
 .ti -1c
-.RI "#define \fBMIN_MINERALS_ALLOWED\fP   1"
+.RI "#define \fBMIN_MINERALS_ALLOWED\fP   100000"
 .br
 .ti -1c
 .RI "#define \fBMAX_MINERALS_ALLOWED\fP   1000000000"
+.br
+.ti -1c
+.RI "#define \fBWIN_POPULATION_THRESHOLD\fP   1000000"
+.br
+.ti -1c
+.RI "#define \fBWIN_HABITABILITY_THRESHOLD\fP   75"
+.br
+.ti -1c
+.RI "#define \fBWIN_MIN_WOOD\fP   2000000"
+.br
+.ti -1c
+.RI "#define \fBWIN_MIN_WATER\fP   2000000"
+.br
+.ti -1c
+.RI "#define \fBWIN_MIN_MINERALS\fP   2000000"
 .br
 .ti -1c
 .RI "#define \fBGAME_HISTORY_FILE\fP   '\&.\&./data/game_history\&.log'"
@@ -71,8 +86,12 @@ libs/core/game/game.h
 .br
 .RI "Runs the full game, turn by turn, until win condition or game over is reached\&. "
 .ti -1c
+.RI "void \fBclearGameHistory\fP (void)"
+.br
+.ti -1c
 .RI "void \fBgameTurn\fP (\fBPlanet\fP *p, \fBElement\fP *event, \fBElement\fP *action)"
 .br
+.RI "Applies the action, triggers the event, applies passive population upkeep, and logs the turn\&. "
 .ti -1c
 .RI "\fBPlanet\fP * \fBinitPlanet\fP ()"
 .br
@@ -144,19 +163,29 @@ libs/core/game/game.h
 
 .SS "#define MAX_POPULATION_ALLOWED   10000000000"
 
-.SS "#define MAX_WATER_ALLOWED   1000000000"
+.SS "#define MAX_WATER_ALLOWED   15000000"
 
-.SS "#define MAX_WOOD_ALLOWED   1000000000"
+.SS "#define MAX_WOOD_ALLOWED   15000000"
 
-.SS "#define MIN_MINERALS_ALLOWED   1"
+.SS "#define MIN_MINERALS_ALLOWED   100000"
 
 .SS "#define MIN_PLANET_RADIUS   100"
 
 .SS "#define MIN_POPULATION_ALLOWED   2"
 
-.SS "#define MIN_WATER_ALLOWED   1"
+.SS "#define MIN_WATER_ALLOWED   100000"
 
-.SS "#define MIN_WOOD_ALLOWED   1"
+.SS "#define MIN_WOOD_ALLOWED   100000"
+
+.SS "#define WIN_HABITABILITY_THRESHOLD   75"
+
+.SS "#define WIN_MIN_MINERALS   2000000"
+
+.SS "#define WIN_MIN_WATER   2000000"
+
+.SS "#define WIN_MIN_WOOD   2000000"
+
+.SS "#define WIN_POPULATION_THRESHOLD   1000000"
 
 .SH "Function Documentation"
 .PP 
@@ -192,7 +221,7 @@ Changes the habitability of the planet based on the element's change value\&.
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -210,7 +239,7 @@ Changes the minerals resource of the planet based on the element's change value\
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -228,7 +257,7 @@ Changes the population of the planet based on the element's change value\&.
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -246,7 +275,7 @@ Changes the radius of the planet based on the element's change value\&.
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -266,7 +295,7 @@ Changes a specific resource of the planet based on the element's change value\&.
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -284,7 +313,7 @@ Changes the water resource of the planet based on the element's change value\&.
 .PP
 \fBReturns\fP
 .RS 4
-1 if successful, 0 otherwise 
+1 if successful, -1 otherwise 
 .RE
 .PP
 
@@ -306,8 +335,23 @@ Changes the wood resource of the planet based on the element's change value\&.
 .RE
 .PP
 
+.SS "void clearGameHistory (void )"
+
 .SS "void gameTurn (\fBPlanet\fP * p, \fBElement\fP * event, \fBElement\fP * action)"
-Applies the event and action selected for the current turn\&. 
+
+.PP
+Applies the action, triggers the event, applies passive population upkeep, and logs the turn\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIp\fP the planet 
+.br
+\fIevent\fP the random event 
+.br
+\fIaction\fP the player's action\&. 
+.RE
+.PP
+
 .SS "void getParametersFromPlayer (char * name, double * radius, long * population, int * water, int * minerals, int * wood)"
 
 .SS "\fBPlanet\fP * initPlanet ()"

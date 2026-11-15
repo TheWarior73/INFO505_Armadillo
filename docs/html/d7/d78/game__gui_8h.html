@@ -124,6 +124,10 @@ Data Structures</h2></td></tr>
 <tr class="memitem:GameUI" id="r_GameUI"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d68/structGameUI.html">GameUI</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct used to update important informations on the screen each turn.  <a href="../../d3/d68/structGameUI.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1c6d5de492ac61ad29aec7aa9a436bbf" id="r_a1c6d5de492ac61ad29aec7aa9a436bbf"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1c6d5de492ac61ad29aec7aa9a436bbf">VERSION</a>&#160;&#160;&#160;&quot;1.0&quot;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a25272d30202f3384d4daaba256738912" id="r_a25272d30202f3384d4daaba256738912"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a25272d30202f3384d4daaba256738912">runGUIGame</a> (int argc, char *argv[])</td></tr>
@@ -141,7 +145,34 @@ Functions</h2></td></tr>
 <tr class="memitem:a4a12a19e448f5ec2efcd0f35060047d5" id="r_a4a12a19e448f5ec2efcd0f35060047d5"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a4a12a19e448f5ec2efcd0f35060047d5">get_clicked_button</a> (GtkWidget *button, <a class="el" href="../../d3/d68/structGameUI.html">GameUI</a> *ui)</td></tr>
 <tr class="memdesc:a4a12a19e448f5ec2efcd0f35060047d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains the button number that was clicked.  <br /></td></tr>
 <tr class="memitem:a83e4129f7cd114a80f8046bdcd0af59b" id="r_a83e4129f7cd114a80f8046bdcd0af59b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a83e4129f7cd114a80f8046bdcd0af59b">update_display</a> (<a class="el" href="../../d3/d68/structGameUI.html">GameUI</a> *ui)</td></tr>
+<tr class="memdesc:a83e4129f7cd114a80f8046bdcd0af59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates the program's display.  <br /></td></tr>
+<tr class="memitem:a1c988b44e90a9612dfde0ec0bf657718" id="r_a1c988b44e90a9612dfde0ec0bf657718"><td class="memItemLeft">gchar *&#160;</td><td class="memItemRight"><a class="el" href="#a1c988b44e90a9612dfde0ec0bf657718">format_change</a> (<a class="el" href="../../d0/dcd/structElement.html">Element</a> *action)</td></tr>
+<tr class="memdesc:a1c988b44e90a9612dfde0ec0bf657718"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a gchar that have the data to display a change (which type, what quantity).  <br /></td></tr>
+<tr class="memitem:a8252c3ff61106ffb3ef060dfa06d4c76" id="r_a8252c3ff61106ffb3ef060dfa06d4c76"><td class="memItemLeft">GtkWidget *&#160;</td><td class="memItemRight"><a class="el" href="#a8252c3ff61106ffb3ef060dfa06d4c76">create_stat_box</a> (const gchar *title_text, const gchar *value_text, GtkWidget **out_value_label, const gchar *css_class)</td></tr>
+<tr class="memdesc:a8252c3ff61106ffb3ef060dfa06d4c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to create a vertically stacked stat box. Assigns the dynamically changing value label to the provided pointer address.  <br /></td></tr>
+<tr class="memitem:ad38eaf7ce2028209dcce2f54ce28e45e" id="r_ad38eaf7ce2028209dcce2f54ce28e45e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad38eaf7ce2028209dcce2f54ce28e45e">show_game_popup</a> (GtkWindow *parent_window, GtkMessageType type, const gchar *title, const gchar *message)</td></tr>
+<tr class="memdesc:ad38eaf7ce2028209dcce2f54ce28e45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a popup message dialog to the user.  <br /></td></tr>
+<tr class="memitem:abf3fb6dfcbc52f14ded3e8799a347daf" id="r_abf3fb6dfcbc52f14ded3e8799a347daf"><td class="memItemLeft">gchar *&#160;</td><td class="memItemRight"><a class="el" href="#abf3fb6dfcbc52f14ded3e8799a347daf">format_readable_number</a> (long val)</td></tr>
+<tr class="memdesc:abf3fb6dfcbc52f14ded3e8799a347daf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats large numbers into readable K / M / B strings.  <br /></td></tr>
+<tr class="memitem:afb65184158a9ab4f91ddacb96eae8522" id="r_afb65184158a9ab4f91ddacb96eae8522"><td class="memItemLeft">gchar *&#160;</td><td class="memItemRight"><a class="el" href="#afb65184158a9ab4f91ddacb96eae8522">format_readable_delta</a> (long val)</td></tr>
+<tr class="memdesc:afb65184158a9ab4f91ddacb96eae8522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats signed deltas for action buttons.  <br /></td></tr>
+<tr class="memitem:ab21a79f3c4b49c426fff2340bcb603b9" id="r_ab21a79f3c4b49c426fff2340bcb603b9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab21a79f3c4b49c426fff2340bcb603b9">update_stat_color</a> (GtkWidget *label, long value, long danger_low, long warn_low, long warn_high)</td></tr>
 </table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a1c6d5de492ac61ad29aec7aa9a436bbf" name="a1c6d5de492ac61ad29aec7aa9a436bbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c6d5de492ac61ad29aec7aa9a436bbf">&#9670;&#160;</a></span>VERSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VERSION&#160;&#160;&#160;&quot;1.0&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a7b5895c6910117b9752ad3ca6b91fd94" name="a7b5895c6910117b9752ad3ca6b91fd94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b5895c6910117b9752ad3ca6b91fd94">&#9670;&#160;</a></span>build_footer()</h2>
@@ -170,10 +201,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo</a></b></dt><dd><p class="startdd">(1) - Buttons Structure </p>
-<p class="interdd">(2) - Buttons Callbacks Subscription </p>
-<p class="enddd">(3) - Footer Styling </p>
-</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo</a></b></dt><dd>(3) - Footer Styling </dd></dl>
 
 </div>
 </div>
@@ -231,11 +259,119 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ui</td><td>The <a class="el" href="../../d3/d68/structGameUI.html" title="Struct used to update important informations on the screen each turn.">GameUI</a> struct that holds pointer references to labels to allow for updates </td></tr>
-    <tr><td class="paramname">parent</td><td>The parent widget.</td></tr>
+    <tr><td class="paramname">parent</td><td>The parent widget. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo</a></b></dt><dd>(1) - Middle Component Building </dd></dl>
+
+</div>
+</div>
+<a id="a8252c3ff61106ffb3ef060dfa06d4c76" name="a8252c3ff61106ffb3ef060dfa06d4c76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8252c3ff61106ffb3ef060dfa06d4c76">&#9670;&#160;</a></span>create_stat_box()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GtkWidget * create_stat_box </td>
+          <td>(</td>
+          <td class="paramtype">const gchar *</td>          <td class="paramname"><span class="paramname"><em>title_text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const gchar *</td>          <td class="paramname"><span class="paramname"><em>value_text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GtkWidget **</td>          <td class="paramname"><span class="paramname"><em>out_value_label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const gchar *</td>          <td class="paramname"><span class="paramname"><em>css_class</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper function to create a vertically stacked stat box. Assigns the dynamically changing value label to the provided pointer address. </p>
+
+</div>
+</div>
+<a id="a1c988b44e90a9612dfde0ec0bf657718" name="a1c988b44e90a9612dfde0ec0bf657718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c988b44e90a9612dfde0ec0bf657718">&#9670;&#160;</a></span>format_change()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gchar * format_change </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/dcd/structElement.html">Element</a> *</td>          <td class="paramname"><span class="paramname"><em>action</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a gchar that have the data to display a change (which type, what quantity). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>The action which is going to be looked at. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a gchar * (gtk char*) that holds the changed target name &amp; value. </dd></dl>
+
+</div>
+</div>
+<a id="afb65184158a9ab4f91ddacb96eae8522" name="afb65184158a9ab4f91ddacb96eae8522"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb65184158a9ab4f91ddacb96eae8522">&#9670;&#160;</a></span>format_readable_delta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gchar * format_readable_delta </td>
+          <td>(</td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats signed deltas for action buttons. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>the number to be formated Example: +50.0K, -1.20M </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abf3fb6dfcbc52f14ded3e8799a347daf" name="abf3fb6dfcbc52f14ded3e8799a347daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf3fb6dfcbc52f14ded3e8799a347daf">&#9670;&#160;</a></span>format_readable_number()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gchar * format_readable_number </td>
+          <td>(</td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats large numbers into readable K / M / B strings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>the number to be formated Examples: 950 -&gt; "950", 45200 -&gt; "45.2K", 1822667 -&gt; "1.82M" </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -297,7 +433,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000006">Todo</a></b></dt><dd>update_display </dd></dl>
 
 </div>
 </div>
@@ -352,9 +487,49 @@ Functions</h2></td></tr>
 
 <p>Runs the full game, turn by turn, until win condition or game over is reached. </p>
 <p>This function will initialize everything to a playable state, before launching the game loop, once the loop stops it will handle memory deallocation as well.</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000002">Todo</a></b></dt><dd><p class="startdd">(1) - GUI for the planet creation step instead of generating a random planet </p>
-<p class="enddd">(2) - Move the middle component initialisation logic to build_middle. </p>
-</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000002">Todo</a></b></dt><dd>(1) - GUI for the planet creation step instead of generating a random planet </dd></dl>
+
+</div>
+</div>
+<a id="ad38eaf7ce2028209dcce2f54ce28e45e" name="ad38eaf7ce2028209dcce2f54ce28e45e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad38eaf7ce2028209dcce2f54ce28e45e">&#9670;&#160;</a></span>show_game_popup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void show_game_popup </td>
+          <td>(</td>
+          <td class="paramtype">GtkWindow *</td>          <td class="paramname"><span class="paramname"><em>parent_window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GtkMessageType</td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const gchar *</td>          <td class="paramname"><span class="paramname"><em>title</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const gchar *</td>          <td class="paramname"><span class="paramname"><em>message</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays a popup message dialog to the user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent_window</td><td>The main application window </td></tr>
+    <tr><td class="paramname">type</td><td>The type of message </td></tr>
+    <tr><td class="paramname">title</td><td>The title of the popup window </td></tr>
+    <tr><td class="paramname">message</td><td>The main text to display </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -369,6 +544,51 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d3/d68/structGameUI.html">GameUI</a> *</td>          <td class="paramname"><span class="paramname"><em>ui</em></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>updates the program's display. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ui</td><td>Holds the relevant pointers to labels to update them accordingly. Updates the labels that hold dynamic data: i.e water as well as the buttons.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo</a></b></dt><dd>(2) - history </dd></dl>
+
+</div>
+</div>
+<a id="ab21a79f3c4b49c426fff2340bcb603b9" name="ab21a79f3c4b49c426fff2340bcb603b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab21a79f3c4b49c426fff2340bcb603b9">&#9670;&#160;</a></span>update_stat_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update_stat_color </td>
+          <td>(</td>
+          <td class="paramtype">GtkWidget *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>danger_low</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>warn_low</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>warn_high</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

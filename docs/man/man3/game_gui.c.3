@@ -1,4 +1,4 @@
-.TH "libs/core/game/game_gui.c" 3 "Mon Nov 9 2026 20:29:55" "Version 0.1" "Armadillo" \" -*- nroff -*-
+.TH "libs/core/game/game_gui.c" 3 "Sun Nov 15 2026 14:15:59" "Version 0.1" "Armadillo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -75,6 +75,29 @@ libs/core/game/game_gui.c
 .RI "void \fBupdate_display\fP (\fBGameUI\fP *ui)"
 .br
 .RI "updates the program's display\&. "
+.ti -1c
+.RI "gchar * \fBformat_change\fP (\fBElement\fP *action)"
+.br
+.RI "returns a gchar that have the data to display a change (which type, what quantity)\&. "
+.ti -1c
+.RI "GtkWidget * \fBcreate_stat_box\fP (const gchar *title_text, const gchar *value_text, GtkWidget **out_value_label, const gchar *css_class)"
+.br
+.RI "Helper function to create a vertically stacked stat box\&. Assigns the dynamically changing value label to the provided pointer address\&. "
+.ti -1c
+.RI "void \fBshow_game_popup\fP (GtkWindow *parent_window, GtkMessageType type, const gchar *title, const gchar *message)"
+.br
+.RI "Displays a popup message dialog to the user\&. "
+.ti -1c
+.RI "gchar * \fBformat_readable_number\fP (long val)"
+.br
+.RI "Formats large numbers into readable K / M / B strings\&. "
+.ti -1c
+.RI "gchar * \fBformat_readable_delta\fP (long val)"
+.br
+.RI "Formats signed deltas for action buttons\&. "
+.ti -1c
+.RI "void \fBupdate_stat_color\fP (GtkWidget *label, long value, long danger_low, long warn_low, long warn_high)"
+.br
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
@@ -96,12 +119,6 @@ Builds the Footer GUI and references the \fBGameUI\fP pointers for later update 
 .PP
 \fBTodo\fP
 .RS 4
-(1) - Buttons Structure 
-
-.PP
-(2) - Buttons Callbacks Subscription 
-
-.PP
 (3) - Footer Styling 
 .RE
 .PP
@@ -133,12 +150,49 @@ Builds the Middle part GUI and references the \fBGameUI\fP pointers for later up
 .RS 4
 \fIui\fP The \fBGameUI\fP struct that holds pointer references to labels to allow for updates 
 .br
-\fIparent\fP The parent widget\&.
+\fIparent\fP The parent widget\&. 
 .RE
 .PP
-\fBTodo\fP
+
+.SS "GtkWidget * create_stat_box (const gchar * title_text, const gchar * value_text, GtkWidget ** out_value_label, const gchar * css_class)"
+
+.PP
+Helper function to create a vertically stacked stat box\&. Assigns the dynamically changing value label to the provided pointer address\&. 
+.SS "gchar * format_change (\fBElement\fP * action)"
+
+.PP
+returns a gchar that have the data to display a change (which type, what quantity)\&. 
+.PP
+\fBParameters\fP
 .RS 4
-(1) - Middle Component Building 
+\fIaction\fP The action which is going to be looked at\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a gchar * (gtk char*) that holds the changed target name & value\&. 
+.RE
+.PP
+
+.SS "gchar * format_readable_delta (long val)"
+
+.PP
+Formats signed deltas for action buttons\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIval\fP the number to be formated Example: +50\&.0K, -1\&.20M 
+.RE
+.PP
+
+.SS "gchar * format_readable_number (long val)"
+
+.PP
+Formats large numbers into readable K / M / B strings\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIval\fP the number to be formated Examples: 950 -> "950", 45200 -> "45\&.2K", 1822667 -> "1\&.82M" 
 .RE
 .PP
 
@@ -173,13 +227,6 @@ Handles the action when clicked\&. Handles the action button click, apply the ch
 .RE
 .PP
 
-.PP
-\fBTodo\fP
-.RS 4
-update_display 
-.RE
-.PP
-
 .SS "void on_window_destroy (GtkWidget * widget, gpointer data)"
 
 .PP
@@ -202,9 +249,23 @@ Runs the full game, turn by turn, until win condition or game over is reached\&.
 \fBTodo\fP
 .RS 4
 (1) - GUI for the planet creation step instead of generating a random planet 
+.RE
+.PP
+
+.SS "void show_game_popup (GtkWindow * parent_window, GtkMessageType type, const gchar * title, const gchar * message)"
 
 .PP
-(2) - Move the middle component initialisation logic to build_middle\&. 
+Displays a popup message dialog to the user\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIparent_window\fP The main application window 
+.br
+\fItype\fP The type of message 
+.br
+\fItitle\fP The title of the popup window 
+.br
+\fImessage\fP The main text to display 
 .RE
 .PP
 
@@ -220,9 +281,11 @@ updates the program's display\&.
 .PP
 \fBTodo\fP
 .RS 4
-!!! 
+(2) - history 
 .RE
 .PP
+
+.SS "void update_stat_color (GtkWidget * label, long value, long danger_low, long warn_low, long warn_high)"
 
 .SH "Author"
 .PP 

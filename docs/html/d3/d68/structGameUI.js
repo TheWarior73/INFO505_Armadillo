@@ -20,5 +20,6 @@ var structGameUI =
     [ "label_radius", "d3/d68/structGameUI.html#a71767c756a444631d28c45f5aba3c710", null ],
     [ "label_water", "d3/d68/structGameUI.html#ae852cbf3a2b78ab938e5b6d723c30407", null ],
     [ "label_wood", "d3/d68/structGameUI.html#a9f3f663e8ec12519ad98011d3359b8fd", null ],
+    [ "main_window", "d3/d68/structGameUI.html#ab0ac9bbaca4f0bad9eadaf890a0a25e3", null ],
     [ "planet", "d3/d68/structGameUI.html#ad396bb5bd8add95be720f018ba0ec0a5", null ]
 ];
