@@ -26,9 +26,9 @@
 										   //
 #define WIN_POPULATION_THRESHOLD 1000000   // 1M: Has to have at least a million population to be eligible to win
 #define WIN_HABITABILITY_THRESHOLD 75	   // 75%: Has to have at least 75 habitability to win
-#define WIN_MIN_WOOD 2000000			   // 2M: Min ressource needed to be able to win
-#define WIN_MIN_WATER 2000000			   // 2M: Min ressource needed to be able to win
-#define WIN_MIN_MINERALS 2000000		   // 2M: Min ressource needed to be able to win
+#define WIN_MIN_WOOD 1000000			   // 1M: Min ressource needed to be able to win
+#define WIN_MIN_WATER 1000000			   // 1M: Min ressource needed to be able to win
+#define WIN_MIN_MINERALS 1000000		   // 1M: Min ressource needed to be able to win
 
 #define GAME_HISTORY_FILE "../data/game_history.log"
 
